@@ -36,7 +36,7 @@ public static class LetterGen
         //Just keep looking for a letter until you find one
         while (true)
         {
-            char letterChosen = getProportionallyRandomLetter();
+            char letterChosen = getTotallyRandomLetter();
             Tile curr = TilemapGen.tileMap[(pos.r, pos.s)];
 
             //first, does this letter appear in the given word?

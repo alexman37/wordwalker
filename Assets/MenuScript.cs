@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System;
+
+public class MenuScript : MonoBehaviour
+{
+    public static event Action<int, WordGen.WordDB> newGame;
+
+    public int numLevels = 2;
+    public WordGen.WordDB database = WordGen.WordDB.CROSSWORD;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        newGame += filler;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void startNewGame()
+    {
+        Debug.Log("Setting up new game");
+        GameManagerSc.setParametersOnStart(numLevels, database);
+        SceneManager.LoadScene(1);
+    }
+
+
+
+
+    private void filler(int a, WordGen.WordDB b) { }
+}

@@ -5,6 +5,8 @@ using System;
 
 public class TilemapGen : MonoBehaviour
 {
+    public GameManagerSc gameManager;
+
     private string word = "HAZELHEATHERS";
 
     private float xSpacing = 2f; //2.3
@@ -19,8 +21,11 @@ public class TilemapGen : MonoBehaviour
 
     private GameObject container;
 
+    // Map / setting generation
+    public GameObject endSide;
+
     public static event Action<List<Tile>> finishedGeneration;
-    public static event Action regenerate;
+    public static event Action<string, string> regenerate;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +33,16 @@ public class TilemapGen : MonoBehaviour
         tileMap = new Dictionary<(int, int), Tile>();
         container = new GameObject();
 
+        void dummy(List<Tile> t) {};
+
+        finishedGeneration += dummy;
+        regenerate += (string a, string b) => { };
+
+        //Get words
+        WordGen.setup();
+
         generateTriangle(word);
+        regenerateTileMap();
     }
 
     // Update is called once per frame
@@ -36,25 +50,33 @@ public class TilemapGen : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            regenerate.Invoke();
-            tileMap.Clear();
-            generateTriangle(word);
+            regenerateTileMap();
         }
     }
 
-    void setWord(string w)
+    public void regenerateTileMap()
     {
+        (string w, string d) = WordGen.getRandomWord(gameManager.getWordDB());
         word = w;
+
+        regenerate.Invoke(w, d);
+        tileMap.Clear();
+
+        generateTriangle(word);
     }
+
 
     void generateTriangle(string word)
     {
+        Debug.Log("DESTROYING OLD CONTAINER");
         Destroy(container);
         container = new GameObject();
 
         //TODO configure
         int backTracks = randomBacktracks(word.Length, 0.4f, 3);
         settledRows = word.Length - backTracks;
+
+        endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 11.5f + 1.5f * settledRows);
 
         //First loop - generate increasing rows
         List<Tile> starters = new List<Tile>();
@@ -72,6 +94,10 @@ public class TilemapGen : MonoBehaviour
                 t.physicalObject = next;
 
                 next.name = t.absolutePosition.ToString();
+
+                // The last, and only the last, letter of the word is always in the back row
+                // If you manage to get to it by any means necessary you win
+                if (row == settledRows - 1) t.isBackRow = true;
 
                 //Once done modifying the new tile, put it in the tileMap
                 tileMap[(t.coords.r, t.coords.s)] = t;

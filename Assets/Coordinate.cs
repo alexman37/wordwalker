@@ -13,4 +13,9 @@ public class Coordinate
         this.r = r;
         this.s = s;
     }
+
+    public override string ToString()
+    {
+        return "(" + r + "," + s + ")";
+    }
 }
