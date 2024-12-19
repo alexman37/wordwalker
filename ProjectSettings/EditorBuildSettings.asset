@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 4a628f825f29b58419f78c30ad2d36ec
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/WordWalk.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: a702719b66fb74c8683fb29032af979a
   m_configObjects: {}
