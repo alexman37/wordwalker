@@ -65,25 +65,47 @@ public static class WordGen
         }
     }
 
-    public static void setup()
+    /*public static void setup(TextAsset raw)
     {
-        crosswordDB = setupDatabase("Assets/wordDBs/crossword.txt");
-    }
+        crosswordDB = setupDatabase(raw);
+    }*/
 
-    private static WordDatabase setupDatabase(string filename)
+    private static WordDatabase setupDatabase(TextAsset raw)
     {
         WordDatabase newDB;
 
-        var sr = new StreamReader(filename);
-        string fileContents = sr.ReadToEnd();
-        sr.Close();
+        Debug.Log(raw);
+        Debug.Log(raw.text);
+        string[] split = raw.text.Split('\n');
 
-        string[] split = fileContents.Split('\n');
         newDB = new WordDatabase(split.Length);
         newDB.parseFromFileRaw(split);
 
         return newDB;
     }
+
+    public static IEnumerator LoadAsset(string assetBundleName, string objectNameToLoad)
+    {
+        string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+        filePath = System.IO.Path.Combine(filePath, assetBundleName);
+
+        //Load designated AssetBundle (word group)
+        var assetBundleCreateRequest = AssetBundle.LoadFromFileAsync(filePath);
+        yield return assetBundleCreateRequest;
+
+        AssetBundle asseBundle = assetBundleCreateRequest.assetBundle;
+
+        //Load the text file proper
+        AssetBundleRequest asset = asseBundle.LoadAssetAsync<TextAsset>(objectNameToLoad);
+        yield return asset;
+
+        //Retrieve the object
+        TextAsset raw = asset.asset as TextAsset;
+
+        //TODO: should only be one active DB at a time. just remove this completely.
+        crosswordDB = setupDatabase(raw);
+    }
+
 
     public static (string, string) crossword()
     {

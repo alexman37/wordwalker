@@ -38,8 +38,8 @@ public class TilemapGen : MonoBehaviour
         finishedGeneration += dummy;
         regenerate += (string a, string b) => { };
 
-        //Get words
-        WordGen.setup();
+        //Get words - all databases go here
+        StartCoroutine(WordGen.LoadAsset("worddbs/crossword", "crossword"));
 
         generateTriangle(word);
         regenerateTileMap();

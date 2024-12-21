@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour
             if(touch.phase == TouchPhase.Moved)
             {
                 Vector2 res = (touch.position - touchPos);
-                Vector3 transformation = new Vector3(-res.x, 0, -res.y) * 0.1f;
+                Vector3 transformation = new Vector3(-res.x, 0, -res.y) * 0.01f;
                 cam.transform.position = cam.transform.position + transformation;
 
                 pos = Input.mousePosition;
