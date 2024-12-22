@@ -68,7 +68,6 @@ public class TilemapGen : MonoBehaviour
 
     void generateTriangle(string word)
     {
-        Debug.Log("DESTROYING OLD CONTAINER");
         Destroy(container);
         container = new GameObject();
 

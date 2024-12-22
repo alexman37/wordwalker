@@ -23,7 +23,7 @@ public class GameManagerSc : MonoBehaviour
         numLevels = numLvl;
         database = db;
     }
-
+    
     public void goToNextLevel()
     {
         Debug.Log("going to next level: level " + currLevel);
