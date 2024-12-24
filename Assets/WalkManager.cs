@@ -13,7 +13,7 @@ public class WalkManager : MonoBehaviour
     public Material highlightTile;
     public Material baseTile;
 
-    public TextMeshProUGUI topWord;
+    public TopBarUI topBar;
     public TextMeshProUGUI definition;
     public TextMeshProUGUI postgame;
 
@@ -23,6 +23,7 @@ public class WalkManager : MonoBehaviour
 
     private string currWord;
     private string currDef;
+    private List<Tile> correctTiles;
 
 
     // Start is called before the first frame update
@@ -32,7 +33,9 @@ public class WalkManager : MonoBehaviour
         Tile.tileClicked += manageTileClick;
         TilemapGen.finishedGeneration += setStartingTiles;
         TilemapGen.regenerate += reset;
+        TilemapGen.setCorrects += setCorrect;
         postgame.transform.parent.gameObject.SetActive(false);
+        correctTiles = new List<Tile>();
     }
 
     void reset(string w, string d)
@@ -40,10 +43,16 @@ public class WalkManager : MonoBehaviour
         possibleNext.Clear();
         currWord = w;
         currDef = d;
-        topWord.text = "";
+        topBar.ResetBar();
         postgame.text = "";
         postgame.transform.parent.gameObject.SetActive(false);
         setClue();
+    }
+
+    void setCorrect(List<Tile> corrects)
+    {
+        correctTiles.Clear();
+        correctTiles = corrects;
     }
 
     void setStartingTiles(List<Tile> starters)
@@ -51,12 +60,6 @@ public class WalkManager : MonoBehaviour
         //TODO: Not set on the first go
         //Debug.Log("START TILES SET!");
         possibleNext = starters;
-    }
-
-    void pushTileDown(Tile t)
-    {
-        //each frame, push it down by just a little bit.
-        
     }
 
     void moveCharacter((float, float) position)
@@ -78,9 +81,10 @@ public class WalkManager : MonoBehaviour
             t.pressAnimation();
 
             possibleNext.Clear();
-            addLetterToTopWord(t);
             if (t.correct)
             {
+                addLetterToTopWord(t, correctTile.color);
+
                 //If it's in the back row, you win!
                 t.stepMaterial(correctTile);
                 if (t.isBackRow)
@@ -100,6 +104,7 @@ public class WalkManager : MonoBehaviour
                 }
             } else
             {
+                addLetterToTopWord(t, incorrectTile.color);
                 t.stepMaterial(incorrectTile);
                 onLose();
             }
@@ -111,9 +116,9 @@ public class WalkManager : MonoBehaviour
     }
 
     //TODO do more with color, etc.
-    void addLetterToTopWord(Tile t)
+    void addLetterToTopWord(Tile t, Color32 color)
     {
-        topWord.text = topWord.text + t.letter.ToString();
+        topBar.AddLetterToProgress(t.letter, color);
     }
 
     void setClue()
@@ -123,6 +128,8 @@ public class WalkManager : MonoBehaviour
 
     void onWin()
     {
+        topBar.SetAnswer(this.correctTiles, true);
+        topBar.kickOffRotation();
         postgame.transform.parent.gameObject.SetActive(true);
         postgame.text = "You won! The word was " + currWord;
         postgame.textInfo.characterInfo[0].color = new Color32(1,0,0,1);
@@ -130,6 +137,8 @@ public class WalkManager : MonoBehaviour
 
     void onLose()
     {
+        topBar.SetAnswer(this.correctTiles, false);
+        topBar.kickOffRotation();
         postgame.transform.parent.gameObject.SetActive(true);
         postgame.text = "You lose...the word was " + currWord;
         postgame.textInfo.characterInfo[0].color = new Color32(1, 0, 0, 1);

@@ -18,15 +18,15 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         // MOUSE CONTROLS
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(0))
         {
             pos = Input.mousePosition;
         }
 
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(0))
         {
             Vector2 res = (Input.mousePosition - pos);
-            Vector3 transformation = new Vector3(-res.x, 0, -res.y) * 0.1f;
+            Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.1f;
             cam.transform.position = cam.transform.position + transformation;
 
             pos = Input.mousePosition;
@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
             {
                 // let's not overcomplicate it
                 Vector2 res = touch.deltaPosition;
-                Vector3 transformation = new Vector3(-res.x, 0, -res.y) * 0.03f;
+                Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.03f;
                 cam.transform.position = cam.transform.position + transformation;
 
                 pos = Input.mousePosition;

@@ -9,8 +9,8 @@ public class TilemapGen : MonoBehaviour
 
     private string word = "HAZELHEATHERS";
 
-    private float xSpacing = 2f; //2.3
-    private float ySpacing = 1.633f; //1.8
+    private static float xSpacing = 4f; //2.3
+    private static float ySpacing = 1.633f * 2f; //1.8
 
     public int subsOnStartingRow;
     public int maxSubs;
@@ -26,6 +26,7 @@ public class TilemapGen : MonoBehaviour
 
     public static event Action<List<Tile>> finishedGeneration;
     public static event Action<string, string> regenerate;
+    public static event Action<List<Tile>> setCorrects;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class TilemapGen : MonoBehaviour
 
         finishedGeneration += dummy;
         regenerate += (string a, string b) => { };
+        setCorrects += (List<Tile> c) => { };
 
         //Get words - all databases go here
         StartCoroutine(WordGen.LoadAsset("worddbs/crossword", "crossword"));
@@ -59,14 +61,17 @@ public class TilemapGen : MonoBehaviour
         (string w, string d) = WordGen.getRandomWord(gameManager.getWordDB());
         word = w;
 
-        regenerate.Invoke(w, d);
         tileMap.Clear();
 
-        generateTriangle(word);
+        //TODO: these operations may run out of order
+
+        regenerate.Invoke(w, d);
+        List<Tile> corrects = generateTriangle(word);
+        setCorrects.Invoke(corrects);
     }
 
 
-    void generateTriangle(string word)
+    List<Tile> generateTriangle(string word)
     {
         Destroy(container);
         container = new GameObject();
@@ -75,7 +80,7 @@ public class TilemapGen : MonoBehaviour
         int backTracks = randomBacktracks(word.Length, 0.4f, 3);
         settledRows = word.Length - backTracks;
 
-        endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 11.5f + 1.5f * settledRows);
+        endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 11.5f + 3f * settledRows);
 
         //First loop - generate increasing rows
         List<Tile> starters = new List<Tile>();
@@ -131,16 +136,20 @@ public class TilemapGen : MonoBehaviour
             }
         }
 
-        generateTriangleWordPath(starters, word, backTracks);
+        List<Tile> corrects = generateTriangleWordPath(starters, word, backTracks);
         fillInOtherTiles();
         done(starters);
+
+        return corrects;
     }
 
 
-    void generateTriangleWordPath(List<Tile> startingCandidates, string word, int backTracksRemaining)
+    // Returns the list of tiles that are safe to walk on (which make up the word)
+    List<Tile> generateTriangleWordPath(List<Tile> startingCandidates, string word, int backTracksRemaining)
     {
         int currRow = 0;
         int currLetter = 0;
+        List<Tile> corrects = new List<Tile>();
 
         //pick a starter
         Tile curr = startingCandidates[UnityEngine.Random.Range(0, subsOnStartingRow)];
@@ -151,6 +160,8 @@ public class TilemapGen : MonoBehaviour
         while (currLetter < word.Length)
         {
             nextCandidates.Clear();
+            corrects.Add(curr);
+
             curr.setLetter(word[currLetter], true);
             //Debug.Log("Curr letter #" + currLetter + " is " + word[currLetter] + ", there are " + backTracksRemaining + " back tracks remaining");
             
@@ -204,6 +215,7 @@ public class TilemapGen : MonoBehaviour
                 curr = chosenAdj.tile;
             }
         }
+        return corrects;
     }
 
     void fillInOtherTiles()

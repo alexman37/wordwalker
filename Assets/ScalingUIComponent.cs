@@ -8,7 +8,7 @@ public class ScalingUIComponent : MonoBehaviour
     private RectTransform rect;
 
     private Rect screenSpace;
-    private const float typicalHeight = 814; //TODO: adjust?
+    private const float typicalHeight = 707; //TODO: adjust?
 
     public enum Position
     {
@@ -36,18 +36,15 @@ public class ScalingUIComponent : MonoBehaviour
             case Position.TOP_LEFT:
             case Position.TOP_RIGHT:
                 newLoc.y = newLoc.y - screenSpace.height / 2.0f * desiredLoc.y;
-                rect.localScale = new Vector3(newScale, newScale, 1);
                 break;
             case Position.BOTTOM:
             case Position.BOTTOM_LEFT:
             case Position.BOTTOM_RIGHT:
                 newLoc.y = newLoc.y + screenSpace.height / 2.0f * desiredLoc.y;
-                rect.localScale = new Vector3(newScale, newScale, 1);
                 break;
             case Position.CENTER:
             case Position.LEFT:
             case Position.RIGHT:
-                rect.localScale = new Vector3(newScale, newScale, 1);
                 break;
         }
 
@@ -68,7 +65,9 @@ public class ScalingUIComponent : MonoBehaviour
             case Position.BOTTOM:
                 break;
         }
-        
+
+        rect.localScale = new Vector3(rect.localScale.x * newScale, rect.localScale.y * newScale, rect.localScale.z * newScale);
+
         Vector2 finalLoc = newLoc;
 
         rect.anchoredPosition = finalLoc;

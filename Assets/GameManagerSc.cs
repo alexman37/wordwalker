@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManagerSc : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class GameManagerSc : MonoBehaviour
 
     private static WordGen.WordDB database;
     public static TilemapGen Tilemap;
+
+    public TextMeshProUGUI displayRoom;
+    public TextMeshProUGUI displayCoins;
+    public TextMeshProUGUI displayTotem;
 
     private void Start()
     {
@@ -36,6 +41,8 @@ public class GameManagerSc : MonoBehaviour
         {
             currLevel += 1;
             Tilemap.regenerateTileMap();
+
+            displayRoom.text = currLevel + " / " + numLevels;
         }
     }
 
