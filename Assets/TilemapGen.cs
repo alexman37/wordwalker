@@ -58,7 +58,7 @@ public class TilemapGen : MonoBehaviour
 
     public void regenerateTileMap()
     {
-        (string w, string d) = WordGen.getRandomWord(gameManager.getWordDB());
+        (string w, string d) = WordGen.getRandomWord(GameManagerSc.getWordDB());
         word = w;
 
         tileMap.Clear();

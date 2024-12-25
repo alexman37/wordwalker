@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 {
     public static event Action<int, WordGen.WordDB> newGame;
 
-    public int numLevels = 2;
+    public int numLevels = 5;
     public WordGen.WordDB database = WordGen.WordDB.CROSSWORD;
 
     public GameObject titleCard;

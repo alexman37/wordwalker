@@ -15,7 +15,6 @@ public class WalkManager : MonoBehaviour
 
     public TopBarUI topBar;
     public TextMeshProUGUI definition;
-    public TextMeshProUGUI postgame;
 
     public Image playerCharacter;
 
@@ -34,7 +33,6 @@ public class WalkManager : MonoBehaviour
         TilemapGen.finishedGeneration += setStartingTiles;
         TilemapGen.regenerate += reset;
         TilemapGen.setCorrects += setCorrect;
-        postgame.transform.parent.gameObject.SetActive(false);
         correctTiles = new List<Tile>();
     }
 
@@ -44,8 +42,6 @@ public class WalkManager : MonoBehaviour
         currWord = w;
         currDef = d;
         topBar.ResetBar();
-        postgame.text = "";
-        postgame.transform.parent.gameObject.SetActive(false);
         setClue();
     }
 
@@ -130,19 +126,12 @@ public class WalkManager : MonoBehaviour
     {
         topBar.SetAnswer(this.correctTiles, true);
         topBar.kickOffRotation();
-        postgame.transform.parent.gameObject.SetActive(true);
-        postgame.text = "You won! The word was " + currWord;
-        postgame.textInfo.characterInfo[0].color = new Color32(1,0,0,1);
     }
 
     void onLose()
     {
         topBar.SetAnswer(this.correctTiles, false);
         topBar.kickOffRotation();
-        postgame.transform.parent.gameObject.SetActive(true);
-        postgame.text = "You lose...the word was " + currWord;
-        postgame.textInfo.characterInfo[0].color = new Color32(1, 0, 0, 1);
-        postgame.UpdateFontAsset();
     }
 
 

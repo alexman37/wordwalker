@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class TopBarUI : MonoBehaviour
 {
+    //slide down the postgame animation
+    public static Action readyForPostgameAnimation;
+
     public GameObject baseTileVis;
     private List<GameObject> currProgressVis;
     private List<GameObject> answerVis;
 
     //rotation
-    private float totalRotationTime = 0.5f;
+    private float totalRotationTime = 1f;
     private float aggregateRotationTime = 0f;
     private bool rotating = false;
 
@@ -23,6 +27,8 @@ public class TopBarUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        readyForPostgameAnimation += () => { };
+
         baseTileVis = this.transform.GetChild(0).GetChild(0).gameObject;
         currProgressVis = new List<GameObject>();
         answerVis = new List<GameObject>();
@@ -116,6 +122,7 @@ public class TopBarUI : MonoBehaviour
     public void kickOffRotation()
     {
         rotating = true;
+        readyForPostgameAnimation.Invoke();
     }
 
     private Color determineAnswerColor(Tile til, bool won)
