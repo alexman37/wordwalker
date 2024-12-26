@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static bool greenlight = false;
+
     Vector3 pos;
     float sumDistance = 0;
     public GameObject cam;
@@ -11,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        greenlight = true;
     }
 
     // Update is called once per frame

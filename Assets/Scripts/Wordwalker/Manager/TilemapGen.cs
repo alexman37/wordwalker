@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// This class should only be in charge of generating the actual shape of tiles + the path
 public class TilemapGen : MonoBehaviour
 {
+    public static bool greenlight = false;
+
     public GameManagerSc gameManager;
 
     private string word = "HAZELHEATHERS";
@@ -40,11 +43,8 @@ public class TilemapGen : MonoBehaviour
         regenerate += (string a, string b) => { };
         setCorrects += (List<Tile> c) => { };
 
-        //Get words - all databases go here
+        //TODO Get words - load only the database chosen!
         StartCoroutine(WordGen.LoadAsset("worddbs/crossword", "crossword"));
-
-        generateTriangle(word);
-        regenerateTileMap();
     }
 
     // Update is called once per frame

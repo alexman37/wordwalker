@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
+// Attach to a physical tile object in the world. tracks all its stats.
 public class Tile : MonoBehaviour
 {
     public char letter = ' ';
@@ -72,7 +73,10 @@ public class Tile : MonoBehaviour
     //Have the tile fall downwards in a random direction
     private void incorrectPress()
     {
-        fallAllTiles.Invoke();
+        if(GameManagerSc.getNumTotems() < 0)
+        {
+            fallAllTiles.Invoke();
+        }
     }
 
     private void fall()

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class WalkManager : MonoBehaviour
 {
+    public static bool greenlight = false;
+
     public GameManagerSc gameManager;
 
     public Material correctTile;
@@ -34,6 +36,8 @@ public class WalkManager : MonoBehaviour
         TilemapGen.regenerate += reset;
         TilemapGen.setCorrects += setCorrect;
         correctTiles = new List<Tile>();
+
+        greenlight = true;
     }
 
     void reset(string w, string d)
@@ -98,11 +102,15 @@ public class WalkManager : MonoBehaviour
                         }
                     }
                 }
-            } else
+            }
+
+            // When stepping on an incorrect tile, lose a totem if you have one, otherwise game over!
+            else
             {
                 addLetterToTopWord(t, incorrectTile.color);
                 t.stepMaterial(incorrectTile);
-                onLose();
+
+                onIncorrectChoice();
             }
         }
         else
@@ -126,6 +134,15 @@ public class WalkManager : MonoBehaviour
     {
         topBar.SetAnswer(this.correctTiles, true);
         topBar.kickOffRotation();
+    }
+
+    void onIncorrectChoice()
+    {
+        GameManagerSc.changeTotems(1, false);
+        if(GameManagerSc.getNumTotems() <= 0)
+        {
+            onLose();
+        }
     }
 
     void onLose()

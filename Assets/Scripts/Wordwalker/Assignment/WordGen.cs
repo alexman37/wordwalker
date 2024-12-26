@@ -104,6 +104,10 @@ public static class WordGen
 
         //TODO: should only be one active DB at a time. just remove this completely.
         crosswordDB = setupDatabase(raw);
+
+        //TODO: Remove this
+        Debug.Log("the crossword DB is set up");
+        TilemapGen.greenlight = true;
     }
 
 

@@ -97,6 +97,9 @@ public class TopBarUI : MonoBehaviour
 
     public void SetAnswer(List<Tile> corrects, bool won)
     {
+        int addCoins = 0;
+        int addTotems = 0;
+
         foreach(Tile til in corrects)
         {
             GameObject next = Instantiate(baseTileVis);
@@ -104,7 +107,15 @@ public class TopBarUI : MonoBehaviour
 
             TextMeshProUGUI comp = next.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             comp.text = til.letter.ToString();
-            next.GetComponent<Image>().color = determineAnswerColor(til, won);
+            Color col = determineAnswerColor(til, won);
+            next.GetComponent<Image>().color = col;
+
+            //prepare to add totems
+            if (won)
+            {
+                addCoins += 1;
+                if (col == golden) addTotems += 1;
+            }
 
             next.transform.SetParent(this.transform.GetChild(1));
             next.transform.rotation = Quaternion.Euler(90, 0, 0);
@@ -117,6 +128,9 @@ public class TopBarUI : MonoBehaviour
             float x = (-30 * (answerVis.Count - 1)) + (60 * i);
             tile.GetComponent<RectTransform>().localPosition = new Vector3(x, -30, 0);
         }
+
+        GameManagerSc.changeCoins(addCoins, true);
+        GameManagerSc.changeTotems(addTotems, true);
     }
 
     public void kickOffRotation()
@@ -135,6 +149,7 @@ public class TopBarUI : MonoBehaviour
         {
             if (won)
             {
+                //Hey, you found a totem, congratulations
                 return golden;
             }
             else

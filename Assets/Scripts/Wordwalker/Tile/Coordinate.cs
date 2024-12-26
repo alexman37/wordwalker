@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Feigned "row/sub" coordinate system
 public class Coordinate
 {
     //Coordinate system for hexagons is ROWS and SUBS (basically columns)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Tracks neighboring tiles and the direction they are in.
 public class Adjacency
 {
     public enum Direction

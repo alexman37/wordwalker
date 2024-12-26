@@ -1552,7 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ccb1cab09d0244b9f3d147254a6747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLevels: 2
+  numLevels: 5
   database: 2
   titleCard: {fileID: 657317283}
   playButtons: {fileID: 1193095034}
