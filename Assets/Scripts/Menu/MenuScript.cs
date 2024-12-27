@@ -6,10 +6,10 @@ using System;
 
 public class MenuScript : MonoBehaviour
 {
-    public static event Action<int, WordGen.WordDB> newGame;
+    public static event Action<int, string> newGame;
 
     public int numLevels = 5;
-    public WordGen.WordDB database = WordGen.WordDB.CROSSWORD;
+    public string database = "crossword";
 
     public GameObject titleCard;
     public GameObject playButtons;
@@ -40,5 +40,5 @@ public class MenuScript : MonoBehaviour
 
 
 
-    private void filler(int a, WordGen.WordDB b) { }
+    private void filler(int a, string b) { }
 }

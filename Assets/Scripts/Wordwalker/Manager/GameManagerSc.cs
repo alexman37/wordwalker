@@ -10,7 +10,8 @@ public class GameManagerSc : MonoBehaviour
     private static int coins = 0;
     private static int totems = 0;
 
-    private static WordGen.WordDB database;
+    private static string database = "crossword";
+    private static WordGen.Word[] wordList = new WordGen.Word[numLevels];
 
     public static TilemapGen Tilemap;
     public static WordwalkerUIScript uiManager;
@@ -18,11 +19,21 @@ public class GameManagerSc : MonoBehaviour
     private static bool numLevelsBool = true;
     private static bool checkingManagerGreenlights = true;
 
+    public static Action levelWon;
+    public static Action wrongStep;
+    public static Action gameOver;
+
     private void Start()
     {
+        levelWon += () => { };
+        wrongStep += () => { };
+        gameOver += () => { };
+
         //unfortunately the only way i can think of
         Tilemap = FindObjectOfType<TilemapGen>();
         uiManager = FindObjectOfType<WordwalkerUIScript>();
+
+        StartCoroutine(WordGen.LoadAsset("worddbs/" + database, database));
     }
 
     private void Update()
@@ -30,7 +41,7 @@ public class GameManagerSc : MonoBehaviour
         if (checkingManagerGreenlights) managerSetup();
     }
 
-    public static void setParametersOnStart(int numLvl, WordGen.WordDB db)
+    public static void setParametersOnStart(int numLvl, string db)
     {
         Debug.Log("Setting parameters");
         numLevels = numLvl;
@@ -42,10 +53,16 @@ public class GameManagerSc : MonoBehaviour
     //this is such a dumb way of doing it, but i simply don't care
     private void managerSetup()
     {
-
         // If all managers are ready, begin the game
-        if(WalkManager.greenlight && WordwalkerUIScript.greenlight && TilemapGen.greenlight && PlayerManager.greenlight)
+        if (WalkManager.greenlight &&
+            WordwalkerUIScript.greenlight &&
+            TilemapGen.greenlight &&
+            PlayerManager.greenlight &&
+            WordGen.greenlight)
         {
+            //TODO: eventually we want to "track" which words the player has already seen
+            wordList = WordGen.getTailoredList(numLevels);
+
             Debug.Log("Starting the game");
             checkingManagerGreenlights = false;
             goToNextLevel();
@@ -54,6 +71,7 @@ public class GameManagerSc : MonoBehaviour
     
     public static void goToNextLevel()
     {
+
         uiManager.ResetPostgamePosition();
 
         if (numLevelsBool) {
@@ -71,11 +89,11 @@ public class GameManagerSc : MonoBehaviour
         {
             currLevel += 1;
             uiManager.SetNewRoom(currLevel);
-            Tilemap.regenerateTileMap();
+            Tilemap.regenerateTileMap(wordList[currLevel - 1]);
         }
     }
 
-    public static WordGen.WordDB getWordDB()
+    public static string getWordDB()
     {
         return database;
     }
@@ -105,5 +123,20 @@ public class GameManagerSc : MonoBehaviour
     public static int getNumTotems()
     {
         return totems;
+    }
+
+    public static void signifyLevelWon()
+    {
+        levelWon.Invoke();
+    }
+
+    public static void signifyWrongStep()
+    {
+        wrongStep.Invoke();
+    }
+
+    public static void signifyLevelLost()
+    {
+        gameOver.Invoke();
     }
 }

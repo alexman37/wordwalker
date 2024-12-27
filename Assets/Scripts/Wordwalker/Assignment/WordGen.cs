@@ -5,28 +5,60 @@ using UnityEngine;
 
 public static class WordGen
 {
-    public enum WordDB
+    public static bool greenlight = false;
+
+    public class Word
     {
-        STANDARD,
-        RIDDLE,
-        CROSSWORD,
-        HARD,
-        PLACES,
-        PEOPLE
+        public string word;
+        public string clue;
+        public string definition; //TODO: could also be a picture
+
+        public Word(string w, string c)
+        {
+            word = w;
+            clue = c;
+        }
+
+        public Word(string w, string c, string d)
+        {
+            word = w;
+            clue = c;
+            definition = d;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            Word w2 = obj as Word;
+            if ((System.Object)w2 == null)
+                return false;
+
+            return word == w2.word;
+        }
+
+        public bool Equals(Word w2)
+        {
+            return w2.word == word;
+        }
     }
 
-    private class WordDatabase
+    public class WordDatabase
     {
-        // Must be indexed in the same positions!
         private int size;
-        private string[] words;
-        private string[] definitions;
+        private Word[] words;
 
         public WordDatabase(int len)
         {
             size = len;
-            words = new string[len];
-            definitions = new string[len];
+            words = new Word[len];
+
+            // gotta fill with something for default values...
+            for(int i = 0; i < words.Length; i++)
+            {
+                words[i] = new Word("BASICWORD", "A clue...");
+            }
         }
 
         public void parseFromFileRaw(string[] split)
@@ -34,41 +66,88 @@ public static class WordGen
             for (int i = 0; i < split.Length; i++)
             {
                 string[] val = split[i].Split('-');
-                words[i] = val[0].Trim().ToUpper();
-                definitions[i] = val[1].Trim();
+
+                //TODO: better logic for separating these files - hyphen isn't good enough
+                words[i] = new Word(val[0].Trim().ToUpper(),  val[1].Trim());
             }
         }
 
-        public (string, string) getRandomWord()
+        public Word getRandomWord()
         {
             int index = Random.Range(0, size);
-            return (words[index], definitions[index]);
+            return words[index];
         }
-    }
 
-    //The databases
-    private static WordDatabase crosswordDB;
-
-    public static (string word, string def) getRandomWord(WordDB database)
-    {
-        switch(database)
+        public Word[] getEntireList()
         {
-            case WordDB.STANDARD: return filler();
-            case WordDB.RIDDLE: return filler();
-            case WordDB.CROSSWORD: return crossword();
-            case WordDB.HARD: return filler();
-            case WordDB.PLACES: return filler();
-            case WordDB.PEOPLE: return filler();
-            default:
-                Debug.LogError("The word DB supplied is unrecognized or not yet implemented");
-                return filler();
+            return words;
         }
     }
 
-    /*public static void setup(TextAsset raw)
+    //The active database - in some way or another, it's supplied in the main menu
+    private static WordDatabase activeDatabase = new WordDatabase(1);
+
+    // Get a single random word from the database
+    public static Word getRandomWord()
     {
-        crosswordDB = setupDatabase(raw);
-    }*/
+        return activeDatabase.getRandomWord();
+    }
+
+    // Return a list of unique words from the database
+    public static Word[] getTailoredList(int length)
+    {
+        List<Word> workingCopy = new List<Word>(activeDatabase.getEntireList());
+        HashSet<Word> currentChosen = new HashSet<Word>();
+        Word[] returned = new Word[length];
+
+        //TODO should handle this better
+        if (length > workingCopy.Count) throw new System.Exception("FATAL ERROR - not enough words in DB!");
+
+        for(int i = 0; i < length; i++)
+        {
+            int randIdx;
+            do
+            {
+                randIdx = Random.Range(0, workingCopy.Count);
+            } while (currentChosen.Contains(workingCopy[randIdx]));
+
+            Word chosen = workingCopy[randIdx];
+            workingCopy.RemoveAt(randIdx);
+            returned[i] = chosen;
+        }
+
+        return returned;
+    }
+
+    // Return a list of unique words, excluding all words in the given set
+    public static Word[] getTailoredList(int length, List<Word> excludeThese)
+    {
+        List<Word> workingCopy = new List<Word>(activeDatabase.getEntireList());
+        foreach (Word wx in excludeThese){
+            workingCopy.Remove(wx);
+        }
+        
+        HashSet<Word> currentChosen = new HashSet<Word>();
+        Word[] returned = new Word[length];
+
+        //TODO should handle this better
+        if (length > workingCopy.Count) throw new System.Exception("FATAL ERROR - not enough words in DB!");
+
+        for (int i = 0; i < length; i++)
+        {
+            int randIdx;
+            do
+            {
+                randIdx = Random.Range(0, workingCopy.Count);
+            } while (currentChosen.Contains(workingCopy[randIdx]));
+
+            Word chosen = workingCopy[randIdx];
+            workingCopy.RemoveAt(randIdx);
+            returned[i] = chosen;
+        }
+
+        return returned;
+    }
 
     private static WordDatabase setupDatabase(TextAsset raw)
     {
@@ -103,21 +182,10 @@ public static class WordGen
         TextAsset raw = asset.asset as TextAsset;
 
         //TODO: should only be one active DB at a time. just remove this completely.
-        crosswordDB = setupDatabase(raw);
+        activeDatabase = setupDatabase(raw);
 
         //TODO: Remove this
-        Debug.Log("the crossword DB is set up");
-        TilemapGen.greenlight = true;
-    }
-
-
-    public static (string, string) crossword()
-    {
-        return crosswordDB.getRandomWord();
-    }
-
-    public static (string, string) filler()
-    {
-        return ("BASICWORD", "A clue...");
+        Debug.Log("the word database is set up");
+        greenlight = true;
     }
 }

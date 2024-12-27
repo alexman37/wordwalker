@@ -43,30 +43,16 @@ public class TilemapGen : MonoBehaviour
         regenerate += (string a, string b) => { };
         setCorrects += (List<Tile> c) => { };
 
-        //TODO Get words - load only the database chosen!
-        StartCoroutine(WordGen.LoadAsset("worddbs/crossword", "crossword"));
+        greenlight = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void regenerateTileMap(WordGen.Word word)
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            regenerateTileMap();
-        }
-    }
-
-    public void regenerateTileMap()
-    {
-        (string w, string d) = WordGen.getRandomWord(GameManagerSc.getWordDB());
-        word = w;
-
         tileMap.Clear();
 
-        //TODO: these operations may run out of order
-
-        regenerate.Invoke(w, d);
-        List<Tile> corrects = generateTriangle(word);
+        //TODO: definitions currently aren't defined.
+        regenerate.Invoke(word.word, word.clue);
+        List<Tile> corrects = generateTriangle(word.word);
         setCorrects.Invoke(corrects);
     }
 

@@ -72,17 +72,20 @@ public class WalkManager : MonoBehaviour
         //Debug.Log("Clicked");
         if(possibleNext.Contains(t))
         {
-            //Remove all next highlights
-            foreach(Tile next in possibleNext)
-            {
-                next.highlightMaterial(baseTile);
-            }
-
-            t.pressAnimation();
-
-            possibleNext.Clear();
             if (t.correct)
             {
+                //Remove all next highlights
+                foreach (Tile next in possibleNext)
+                {
+                    next.highlightMaterial(baseTile);
+                }
+
+                //TODO: instead of this hacky workaround we should have a backtracking option.
+                //possibleNext.Clear();
+
+
+                t.pressAnimation();
+
                 addLetterToTopWord(t, correctTile.color);
 
                 //If it's in the back row, you win!
@@ -109,8 +112,12 @@ public class WalkManager : MonoBehaviour
             {
                 addLetterToTopWord(t, incorrectTile.color);
                 t.stepMaterial(incorrectTile);
+                t.pressAnimation();
 
-                onIncorrectChoice();
+                if (onIncorrectChoice())
+                {
+
+                }
             }
         }
         else
@@ -136,13 +143,15 @@ public class WalkManager : MonoBehaviour
         topBar.kickOffRotation();
     }
 
-    void onIncorrectChoice()
+    bool onIncorrectChoice()
     {
         GameManagerSc.changeTotems(1, false);
-        if(GameManagerSc.getNumTotems() <= 0)
+        if (GameManagerSc.getNumTotems() <= 0)
         {
             onLose();
+            return false;
         }
+        else return true;
     }
 
     void onLose()

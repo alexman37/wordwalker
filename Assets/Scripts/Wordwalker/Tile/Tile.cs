@@ -73,7 +73,7 @@ public class Tile : MonoBehaviour
     //Have the tile fall downwards in a random direction
     private void incorrectPress()
     {
-        if(GameManagerSc.getNumTotems() < 0)
+        if(GameManagerSc.getNumTotems() <= 0)
         {
             fallAllTiles.Invoke();
         }
