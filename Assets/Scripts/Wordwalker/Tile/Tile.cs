@@ -73,6 +73,8 @@ public class Tile : MonoBehaviour
     //Have the tile fall downwards in a random direction
     private void incorrectPress()
     {
+        fall();
+
         if(GameManagerSc.getNumTotems() <= 0)
         {
             fallAllTiles.Invoke();
@@ -111,13 +113,19 @@ public class Tile : MonoBehaviour
     public void highlightMaterial(Material changeTo)
     {
         if(!stepped)
-            physicalObject.GetComponent<MeshRenderer>().material = changeTo;
+        {
+            Material[] mats = physicalObject.GetComponent<MeshRenderer>().materials;
+            mats[1] = changeTo;
+            physicalObject.GetComponent<MeshRenderer>().materials = mats;
+        }
     }
 
     public void stepMaterial(Material changeTo)
     {
         stepped = true;
-        physicalObject.GetComponent<MeshRenderer>().material = changeTo;
+        Material[] mats = physicalObject.GetComponent<MeshRenderer>().materials;
+        mats[1] = changeTo;
+        physicalObject.GetComponent<MeshRenderer>().materials = mats;
     }
 
     public bool isFinalized()

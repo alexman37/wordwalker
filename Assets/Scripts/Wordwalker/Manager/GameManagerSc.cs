@@ -19,9 +19,9 @@ public class GameManagerSc : MonoBehaviour
     private static bool numLevelsBool = true;
     private static bool checkingManagerGreenlights = true;
 
-    public static Action levelWon;
-    public static Action wrongStep;
-    public static Action gameOver;
+    public static event Action levelWon;
+    public static event Action wrongStep;
+    public static event Action gameOver;
 
     private void Start()
     {
@@ -135,7 +135,7 @@ public class GameManagerSc : MonoBehaviour
         wrongStep.Invoke();
     }
 
-    public static void signifyLevelLost()
+    public static void signifyGameOver()
     {
         gameOver.Invoke();
     }

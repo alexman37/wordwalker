@@ -81,7 +81,7 @@ public class WalkManager : MonoBehaviour
                 }
 
                 //TODO: instead of this hacky workaround we should have a backtracking option.
-                //possibleNext.Clear();
+                possibleNext.Clear();
 
 
                 t.pressAnimation();
@@ -116,7 +116,7 @@ public class WalkManager : MonoBehaviour
 
                 if (onIncorrectChoice())
                 {
-
+                    GameManagerSc.signifyWrongStep();
                 }
             }
         }
@@ -139,6 +139,7 @@ public class WalkManager : MonoBehaviour
 
     void onWin()
     {
+        GameManagerSc.signifyLevelWon();
         topBar.SetAnswer(this.correctTiles, true);
         topBar.kickOffRotation();
     }
@@ -146,7 +147,7 @@ public class WalkManager : MonoBehaviour
     bool onIncorrectChoice()
     {
         GameManagerSc.changeTotems(1, false);
-        if (GameManagerSc.getNumTotems() <= 0)
+        if (GameManagerSc.getNumTotems() < 0)
         {
             onLose();
             return false;
@@ -156,6 +157,7 @@ public class WalkManager : MonoBehaviour
 
     void onLose()
     {
+        GameManagerSc.signifyGameOver();
         topBar.SetAnswer(this.correctTiles, false);
         topBar.kickOffRotation();
     }

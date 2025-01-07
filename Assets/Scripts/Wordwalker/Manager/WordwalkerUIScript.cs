@@ -13,6 +13,7 @@ public class WordwalkerUIScript : MonoBehaviour
     public GameObject scrollClue;
     public GameObject inventory;
     public GameObject postgame;
+    public GameObject gameOver;
 
     //animating
     private float postgameAnimationTime = 0.5f;
@@ -52,7 +53,8 @@ public class WordwalkerUIScript : MonoBehaviour
         displayCoins = critStats.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         displayTotem = critStats.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
 
-        TopBarUI.readyForPostgameAnimation += BeginPostgameAnimation;
+        GameManagerSc.levelWon += BeginPostgameAnimation;
+        GameManagerSc.gameOver += BeginGameOverAnimation;
 
         greenlight = true;
     }
@@ -99,6 +101,23 @@ public class WordwalkerUIScript : MonoBehaviour
         scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
     }
 
+    private void BeginGameOverAnimation()
+    {
+        StartCoroutine(gameOverAnimation());
+        StartCoroutine(fadeClueScroll());
+    }
+
+    public void ResetGameOverPosition()
+    {
+        StopCoroutine(fadeClueScroll());
+        gameOver.transform.localPosition = postgameAnimationStart;
+        topBar.transform.localPosition = topBarAnimationStart;
+
+        Color col = scrollClue.GetComponent<Image>().color;
+        scrollClue.GetComponent<Image>().color = new Color(col.r, col.g, col.b, 1);
+        scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -135,6 +154,24 @@ public class WordwalkerUIScript : MonoBehaviour
         {
             img.color = new Color(col.r, col.g, col.b, (frameTime - i) / frameTime);
             yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    IEnumerator gameOverAnimation()
+    {
+        float frameTime = 30;
+
+        for (float i = 0; i <= frameTime; i++)
+        {
+            gameOver.transform.localPosition = Vector3.Lerp(postgameAnimationStart,
+                    postgameAnimationDest,
+                    i / frameTime);
+
+            topBar.transform.localPosition = Vector3.Lerp(topBarAnimationStart,
+                    topBarAnimationDest,
+                    i / frameTime);
+            
+            yield return new WaitForSeconds(0.02f);
         }
     }
 }
