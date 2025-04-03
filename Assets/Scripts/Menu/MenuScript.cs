@@ -20,8 +20,8 @@ public class MenuScript : MonoBehaviour
         newGame += filler;
 
         // Rescale GUI to the size of the screen, whatever it may be
-        titleCard.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.2f), ScalingUIComponent.Position.TOP);
-        playButtons.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.2f), ScalingUIComponent.Position.BOTTOM);
+        //titleCard.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.2f), ScalingUIComponent.Position.TOP);
+        //playButtons.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.2f), ScalingUIComponent.Position.BOTTOM);
     }
 
     // Update is called once per frame

@@ -37,12 +37,12 @@ public class WordwalkerUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        critStats.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0.05f, 0.05f), ScalingUIComponent.Position.TOP_LEFT);
+        /*critStats.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0.05f, 0.05f), ScalingUIComponent.Position.TOP_LEFT);
         topBar.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.2f), ScalingUIComponent.Position.BOTTOM);
         scrollClue.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.05f), ScalingUIComponent.Position.BOTTOM);
         debugRegen.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0.05f, 0.05f), ScalingUIComponent.Position.TOP_RIGHT);
         inventory.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0.1f, 0.1f), ScalingUIComponent.Position.BOTTOM_LEFT);
-        postgame.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0, -1f), ScalingUIComponent.Position.BOTTOM);
+        postgame.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0, -1f), ScalingUIComponent.Position.BOTTOM);*/
 
         postgameAnimationStart = postgame.transform.localPosition;
         postgameAnimationDest = postgame.transform.localPosition + new Vector3(0, Screen.safeArea.yMax / 1.5f, 0);

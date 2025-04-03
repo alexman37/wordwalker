@@ -8,12 +8,18 @@ public static class LetterGen
     private static float spaceTileFactor = 0.000f;
     private static float hiddenTileFactor = 0.001f;
 
+    /// <summary>
+    /// Return any letter with no restrictions.
+    /// </summary>
     public static char getTotallyRandomLetter()
     {
         int randVal = Random.Range(0, 28);
         return letterBase[randVal];
     }
 
+    /// <summary>
+    /// Return any letter, with the frequency of letters based on the "frequency to letter" table
+    /// </summary>
     public static char getProportionallyRandomLetter()
     {
         float sumAll = 100f + spaceTileFactor + hiddenTileFactor;
@@ -31,6 +37,9 @@ public static class LetterGen
         return ' ';
     }
 
+    /// <summary>
+    /// Return a random letter which agrees with the chosen word
+    /// </summary>
     public static char getCooperativeRandomLetter(Coordinate pos, string word)
     {
         //Just keep looking for a letter until you find one
