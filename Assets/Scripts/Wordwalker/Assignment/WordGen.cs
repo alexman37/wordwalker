@@ -172,10 +172,10 @@ public static class WordGen
         var assetBundleCreateRequest = AssetBundle.LoadFromFileAsync(filePath);
         yield return assetBundleCreateRequest;
 
-        AssetBundle asseBundle = assetBundleCreateRequest.assetBundle;
+        AssetBundle assetBundle = assetBundleCreateRequest.assetBundle;
 
         //Load the text file proper
-        AssetBundleRequest asset = asseBundle.LoadAssetAsync<TextAsset>(objectNameToLoad);
+        AssetBundleRequest asset = assetBundle.LoadAssetAsync<TextAsset>(objectNameToLoad);
         yield return asset;
 
         //Retrieve the object
@@ -183,6 +183,8 @@ public static class WordGen
 
         //TODO: should only be one active DB at a time. just remove this completely.
         activeDatabase = setupDatabase(raw);
+
+        assetBundle.Unload(false);
 
         //TODO: Remove this
         Debug.Log("the word database is set up");

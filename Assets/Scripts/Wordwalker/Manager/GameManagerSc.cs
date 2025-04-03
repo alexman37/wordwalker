@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameManagerSc : MonoBehaviour
@@ -34,6 +35,8 @@ public class GameManagerSc : MonoBehaviour
         uiManager = FindObjectOfType<WordwalkerUIScript>();
 
         StartCoroutine(WordGen.LoadAsset("worddbs/" + database, database));
+
+        SceneManager.sceneLoaded += onReentry;
     }
 
     private void Update()
@@ -43,11 +46,24 @@ public class GameManagerSc : MonoBehaviour
 
     public static void setParametersOnStart(int numLvl, string db)
     {
+        // Reset in-game variables to defaults
+        coins = 0;
+        totems = 0;
+        currLevel = 0;
+
         Debug.Log("Setting parameters");
         numLevels = numLvl;
         database = db;
+    }
 
-        //goToNextLevel();
+    // Loading into the scene after the first time
+    private void onReentry(Scene scene, LoadSceneMode mode)
+    {
+        if(!checkingManagerGreenlights && scene.buildIndex == 1)
+        {
+            Debug.Log("REENTRY POINT");
+            goToNextLevel();
+        }
     }
 
     //this is such a dumb way of doing it, but i simply don't care
@@ -138,5 +154,11 @@ public class GameManagerSc : MonoBehaviour
     public static void signifyGameOver()
     {
         gameOver.Invoke();
+    }
+
+    public static void returnToMainMenu()
+    {
+
+        SceneManager.LoadScene(0);
     }
 }
