@@ -156,6 +156,20 @@ public class ScalingUIComponent : MonoBehaviour
         resizeMeAndMyKids.sizeDelta *= ratio;
         Vector2 thisNewDims = new Vector2(resizeMeAndMyKids.rect.width, resizeMeAndMyKids.rect.height);
 
+        // A side effect: If this component is text you must scale the font size accordingly
+        // This takes both x and y into account
+        TextMeshProUGUI possibleText = resizeMeAndMyKids.GetComponent<TextMeshProUGUI>();
+        if(possibleText != null)
+        {
+            // For now just use whichever is more "extreme"
+
+            float xExtremity, yExtremity;
+            if (ratio.x < 1) xExtremity = 1 / ratio.x; else xExtremity = ratio.x;
+            if (ratio.y < 1) yExtremity = 1 / ratio.y; else yExtremity = ratio.y;
+            if (xExtremity > yExtremity) possibleText.fontSize *= ratio.x; else possibleText.fontSize *= ratio.y;
+        }
+
+        // And each child of the child...etc
         for (int i = 0; i < resizeMeAndMyKids.transform.childCount; i++)
         {
             recursiveResizeChildren(resizeMeAndMyKids.GetChild(i).GetComponent<RectTransform>(), thisOldDims, thisNewDims);

@@ -12,14 +12,14 @@ public class WordwalkerUIScript : MonoBehaviour
     public GameObject critStats;
     public GameObject topBar;
     public GameObject scrollClue;
+    public Animator scrollAnimator;
+    public GameObject clueBox;
+    public Animator clueBoxAnimator;
     public GameObject inventory;
     public GameObject postgame;
     public GameObject gameOver;
 
-    //animating
-    private float postgameAnimationTime = 0.5f;
-    private float postgameAnimationCurr = 0f;
-    private bool animating = false;
+    //animating - gotta know the right positions
     private Vector3 postgameAnimationStart;
     private Vector3 postgameAnimationDest;
     private Vector3 topBarAnimationStart;
@@ -37,15 +37,8 @@ public class WordwalkerUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*critStats.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0.05f, 0.05f), ScalingUIComponent.Position.TOP_LEFT);
-        topBar.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.2f), ScalingUIComponent.Position.BOTTOM);
-        scrollClue.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0f, 0.05f), ScalingUIComponent.Position.BOTTOM);
-        debugRegen.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0.05f, 0.05f), ScalingUIComponent.Position.TOP_RIGHT);
-        inventory.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0.1f, 0.1f), ScalingUIComponent.Position.BOTTOM_LEFT);
-        postgame.GetComponent<ScalingUIComponent>().proportionalSetLoc(new Vector2(0, -1f), ScalingUIComponent.Position.BOTTOM);*/
-
         postgameAnimationStart = postgame.transform.localPosition;
-        postgameAnimationDest = postgame.transform.localPosition + new Vector3(0, Screen.safeArea.yMax / 1.5f, 0);
+        postgameAnimationDest = new Vector3(0, Screen.safeArea.yMax * 0.25f, 0);
         topBarAnimationStart = topBar.transform.localPosition;
         topBarAnimationDest = new Vector3(0, postgameAnimationDest.y + postgame.GetComponent<RectTransform>().rect.height / 2, 0);
 
@@ -86,8 +79,7 @@ public class WordwalkerUIScript : MonoBehaviour
 
     private void BeginPostgameAnimation()
     {
-        postgameAnimationCurr = 0f;
-        animating = true;
+        postgame.transform.localPosition = postgameAnimationDest;
         StartCoroutine(fadeClueScroll());
     }
 
@@ -97,9 +89,10 @@ public class WordwalkerUIScript : MonoBehaviour
         postgame.transform.localPosition = postgameAnimationStart;
         topBar.transform.localPosition = topBarAnimationStart;
 
-        Color col = scrollClue.GetComponent<Image>().color;
-        scrollClue.GetComponent<Image>().color = new Color(col.r, col.g, col.b, 1);
-        scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
+        Color col = clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
+        clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(col.r, col.g, col.b, 1);
+        scrollAnimator.SetTrigger("BeginUnfurl");
+        clueBoxAnimator.SetTrigger("gotoNextPage");
     }
 
     private void BeginGameOverAnimation()
@@ -114,46 +107,20 @@ public class WordwalkerUIScript : MonoBehaviour
         gameOver.transform.localPosition = postgameAnimationStart;
         topBar.transform.localPosition = topBarAnimationStart;
 
-        Color col = scrollClue.GetComponent<Image>().color;
-        scrollClue.GetComponent<Image>().color = new Color(col.r, col.g, col.b, 1);
-        scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.white;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(animating)
-        {
-            postgameAnimationCurr += Time.deltaTime;
-
-            postgame.transform.localPosition = Vector3.Lerp(postgameAnimationStart,
-                    postgameAnimationDest,
-                    postgameAnimationCurr / postgameAnimationTime);
-
-            topBar.transform.localPosition = Vector3.Lerp(topBarAnimationStart,
-                    topBarAnimationDest,
-                    postgameAnimationCurr / postgameAnimationTime);
-
-            if (postgameAnimationCurr >= postgameAnimationTime)
-            {
-                animating = false;
-            }
-        }
+        Color col = clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
+        clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(col.r, col.g, col.b, 1);
     }
 
     //TODO eventually we might have a burning animation for this
     IEnumerator fadeClueScroll()
     {
         float frameTime = 30;
-        Image img = scrollClue.GetComponent<Image>();
-        TextMeshProUGUI text = scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        Color col = img.color;
-
-        text.color = new Color(0, 0, 0, 0);
+        TextMeshProUGUI text = clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        Color col = text.color;
 
         for (float i = 0; i <= frameTime; i++)
         {
-            img.color = new Color(col.r, col.g, col.b, (frameTime - i) / frameTime);
+            text.color = new Color(col.r, col.g, col.b, (frameTime - i) / frameTime);
             yield return new WaitForSeconds(0.05f);
         }
     }
