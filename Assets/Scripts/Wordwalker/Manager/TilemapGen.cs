@@ -12,8 +12,8 @@ public class TilemapGen : MonoBehaviour
 
     private string word = "HAZELHEATHERS";
 
-    private static float xSpacing = 4f; //2.3
-    private static float ySpacing = 1.633f * 2f; //1.8
+    private static float xSpacing = 4.15f; //4f;
+    private static float ySpacing = 1.7f * 2f; //1.633f * 2f;
 
     public int subsOnStartingRow;
     public int maxSubs;
@@ -66,7 +66,7 @@ public class TilemapGen : MonoBehaviour
         int backTracks = randomBacktracks(word.Length, 0.4f, 3);
         settledRows = word.Length - backTracks;
 
-        endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 11.5f + 3f * settledRows);
+        endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 13f + 3f * settledRows);
 
         //First loop - generate increasing rows
         List<Tile> starters = new List<Tile>();
