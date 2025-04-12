@@ -122,7 +122,6 @@ public class GameManagerSc : MonoBehaviour
     public static void changeCoins(int amount, bool add)
     {
         coins = coins + (add ? amount : -amount);
-        uiManager.ChangeCoins(coins, amount, add);
     }
 
     public static void changeTotems(int amount, bool add)

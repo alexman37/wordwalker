@@ -26,10 +26,10 @@ public class WordwalkerUIScript : MonoBehaviour
     private Vector3 topBarAnimationDest;
 
     // Critical stat fields
+    private TextMeshProUGUI displayScore;
     private TextMeshProUGUI displayRoom;
-    private TextMeshProUGUI displayOutOf;
-    private TextMeshProUGUI displayCoins;
     private TextMeshProUGUI displayTotem;
+    private int numLevels;
 
     //TODO: not in final product
     public GameObject debugRegen;
@@ -42,10 +42,9 @@ public class WordwalkerUIScript : MonoBehaviour
         topBarAnimationStart = topBar.transform.localPosition;
         topBarAnimationDest = new Vector3(0, postgameAnimationDest.y + postgame.GetComponent<RectTransform>().rect.height / 2, 0);
 
-        displayRoom = critStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        displayOutOf = critStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        displayCoins = critStats.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
-        displayTotem = critStats.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+        displayScore = critStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        displayRoom = critStats.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        displayTotem = critStats.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         GameManagerSc.levelWon += BeginPostgameAnimation;
         GameManagerSc.gameOver += BeginGameOverAnimation;
@@ -55,21 +54,22 @@ public class WordwalkerUIScript : MonoBehaviour
 
     public void SetLevelAmount(int amnt)
     {
-        displayOutOf.text += amnt.ToString();
+        displayRoom.text = "0 / " + amnt.ToString();
+        numLevels = amnt;
     }
 
     public void SetNewRoom(int nextLvl)
     {
-        displayRoom.text = nextLvl.ToString();
+        displayRoom.text = nextLvl.ToString() + " / " + numLevels;
         if(nextLvl == 10)
         {
-            displayOutOf.transform.localPosition = displayOutOf.transform.localPosition + new Vector3(10, 0, 0);
+            displayRoom.transform.localPosition = displayRoom.transform.localPosition + new Vector3(10, 0, 0);
         }
     }
 
-    public void ChangeCoins(int newAmnt, int delta, bool adding)
+    public void ChangeScore(int newAmnt, int delta, bool adding)
     {
-        displayCoins.text = newAmnt.ToString();
+        displayScore.text = newAmnt.ToString();
     }
 
     public void ChangeTotems(int newAmnt, int delta, bool adding)
