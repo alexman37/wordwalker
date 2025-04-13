@@ -63,9 +63,19 @@ public class WalkManager : MonoBehaviour
         possibleNext = starters;
     }
 
-    void moveCharacter((float, float) position)
+    IEnumerator moveCharacter((float, float) position)
     {
-        playerCharacter.transform.position = new Vector3(position.Item1, 0.5f, position.Item2);
+        float steps = 30;
+        float timeSec = 0.5f;
+
+        Vector3 start = playerCharacter.transform.position;
+        Vector3 target = new Vector3(position.Item1, 0.5f, position.Item2);
+
+        for (float i = 0; i <= steps; i++)
+        {
+            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
     }
 
     void manageTileClick(Tile t)
@@ -73,6 +83,9 @@ public class WalkManager : MonoBehaviour
         //Debug.Log("Clicked");
         if(possibleNext.Contains(t))
         {
+            //TODO make it an animation
+            StartCoroutine(moveCharacter(t.absolutePosition));
+
             if (t.correct)
             {
                 //Remove all next highlights
@@ -87,7 +100,7 @@ public class WalkManager : MonoBehaviour
 
                 t.pressAnimation();
 
-                addLetterToTopWord(t, correctTile.color);
+                addLetterToTopWord(t);
 
                 //If it's in the back row, you win!
                 t.stepMaterial(correctTile);
@@ -111,7 +124,7 @@ public class WalkManager : MonoBehaviour
             // When stepping on an incorrect tile, lose a totem if you have one, otherwise game over!
             else
             {
-                addLetterToTopWord(t, incorrectTile.color);
+                addLetterToTopWord(t);
                 t.stepMaterial(incorrectTile);
                 t.pressAnimation();
 
@@ -128,9 +141,9 @@ public class WalkManager : MonoBehaviour
     }
 
     //TODO do more with color, etc.
-    void addLetterToTopWord(Tile t, Color32 color)
+    void addLetterToTopWord(Tile t)
     {
-        topBar.AddLetterToProgress(t.letter, color);
+        topBar.AddLetterToProgress(t.letter);
     }
 
     void setClue()

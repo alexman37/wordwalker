@@ -46,8 +46,8 @@ public class WordwalkerUIScript : MonoBehaviour
         displayRoom = critStats.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         displayTotem = critStats.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-        GameManagerSc.levelWon += BeginPostgameAnimation;
-        GameManagerSc.gameOver += BeginGameOverAnimation;
+        TopBarUI.readyForPostgameAnimation += BeginPostgameAnimation;
+        TopBarUI.readyForPostgameAnimation += BeginGameOverAnimation;
 
         greenlight = true;
     }

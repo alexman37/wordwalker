@@ -27,7 +27,7 @@ public class RankBox : MonoBehaviour
         float steps = 30;
         float timeSec = 0.5f;
 
-        for(float i = 0; i < steps; i++)
+        for(float i = 0; i <= steps; i++)
         {
             theBox.transform.rotation = Quaternion.Euler(targetAngle * (i / steps), 0, 0);
             yield return new WaitForSeconds(1 / steps * timeSec);

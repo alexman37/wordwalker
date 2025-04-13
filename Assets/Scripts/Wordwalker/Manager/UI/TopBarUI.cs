@@ -14,10 +14,6 @@ public class TopBarUI : MonoBehaviour
     private List<GameObject> currProgressVis;
     private List<GameObject> answerVis;
 
-    //rotation
-    private float totalRotationTime = 1f;
-    private float aggregateRotationTime = 0f;
-    private bool rotating = false;
 
     private Color correct = new Color(65f / 255f, 133f / 255f, 65f / 255f);
     private Color golden = new Color(150f / 255f, 153f / 255f, 63f / 255f);
@@ -34,36 +30,19 @@ public class TopBarUI : MonoBehaviour
         answerVis = new List<GameObject>();
     }
 
-    private void Update()
-    {
-        if (rotating)
-        {
-            aggregateRotationTime += Time.deltaTime;
-            if (aggregateRotationTime >= totalRotationTime)
-            {
-                rotating = false;
-            }
+    
 
-            // Set rotation
-            this.transform.rotation = Quaternion.Lerp(
-                Quaternion.Euler(0, 0, 0),
-                Quaternion.Euler(-90, 0, 0),
-                aggregateRotationTime / totalRotationTime
-            );
-        }
-        
-    }
-
-    public void AddLetterToProgress(char ch, Color32 color)
+    public void AddLetterToProgress(char ch)
     {
         GameObject next = Instantiate(baseTileVis);
         next.SetActive(true);
         TextMeshProUGUI comp = next.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         comp.text = ch.ToString();
-        next.GetComponent<Image>().color = color;
+        //next.GetComponent<Image>().color = color;
 
         next.transform.SetParent(baseTileVis.transform.parent);
         currProgressVis.Add(next);
+        next.transform.localScale = baseTileVis.transform.localScale;
         Readjust();
     }
 
@@ -72,8 +51,9 @@ public class TopBarUI : MonoBehaviour
         for(int i = 0; i < currProgressVis.Count; i++)
         {
             GameObject tile = currProgressVis[i];
-            float x = (-30 * (currProgressVis.Count - 1)) + (60 * i);
-            tile.GetComponent<RectTransform>().localPosition = new Vector3(x, -30, 0);
+            float x = (-0.08f * (currProgressVis.Count - 1)) + (0.16f * i);
+            tile.GetComponent<RectTransform>().localPosition = new Vector3(x, 0f, -0.25f);
+            tile.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, 0f, -0.25f);
         }
     }
 
@@ -91,7 +71,6 @@ public class TopBarUI : MonoBehaviour
         }
         answerVis.Clear();
 
-        aggregateRotationTime = 0f;
         this.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
@@ -125,18 +104,34 @@ public class TopBarUI : MonoBehaviour
         for (int i = 0; i < answerVis.Count; i++)
         {
             GameObject tile = answerVis[i];
-            float x = (-30 * (answerVis.Count - 1)) + (60 * i);
-            tile.GetComponent<RectTransform>().localPosition = new Vector3(x, -30, 0);
+            float x = (-0.08f * (answerVis.Count - 1)) + (0.16f * i);
+            tile.GetComponent<RectTransform>().localPosition = new Vector3(x, 0, -0.25f);
+            tile.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, 0f, -0.25f);
+            tile.transform.localScale = baseTileVis.transform.localScale;
         }
 
         GameManagerSc.changeCoins(addCoins, true);
         GameManagerSc.changeTotems(addTotems, true);
     }
 
+    IEnumerator rotateReveal()
+    {
+        float steps = 30;
+        float timeSec = 0.5f;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            this.transform.rotation = Quaternion.Euler(-90 * (i / steps), 0, 0);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        yield return new WaitForSeconds(1);
+        readyForPostgameAnimation.Invoke();
+    }
+
     public void kickOffRotation()
     {
-        rotating = true;
-        readyForPostgameAnimation.Invoke();
+        StartCoroutine(rotateReveal());
     }
 
     private Color determineAnswerColor(Tile til, bool won)

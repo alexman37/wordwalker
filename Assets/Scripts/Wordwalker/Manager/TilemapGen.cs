@@ -9,6 +9,7 @@ public class TilemapGen : MonoBehaviour
     public static bool greenlight = false;
 
     public GameManagerSc gameManager;
+    public PlayerManager playerManager;
 
     private string word = "HAZELHEATHERS";
 
@@ -62,6 +63,12 @@ public class TilemapGen : MonoBehaviour
         Destroy(container);
         container = new GameObject();
 
+        // We'll have to keep track of the mins and maxes
+        float minX = 1000;
+        float maxX = -1000;
+        float minZ = 1000;
+        float maxZ = -1000;
+
         //TODO configure
         int backTracks = randomBacktracks(word.Length, 0.4f, 3);
         settledRows = word.Length - backTracks;
@@ -77,6 +84,11 @@ public class TilemapGen : MonoBehaviour
                 Vector3 pos = new Vector3(-xSpacing * (row / 2.0f) + sub * xSpacing, 0, ySpacing * row);
                 GameObject next = GameObject.Instantiate(baseTile, pos, baseTile.transform.rotation);
                 next.transform.parent = container.transform;
+
+                if (pos.x < minX) minX = pos.x;
+                if (pos.x > maxX) maxX = pos.x;
+                if (pos.z < minZ) minZ = pos.z;
+                if (pos.z > maxZ) maxZ = pos.z;
 
                 Tile t = next.GetComponent<Tile>();
                 t.absolutePosition = (pos.x, pos.z);
@@ -94,6 +106,8 @@ public class TilemapGen : MonoBehaviour
                 if (row == 0) starters.Add(t);
             }
         }
+
+        playerManager.setBounds(minX, maxX, minZ, maxZ);
 
         //Second loop - set adjacencies
         for (int row = 0; row < settledRows; row++)
