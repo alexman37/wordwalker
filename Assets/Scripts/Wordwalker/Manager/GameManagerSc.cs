@@ -20,12 +20,14 @@ public class GameManagerSc : MonoBehaviour
     private static bool numLevelsBool = true;
     private static bool checkingManagerGreenlights = true;
 
+    public static event Action levelReady;
     public static event Action levelWon;
     public static event Action wrongStep;
     public static event Action gameOver;
 
     private void Start()
     {
+        levelReady += () => { };
         levelWon += () => { };
         wrongStep += () => { };
         gameOver += () => { };
@@ -106,6 +108,7 @@ public class GameManagerSc : MonoBehaviour
             currLevel += 1;
             uiManager.SetNewRoom(currLevel);
             Tilemap.regenerateTileMap(wordList[currLevel - 1]);
+            levelReady.Invoke();
         }
     }
 

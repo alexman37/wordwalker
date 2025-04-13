@@ -20,6 +20,8 @@ public class WordwalkerUIScript : MonoBehaviour
     public GameObject gameOver;
 
     //animating - gotta know the right positions
+    private Vector3 scrollStart;
+    private Vector3 scrollDest;
     private Vector3 postgameAnimationStart;
     private Vector3 postgameAnimationDest;
     private Vector3 topBarAnimationStart;
@@ -37,6 +39,8 @@ public class WordwalkerUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scrollStart = scrollClue.GetComponent<RectTransform>().anchoredPosition;
+        scrollDest = new Vector3(0, 0, 0); //relative to bottom of screen
         postgameAnimationStart = postgame.transform.localPosition;
         postgameAnimationDest = new Vector3(0, Screen.safeArea.yMax * 0.25f, 0);
         topBarAnimationStart = topBar.transform.localPosition;
@@ -48,6 +52,8 @@ public class WordwalkerUIScript : MonoBehaviour
 
         TopBarUI.readyForPostgameAnimation += BeginPostgameAnimation;
         TopBarUI.readyForPostgameAnimation += BeginGameOverAnimation;
+        WalkManager.openedScroll += moveScrollOnStart;
+        GameManagerSc.levelWon += () => { StartCoroutine(moveScrollOutOfView()); };
 
         greenlight = true;
     }
@@ -89,10 +95,10 @@ public class WordwalkerUIScript : MonoBehaviour
         postgame.transform.localPosition = postgameAnimationStart;
         topBar.transform.localPosition = topBarAnimationStart;
 
+        Color colS = scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
+        clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(colS.r, colS.g, colS.b, 0);
         Color col = clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
         clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(col.r, col.g, col.b, 1);
-        scrollAnimator.SetTrigger("BeginUnfurl");
-        clueBoxAnimator.SetTrigger("gotoNextPage");
     }
 
     private void BeginGameOverAnimation()
@@ -109,6 +115,11 @@ public class WordwalkerUIScript : MonoBehaviour
 
         Color col = clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
         clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(col.r, col.g, col.b, 1);
+    }
+
+    void moveScrollOnStart()
+    {
+        StartCoroutine(moveScrollIntoView());
     }
 
     //TODO eventually we might have a burning animation for this
@@ -141,5 +152,47 @@ public class WordwalkerUIScript : MonoBehaviour
             
             yield return new WaitForSeconds(0.02f);
         }
+    }
+
+    IEnumerator moveScrollIntoView()
+    {
+        RectTransform scrollRect = scrollClue.GetComponent<RectTransform>();
+
+        float steps = 30;
+        float timeSec = 1f;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            scrollRect.anchoredPosition = UIUtils.XerpStandard(scrollStart, scrollDest, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        scrollAnimator.SetTrigger("BeginUnfurl");
+        TextMeshProUGUI texts = scrollRect.GetComponentInChildren<TextMeshProUGUI>();
+        Color col = texts.color;
+        for (float i = 0; i <= steps; i++)
+        {
+            texts.color = new Color(col.r, col.g, col.b, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+        clueBoxAnimator.SetTrigger("gotoNextPage");
+
+        yield return null;
+    }
+
+    IEnumerator moveScrollOutOfView()
+    {
+        RectTransform scrollRect = scrollClue.GetComponent<RectTransform>();
+
+        float steps = 30;
+        float timeSec = 1f;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            scrollRect.anchoredPosition = UIUtils.XerpStandard(scrollDest, scrollStart, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        yield return null;
     }
 }

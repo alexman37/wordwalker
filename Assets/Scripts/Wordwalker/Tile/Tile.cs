@@ -59,7 +59,7 @@ public class Tile : MonoBehaviour
     public void pressAnimation()
     {
         if (correct) correctPress();
-        else incorrectPress();
+        else StartCoroutine(incorrectPress());
     }
 
     //Slowly "push down" into place
@@ -71,12 +71,15 @@ public class Tile : MonoBehaviour
     }
 
     //Have the tile fall downwards in a random direction
-    private void incorrectPress()
+    private IEnumerator incorrectPress()
     {
         fall();
 
         if(GameManagerSc.getNumTotems() <= 0)
         {
+            // First wait one second, so you realize you done goofed
+            yield return new WaitForSeconds(1.5f);
+
             fallAllTiles.Invoke();
         }
     }
