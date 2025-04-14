@@ -10,10 +10,16 @@ public class PlayerManager : MonoBehaviour
     private float minXBound = -1000;
     private float minZBound = 1000;
     private float maxZBound = -1000;
+    private float maxZoom = -30;
+    private const float minZoom = 12; // I don't see this changing
 
     Vector3 pos;
     float sumDistance = 0;
     public GameObject cam;
+    bool freeCamera = true;
+
+    public Vector3 startingCamPos;
+    public Vector3 walterWhitePos;
 
     // Start is called before the first frame update
     void Start()
@@ -24,95 +30,158 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // MOUSE CONTROLS
-        if (Input.GetMouseButtonDown(0))
+        if(freeCamera)
         {
-            pos = Input.mousePosition;
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 res = (Input.mousePosition - pos);
-            Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.1f;
-            cam.transform.position = updateCameraPosition(cam.transform.position + transformation);
-
-            pos = Input.mousePosition;
-        }
-
-        //Zoom in
-        if(Input.mouseScrollDelta.y == 1)
-        {
-            cam.transform.position = cam.transform.position + new Vector3(0, -1, 0);
-        }
-
-        //Zoom out
-        if (Input.mouseScrollDelta.y == -1)
-        {
-            cam.transform.position = cam.transform.position + new Vector3(0, 1, 0);
-        }
-
-
-        // TOUCH CONTROLS
-        if (Input.touchCount == 2)
-        {
-            Touch first = Input.touches[0];
-            Touch second = Input.touches[1];
-
-            if (second.phase == TouchPhase.Began)
+            // MOUSE CONTROLS
+            if (Input.GetMouseButtonDown(0))
             {
-                sumDistance = Vector2.Distance(first.position, second.position);
+                pos = Input.mousePosition;
             }
 
-            if (first.phase == TouchPhase.Moved || second.phase == TouchPhase.Moved)
+            if (Input.GetMouseButton(0))
             {
-                float deltaDistance = sumDistance - Vector2.Distance(first.position, second.position);
-
-                // If they're getting closer, zoom out
-                if (deltaDistance < 0)
-                {
-                    cam.transform.position = cam.transform.position - new Vector3(0, 0.4f, 0);
-                }
-
-
-                // If they're getting further, zoom in
-                if (deltaDistance > 0)
-                {
-                    cam.transform.position = cam.transform.position + new Vector3(0, 0.4f, 0);
-                }
-
-                sumDistance = Vector2.Distance(first.position, second.position);
-            }
-        }
-
-        else if (Input.touchCount == 1)
-        {
-            Touch touch = Input.touches[0];
-
-            if (touch.phase == TouchPhase.Moved)
-            {
-                // let's not overcomplicate it
-                Vector2 res = touch.deltaPosition;
-                Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.005f;
-                cam.transform.position = updateCameraPosition(cam.transform.position + transformation);
+                Vector2 res = (Input.mousePosition - pos);
+                Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.1f;
+                cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
 
                 pos = Input.mousePosition;
+            }
+
+            //Zoom in
+            if (Input.mouseScrollDelta.y == 1)
+            {
+                cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, -1, 0));
+            }
+
+            //Zoom out
+            if (Input.mouseScrollDelta.y == -1)
+            {
+                cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, 1, 0));
+            }
+
+
+            // TOUCH CONTROLS
+            if (Input.touchCount == 2)
+            {
+                Touch first = Input.touches[0];
+                Touch second = Input.touches[1];
+
+                if (second.phase == TouchPhase.Began)
+                {
+                    sumDistance = Vector2.Distance(first.position, second.position);
+                }
+
+                if (first.phase == TouchPhase.Moved || second.phase == TouchPhase.Moved)
+                {
+                    float deltaDistance = sumDistance - Vector2.Distance(first.position, second.position);
+
+                    // If they're getting closer, zoom out
+                    if (deltaDistance < 0)
+                    {
+                        cam.transform.position = cam.transform.position - new Vector3(0, 0.4f, 0);
+                    }
+
+
+                    // If they're getting further, zoom in
+                    if (deltaDistance > 0)
+                    {
+                        cam.transform.position = cam.transform.position + new Vector3(0, 0.4f, 0);
+                    }
+
+                    sumDistance = Vector2.Distance(first.position, second.position);
+                }
+            }
+
+            else if (Input.touchCount == 1)
+            {
+                Touch touch = Input.touches[0];
+
+                if (touch.phase == TouchPhase.Moved)
+                {
+                    // let's not overcomplicate it
+                    Vector2 res = touch.deltaPosition;
+                    Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.005f;
+                    cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
+
+                    pos = Input.mousePosition;
+                }
             }
         }
     }
 
-    Vector3 updateCameraPosition(Vector3 proposedNew)
+    public void LerpCameraTo(Vector3 position, float time)
+    {
+        position.y = cam.transform.position.y;
+        StartCoroutine(lerpCameraCoroutine(cam.transform.position, position, time));
+    }
+
+    public void XerpCameraTo(Vector3 position, float time)
+    {
+        StartCoroutine(xerpCameraCoroutine(cam.transform.position, position, time));
+    }
+
+    public void setToStartingPosition()
+    {
+        teleportCameraTo(startingCamPos);
+    }
+
+    public void walterWhitePan()
+    {
+        XerpCameraTo(walterWhitePos, 1);
+    }
+
+    IEnumerator xerpCameraCoroutine(Vector3 start, Vector3 end, float time)
+    {
+        float steps = 30;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            cam.transform.position = UIUtils.XerpStandard(start, end, i / steps);
+            yield return new WaitForSeconds(1 / steps * time);
+        }
+
+        yield return null;
+    }
+
+    IEnumerator lerpCameraCoroutine(Vector3 start, Vector3 end, float time)
+    {
+        float steps = 30;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            cam.transform.position = Vector3.Lerp(start, end, i / steps);
+            yield return new WaitForSeconds(1 / steps * time);
+        }
+
+        yield return null;
+    }
+
+    public void setFreeCamera(bool freeCam)
+    {
+        freeCamera = freeCam;
+    }
+
+    public void teleportCameraTo(Vector3 position)
+    {
+        cam.transform.position = position;
+    }
+
+    Vector3 boundCameraPosition(Vector3 proposedNew)
     {
         Vector3 trueNew = proposedNew;
-        if(proposedNew.x > maxXBound)
+        if (proposedNew.x > maxXBound)
         {
             trueNew.x = maxXBound;
-        } else if(proposedNew.x < minXBound)
+        }
+        else if (proposedNew.x < minXBound)
         {
             trueNew.x = minXBound;
-        } if(proposedNew.z > maxZBound)
+        }
+        if (proposedNew.z > maxZBound)
         {
             trueNew.z = maxZBound;
-        } else if(proposedNew.z < minZBound)
+        }
+        else if (proposedNew.z < minZBound)
         {
             trueNew.z = minZBound;
         }
@@ -120,11 +189,28 @@ public class PlayerManager : MonoBehaviour
         return trueNew;
     }
 
-    public void setBounds(float minXBounds, float maxXBounds, float minZBounds, float maxZBounds)
+    Vector3 boundZoomView(Vector3 proposedNew)
+    {
+        Vector3 trueNew = proposedNew;
+        if (proposedNew.y > maxZoom)
+        {
+            trueNew.y = maxZoom;
+        }
+        else if (proposedNew.y < minZoom)
+        {
+            trueNew.y = minZoom;
+        }
+
+        return trueNew;
+    }
+
+    public void setBounds(float minXBounds, float maxXBounds, float minZBounds, float maxZBounds, int numRows)
     {
         this.minXBound = minXBounds;
         this.maxXBound = maxXBounds;
         this.minZBound = minZBounds;
         this.maxZBound = maxZBounds;
+        this.maxZoom = 3 * numRows + 8;
+        walterWhitePos = new Vector3((maxXBounds + minXBounds) / 2, maxZoom, (maxZBounds + minZBounds) / 2);
     }
 }

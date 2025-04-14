@@ -42,7 +42,7 @@ public class WordwalkerUIScript : MonoBehaviour
         scrollStart = scrollClue.GetComponent<RectTransform>().anchoredPosition;
         scrollDest = new Vector3(0, 0, 0); //relative to bottom of screen
         postgameAnimationStart = postgame.transform.localPosition;
-        postgameAnimationDest = new Vector3(0, Screen.safeArea.yMax * 0.25f, 0);
+        postgameAnimationDest = new Vector3(0, Screen.safeArea.yMax * -0.5f, 0);
         topBarAnimationStart = topBar.transform.localPosition;
         topBarAnimationDest = new Vector3(0, postgameAnimationDest.y + postgame.GetComponent<RectTransform>().rect.height / 2, 0);
 
@@ -85,7 +85,7 @@ public class WordwalkerUIScript : MonoBehaviour
 
     private void BeginPostgameAnimation()
     {
-        postgame.transform.localPosition = postgameAnimationDest;
+        StartCoroutine(postgameAnimation());
         StartCoroutine(fadeClueScroll());
     }
 
@@ -133,6 +133,27 @@ public class WordwalkerUIScript : MonoBehaviour
         {
             text.color = new Color(col.r, col.g, col.b, (frameTime - i) / frameTime);
             yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    IEnumerator postgameAnimation()
+    {
+        Debug.Log(postgameAnimationStart);
+        Debug.Log(postgameAnimationDest);
+        float frameTime = 30;
+        float timeSec = 1f;
+
+        for (float i = 0; i <= frameTime; i++)
+        {
+            postgame.transform.localPosition = UIUtils.XerpStandard(postgameAnimationStart,
+                    postgameAnimationDest,
+                    i / frameTime);
+
+            postgame.transform.localPosition = UIUtils.XerpStandard(topBarAnimationStart,
+                    topBarAnimationDest,
+                    i / frameTime);
+
+            yield return new WaitForSeconds(1 / frameTime * timeSec);
         }
     }
 

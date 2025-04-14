@@ -8,7 +8,6 @@ public static class UIUtils
     public static Vector3 XerpStandard(Vector3 start, Vector3 end, float input)
     {
         float multiplier = - (Mathf.Pow((2.0f - 2.0f * input), 2.0f)) / 4.0f + 1.0f;
-        Debug.Log(multiplier);
         return Vector3.Lerp(start, end, multiplier);
     }
 }

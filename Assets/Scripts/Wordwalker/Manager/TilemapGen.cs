@@ -107,7 +107,7 @@ public class TilemapGen : MonoBehaviour
             }
         }
 
-        playerManager.setBounds(minX, maxX, minZ, maxZ);
+        playerManager.setBounds(minX, maxX, minZ, maxZ, settledRows);
 
         //Second loop - set adjacencies
         for (int row = 0; row < settledRows; row++)

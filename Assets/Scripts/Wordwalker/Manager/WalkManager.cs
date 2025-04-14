@@ -11,6 +11,7 @@ public class WalkManager : MonoBehaviour
     public static bool greenlight = false;
 
     public GameManagerSc gameManager;
+    public PlayerManager playerManager;
 
     public Material correctTile;
     public Material incorrectTile;
@@ -21,6 +22,7 @@ public class WalkManager : MonoBehaviour
     private Queue<Tile> queuedMoves;
     private bool isActivelyMoving = false;
     private bool preventMovement = false; //for instance, if you're about to die
+    private bool hasWon = false;
 
     public TopBarUI topBar;
     public TextMeshProUGUI definition;
@@ -70,6 +72,9 @@ public class WalkManager : MonoBehaviour
                 isActivelyMoving = true;
                 Tile pos = queuedMoves.Dequeue();
                 StartCoroutine(moveCharacter(pos));
+
+                // Will have to update Y-coord for camera in PlayerManager (according to zoom)
+                playerManager.LerpCameraTo(new Vector3(pos.absolutePosition.Item1, 0, pos.absolutePosition.Item2), 0.5f);
             }
         }
     }
@@ -81,6 +86,7 @@ public class WalkManager : MonoBehaviour
         currDef = d;
         topBar.ResetBar();
         setClue();
+        playerManager.setToStartingPosition();
     }
 
     void setCorrect(List<Tile> corrects)
@@ -100,6 +106,12 @@ public class WalkManager : MonoBehaviour
     {
         preventMovement = true;
         StartCoroutine(startingAnimation());
+    }
+
+    void playEndingAnimation()
+    {
+        preventMovement = true;
+        StartCoroutine(clearLevel(0)); //TODO direction
     }
 
     IEnumerator startingAnimation()
@@ -157,6 +169,11 @@ public class WalkManager : MonoBehaviour
         }
 
         isActivelyMoving = false;
+
+        if (hasWon)
+        {
+            yield return clearLevel(0);
+        }
     }
 
     IEnumerator prepareNextMovement(Tile toTile)
@@ -211,7 +228,6 @@ public class WalkManager : MonoBehaviour
         {
             preventMovement = true;
             queuedMoves.Clear();
-            playerAnimator.SetTrigger("Realization");
             addLetterToTopWord(t);
             t.stepMaterial(incorrectTile);
             t.pressAnimation();
@@ -225,10 +241,36 @@ public class WalkManager : MonoBehaviour
         yield return null;
     }
 
+    //TODO direction needs to be accounted for
+    // TODO clearLevel needs to exclusively run after moveLevel() or when moveLevel is guaranteed not running
+    IEnumerator clearLevel(int direction)
+    {
+        playerAnimator.SetBool("Moving", true);
+        playerAnimator.SetInteger("Direction", direction);
+        playerAnimator.ResetTrigger("Idle");
+
+        float steps = 50;
+        float timeSec = 1f;
+
+        Vector3 lastKnownPlayerPos = playerCharacter.transform.position;
+        this.ledgeEndingPlayerPos = new Vector3(lastKnownPlayerPos.x, lastKnownPlayerPos.y, lastKnownPlayerPos.z + 7f);
+        this.endingPlayerPos = new Vector3(0, lastKnownPlayerPos.y, lastKnownPlayerPos.z + 17f);
+
+        for (float i = 0; i <= steps; i++)
+        {
+            playerCharacter.transform.position = Vector3.Lerp(lastKnownPlayerPos, ledgeEndingPlayerPos, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        playerAnimator.SetTrigger("WinRound");
+        yield return null;
+    }
+
     void playFallingAnimation()
     {
         playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         playerAnimator.SetTrigger("Falling");
+        playerManager.walterWhitePan();
     }
 
     void manageTileClick(Tile t)
@@ -258,6 +300,7 @@ public class WalkManager : MonoBehaviour
 
     void onWin()
     {
+        hasWon = true;
         GameManagerSc.signifyLevelWon();
         topBar.SetAnswer(this.correctTiles, true);
         topBar.kickOffRotation();
@@ -268,6 +311,8 @@ public class WalkManager : MonoBehaviour
         GameManagerSc.changeTotems(1, false);
         if (GameManagerSc.getNumTotems() < 0)
         {
+            playerAnimator.SetTrigger("Realization");
+            playerManager.setFreeCamera(false);
             onLose();
             return false;
         }

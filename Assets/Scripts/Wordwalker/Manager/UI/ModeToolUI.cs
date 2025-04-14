@@ -32,9 +32,9 @@ public class ModeToolUI : MonoBehaviour
     {
         switch(currentMode)
         {
-            case PlayerMode.STEPPER: this.currentMode = PlayerMode.MARKER; break;
-            case PlayerMode.MARKER: this.currentMode = PlayerMode.VIEW; break;
-            case PlayerMode.VIEW: this.currentMode = PlayerMode.STEPPER; break;
+            case PlayerMode.STEPPER: this.currentMode = PlayerMode.VIEW; break;
+            case PlayerMode.MARKER: this.currentMode = PlayerMode.STEPPER; break;
+            case PlayerMode.VIEW: this.currentMode = PlayerMode.MARKER; break;
         }
         alsoChangePicture();
     }
