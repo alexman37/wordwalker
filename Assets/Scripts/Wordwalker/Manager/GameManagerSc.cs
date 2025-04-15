@@ -24,6 +24,7 @@ public class GameManagerSc : MonoBehaviour
     public static event Action levelWon;
     public static event Action wrongStep;
     public static event Action gameOver;
+    public static event Action levelReset;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class GameManagerSc : MonoBehaviour
         levelWon += () => { };
         wrongStep += () => { };
         gameOver += () => { };
+        levelReset += () => { };
 
         //unfortunately the only way i can think of
         Tilemap = FindObjectOfType<TilemapGen>();
@@ -98,8 +100,7 @@ public class GameManagerSc : MonoBehaviour
     
     public static void goToNextLevel()
     {
-
-        uiManager.ResetPostgamePosition();
+        levelReset.Invoke();
 
         if (numLevelsBool) {
             numLevelsBool = false;

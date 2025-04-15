@@ -16,8 +16,9 @@ public class TopBarUI : MonoBehaviour
 
     //For animation
     public Image container;
-    private Vector2 topBarAnimationStart;
-    private Vector2 topBarAnimationDest;
+    private Vector2 topBarAnimationStart; // Relative to BOTTOM
+    private Vector2 topBarAnimationDestWin; // Relative to TOP
+    private Vector2 topBarAnimationDestLose; // Relative to TOP
 
     // For spawning / tracking letters in the visualization
     public GameObject baseTileVis;
@@ -38,21 +39,24 @@ public class TopBarUI : MonoBehaviour
         // Set scroll "start" and "dest" positions when scaling finishes. Assume it wont take long
         // If done before we get a chance to subscribe to it just do so immediately
         ScalingUIComponent scalingComp = container.GetComponent<ScalingUIComponent>();
+        Rect screenSpace = Screen.safeArea;
+
         container.GetComponent<ScalingUIComponent>().completedScaling += () =>
         {
-            Debug.Log("Finished scaling TOPBAR.");
             topBarAnimationStart = container.GetComponent<RectTransform>().anchoredPosition;
-            topBarAnimationDest = new Vector2(0, -300);
+            topBarAnimationDestWin = new Vector2(0, -50);
+            topBarAnimationDestLose = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
         };
         if (scalingComp.DONE)
         {
             topBarAnimationStart = container.GetComponent<RectTransform>().anchoredPosition;
-            topBarAnimationDest = new Vector2(0, -300); //relative to bottom of screen
+            topBarAnimationDestWin = new Vector2(0, -50);
+            topBarAnimationDestLose = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
         }
 
         // Different positions depending on if you win or lose
-        GameManagerSc.levelWon += () => { StartCoroutine(postgameTransitionCo()); };
-        GameManagerSc.gameOver += () => { StartCoroutine(gameOverTransitionCo()); };
+        GameManagerSc.levelWon += () => { StartCoroutine(postgameTransitionCo(1)); };
+        GameManagerSc.gameOver += () => { StartCoroutine(gameOverTransitionCo(1)); };
 
         baseTileVis = this.transform.GetChild(0).GetChild(0).gameObject;
         currProgressVis = new List<GameObject>();
@@ -185,23 +189,20 @@ public class TopBarUI : MonoBehaviour
     /// Moves topBar down to the postgame position
     /// </summary>
     // TODO might differentiate from gameOver in other ways.
-    IEnumerator postgameTransitionCo()
+    IEnumerator postgameTransitionCo(float delay)
     {
-        Debug.Log("POSTGAME");
+        yield return new WaitForSeconds(delay);
+
         float steps = 30;
         float timeSec = 0.5f;
 
         RectTransform rectTransform = container.GetComponent<RectTransform>();
-        Debug.Log("Go from " + topBarAnimationStart);
-        Debug.Log(" to " + topBarAnimationDest);
 
         for (float i = 0; i <= steps; i++)
         {
-            Debug.Log("Before " + rectTransform.anchoredPosition);
             rectTransform.anchoredPosition = UIUtils.XerpStandard(topBarAnimationStart,
-                    topBarAnimationDest,
+                    topBarAnimationDestWin,
                     i / steps);
-            Debug.Log("After " + rectTransform.anchoredPosition);
 
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
@@ -213,9 +214,10 @@ public class TopBarUI : MonoBehaviour
     /// Moves topBar down to the postgame position
     /// </summary>
     // TODO might differentiate from gameOver in other ways.
-    IEnumerator gameOverTransitionCo()
+    IEnumerator gameOverTransitionCo(float delay)
     {
-        Debug.Log("OVER");
+        yield return new WaitForSeconds(delay);
+
         float steps = 30;
         float timeSec = 0.5f;
 
@@ -224,7 +226,7 @@ public class TopBarUI : MonoBehaviour
         for (float i = 0; i <= steps; i++)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(topBarAnimationStart,
-                    topBarAnimationDest,
+                    topBarAnimationDestLose,
                     i / steps);
 
             yield return new WaitForSeconds(1 / steps * timeSec);
