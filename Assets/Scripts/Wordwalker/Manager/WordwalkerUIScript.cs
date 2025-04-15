@@ -42,18 +42,19 @@ public class WordwalkerUIScript : MonoBehaviour
         scrollStart = scrollClue.GetComponent<RectTransform>().anchoredPosition;
         scrollDest = new Vector3(0, 0, 0); //relative to bottom of screen
         postgameAnimationStart = postgame.transform.localPosition;
-        postgameAnimationDest = new Vector3(0, Screen.safeArea.yMax * -0.5f, 0);
         topBarAnimationStart = topBar.transform.localPosition;
-        topBarAnimationDest = new Vector3(0, postgameAnimationDest.y + postgame.GetComponent<RectTransform>().rect.height / 2, 0);
+        postgameAnimationDest = topBarAnimationStart - new Vector3(0, 0, 0);
+        topBarAnimationDest = topBarAnimationStart - new Vector3(0, Screen.safeArea.height * 0.1f, 0);
 
         displayScore = critStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         displayRoom = critStats.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         displayTotem = critStats.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-        TopBarUI.readyForPostgameAnimation += BeginPostgameAnimation;
-        TopBarUI.readyForPostgameAnimation += BeginGameOverAnimation;
+        //TopBarUI.readyForPostgameAnimation += BeginPostgameAnimation;
+        //TopBarUI.readyForPostgameAnimation += BeginGameOverAnimation;
         WalkManager.openedScroll += moveScrollOnStart;
-        GameManagerSc.levelWon += () => { StartCoroutine(moveScrollOutOfView()); };
+        GameManagerSc.levelWon += BeginPostgameAnimation;
+        GameManagerSc.gameOver += BeginGameOverAnimation;
 
         greenlight = true;
     }
@@ -85,14 +86,16 @@ public class WordwalkerUIScript : MonoBehaviour
 
     private void BeginPostgameAnimation()
     {
-        StartCoroutine(postgameAnimation());
+        StartCoroutine(postgameAnimation(1.5f));
         StartCoroutine(fadeClueScroll());
+        StartCoroutine(moveScrollOutOfView());
     }
 
     public void ResetPostgamePosition()
     {
         StopCoroutine(fadeClueScroll());
         postgame.transform.localPosition = postgameAnimationStart;
+        gameOver.transform.localPosition = postgameAnimationStart;
         topBar.transform.localPosition = topBarAnimationStart;
 
         Color colS = scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
@@ -103,8 +106,9 @@ public class WordwalkerUIScript : MonoBehaviour
 
     private void BeginGameOverAnimation()
     {
-        StartCoroutine(gameOverAnimation());
+        StartCoroutine(gameOverAnimation(1.5f));
         StartCoroutine(fadeClueScroll());
+        StartCoroutine(moveScrollOutOfView());
     }
 
     public void ResetGameOverPosition()
@@ -125,7 +129,8 @@ public class WordwalkerUIScript : MonoBehaviour
     //TODO eventually we might have a burning animation for this
     IEnumerator fadeClueScroll()
     {
-        float frameTime = 30;
+        yield return null;
+        /*float frameTime = 30;
         TextMeshProUGUI text = clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         Color col = text.color;
 
@@ -133,11 +138,13 @@ public class WordwalkerUIScript : MonoBehaviour
         {
             text.color = new Color(col.r, col.g, col.b, (frameTime - i) / frameTime);
             yield return new WaitForSeconds(0.05f);
-        }
+        }*/
     }
 
-    IEnumerator postgameAnimation()
+    IEnumerator postgameAnimation(float delay)
     {
+        yield return new WaitForSeconds(delay);
+
         Debug.Log(postgameAnimationStart);
         Debug.Log(postgameAnimationDest);
         float frameTime = 30;
@@ -149,7 +156,7 @@ public class WordwalkerUIScript : MonoBehaviour
                     postgameAnimationDest,
                     i / frameTime);
 
-            postgame.transform.localPosition = UIUtils.XerpStandard(topBarAnimationStart,
+            topBar.transform.localPosition = UIUtils.XerpStandard(topBarAnimationStart,
                     topBarAnimationDest,
                     i / frameTime);
 
@@ -157,21 +164,24 @@ public class WordwalkerUIScript : MonoBehaviour
         }
     }
 
-    IEnumerator gameOverAnimation()
+    IEnumerator gameOverAnimation(float delay)
     {
+        yield return new WaitForSeconds(delay);
+
         float frameTime = 30;
+        float timeSec = 1f;
 
         for (float i = 0; i <= frameTime; i++)
         {
-            gameOver.transform.localPosition = Vector3.Lerp(postgameAnimationStart,
+            gameOver.transform.localPosition = UIUtils.XerpStandard(postgameAnimationStart,
                     postgameAnimationDest,
                     i / frameTime);
 
-            topBar.transform.localPosition = Vector3.Lerp(topBarAnimationStart,
+            topBar.transform.localPosition = UIUtils.XerpStandard(topBarAnimationStart,
                     topBarAnimationDest,
                     i / frameTime);
             
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(1 / frameTime * timeSec);
         }
     }
 
