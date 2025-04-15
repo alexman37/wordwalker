@@ -4,16 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Attach a ScalingUIComponent to any UI object to reposition and rescale it relative to the (unknown until runtime)
+/// size of the screen.
+/// </summary>
+/// The following properties are used:
+/// - focalPoint: The pivot of the component
+/// - percentPosition: Percentage (0-1) of where in screen space (x,y) this component should be located
+/// - percentScale: Percentage (0-1) of how much of the screen space (x,y) this component takes up
+/// - maintainAspectRatio: If true, the scale of Y is automatically set to the scale of X.
+/// - constantSize: If true, the scale will not be changed at all (the component is 'pixel perfect').
 public class ScalingUIComponent : MonoBehaviour
 {
     public Position focalPoint; // Where is the "pivot" of this component
     public Vector2 percentPosition; // Percentage (0-1) of where in screen space (x,y) this should be located
     public Vector2 percentScale; // Percentage (0-1) of how much of the screen space (x,y) this component takes up
     public bool maintainAspectRatio;
+    public bool constantSize;
 
     private RectTransform rect;
     private Rect screenSpace;
 
+    /// <summary>
+    /// Pivot point for a UI object.
+    /// </summary>
     public enum Position
     {
         CENTER,
@@ -27,6 +41,9 @@ public class ScalingUIComponent : MonoBehaviour
         RIGHT
     }
 
+    /// <summary>
+    /// Set position and scale of this UI component- usually called on startup
+    /// </summary>
     public void proportionalSetLoc()
     {
         if(!rect) Start();
@@ -89,17 +106,17 @@ public class ScalingUIComponent : MonoBehaviour
             case Position.TOP:
             case Position.TOP_LEFT:
             case Position.TOP_RIGHT:
-                newLoc.y = - screenSpace.height * (1 - percentPosition.y);
+                newLoc.y = -screenSpace.height * (1 - percentPosition.y) - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height));
                 break;
             case Position.BOTTOM:
             case Position.BOTTOM_LEFT:
             case Position.BOTTOM_RIGHT:
-                newLoc.y = screenSpace.height * percentPosition.y;
+                newLoc.y = screenSpace.height * percentPosition.y + screenSpace.yMin;
                 break;
             case Position.CENTER:
             case Position.LEFT:
             case Position.RIGHT:
-                newLoc.y = screenSpace.height / 2 * (percentPosition.y - 0.5f);
+                newLoc.y = screenSpace.height / 2 * ((percentPosition.y - 0.5f) * 2);
                 break;
         }
         switch (focalPoint)
@@ -107,26 +124,27 @@ public class ScalingUIComponent : MonoBehaviour
             case Position.LEFT:
             case Position.TOP_LEFT:
             case Position.BOTTOM_LEFT:
-                newLoc.x = screenSpace.width * percentPosition.x;
+                newLoc.x = screenSpace.width * percentPosition.x + screenSpace.xMin;
                 break;
             case Position.RIGHT:
             case Position.BOTTOM_RIGHT:
             case Position.TOP_RIGHT:
-                newLoc.x = - screenSpace.width * (1 - percentPosition.x);
+                newLoc.x = -screenSpace.width * (1 - percentPosition.x) - (screenSpace.xMax - (screenSpace.xMin + screenSpace.width));
                 break;
             case Position.CENTER:
             case Position.TOP:
             case Position.BOTTOM:
-                newLoc.x = screenSpace.width / 2 * (percentPosition.x - 0.5f);
+                newLoc.x = screenSpace.width / 2 * ((percentPosition.x - 0.5f) * 2);
                 break;
         }
 
         //Set scale only if we want to
-        if(percentScale.x != -1)
+        if (percentScale.x != -1 && !constantSize)
         {
             Vector2 oldDims = new Vector2(rect.rect.width, rect.rect.height);
             if(maintainAspectRatio)
             {
+                // Height may not match up with inputted scale if you chose to scale by aspect ratio
                 float aspectedHeight = rect.rect.height / rect.rect.width * screenSpace.width * percentScale.x;
                 rect.sizeDelta = new Vector2(screenSpace.width * percentScale.x, aspectedHeight);
             } else
@@ -136,7 +154,6 @@ public class ScalingUIComponent : MonoBehaviour
             
             Vector2 newDims = new Vector2(rect.rect.width, rect.rect.height);
 
-            //resizeChildren(oldWidth, oldHeight);
             for (int i = 0; i < this.transform.childCount; i++)
             {
                 recursiveResizeChildren(this.transform.GetChild(i).GetComponent<RectTransform>(), oldDims, newDims);
@@ -190,9 +207,114 @@ public class ScalingUIComponent : MonoBehaviour
         proportionalSetLoc();
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+
+
+
+
+
+
+    //TODO: Remove if possible.
+    public static Vector2 getScaledPosition(ScalingUIComponent comp)
     {
-        
+        Position focalPoint = comp.focalPoint;
+        Vector2 percentPosition = comp.percentPosition;
+
+        RectTransform rect = new RectTransform();
+        Rect screenSpace = Screen.safeArea;
+        Vector2 newLoc = new Vector2(0, 0);
+
+        // First set anchored position
+        switch (focalPoint)
+        {
+            case Position.TOP:
+                rect.anchorMin = new Vector2(0.5f, 1);
+                rect.anchorMax = new Vector2(0.5f, 1);
+                rect.pivot = new Vector2(0.5f, 1);
+                break;
+            case Position.TOP_LEFT:
+                rect.anchorMin = new Vector2(0, 1);
+                rect.anchorMax = new Vector2(0, 1);
+                rect.pivot = new Vector2(0, 1);
+                break;
+            case Position.TOP_RIGHT:
+                rect.anchorMin = new Vector2(1, 1);
+                rect.anchorMax = new Vector2(1, 1);
+                rect.pivot = new Vector2(1, 1);
+                break;
+            case Position.BOTTOM:
+                rect.anchorMin = new Vector2(0.5f, 0);
+                rect.anchorMax = new Vector2(0.5f, 0);
+                rect.pivot = new Vector2(0.5f, 0);
+                break;
+            case Position.BOTTOM_LEFT:
+                rect.anchorMin = new Vector2(0, 0);
+                rect.anchorMax = new Vector2(0, 0);
+                rect.pivot = new Vector2(0, 0);
+                break;
+            case Position.BOTTOM_RIGHT:
+                rect.anchorMin = new Vector2(1, 0);
+                rect.anchorMax = new Vector2(1, 0);
+                rect.pivot = new Vector2(1, 0);
+                break;
+            case Position.CENTER:
+                rect.anchorMin = new Vector2(0.5f, 0.5f);
+                rect.anchorMax = new Vector2(0.5f, 0.5f);
+                rect.pivot = new Vector2(0.5f, 0.5f);
+                break;
+            case Position.LEFT:
+                rect.anchorMin = new Vector2(0, 0.5f);
+                rect.anchorMax = new Vector2(0, 0.5f);
+                rect.pivot = new Vector2(0, 0.5f);
+                break;
+            case Position.RIGHT:
+                rect.anchorMin = new Vector2(1, 0.5f);
+                rect.anchorMax = new Vector2(1, 0.5f);
+                rect.pivot = new Vector2(1, 0.5f);
+                break;
+        }
+
+
+        // Now set position proper
+        switch (focalPoint)
+        {
+            case Position.TOP:
+            case Position.TOP_LEFT:
+            case Position.TOP_RIGHT:
+                newLoc.y = -screenSpace.height * (1 - percentPosition.y);
+                break;
+            case Position.BOTTOM:
+            case Position.BOTTOM_LEFT:
+            case Position.BOTTOM_RIGHT:
+                newLoc.y = screenSpace.height * percentPosition.y;
+                break;
+            case Position.CENTER:
+            case Position.LEFT:
+            case Position.RIGHT:
+                newLoc.y = screenSpace.height / 2 * (percentPosition.y - 0.5f);
+                break;
+        }
+        switch (focalPoint)
+        {
+            case Position.LEFT:
+            case Position.TOP_LEFT:
+            case Position.BOTTOM_LEFT:
+                newLoc.x = screenSpace.width * percentPosition.x;
+                break;
+            case Position.RIGHT:
+            case Position.BOTTOM_RIGHT:
+            case Position.TOP_RIGHT:
+                newLoc.x = -screenSpace.width * (1 - percentPosition.x);
+                break;
+            case Position.CENTER:
+            case Position.TOP:
+            case Position.BOTTOM:
+                newLoc.x = screenSpace.width / 2 * (percentPosition.x - 0.5f);
+                break;
+        }
+
+        return newLoc;
     }
+
 }

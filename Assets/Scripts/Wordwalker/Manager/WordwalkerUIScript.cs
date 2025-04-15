@@ -5,19 +5,22 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manages all UI in the game- or at least, modifying them and kicking off animations
+/// </summary>
 public class WordwalkerUIScript : MonoBehaviour
 {
     public static bool greenlight = false;
 
-    public GameObject critStats;
-    public GameObject topBar;
-    public GameObject scrollClue;
-    public Animator scrollAnimator;
-    public GameObject clueBox;
-    public Animator clueBoxAnimator;
-    public GameObject inventory;
-    public GameObject postgame;
-    public GameObject gameOver;
+    public GameObject critStats;         // Score, Room # and totems
+    public GameObject topBar;            // Also known as "current Spelling"
+    public GameObject scrollClue;        // The scroll used for text clues
+    public Animator scrollAnimator;           // Animation component
+    public GameObject clueBox;           // The book used for image clues
+    public Animator clueBoxAnimator;          // Animation component
+    public GameObject inventory;         // Inventory menu
+    public GameObject postgame;          // Postgame popup
+    public GameObject gameOver;          // Game over popup
 
     //animating - gotta know the right positions
     private Vector3 scrollStart;
@@ -93,7 +96,7 @@ public class WordwalkerUIScript : MonoBehaviour
 
     public void ResetPostgamePosition()
     {
-        //StopCoroutine(fadeClueScroll());
+        StopCoroutine(fadeClueScroll());
         postgame.transform.localPosition = postgameAnimationStart;
         gameOver.transform.localPosition = postgameAnimationStart;
         topBar.transform.localPosition = topBarAnimationStart;
