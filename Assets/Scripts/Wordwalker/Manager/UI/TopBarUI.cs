@@ -54,16 +54,25 @@ public class TopBarUI : MonoBehaviour
             topBarAnimationDestLose = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
         }
 
-        // Different positions depending on if you win or lose
-        GameManagerSc.levelWon += () => { StartCoroutine(postgameTransitionCo(1)); };
-        GameManagerSc.gameOver += () => { StartCoroutine(gameOverTransitionCo(1)); };
-
         baseTileVis = this.transform.GetChild(0).GetChild(0).gameObject;
         currProgressVis = new List<GameObject>();
         answerVis = new List<GameObject>();
     }
 
-    
+    private void OnEnable()
+    {
+        // Different positions depending on if you win or lose
+        GameManagerSc.levelWon += postgameTransition;
+        GameManagerSc.gameOver += gameOverTransition;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerSc.levelWon -= postgameTransition;
+        GameManagerSc.gameOver -= gameOverTransition;
+    }
+
+
     /// <summary>
     /// Add a new letter to the progress bar (and adjust all existing ones)
     /// </summary>
@@ -183,6 +192,16 @@ public class TopBarUI : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         readyForPostgameAnimation.Invoke();
+    }
+
+    private void postgameTransition()
+    {
+        StartCoroutine(postgameTransitionCo(1));
+    }
+
+    private void gameOverTransition()
+    {
+        StartCoroutine(gameOverTransitionCo(1));
     }
 
     /// <summary>

@@ -29,12 +29,24 @@ public class ScrollUI : MonoBehaviour
             scrollStart = scrollClue.GetComponent<RectTransform>().anchoredPosition;
             scrollDest = new Vector2(0, 0); //relative to bottom of screen
         }
+    }
 
+    private void OnEnable()
+    {
         // When the character plays the animation to open their scroll, start same animation here
         // Win or lose, move the scroll out of view afterwards
         WalkManager.openedScroll += moveScrollOnStart;
         GameManagerSc.levelWon += moveScrollOnFinish;
         GameManagerSc.gameOver += moveScrollOnFinish;
+    }
+
+    private void OnDisable()
+    {
+        // When the character plays the animation to open their scroll, start same animation here
+        // Win or lose, move the scroll out of view afterwards
+        WalkManager.openedScroll -= moveScrollOnStart;
+        GameManagerSc.levelWon -= moveScrollOnFinish;
+        GameManagerSc.gameOver -= moveScrollOnFinish;
     }
 
     /// <summary>

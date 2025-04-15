@@ -623,10 +623,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3596b2cde4f94237924f5bf2e5145e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DONE: 0
   focalPoint: 6
   percentPosition: {x: 0.5, y: 1}
   percentScale: {x: 0.4, y: 0.1}
-  maintainAspectRatio: 1
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
+  constantSize: 0
 --- !u!1 &797447437
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,10 +758,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3596b2cde4f94237924f5bf2e5145e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DONE: 0
   focalPoint: 0
   percentPosition: {x: 0.5, y: 0.5}
   percentScale: {x: 1, y: 1}
-  maintainAspectRatio: 0
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
+  constantSize: 0
 --- !u!114 &916682107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,10 +997,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3596b2cde4f94237924f5bf2e5145e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DONE: 0
   focalPoint: 5
   percentPosition: {x: 0.5, y: 0.1}
   percentScale: {x: 0.5, y: 0.5}
-  maintainAspectRatio: 1
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
+  constantSize: 0
 --- !u!1 &1412299499
 GameObject:
   m_ObjectHideFlags: 0

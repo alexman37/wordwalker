@@ -39,9 +39,18 @@ public class GameManagerSc : MonoBehaviour
         uiManager = FindObjectOfType<WordwalkerUIScript>();
 
         StartCoroutine(WordGen.LoadAsset("worddbs/" + database, database));
+    }
 
+    private void OnEnable()
+    {
         SceneManager.sceneLoaded += onReentry;
         WalkManager.readyForNextLevelGen += goToNextLevel;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= onReentry;
+        WalkManager.readyForNextLevelGen -= goToNextLevel;
     }
 
     private void Update()
@@ -59,6 +68,9 @@ public class GameManagerSc : MonoBehaviour
         Debug.Log("Setting parameters");
         numLevels = numLvl;
         database = db;
+
+        // We'll also have to rebuild everything in the scene
+        checkingManagerGreenlights = true;
     }
 
     // Loading into the scene after the first time
@@ -170,7 +182,6 @@ public class GameManagerSc : MonoBehaviour
 
     public static void returnToMainMenu()
     {
-
         SceneManager.LoadScene(0);
     }
 }

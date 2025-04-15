@@ -52,18 +52,32 @@ public class WalkManager : MonoBehaviour
         openedScroll += () => { };
 
         possibleNext = new List<Tile>();
-        GameManagerSc.levelReady += playStartingAnimation;
-        Tile.tileClicked += manageTileClick;
-        Tile.fallAllTiles += playFallingAnimation;
-        TilemapGen.finishedGeneration += setStartingTiles;
-        TilemapGen.regenerate += reset;
-        TilemapGen.setCorrects += setCorrect;
         correctTiles = new List<Tile>();
 
         queuedMoves = new Queue<Tile>();
         playerAnimator = playerCharacter.GetComponentInChildren<Animator>();
 
         greenlight = true;
+    }
+
+    private void OnEnable()
+    {
+        GameManagerSc.levelReady += playStartingAnimation;
+        Tile.tileClicked += manageTileClick;
+        Tile.fallAllTiles += playFallingAnimation;
+        TilemapGen.finishedGeneration += setStartingTiles;
+        TilemapGen.regenerate += reset;
+        TilemapGen.setCorrects += setCorrect;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerSc.levelReady -= playStartingAnimation;
+        Tile.tileClicked -= manageTileClick;
+        Tile.fallAllTiles -= playFallingAnimation;
+        TilemapGen.finishedGeneration -= setStartingTiles;
+        TilemapGen.regenerate -= reset;
+        TilemapGen.setCorrects -= setCorrect;
     }
 
     private void Update()

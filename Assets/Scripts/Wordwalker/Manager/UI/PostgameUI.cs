@@ -11,10 +11,13 @@ public class PostgameUI : MonoBehaviour
     private Vector2 postgameAnimationStart;
     private Vector2 postgameAnimationDest;
     private RectTransform rectTransform;
+    public RectTransform scoreSheet;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Hi, my name is postgame and im about to crash out");
+        Debug.Log(this);
         rectTransform = GetComponent<RectTransform>();
         ScalingUIComponent scalingComp = GetComponent<ScalingUIComponent>();
         GetComponent<ScalingUIComponent>().completedScaling += () =>
@@ -27,17 +30,29 @@ public class PostgameUI : MonoBehaviour
             postgameAnimationStart = GetComponent<RectTransform>().anchoredPosition;
             postgameAnimationDest = new Vector2(0, 0); //relative to bottom of screen
         }
+    }
 
+    private void OnEnable()
+    {
         GameManagerSc.levelWon += BeginPostgameAnimation;
         GameManagerSc.levelReset += postgameReset;
     }
 
+    private void OnDisable()
+    {
+        GameManagerSc.levelWon -= BeginPostgameAnimation;
+        GameManagerSc.levelReset -= postgameReset;
+    }
+
     void postgameReset()
     {
+        Debug.Log("Resetting postgame, still crashing out");
+        Debug.Log(this);
         rectTransform.anchorMin = new Vector2(0.5f, 0);
         rectTransform.anchorMax = new Vector2(0.5f, 0);
         rectTransform.pivot = new Vector2(0.5f, 0);
         rectTransform.anchoredPosition = postgameAnimationStart;
+        scoreSheet.anchoredPosition = new Vector2(0, 250);
     }
 
     private void BeginPostgameAnimation()
@@ -58,8 +73,19 @@ public class PostgameUI : MonoBehaviour
 
         for (float i = 0; i <= frameTime; i++)
         {
-            rectTransform.anchoredPosition = UIUtils.XerpStandard(postgameAnimationStart,
+            rectTransform.anchoredPosition = UIUtils.XerpStandard(adjustedStart,
                     postgameAnimationDest,
+                    i / frameTime);
+
+            yield return new WaitForSeconds(1 / frameTime * timeSec);
+        }
+
+        Vector2 scoreSheetStart = new Vector2(0, 250);
+        Vector2 scoreSheetEnd = new Vector2(0, 0);
+        for (float i = 0; i <= frameTime; i++)
+        {
+            scoreSheet.anchoredPosition = UIUtils.XerpStandard(scoreSheetStart,
+                    scoreSheetEnd,
                     i / frameTime);
 
             yield return new WaitForSeconds(1 / frameTime * timeSec);

@@ -23,7 +23,8 @@ public class ScalingUIComponent : MonoBehaviour
     public Position focalPoint; // Where is the "pivot" of this component
     public Vector2 percentPosition; // Percentage (0-1) of where in screen space (x,y) this should be located
     public Vector2 percentScale; // Percentage (0-1) of how much of the screen space (x,y) this component takes up
-    public bool maintainAspectRatio;
+    public bool maintainAspectRatioX;
+    public bool maintainAspectRatioY;
     public bool constantSize;
 
     private RectTransform rect;
@@ -146,13 +147,18 @@ public class ScalingUIComponent : MonoBehaviour
         if (percentScale.x != -1 && !constantSize)
         {
             Vector2 oldDims = new Vector2(rect.rect.width, rect.rect.height);
-            if(maintainAspectRatio)
+            if(maintainAspectRatioX)
             {
                 // Height may not match up with inputted scale if you chose to scale by aspect ratio
                 float aspectedHeight = rect.rect.height / rect.rect.width * screenSpace.width * percentScale.x;
                 rect.sizeDelta = new Vector2(screenSpace.width * percentScale.x, aspectedHeight);
-            } else
+            } else if(maintainAspectRatioY)
             {
+                // Similar story for width if you base the aspect ratio on Y
+                float aspectedWidth = rect.rect.width / rect.rect.height * screenSpace.height * percentScale.y;
+                rect.sizeDelta = new Vector2(aspectedWidth, screenSpace.height * percentScale.y);
+            }
+            else {
                 rect.sizeDelta = new Vector2(screenSpace.width * percentScale.x, screenSpace.height * percentScale.y);
             }
             

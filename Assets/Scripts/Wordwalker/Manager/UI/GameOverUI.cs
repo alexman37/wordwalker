@@ -24,9 +24,18 @@ public class GameOverUI : MonoBehaviour
             gameOverAnimationStart = GetComponent<RectTransform>().anchoredPosition;
             gameOverAnimationDest = new Vector2(0, 0); //relative to bottom of screen
         }
+    }
 
+    private void OnEnable()
+    {
         GameManagerSc.gameOver += BeginGameOverAnimation;
         GameManagerSc.levelReset += gameOverReset;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerSc.gameOver -= BeginGameOverAnimation;
+        GameManagerSc.levelReset -= gameOverReset;
     }
 
     void gameOverReset()
@@ -55,7 +64,7 @@ public class GameOverUI : MonoBehaviour
 
         for (float i = 0; i <= frameTime; i++)
         {
-            rectTransform.anchoredPosition = UIUtils.XerpStandard(gameOverAnimationStart,
+            rectTransform.anchoredPosition = UIUtils.XerpStandard(adjustedStart,
                     gameOverAnimationDest,
                     i / frameTime);
 
