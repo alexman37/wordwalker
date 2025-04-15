@@ -216,6 +216,7 @@ MonoBehaviour:
   percentPosition: {x: 0, y: 0}
   percentScale: {x: 0, y: 0}
   maintainAspectRatio: 0
+  constantSize: 0
 --- !u!1 &10678532
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +530,7 @@ MonoBehaviour:
   percentPosition: {x: 0, y: 1}
   percentScale: {x: 0.25, y: 0.25}
   maintainAspectRatio: 1
+  constantSize: 0
 --- !u!114 &100416257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +848,7 @@ GameObject:
   - component: {fileID: 219530960}
   - component: {fileID: 219530962}
   - component: {fileID: 219530959}
+  - component: {fileID: 219530963}
   m_Layer: 5
   m_Name: Scroll
   m_TagString: Untagged
@@ -889,6 +892,7 @@ MonoBehaviour:
   percentPosition: {x: 0.5, y: -0.2}
   percentScale: {x: 0.4, y: 0}
   maintainAspectRatio: 1
+  constantSize: 0
 --- !u!114 &219530960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +950,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &219530963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219530957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4448ba6ed1ecf7d4b9e94efcb0a063fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollClue: {fileID: 219530957}
+  scrollAnimator: {fileID: 219530962}
 --- !u!1 &224008634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,8 +2332,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   critStats: {fileID: 100416254}
   topBar: {fileID: 1675408241}
-  scrollClue: {fileID: 219530957}
-  scrollAnimator: {fileID: 219530962}
   clueBox: {fileID: 775207870}
   clueBoxAnimator: {fileID: 1988276840}
   inventory: {fileID: 769113256}
@@ -3369,6 +3385,7 @@ MonoBehaviour:
   percentPosition: {x: 0.5, y: 1.5}
   percentScale: {x: 0.4, y: 0}
   maintainAspectRatio: 1
+  constantSize: 0
 --- !u!1 &585209522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4241,6 +4258,7 @@ MonoBehaviour:
   percentPosition: {x: -0.05, y: 0.01}
   percentScale: {x: 0.25, y: 0.01}
   maintainAspectRatio: 1
+  constantSize: 0
 --- !u!114 &775207873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4332,6 +4350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f8e6ba387cb4d6aa21956a147da7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 0}
   baseTileVis: {fileID: 1267324520}
 --- !u!65 &784327173
 BoxCollider:
@@ -4783,6 +4802,7 @@ MonoBehaviour:
   percentPosition: {x: 0.5, y: 1.5}
   percentScale: {x: 0.4, y: 0}
   maintainAspectRatio: 1
+  constantSize: 0
 --- !u!114 &851187332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6976,6 +6996,7 @@ MonoBehaviour:
   percentPosition: {x: 0.9, y: 0}
   percentScale: {x: 0.4, y: 0.1}
   maintainAspectRatio: 0
+  constantSize: 0
 --- !u!114 &1096701362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6988,6 +7009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f8e6ba387cb4d6aa21956a147da7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 0}
   baseTileVis: {fileID: 0}
 --- !u!1 &1096950161
 GameObject:
@@ -7215,6 +7237,7 @@ MonoBehaviour:
   percentPosition: {x: 0.98, y: 0.98}
   percentScale: {x: 0.1, y: 0}
   maintainAspectRatio: 1
+  constantSize: 0
 --- !u!1 &1130051991
 GameObject:
   m_ObjectHideFlags: 0
@@ -9444,6 +9467,7 @@ MonoBehaviour:
   percentPosition: {x: 0.5, y: 1}
   percentScale: {x: 0.4, y: 0.1}
   maintainAspectRatio: 1
+  constantSize: 0
 --- !u!114 &1675408244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10741,6 +10765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f8e6ba387cb4d6aa21956a147da7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 1675408244}
   baseTileVis: {fileID: 1888130998}
 --- !u!1 &1912596924
 GameObject:

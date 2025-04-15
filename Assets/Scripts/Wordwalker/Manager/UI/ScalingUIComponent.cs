@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 /// <summary>
 /// Attach a ScalingUIComponent to any UI object to reposition and rescale it relative to the (unknown until runtime)
@@ -16,6 +17,9 @@ using TMPro;
 /// - constantSize: If true, the scale will not be changed at all (the component is 'pixel perfect').
 public class ScalingUIComponent : MonoBehaviour
 {
+    public bool DONE = false; // Needed in case the ScalingUIComponent completes creating before UI elements can subscribe to below
+    public event Action completedScaling;
+
     public Position focalPoint; // Where is the "pivot" of this component
     public Vector2 percentPosition; // Percentage (0-1) of where in screen space (x,y) this should be located
     public Vector2 percentScale; // Percentage (0-1) of how much of the screen space (x,y) this component takes up
@@ -161,6 +165,8 @@ public class ScalingUIComponent : MonoBehaviour
         }
 
         rect.anchoredPosition = newLoc;
+        DONE = true;
+        completedScaling.Invoke();
     }
 
     // Call on each child
@@ -201,120 +207,12 @@ public class ScalingUIComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        completedScaling += () => { };
+
         rect = this.GetComponent<RectTransform>();
         screenSpace = Screen.safeArea;
 
         proportionalSetLoc();
-    }
-
-
-
-
-
-
-
-
-
-    //TODO: Remove if possible.
-    public static Vector2 getScaledPosition(ScalingUIComponent comp)
-    {
-        Position focalPoint = comp.focalPoint;
-        Vector2 percentPosition = comp.percentPosition;
-
-        RectTransform rect = new RectTransform();
-        Rect screenSpace = Screen.safeArea;
-        Vector2 newLoc = new Vector2(0, 0);
-
-        // First set anchored position
-        switch (focalPoint)
-        {
-            case Position.TOP:
-                rect.anchorMin = new Vector2(0.5f, 1);
-                rect.anchorMax = new Vector2(0.5f, 1);
-                rect.pivot = new Vector2(0.5f, 1);
-                break;
-            case Position.TOP_LEFT:
-                rect.anchorMin = new Vector2(0, 1);
-                rect.anchorMax = new Vector2(0, 1);
-                rect.pivot = new Vector2(0, 1);
-                break;
-            case Position.TOP_RIGHT:
-                rect.anchorMin = new Vector2(1, 1);
-                rect.anchorMax = new Vector2(1, 1);
-                rect.pivot = new Vector2(1, 1);
-                break;
-            case Position.BOTTOM:
-                rect.anchorMin = new Vector2(0.5f, 0);
-                rect.anchorMax = new Vector2(0.5f, 0);
-                rect.pivot = new Vector2(0.5f, 0);
-                break;
-            case Position.BOTTOM_LEFT:
-                rect.anchorMin = new Vector2(0, 0);
-                rect.anchorMax = new Vector2(0, 0);
-                rect.pivot = new Vector2(0, 0);
-                break;
-            case Position.BOTTOM_RIGHT:
-                rect.anchorMin = new Vector2(1, 0);
-                rect.anchorMax = new Vector2(1, 0);
-                rect.pivot = new Vector2(1, 0);
-                break;
-            case Position.CENTER:
-                rect.anchorMin = new Vector2(0.5f, 0.5f);
-                rect.anchorMax = new Vector2(0.5f, 0.5f);
-                rect.pivot = new Vector2(0.5f, 0.5f);
-                break;
-            case Position.LEFT:
-                rect.anchorMin = new Vector2(0, 0.5f);
-                rect.anchorMax = new Vector2(0, 0.5f);
-                rect.pivot = new Vector2(0, 0.5f);
-                break;
-            case Position.RIGHT:
-                rect.anchorMin = new Vector2(1, 0.5f);
-                rect.anchorMax = new Vector2(1, 0.5f);
-                rect.pivot = new Vector2(1, 0.5f);
-                break;
-        }
-
-
-        // Now set position proper
-        switch (focalPoint)
-        {
-            case Position.TOP:
-            case Position.TOP_LEFT:
-            case Position.TOP_RIGHT:
-                newLoc.y = -screenSpace.height * (1 - percentPosition.y);
-                break;
-            case Position.BOTTOM:
-            case Position.BOTTOM_LEFT:
-            case Position.BOTTOM_RIGHT:
-                newLoc.y = screenSpace.height * percentPosition.y;
-                break;
-            case Position.CENTER:
-            case Position.LEFT:
-            case Position.RIGHT:
-                newLoc.y = screenSpace.height / 2 * (percentPosition.y - 0.5f);
-                break;
-        }
-        switch (focalPoint)
-        {
-            case Position.LEFT:
-            case Position.TOP_LEFT:
-            case Position.BOTTOM_LEFT:
-                newLoc.x = screenSpace.width * percentPosition.x;
-                break;
-            case Position.RIGHT:
-            case Position.BOTTOM_RIGHT:
-            case Position.TOP_RIGHT:
-                newLoc.x = -screenSpace.width * (1 - percentPosition.x);
-                break;
-            case Position.CENTER:
-            case Position.TOP:
-            case Position.BOTTOM:
-                newLoc.x = screenSpace.width / 2 * (percentPosition.x - 0.5f);
-                break;
-        }
-
-        return newLoc;
     }
 
 }
