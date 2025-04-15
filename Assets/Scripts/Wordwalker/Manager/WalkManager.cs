@@ -19,6 +19,7 @@ public class WalkManager : MonoBehaviour
     public Material baseTile;
 
     // Keep track of where we're going to move next (cannot run these coroutines simultaneously)
+    private Tile currTile;
     private Queue<Tile> queuedMoves;
     private bool isActivelyMoving = false;
     private bool preventMovement = false; //for instance, if you're about to die
@@ -35,6 +36,7 @@ public class WalkManager : MonoBehaviour
     public Vector3 endingPlayerPos;
 
     public static Action openedScroll;
+    public static Action readyForNextLevelGen;
 
     private List<Tile> possibleNext;
 
@@ -46,6 +48,7 @@ public class WalkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        readyForNextLevelGen += () => { };
         openedScroll += () => { };
 
         possibleNext = new List<Tile>();
@@ -81,6 +84,7 @@ public class WalkManager : MonoBehaviour
 
     void reset(string w, string d)
     {
+        hasWon = false;
         possibleNext.Clear();
         currWord = w;
         currDef = d;
@@ -112,6 +116,11 @@ public class WalkManager : MonoBehaviour
     {
         preventMovement = true;
         StartCoroutine(clearLevel(0)); //TODO direction
+    }
+
+    public void startWalkingToNextLevel()
+    {
+        StartCoroutine(walkIntoNextLevel(0));
     }
 
     IEnumerator startingAnimation()
@@ -172,7 +181,7 @@ public class WalkManager : MonoBehaviour
 
         if (hasWon)
         {
-            yield return clearLevel(0);
+            playEndingAnimation();
         }
     }
 
@@ -207,6 +216,7 @@ public class WalkManager : MonoBehaviour
     {
         if (t.correct)
         {
+            currTile = t;
             t.pressAnimation();
 
             addLetterToTopWord(t);
@@ -235,14 +245,43 @@ public class WalkManager : MonoBehaviour
             if (onIncorrectChoice())
             {
                 GameManagerSc.signifyWrongStep();
+                yield return drawbackCharacter(currTile);
             }
         }
 
         yield return null;
     }
 
+    IEnumerator drawbackCharacter(Tile backToTile)
+    {
+        float steps = 20;
+        float timeSec = 0.4f;
+
+        Vector3 start = playerCharacter.transform.position;
+        Vector3 target = new Vector3(backToTile.absolutePosition.Item1, 0.5f, backToTile.absolutePosition.Item2);
+
+        // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
+        yield return prepareNextMovement(backToTile);
+
+        this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
+        this.playerAnimator.SetBool("Moving", true);
+
+        for (float i = 0; i <= steps; i++)
+        {
+            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        // Will stop movement immediately
+        queuedMoves.Clear();
+        this.playerAnimator.SetBool("Moving", false);
+        this.playerAnimator.SetTrigger("Idle");
+
+        isActivelyMoving = false;
+        preventMovement = false;
+    }
+
     //TODO direction needs to be accounted for
-    // TODO clearLevel needs to exclusively run after moveLevel() or when moveLevel is guaranteed not running
     IEnumerator clearLevel(int direction)
     {
         playerAnimator.SetBool("Moving", true);
@@ -262,7 +301,29 @@ public class WalkManager : MonoBehaviour
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
 
+        playerAnimator.SetBool("Moving", false);
         playerAnimator.SetTrigger("WinRound");
+        yield return null;
+    }
+
+    IEnumerator walkIntoNextLevel(int direction)
+    {
+        playerAnimator.SetBool("Moving", true);
+        playerAnimator.SetInteger("Direction", direction);
+
+        float steps = 50;
+        float timeSec = 1f;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            playerCharacter.transform.position = Vector3.Lerp(ledgeEndingPlayerPos, endingPlayerPos, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        playerAnimator.SetInteger("Direction", 1);
+        playerAnimator.SetTrigger("Idle");
+        playerAnimator.ResetTrigger("WinRound");
+        readyForNextLevelGen.Invoke();
         yield return null;
     }
 
@@ -278,7 +339,6 @@ public class WalkManager : MonoBehaviour
         //Debug.Log("Clicked");
         if(possibleNext.Contains(t) && !preventMovement)
         {
-            //TODO make it an animation
             queuedMoves.Enqueue(t);
         }
         else

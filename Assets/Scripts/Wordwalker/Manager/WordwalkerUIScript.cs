@@ -93,7 +93,7 @@ public class WordwalkerUIScript : MonoBehaviour
 
     public void ResetPostgamePosition()
     {
-        StopCoroutine(fadeClueScroll());
+        //StopCoroutine(fadeClueScroll());
         postgame.transform.localPosition = postgameAnimationStart;
         gameOver.transform.localPosition = postgameAnimationStart;
         topBar.transform.localPosition = topBarAnimationStart;

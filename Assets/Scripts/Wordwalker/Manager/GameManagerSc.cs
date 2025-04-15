@@ -39,6 +39,7 @@ public class GameManagerSc : MonoBehaviour
         StartCoroutine(WordGen.LoadAsset("worddbs/" + database, database));
 
         SceneManager.sceneLoaded += onReentry;
+        WalkManager.readyForNextLevelGen += goToNextLevel;
     }
 
     private void Update()
@@ -83,6 +84,14 @@ public class GameManagerSc : MonoBehaviour
 
             Debug.Log("Starting the game");
             checkingManagerGreenlights = false;
+
+            //Last thing to do, reset the greenlights to allow for "reloading" the scene in the same way upon next startup.
+            WalkManager.greenlight = false;
+            WordwalkerUIScript.greenlight = false;
+            TilemapGen.greenlight = false;
+            PlayerManager.greenlight = false;
+            WordGen.greenlight = false;
+
             goToNextLevel();
         }
     }
