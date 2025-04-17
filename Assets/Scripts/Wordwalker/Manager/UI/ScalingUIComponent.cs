@@ -183,6 +183,15 @@ public class ScalingUIComponent : MonoBehaviour
         Vector2 thisOldDims = new Vector2(resizeMeAndMyKids.rect.width, resizeMeAndMyKids.rect.height);
         resizeMeAndMyKids.anchoredPosition *= ratio;
         resizeMeAndMyKids.sizeDelta *= ratio;
+
+        // if the object has a MeshRenderer it is a 3D object and so we need to adjust its scale.
+        if(resizeMeAndMyKids.transform.GetComponent<ScalingUIAnchor>() != null)
+        {
+            //Dont forget to scale Z too- it would get lost if you only used the Vector2 ratio
+            float tempZ = resizeMeAndMyKids.localScale.z * ratio.x;
+            resizeMeAndMyKids.localScale = new Vector3(resizeMeAndMyKids.localScale.x * ratio.x, resizeMeAndMyKids.localScale.y * ratio.y, tempZ);
+            return;
+        }
         Vector2 thisNewDims = new Vector2(resizeMeAndMyKids.rect.width, resizeMeAndMyKids.rect.height);
 
         // A side effect: If this component is text you must scale the font size accordingly

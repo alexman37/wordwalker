@@ -31,6 +31,9 @@ public class TopBarUI : MonoBehaviour
     private Color red = new Color(153f / 255f, 72f / 255f, 63f / 255f);
     private Color gray = new Color(100f / 255f, 100f / 255f, 100f / 255f);
 
+    // How far apart are the tiles in post game? (Depends on their scaled size.)
+    private float tileVisSize = 0.06f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,7 +104,7 @@ public class TopBarUI : MonoBehaviour
         for(int i = 0; i < currProgressVis.Count; i++)
         {
             GameObject tile = currProgressVis[i];
-            float x = (-0.08f * (currProgressVis.Count - 1)) + (0.16f * i);
+            float x = (-tileVisSize * (currProgressVis.Count - 1)) + (tileVisSize * 2 * i);
             tile.GetComponent<RectTransform>().localPosition = new Vector3(x, 0f, -0.25f);
             tile.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, 0f, -0.25f);
         }
@@ -166,7 +169,7 @@ public class TopBarUI : MonoBehaviour
         for (int i = 0; i < answerVis.Count; i++)
         {
             GameObject tile = answerVis[i];
-            float x = (-0.08f * (answerVis.Count - 1)) + (0.16f * i);
+            float x = (-tileVisSize * (answerVis.Count - 1)) + (tileVisSize * 2 * i);
             tile.GetComponent<RectTransform>().localPosition = new Vector3(x, 0, -0.25f);
             tile.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, 0f, -0.25f);
             tile.transform.localScale = baseTileVis.transform.localScale;
