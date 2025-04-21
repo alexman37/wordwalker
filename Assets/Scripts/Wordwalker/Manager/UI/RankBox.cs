@@ -10,8 +10,34 @@ public class RankBox : MonoBehaviour
     private Image upper;
     private Image lower;
     public Sprite[] spriteCycle;
-    private int currentRank = 2; // D
+    private int currentRank = 1; // D-
     public int[] scoreThresholds;
+
+    /// <summary>
+    /// Figure out which new rank you have with this score
+    /// </summary>
+    public void determineNewRank(int newScore)
+    {
+        int newRank = currentRank;
+
+        // Above a certain level it's just always the highest score
+        // Otherwise, use the highest available score
+        for(int i = 0; i < scoreThresholds.Length; i++)
+        {
+            if(i == scoreThresholds.Length - 1)
+            {
+                newRank = scoreThresholds.Length - 1;
+                break;
+            }
+            if(scoreThresholds[i] > newScore)
+            {
+                newRank = i - 1;
+                break;
+            }
+        }
+
+        StartCoroutine(rotateRank(newRank));
+    }
 
     IEnumerator rotateRank(int toNewRank)
     {
@@ -37,6 +63,7 @@ public class RankBox : MonoBehaviour
         else current.sprite = lower.sprite;
 
         theBox.transform.rotation = Quaternion.Euler(0, 0, 0);
+        currentRank = toNewRank;
     }
 
     // Start is called before the first frame update

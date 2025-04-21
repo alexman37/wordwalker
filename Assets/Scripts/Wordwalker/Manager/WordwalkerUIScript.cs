@@ -25,6 +25,9 @@ public class WordwalkerUIScript : MonoBehaviour
     private TextMeshProUGUI displayTotem;
     private int numLevels;
 
+    // The RankBox is also a part of stats
+    private RankBox rankBox;
+
     //TODO: not in final product
     public GameObject debugRegen;
 
@@ -32,9 +35,10 @@ public class WordwalkerUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        displayScore = critStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        displayScore = critStats.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         displayRoom = critStats.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         displayTotem = critStats.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        rankBox = critStats.transform.GetChild(0).GetChild(1).GetComponent<RankBox>();
 
         greenlight = true;
     }
@@ -54,9 +58,23 @@ public class WordwalkerUIScript : MonoBehaviour
         }
     }
 
-    public void ChangeScore(int newAmnt, int delta, bool adding)
+    public void ChangeScore(int oldAmnt, int delta, bool adding)
     {
-        displayScore.text = newAmnt.ToString();
+        StartCoroutine(steadyNumberIncrease(1f, 0.5f, oldAmnt, delta));
+        rankBox.determineNewRank(oldAmnt + delta);
+    }
+
+    IEnumerator steadyNumberIncrease(float takeTime, float delay, int oldAmnt, int delta)
+    {
+        float steps = 10;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            displayScore.text = ((int)(oldAmnt + (delta * (i / steps)))).ToString();
+
+            yield return new WaitForSeconds(1 / steps * takeTime);
+        }
+        displayScore.text = (oldAmnt + delta).ToString();
     }
 
     public void ChangeTotems(int newAmnt, int delta, bool adding)

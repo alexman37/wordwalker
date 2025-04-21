@@ -8,8 +8,8 @@ public class GameManagerSc : MonoBehaviour
 {
     private static int numLevels = 5; //TODO: Increase default
     private static int currLevel = 0;
-    private static int coins = 0;
     private static int totems = 0;
+    private static int score = 0;
 
     private static string database = "crossword";
     private static WordGen.Word[] wordList = new WordGen.Word[numLevels];
@@ -61,7 +61,7 @@ public class GameManagerSc : MonoBehaviour
     public static void setParametersOnStart(int numLvl, string db)
     {
         // Reset in-game variables to defaults
-        coins = 0;
+        score = 0;
         totems = 0;
         currLevel = 0;
 
@@ -144,9 +144,11 @@ public class GameManagerSc : MonoBehaviour
         return numLevels;
     }
 
-    public static void changeCoins(int amount, bool add)
+    public static void changeScore(int amount, bool add)
     {
-        coins = coins + (add ? amount : -amount);
+        int prior = score;
+        score = score + (add ? amount : -amount);
+        uiManager.ChangeScore(prior, amount, add);
     }
 
     public static void changeTotems(int amount, bool add)
@@ -155,9 +157,9 @@ public class GameManagerSc : MonoBehaviour
         uiManager.ChangeTotems(totems, amount, add);
     }
 
-    public static int getNumCoins()
+    public static int getScore()
     {
-        return coins;
+        return score;
     }
 
     public static int getNumTotems()
@@ -167,6 +169,7 @@ public class GameManagerSc : MonoBehaviour
 
     public static void signifyLevelWon()
     {
+        changeScore(100, true);
         levelWon.Invoke();
     }
 

@@ -11,11 +11,12 @@ using System;
 /// </summary>
 public class TopBarUI : MonoBehaviour
 {
-    // When the topbar is done the "rotateReveal" animation it'll be moved to the right position to line up with postgame/gameover
-    public static Action readyForPostgameAnimation;
+    private Image progressBar;
+    private Image answerBar;
 
     //For animation
     public Image container;
+    private Vector2 topBarAnimationOffsite; // Relative to BOTTOM
     private Vector2 topBarAnimationStart; // Relative to BOTTOM
     private Vector2 topBarAnimationDestWin; // Relative to TOP
     private Vector2 topBarAnimationDestLose; // Relative to TOP
@@ -37,7 +38,8 @@ public class TopBarUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        readyForPostgameAnimation += () => { };
+        progressBar = this.transform.GetChild(0).GetComponent<Image>();
+        answerBar = this.transform.GetChild(1).GetComponent<Image>();
 
         // Set scroll "start" and "dest" positions when scaling finishes. Assume it wont take long
         // If done before we get a chance to subscribe to it just do so immediately
@@ -47,12 +49,14 @@ public class TopBarUI : MonoBehaviour
         container.GetComponent<ScalingUIComponent>().completedScaling += () =>
         {
             topBarAnimationStart = container.GetComponent<RectTransform>().anchoredPosition;
+            topBarAnimationOffsite = topBarAnimationStart + new Vector2(0, container.rectTransform.rect.height);
             topBarAnimationDestWin = new Vector2(0, -50);
             topBarAnimationDestLose = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
         };
         if (scalingComp.DONE)
         {
             topBarAnimationStart = container.GetComponent<RectTransform>().anchoredPosition;
+            topBarAnimationOffsite = topBarAnimationStart + new Vector2(0, container.rectTransform.rect.height);
             topBarAnimationDestWin = new Vector2(0, -50);
             topBarAnimationDestLose = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
         }
@@ -82,6 +86,12 @@ public class TopBarUI : MonoBehaviour
     /// <param name="ch">New letter</param>
     public void AddLetterToProgress(char ch)
     {
+        // If this is the very first tile then we also do the initialization animation
+        if(currProgressVis.Count == 0)
+        {
+            StartCoroutine(initializeAnimation());
+        }
+
         // Spawn new tile, set the letter
         GameObject next = Instantiate(baseTileVis);
         next.SetActive(true);
@@ -101,6 +111,7 @@ public class TopBarUI : MonoBehaviour
     // TODO: Adjust/resize the black bar as well
     void Readjust()
     {
+        progressBar.rectTransform.sizeDelta = new Vector2(progressBar.rectTransform.rect.width + tileVisSize * 2, 1);
         for(int i = 0; i < currProgressVis.Count; i++)
         {
             GameObject tile = currProgressVis[i];
@@ -115,7 +126,8 @@ public class TopBarUI : MonoBehaviour
     /// </summary>
     public void ResetBar()
     {
-        foreach(GameObject tile in currProgressVis)
+        progressBar.rectTransform.sizeDelta = new Vector2(0, 1);
+        foreach (GameObject tile in currProgressVis)
         {
             Destroy(tile);
         }
@@ -128,7 +140,7 @@ public class TopBarUI : MonoBehaviour
         answerVis.Clear();
 
         this.transform.rotation = Quaternion.Euler(0, 0, 0);
-        container.GetComponent<RectTransform>().anchoredPosition = topBarAnimationStart;
+        container.GetComponent<RectTransform>().anchoredPosition = topBarAnimationOffsite;
     }
 
     /// <summary>
@@ -175,7 +187,6 @@ public class TopBarUI : MonoBehaviour
             tile.transform.localScale = baseTileVis.transform.localScale;
         }
 
-        GameManagerSc.changeCoins(addCoins, true);
         GameManagerSc.changeTotems(addTotems, true);
     }
 
@@ -194,7 +205,6 @@ public class TopBarUI : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1);
-        readyForPostgameAnimation.Invoke();
     }
 
     private void postgameTransition()
@@ -205,6 +215,28 @@ public class TopBarUI : MonoBehaviour
     private void gameOverTransition()
     {
         StartCoroutine(gameOverTransitionCo(1));
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="delay"></param>
+    /// <returns></returns>
+    IEnumerator initializeAnimation()
+    {
+        float steps = 30;
+        float timeSec = 0.5f;
+
+        RectTransform rectTransform = container.GetComponent<RectTransform>();
+
+        for (float i = 0; i <= steps; i++)
+        {
+            rectTransform.anchoredPosition = UIUtils.XerpStandard(topBarAnimationOffsite,
+                    topBarAnimationStart,
+                    i / steps);
+
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
     }
 
     /// <summary>
@@ -264,7 +296,6 @@ public class TopBarUI : MonoBehaviour
     public void kickOffRotation()
     {
         StartCoroutine(rotateReveal());
-        readyForPostgameAnimation.Invoke();
     }
 
     /// <summary>
