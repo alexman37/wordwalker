@@ -1,0 +1,2 @@
+#Format:  ID|name|imagefile*|description*|highscore1,highscore2,highscore3,highscore4,highscore5
+crossword|Test Set||A test set of words provided generously by dr. gpt|

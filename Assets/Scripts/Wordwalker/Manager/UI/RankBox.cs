@@ -10,6 +10,7 @@ public class RankBox : MonoBehaviour
     private Image upper;
     private Image lower;
     public Sprite[] spriteCycle;
+    public Sprite deathSprite;
     private int currentRank = 1; // D-
     public int[] scoreThresholds;
 
@@ -66,6 +67,34 @@ public class RankBox : MonoBehaviour
         currentRank = toNewRank;
     }
 
+    /// <summary>
+    /// On death, rotate the rankbox to an appropriate sprite
+    /// </summary>
+    public void onDeath()
+    {
+        StartCoroutine(rotateToDeath());
+    }
+
+    IEnumerator rotateToDeath()
+    {
+        lower.sprite = deathSprite;
+
+        // Begin rotation animation - either up or down
+        float steps = 30;
+        float timeSec = 0.5f;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            theBox.transform.rotation = Quaternion.Euler(90 * (i / steps), 0, 0);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        current.sprite = lower.sprite;
+
+        theBox.transform.rotation = Quaternion.Euler(0, 0, 0);
+        currentRank = -1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +102,16 @@ public class RankBox : MonoBehaviour
         current = theBox.transform.GetChild(0).GetComponent<Image>();
         upper = theBox.transform.GetChild(1).GetComponent<Image>();
         lower = theBox.transform.GetChild(2).GetComponent<Image>();
+    }
+
+    private void OnEnable()
+    {
+        GameManagerSc.gameOver += onDeath;
+    }
+
+    private void OnDisable()
+    {
+        GameManagerSc.gameOver -= onDeath;
     }
 
     // Update is called once per frame
