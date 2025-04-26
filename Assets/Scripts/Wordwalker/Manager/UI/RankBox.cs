@@ -65,6 +65,28 @@ public class RankBox : MonoBehaviour
         return newRank;
     }
 
+    public Sprite getRankAsSprite(int score)
+    {
+        int newRank = 0;
+        // Above a certain level it's just always the highest score
+        // Otherwise, use the highest available score
+        for (int i = 0; i < scoreThresholds.Length; i++)
+        {
+            if (i == scoreThresholds.Length - 1)
+            {
+                newRank = scoreThresholds.Length - 1;
+                break;
+            }
+            if (scoreThresholds[i] > score)
+            {
+                newRank = i - 1;
+                break;
+            }
+        }
+
+        return spriteCycle[newRank];
+    }
+
     IEnumerator rotateRank(int toNewRank)
     {
         if (toNewRank == currentRank) yield break;

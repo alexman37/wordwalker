@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
-CRC: 2509479037
+CRC: 700952549
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: worddbs/letters/a
+      Name: worddbs/crossword
       Dependencies: {}
     Info_1:
-      Name: worddbs/letters/b
+      Name: worddbs/letters/a
       Dependencies: {}
     Info_2:
-      Name: worddbs/letters/c
+      Name: worddbs/letters/b
       Dependencies: {}
     Info_3:
-      Name: worddbs/crosstest
+      Name: worddbs/letters/c
       Dependencies: {}

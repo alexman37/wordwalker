@@ -10,20 +10,43 @@ public static class WordGen
     public class Word
     {
         public string word;
-        public string clue;
+        public string[] clues;
         public string definition; //TODO: could also be a picture
 
+        // Specified with only one clue
         public Word(string w, string c)
         {
             word = w;
-            clue = c;
+            clues = new string[] { c };
         }
 
         public Word(string w, string c, string d)
         {
             word = w;
-            clue = c;
+            clues = new string[] { c };
             definition = d;
+        }
+
+        //Specified with multiple clues
+        public Word(string w, string[] c)
+        {
+            word = w;
+            clues = c;
+        }
+
+        public Word(string w, string[] c, string d)
+        {
+            word = w;
+            clues = c;
+            definition = d;
+        }
+
+        /// <summary>
+        /// Get a random clue for this word, as there can be multiple clues associated with each
+        /// </summary>
+        public string getClue()
+        {
+            return clues[Random.Range(0, clues.Length)];
         }
 
         public override bool Equals(object obj)
@@ -44,6 +67,12 @@ public static class WordGen
         }
     }
 
+
+
+
+
+
+    // Set of related words.
     public class WordDatabase
     {
         private int size;
@@ -65,10 +94,14 @@ public static class WordGen
         {
             for (int i = 0; i < split.Length; i++)
             {
-                string[] val = split[i].Split('-');
+                string[] val = split[i].Split('|');
 
-                //TODO: better logic for separating these files - hyphen isn't good enough
-                words[i] = new Word(val[0].Trim().ToUpper(),  val[1].Trim());
+                //Element 0: The word itself (in preferred spelling)
+                //Element 1: All descriptions of the word separated by a slash (pick one)
+                //Element 2*: Hard bool
+                //Element 3*: Alternative spellings (accept these)
+                string[] allDescriptions = val[1].Trim().Split('/');
+                words[i] = new Word(val[0].Trim().ToUpper(), allDescriptions);
             }
         }
 

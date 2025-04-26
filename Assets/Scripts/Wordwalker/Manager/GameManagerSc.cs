@@ -55,7 +55,8 @@ public class GameManagerSc : MonoBehaviour
     {
         if (firstTimeWordsLoad != null)
         {
-            StartCoroutine(WordGen.LoadAsset("worddbs/" + firstTimeWordsLoad, firstTimeWordsLoad));
+            string[] nameOfFile = firstTimeWordsLoad.Split('/');
+            StartCoroutine(WordGen.LoadAsset("worddbs/" + firstTimeWordsLoad, nameOfFile[nameOfFile.Length - 1]));
             firstTimeWordsLoad = null;
         }
         if (checkingManagerGreenlights) managerSetup();

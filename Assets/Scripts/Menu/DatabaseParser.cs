@@ -27,7 +27,7 @@ public class DatabaseParser : MonoBehaviour
                 // Create a new database item from the data we have been given
                 string[] vars = currLine.Split('|');
                 // TODO: How to load these images in the first place? Should probably asset bundle...yup, i hate it too
-                Sprite pic = vars[3] != null && File.Exists(vars[2]) ? null : defaultImg;
+                Sprite pic = vars[3] != null && File.Exists(vars[1]) ? null : defaultImg;
                 string desc = vars[4]; // TODO better error handling
                 HighScore[] highScores = new HighScore[5];
                 string[] scores = vars[5].Split(';');
@@ -42,7 +42,7 @@ public class DatabaseParser : MonoBehaviour
                     }
                 }
                 
-                DatabaseItem item = new DatabaseItem(vars[0], vars[1], pic, desc, highScores);
+                DatabaseItem item = new DatabaseItem(vars[0], vars[2], pic, desc, highScores);
                 databaseSet[0].AddDatabase(item); //TODO which set
             }
 

@@ -52,7 +52,7 @@ public class TilemapGen : MonoBehaviour
         tileMap.Clear();
 
         //TODO: definitions currently aren't defined.
-        regenerate.Invoke(word.word, word.clue);
+        regenerate.Invoke(word.word, word.getClue());
         List<Tile> corrects = generateTriangle(word.word);
         setCorrects.Invoke(corrects);
     }

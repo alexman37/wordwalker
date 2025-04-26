@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DatabaseSet : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class DatabaseSet : MonoBehaviour
     public bool expanded;
     public Image expandedSprite;
     public GameObject itemsList;
+    public RankBox rankBox;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,25 @@ public class DatabaseSet : MonoBehaviour
 
     public void build()
     {
-        Debug.Log("Done");
+        RectTransform oldRect = itemsList.GetComponent<RectTransform>();
+        Vector2 oldPos = oldRect.anchoredPosition;
+        for (int i = 0; i < databases.Count; i++)
+        {
+            Debug.Log(databases[i].displayName);
+            GameObject nextEntry = Instantiate(itemsList.transform.GetChild(0).gameObject);
+
+            nextEntry.transform.SetParent(itemsList.transform);
+            nextEntry.GetComponent<RectTransform>().anchoredPosition = new Vector2(oldPos.x, oldPos.y - nextEntry.GetComponent<RectTransform>().rect.height * i);
+
+            // Set image, high score and name of DB in entry
+            nextEntry.transform.GetChild(0).GetComponent<Image>().sprite = databases[i].image;
+            nextEntry.transform.GetChild(1).GetComponent<Image>().sprite = rankBox.getRankAsSprite(databases[i].highestRank);
+            nextEntry.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = databases[i].displayName;
+
+            nextEntry.SetActive(true);
+            nextEntry.GetComponent<DBClick>().databaseData = databases[i];
+        }
+        itemsList.GetComponent<RectTransform>().sizeDelta = new Vector2(oldRect.rect.width, oldRect.rect.height + 60 * (databases.Count - 1));
     }
 
     public void AddDatabase(DatabaseItem database)

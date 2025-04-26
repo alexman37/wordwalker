@@ -2,3 +2,6 @@
 standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
 standard|test2|Test Set 2||This does not actually exist|
 standard|test3|Test Set 3||This does not actually exist|
+letters|letters/a|A (as in Aardvark)||Aha! All A's!|
+letters|letters/b|B (as in Barter)||B words|
+letters|letters/c|C (as in Cornfield)||C words|
