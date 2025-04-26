@@ -16,8 +16,6 @@ public class PostgameUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hi, my name is postgame and im about to crash out");
-        Debug.Log(this);
         rectTransform = GetComponent<RectTransform>();
         ScalingUIComponent scalingComp = GetComponent<ScalingUIComponent>();
         GetComponent<ScalingUIComponent>().completedScaling += () =>
@@ -46,8 +44,6 @@ public class PostgameUI : MonoBehaviour
 
     void postgameReset()
     {
-        Debug.Log("Resetting postgame, still crashing out");
-        Debug.Log(this);
         rectTransform.anchorMin = new Vector2(0.5f, 0);
         rectTransform.anchorMax = new Vector2(0.5f, 0);
         rectTransform.pivot = new Vector2(0.5f, 0);

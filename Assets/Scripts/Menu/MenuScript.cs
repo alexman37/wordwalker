@@ -9,7 +9,7 @@ public class MenuScript : MonoBehaviour
     public static event Action<int, string> newGame;
 
     public int numLevels = 5;
-    public string database = "crossword";
+    public string database;
 
     public GameObject titleCard;
     public GameObject playButtons;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DatabaseSet : MonoBehaviour
 {
-    private List<DatabaseItem> databases;
+    private List<DatabaseItem> databases = new List<DatabaseItem>();
     public bool expanded;
     public Image expandedSprite;
     public GameObject itemsList;
@@ -13,13 +13,18 @@ public class DatabaseSet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        databases = new List<DatabaseItem>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void build()
+    {
+        Debug.Log("Done");
     }
 
     public void AddDatabase(DatabaseItem database)
@@ -40,11 +45,11 @@ public class DatabaseSet : MonoBehaviour
         expanded = !expanded;
         if (expanded)
         {
-            StartCoroutine(rotateExpandedSprite(90));
+            StartCoroutine(rotateExpandedSprite(0));
             itemsList.SetActive(true);
         } else
         {
-            StartCoroutine(rotateExpandedSprite(0));
+            StartCoroutine(rotateExpandedSprite(90));
             itemsList.SetActive(false);
         }
     }
@@ -84,7 +89,7 @@ public class DatabaseItem
         image = pic;
         description = desc;
 
-        highestRank = scores != null ? scores[0].rank : -1;
+        highestRank = (scores != null && scores[0] != null) ? scores[0].rank : -1;
         highScores = new HighScoresList(scores);
     }
 }
@@ -110,5 +115,12 @@ public class HighScore
     public int value;
     public int rank;
     public string dateAchieved;
+
+    public HighScore(int value, int rank, string dateAchieved)
+    {
+        this.value = value;
+        this.rank = rank;
+        this.dateAchieved = dateAchieved;
+    }
 }
 

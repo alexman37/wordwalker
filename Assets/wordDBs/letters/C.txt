@@ -1,0 +1,597 @@
+CABBAGE|Leafy vegetable||
+CABINET|Group of ministers/Elevated kitchen drawer||
+CADAVER|Corpse, in medicine||
+CADENCE|Rhythm|h|
+CAFETERIA|Self-service restaurant/Eating area||
+CALAMITY|Lasting disaster||
+CALCIFY|Make inflexible, unchangeable|h|
+CALCULATE|Compute||
+CALCULATOR|Math class cheat code||
+CALENDAR|Date grid/Timekeeping system||
+CALIBRATE|Adjust||
+CALIPER|Measuring instrument for diameter|h|CALLIPER
+CALLING|Strong impulse to do something||
+CALLOUS|Hardened, thickened|h|CALLOUSE
+CAMCORDER|Old video camera|h|
+CAMERAMAN|Film shooter/Studio picture taker||
+CAMOUFLAGE|Blending disguise||
+CAMPAIGN|Organized effort||
+CAMPSITE|Tent location||
+CANCELLATION|Act of withdrawing, nixing|h|
+CANDIDATE|Political contender||
+CANISTER|Cylindrical container|h|
+CANNONBALL|Old ship ammunition/Fired from old artillery|h|
+CANNULA|Small tube for insertion|h|
+CANTEEN|Flask for liquids/Bar on an army base||
+CANVASS|Solicit votes or opinions|h|
+CAPABILITY|Means to accomplish||
+CAPACITOR|Electrical storage device|h|
+CAPACITY|Ability or volume||
+CAPARISON|Ornate covering for a horse|h|
+CAPILLARY|Tiny blood vessel|h|
+CAPITAL|Country's most important city/Accumulated goods/Available funds||
+CAPITALISE|Make letters bigger|h|CAPITALIZE
+CAPITALIST|Investor, entrepreneur||
+CAPITOL|Government meeting place|h|
+CAPITULATE|Surrender, give in||
+CAPRICE|Sudden, unexpeceted whim|h|
+CAPSIZE|Overturn a ship||
+CAPSULE|Small container||
+CAPTAIN|Military leader/Boat foreman||
+CAPTION|Explanatory subtext||
+CAPTIVATE|Fascinate||
+CAPTIVE|Prisoner||
+CAPTURE|Seize, Take||
+CARAMEL|Sweetened, browned sugar||
+CARAVAN|Group of travelers/Traveling salesmen||
+CARBONATE|Make a drink bubbly|h|
+CARBURETOR|Fuel mixer in an engine|h|CARBURETTOR
+CARCASS|Animal roadkill||
+CARCINOGEN|Cancer-causing substance|h|
+CARDHOLDER|User of plastic money|h|
+CARDIGAN|Knitted jacket||
+CARDINAL|Important/Redhead bird/N-S-E-W||
+CAREERISM|Putting work over integrity|h|
+CAREGIVER|Nurse, health aide|h|
+CARETAKER|Janitor, building custodian|h|
+CARICATURE|Exaggerated portrayal||
+CARMAKER|Automobile manufacturer||
+CARNATION|Type of flower|h|
+CARNIVAL|Festival, Fair||
+CARNIVORE|Meat-eating animal||
+CAROUSE|Drink heavily and party|h|
+CAROUSEL|Merry-go-round||
+CARPENTER|Woodworker||
+CARPETING|Fabric for floor covering|h|
+CARRIAGE|Horse-drawn vehicle||
+CARRIER|Transporter/Ship with planes||
+CARTOGRAPHER|Mapmaker||
+CARTOON|Drawing, comic strip||
+CARTOONIST|Comic artist||
+CARTRIDGE|Ammunition magazine||
+CARTWHEEL|Gymnastic move||
+CARVING|Sculpture in stone||
+CARYATID|Sculpted female figure|h|
+CASCADE|Waterfall/Succession of many events||
+CASEMENT|Window with hinges on side|h|
+CASHIER|Money handler||
+CASSEROLE|Round dish for cooking|h|
+CASSETTE|Film cartridge|h|CASETTE
+CASTIGATE|Subject to severe punishment|h|
+CASTING|Shaping metal||
+CASUALTY|Injured victim||
+CATACOMB|Underground cemetery||CATACOMBS
+CATALOGUE|Systematic list of items/Classify descriptively||CATALOG
+CATALYSE|Accelerate a chemical reaction||CATALYZE
+CATALYST|Agent of change||
+CATAMARAN|Sailboat with two hulls|h|
+CATAPULT|Ancient missile launcher/Rock-throwing machine||
+CATARACT|Waterfall/Eye clouding||
+CATASTROPHE|Monumental tragedy||
+CATCHER|Home plate ballplayer|h|
+CATCHPHRASE|Memorable slogan||
+CATEGORISE|Classify||CATEGORIZE
+CATEGORY|Class or group||
+CATERING|Food supplier's job||
+CATERPILLAR|Young butterfly||
+CATHEDRAL|Church||
+CATWALK|Narrow walkway||
+CAULDRON|Large pot||
+CAULIFLOWER|White vegetable||
+CAUSEWAY|Highway over water|h|
+CAUTION|Warning||
+CAVALCADE|Procession of horse riders|h|
+CAVALIER|Horseback renegade||
+CAVALRY|Horseback army||
+CAVEMAN|Prehistoric human||
+CEASEFIRE|End of hostilities|h|
+CEILING|Roof/Floor of the next room||
+CELEBRATE|Commemorate||
+CELEBRATION|Festivity||
+CELEBRITY|Famous person||
+CELLPHONE|Portable smart device|h|
+CEMETERY|Graveyard||
+CENSURE|Official reprimand|h|
+CENTAUR|Mythical horseman||
+CENTENARIAN|Person aged 100 or over|h|
+CENTERPIECE|Main feature||CENTREPIECE
+CENTIMETER|One hundredth of a stick|h|CENTIMETRE
+CENTIPEDE|Many-legged insect||
+CENTRALISE|Concentrate power||CENTRALIZE
+CENTRIFUGE|Machine that separates substances|h|
+CENTRIST|Political moderate||
+CENTURY|One hundred years||
+CERAMIC|Clay product||
+CEREMONY|Formal festival||
+CERTAINTY|Guarantee||
+CERTIFICATE|Voucher, award document/Qualification, diploma||
+CERTIFY|Confirm, authorize||
+CESSPOOL|Filthy, corrupt place|h|
+CETACEAN|Whale or dolphin|h|
+CHAFFINCH|Garden songbird|h|
+CHAINSAW|Tree cutter||
+CHAIRMAN|Head of a committee|h|
+CHALICE|Communion cup|h|
+CHALLENGE|Test, Dare||
+CHAMBER|Room, Dungeon||
+CHAMELEON|Color-changing lizard|h|
+CHAMPAGNE|Sparkling wine|h|
+CHAMPION|Grand winner||
+CHAMPIONSHIP|Final round of competition/Winner take all game||
+CHANCELLOR|Chief minister, in some countries|h|
+CHANDELIER|Ornamental hanging light|h|
+CHANGELING|Child secretly exchanged for another|h|
+CHANNEL|Narrow waterway/TV station||
+CHAPERONE|Field trip escort/Parental supervisor||
+CHAPTER|Book division/Phase of life||
+CHARABANC|Sightseeing motor coach|h|
+CHARACTER|Person in a story/Attitude, distinguishing qualities||
+CHARACTERISTIC|Distinguishing trait||
+CHARACTERIZE|Describe, as a person|h|CHARACTERISE
+CHARDONNAY|Type of white wine|h|
+CHARGER|Battery replenishment device||
+CHARIOT|Ancient racecar|h|
+CHARISMA|The kids call it 'rizz'/Attractive personality||
+CHARITY|Kindness, Generosity/Donation organization||
+CHARLATAN|Fraud, pretender|h|
+CHARTER|Document granting privileges|h|
+CHASTEN|Correct by punishment, prune|h|
+CHASTISE|Inflict punishment on|h|
+CHATTER|Gossip/Talk rapidly||
+CHAUFFEUR|Hired driver|h|
+CHEAPEN|Reduce in price||
+CHECKBOOK|Book of bank order notes|h|CHEQUEBOOK
+CHECKER|Pattern of squares||CHEQUER
+CHECKLIST|To-do itinerary||
+CHECKOUT|Bagging area|h|
+CHECKPOINT|Security station/Save spot, in a game||
+CHEEKBONE|Facial feature||
+CHEERLEADER|Supporter/Ballgame entertainer||
+CHEESECAKE|Dessert||
+CHEETAH|Fast cat||
+CHELONIAN|Turtle or tortoise|h|
+CHEMICAL|Scientific substance||
+CHEMIST|Periodic table studier||
+CHERISH|Treasure, Hold sacred||
+CHEROOT|Cigar|h|
+CHEVRON|V-shaped object|h|
+CHICANERY|Clever trickery, Subterfuge|h|
+CHICKEN|Hen, rooster/Most common farm animal||
+CHIEFTAIN|Leader||
+CHILDHOOD|Early years||
+CHILDMIND|Childcare||
+CHILDREN|Young people||
+CHIMNEY|Fireplace pipe/Flame exhaust||
+CHIMPANZEE|Ape||
+CHLORINE|Poisonous halogen|h|
+CHLOROPLAST|Part of a plant cell|h|
+CHOCOLATE|Sweet treat/Classic dessert||
+CHOPSTICK|Eating utensil||
+CHOREOGRAPH|Plan dance movements||
+CHORTLE|Laugh, snicker|h|
+CHRISTMAS|Year-ending holiday||
+CHROMOSOME|Thread-like cell|h|
+CHRONICLE|Record of events||
+CHRONOLOGY|Sequence of events|h|
+CHUCKLE|Laugh quietly||
+CIGARETTE|Tobacco product||
+CIRCUIT|Electric current path/Electricity pipe||
+CIRCULAR|Round||
+CIRCULATE|Move around||
+CIRCULATION|Movement of blood||
+CIRCUMFERENCE|Distance around circles|h|
+CIRCUMNAVIGATE|Sail around|h|
+CIRCUMSTANCE|Condition||
+CIRCUMVENT|Avoid||
+CISTERN|Water tank|h|
+CITADEL|Fortress||
+CITATION|Reference|h|
+CITIZEN|Member of a country||
+CIVILIAN|Member of the public||
+CIVILISATION|Society, culture||CIVILIZATION
+CIVITATE|City-state|h|
+CLAMBER|Scale with difficulty/Ascend on all fours|h|
+CLAMOR|Loud commotion||CLAMOUR
+CLAPPER|Ringing part of a bell|h|
+CLARIFICATION|Explanation/Added context||
+CLARIFY|Remove confusion||
+CLARINET|Woodwind instrument||
+CLASSIC|Old-school/Timeless original||
+CLASSIFICATION|Organized division||
+CLASSIFY|Categorize/Make secret||
+CLASSMATE|School friend||
+CLASSROOM|Where teaching happens||
+CLATTER|Loud series of noises|h|
+CLEANER|Stain specialist||
+CLEANSE|Purify||
+CLEARANCE|Retail fire sale/Access to secrets|h|
+CLEARING|Open space||
+CLERGYMAN|Minister of religion|h|
+CLIFFTOP|Plateau|h|
+CLIMATE|Weather conditions||
+CLIMBER|Mountain hiker||
+CLIPBOARD|Paper holder/Writing board||
+CLIPPER|Fast sailing ship|h|
+CLOBBER|Hit hard/Pummel||
+CLOSURE|A finish, an ending||
+CLOTHWORKER|Textiles expert|h|
+CLUSTER|Group/Related bunch||
+CLUTTER|Disorderly mess||
+COAGULATE|Clot blood|h|
+COALESCE|Fuse, unify||
+COALITION|Alliance||
+COARSEN|Make rough||
+COASTER|Small drink plate||
+COASTLINE|Beaches/Ocean's neighbor||
+COATING|Paint layer||
+COBBLESTONE|Rounded rocks|h|
+COCKPIT|Pilot's quarters/Plane driver's seat||
+COCKROACH|Gross bug||
+COCKTAIL|Mixed drink||
+COCONUT|Tropical fruit||
+CODENAME|Secret alias|h|
+CODICIL|Addition to a will|h|
+COEFFICIENT|Constant multiplier|h|
+COEXIST|Live together peacefully||
+COFACTOR|Enzyme catalyst|h|
+COGNITION|Acquiring of knowledge|h|
+COHABIT|Live together|h|
+COINCIDE|Happen in tandem/Coincidentally synchronize|h|
+COINCIDENCE|Chance occurrence|h|
+COLLABORATE|Work together||
+COLLABORATION|Joint effort||
+COLLAGE|Mixed artwork|h|
+COLLAPSE|Fall down suddenly/Implode||
+COLLATE|Sort papers|h|
+COLLEAGUE|Coworker/Partner in business|h|
+COLLECT|Gather||
+COLLECTABLE|Sought-after item/Like stamps, or coins||COLLECTIBLE
+COLLECTION|Group of items/Bringing together|h|
+COLLECTIVE|Commune/Shared community|h|
+COLLEGE|University/Higher education||
+COLLIDE|Crash/Run into||
+COLLIER|Coal miner|h|
+COLLISION|Crash||
+COLLOCATE|Place together|h|
+COLLOID|Gelatinous mixture|h|
+COLLUDE|Conspire||
+COLONEL|Just below a general|h|
+COLONNADE|Row of columns|h|
+COLORANT|Dye, pigment|h|COLOURANT
+COLOSSAL|Huge|h|
+COLUMNIST|Newspaper writer|h|
+COMBATANT|Fighter||
+COMBINATION|Safe code/Mixture||
+COMBINE|Join together||
+COMBUST|Burst into flames||
+COMEBACK|Return, rally||
+COMEDIAN|Jokester/Funny entertainer||
+COMFORT|Ease, relief||
+COMMAND|Order, instruct/High authority||
+COMMANDEER|Robbery, to soldiers/Pirates did it||
+COMMANDER|Chief, leader||
+COMMANDMENT|Divine rule|h|
+COMMANDO|Special forces soldier|h|
+COMMEMORATION|Celebration|h|
+COMMENCE|Begin||
+COMMEND|Praise||
+COMMENT|Remark||
+COMMENTARY|Supplemtary explanation/Play by play||
+COMMERCIAL|Advertisement||
+COMMISERATE|Sympathize with|h|
+COMMISSION|Artistic request/Art fee||
+COMMISSIONER|League head|h|
+COMMITMENT|Dedication||
+COMMITTEE|Group of appointees||
+COMMODE|Chest of drawers|h|
+COMMODITY|Item of trade||
+COMMONALITY|Shared quality||
+COMMONER|Ordinary person/Peasant||
+COMMONPLACE|Happens all the time||
+COMMUNICATE|Share information||
+COMMUNITY|People living together||
+COMMUTE|Scheduled travel||
+COMPACT|Small and neat||
+COMPANION|Friend||
+COMPANY|Firm, business||
+COMPARE|And contrast||
+COMPARTMENT|Section||
+COMPARTMENTALIZE|To separate, in psychology|h|COMPARTMENTALISE
+COMPASS|Navigation instrument/Northward pointer||
+COMPATIBLE|Getting along well||
+COMPATRIOT|Fellow countryman||
+COMPENDIUM|Summary|h|
+COMPENSATE|Pay back||
+COMPETE|Strive, Vie for||
+COMPETENCE|Ability||
+COMPETITION|Contest, Tournament||
+COMPILATION|Collection||
+COMPILER|Code aggregator|h|
+COMPLAIN|Grumble||
+COMPLAINT|Grievance||
+COMPLEMENT|Express approval||
+COMPLETE|Finish/It's all done||
+COMPLEX|Intricate, convoluted/Secret compound|h|
+COMPLICATE|Make more difficult||
+COMPLIMENT|Praise||
+COMPONENT|Machine part||
+COMPOSE|Create music||
+COMPOSITE|Made up of smaller parts|h|
+COMPOST|Organic fertilizer||
+COMPOUND|Mixture/Prison||
+COMPREHEND|Understand||
+COMPREHENSIVE|Thorough||
+COMPRESS|Squeeze/Shorten||
+COMPRISE|Consist of||
+COMPROMISE|Settle a dispute||
+COMPULSION|Strong urge|h|
+COMPUTE|Calculate||
+COMPUTER|Electronic device/You're on one||
+COMRADE|Friend/Fellow worker||
+CONCATENATE|Link together|h|
+CONCEAL|Hide/Stow away||
+CONCEDE|Admit defeat||
+CONCEIT|Excessive pride|h|
+CONCEIVE|Imagine||
+CONCENTRATE|Focus||
+CONCEPT|Idea||
+CONCEPTION|Formation of an idea/Birth||
+CONCERN|Worry||
+CONCERT|Musical performance||
+CONCESSION|Granted item/Stadium snack|h|
+CONCIERGE|Hotel assistant|h|
+CONCILIATE|Appease, win over|h|
+CONCLUDE|Finish||
+CONCLUSION|Story's end||
+CONCOCT|Brew up|h|
+CONCOMITANT|Accompanying something else|h|
+CONCORDANCE|Agreement, harmony|h|
+CONCRETE|Stone material||
+CONCUBINE|Mistress|h|
+CONCUSS|Knock unconscious||
+CONDEMN|Criticize||
+CONDEMNATION|Strong criticism|h|
+CONDENSE|Pack into||
+CONDESCEND|Patronize/Talk down to|h|
+CONDIMENT|Spice, Topping||
+CONDITION|State, Overall being||
+CONDOLENCE|Sympathy|h|
+CONDONE|Tolerate behavior||
+CONDUCT|Way of carrying oneself||
+CONDUCTOR|Leader/Train pilot||
+CONDUIT|Pipe or channel|h|
+CONFECTION|Sweet food|h|
+CONFERENCE|Meeting||
+CONFESS|Admit guilt||
+CONFIDANT|Trusted friend|h|
+CONFIDENCE|Belief in self||
+CONFIGURATION|Particular arrangement|h|
+CONFIGURE|Arrange, tweak||
+CONFINE|Restrict||
+CONFIRM|Verify||
+CONFISCATE|Seize||
+CONFLATE|Merge two things|h|
+CONFLICT|Fight, battle||
+CONFORM|Comply, submit to||
+CONFOUND|Confuse||
+CONFRONTATION|Face-to-face encounter||
+CONFUSE|Bewilder||
+CONGEAL|Solidify||
+CONGESTION|Crowding||
+CONGLOMERATE|Large corporation|h|
+CONGRATULATE|Praise||
+CONGREGATE|Gather, meet with others|h|
+CONGRESS|Legislative body||
+CONGRUENCE|Agreement, Parallelism|h|
+CONIFER|Cone-bearing tree|h|
+CONJECTURE|Guess, hypothesis|h|
+CONJOIN|Fuse together|h|
+CONJUNCTION|And, but, if||
+CONJURE|Magic trick||
+CONNECT|Join||
+CONNECTION|Link||CONNEXION
+CONNIVE|Conspire|h|
+CONNOISSEUR|Expert||
+CONNOTATION|Implied meaning||
+CONQUER|Take over|h|
+CONSCIENCE|Moral sense|h|
+CONSCIOUSNESS|Awareness, awakeness||
+CONSCRIPT|Draft/Drafted soldier||
+CONSECRATE|Dedicate, sacredly|h|
+CONSENT|Agreement||
+CONSEQUENCE|Result|h|
+CONSERVATIONIST|Environmentalist|h|
+CONSERVATIVE|Traditionalist||
+CONSERVATORY|Music or art school|h|
+CONSERVE|Preserve||
+CONSIDER|Think about/Ponder|h|
+CONSIST|Composed of||
+CONSOLE|Gaming device/Help through||
+CONSOLIDATE|Combine, aggregate||
+CONSORTIUM|Group of companies||
+CONSPIRACY|Secret plan/Crackpot theory|h|
+CONSPIRE|Plot behind backs||
+CONSTABLE|Old school police||
+CONSTANT|Unchanging||
+CONSTELLATION|Group of stars||
+CONSTITUENCY|Group of voters|h|
+CONSTITUTE|Make up of||
+CONSTITUTION|Country's set of rules|h|
+CONSTRAINT|Restriction||
+CONSTRUCT|Build||
+CONSTRUE|Interpret||
+CONSULATE|Diplomatic office||
+CONSULT|Seek advice||
+CONSUMABLE|Usable item||
+CONSUMER|Buyer, customer||
+CONSUMMATE|Bring to perfection|h|
+CONTACT|Touch||
+CONTAIN|Hold, isolate||
+CONTAMINATE|Pollute||
+CONTEMPLATE|Meditate, weigh decision||
+CONTEMPORARY|Existing at same time|h|
+CONTEMPT|Scorn||
+CONTEND|Argue||
+CONTENT|Satisfied/Substance within||
+CONTEST|Competition/Object to||
+CONTESTANT|Gameshow hopeful||
+CONTEXT|Setting, background||
+CONTINENT|Landmass||
+CONTINGENCY|Chance event|h|
+CONTINGENT|Dependent|h|
+CONTINUE|Go on||
+CONTINUITY|Uninterrupted sequence|h|
+CONTORT|Twist||
+CONTOUR|Figure outline/Elevation map line|h|
+CONTRACT|Agreement/Shrink||
+CONTRADICT|Deny, proclaim the opposite||
+CONTRAPTION|Complex device|h|
+CONTRAST|Difference||
+CONTRAVENE|Go against, violate|h|
+CONTRIBUTE|Give, add to||
+CONTRIVE|Devise cleverly|h|
+CONTROL|Power over||
+CONTROVERSY|Public dispute|h|
+CONUNDRUM|Riddle, problem|h|
+CONVALESCE|Recover after illness|h|
+CONVENE|Gather||
+CONVENIENCE|Ease|h|
+CONVENTION|Meetup of the like-minded||
+CONVERGE|Come together||
+CONVERSATION|Talking||
+CONVERT|Change to/One who has changed||
+CONVEYOR|Transporter/Moving belt||
+CONVICT|Find guilty/Criminal||
+CONVICTION|Strong belief||
+CONVINCE|Persuade||
+CONVOCATION|Formal gathering|h|
+CONVOLUTE|Coil up|h|
+CONVULSE|Shake violently|h|
+COOKBOOK|Recipes manual|h|
+COOPERATE|Work together||
+COORDINATE|Organize||
+COPYRIGHT|Creative protection/The 'C' in a circle|h|
+CORDUROY|Cotton fabric|h|
+CORINTHIAN|Greek architectural style|h|
+CORKSCREW|Tool for opening bottles|h|
+CORMORANT|Large seabird|h|
+CORNERSTONE|Place to look for a date|h|
+CORNICE|Decorative molding|h|
+COROLLARY|Logical consequence|h|
+CORONATION|Crowning of a monarch|h|
+CORONER|Autopsy provider|h|
+CORPORATION|Company||
+CORPOREAL|Material, tangible|h|
+CORRECT|Right/What you're hoping for||
+CORRECTION|Fixing of a mistake||
+CORRESPOND|Communicate||
+CORRIDOR|Passageway|h|
+CORROBORATE|Confirm testimony|h|
+CORRODE|Decay|h|
+CORRUGATE|Fold, wrinkle|h|
+CORRUPT|Immoral, selfish||
+COSMETIC|Beauty product||
+COSMOLOGY|Study of the universe|h|
+COSMOPOLITAN|Universally sophisticated|h|
+COSTERMONGER|Vegetable vendor|h|
+COSTUME|Outfit, disguise||
+COTTAGE|Small hut||
+COUNCIL|Governing body||
+COUNTENANCE|Facial expression|h|
+COUNTER|Hard table/Contrary to/Numbers tracker||
+COUNTERACT|Act in opposition to||
+COUNTERATTACK|Responsive military action|h|
+COUNTERFEIT|Fake, fraudulent|h|
+COUNTERMAND|Revoke, cancel|h|
+COUNTERMEASURE|Defensive action, plan|h|
+COUNTERPART|Equivalent person||
+COUNTRY|Nation||
+COUPLER|Connector||
+COUPLET|Pair of lines of verse|h|
+COURIER|Messenger, mailman||
+COURTESY|Politeness||
+COURTROOM|Room of judgment||JUDGEMENT
+COURTYARD|Enclosed outdoors||
+COVENANT|Agreement, promise|h|
+COVERAGE|Attention from press||
+COWORKER|Colleague||
+CRACKER|Crisp biscuit||
+CRACKLE|Firework sound||
+CRAFTSMAN|Skilled artisan||
+CRANBERRY|Red fruit|h|
+CRAVING|Strong desire||
+CREATURE|Living being||
+CREDITOR|Person owed money|h|
+CREMATION|Alternative to burial||
+CRESCENDO|Gradual increase in loudness|h|
+CRESCENT|Moon-shaped||
+CREVICE|Deep crack in ice or land||CREVASSE
+CREWMAN|Sailor|h|
+CRICKET|Nighttime insect/Popular sport in India||
+CRIMINAL|Lawbreaker||
+CRIPPLE|Disable legs||
+CRISSCROSS|In grid formation|h|
+CRITERIA|Standard, rubric||CRITERION
+CRITICISE|Find fault with||CRITICIZE
+CROCHET|Sewing, needlework||CROCHETE
+CROCODILE|Large, tropical reptile||
+CROISSANT|French pastry|h|
+CROPPER|Farmer|h|
+CROSSBONES|Pirate's symbol||
+CROSSBOW|Medieval ranged weapon||
+CROSSING|Street walkway||
+CROSSOVER|Intersection, in fiction|h|
+CROSSWORD|Newspaper puzzle||
+CROUTON|Salad topping|h|
+CRUDITY|Rudeness||
+CRUELTY|Malicious intent||
+CRUMBLE|Break into small pieces|h|
+CRUMPLE|Crush paper|h|
+CRUNCHY|Crisp||
+CRUSTACEAN|Crab or lobster|h|
+CRYPTOGRAM|Ciphered puzzle|h|
+CRYSTAL|Clear, transparent stone||
+CUBICLE|Small office space/Office prison||
+CUCUMBER|Pickle predecessor||
+CUISINE|Style of cooking|h|
+CULMINATE|Reach the peak||
+CULPRIT|Who is to blame||
+CULTIVATE|Grow, nourish||
+CULTURE|Society or way of life||
+CULVERT|Roadside drain|h|
+CUPBOARD|Cabinet|h|
+CURATOR|Museum manager|h|
+CURIOUS|Inquisitive, full of wonder||
+CURRENCY|Money||
+CURRENT|Flow, stream/Happening now||
+CURRICULUM|All school subjects|h|
+CURTAIL|Reduce|h|
+CURTAIN|Window cloth||
+CUSHION|Soft pad||
+CUSTODIAN|Guardian/Janitor|h|
+CUSTOMER|Buyer, shopper||
+CUSTOMIZE|Tailor for personal use||
+CYBERNETIC|Relating to technology|h|
+CYCLIST|Bike rider||
+CYCLONE|Tropical storm|h|
+CYLINDER|Shape of a can||

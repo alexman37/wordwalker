@@ -12,32 +12,57 @@ public class RankBox : MonoBehaviour
     public Sprite[] spriteCycle;
     public Sprite deathSprite;
     private int currentRank = 1; // D-
-    public int[] scoreThresholds;
+
+    public static int[] scoreThresholds = new int[] { 
+        -10000,
+        0,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000
+    };
 
     /// <summary>
     /// Figure out which new rank you have with this score
     /// </summary>
     public void determineNewRank(int newScore)
     {
-        int newRank = currentRank;
-
         // Above a certain level it's just always the highest score
         // Otherwise, use the highest available score
-        for(int i = 0; i < scoreThresholds.Length; i++)
+        int newRank = getRank(newScore);
+
+        StartCoroutine(rotateRank(newRank));
+    }
+
+    public static int getRank(int score)
+    {
+        int newRank = 0;
+        // Above a certain level it's just always the highest score
+        // Otherwise, use the highest available score
+        for (int i = 0; i < scoreThresholds.Length; i++)
         {
-            if(i == scoreThresholds.Length - 1)
+            if (i == scoreThresholds.Length - 1)
             {
                 newRank = scoreThresholds.Length - 1;
                 break;
             }
-            if(scoreThresholds[i] > newScore)
+            if (scoreThresholds[i] > score)
             {
                 newRank = i - 1;
                 break;
             }
         }
 
-        StartCoroutine(rotateRank(newRank));
+        return newRank;
     }
 
     IEnumerator rotateRank(int toNewRank)

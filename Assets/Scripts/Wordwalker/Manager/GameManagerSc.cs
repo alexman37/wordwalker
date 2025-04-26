@@ -11,7 +11,7 @@ public class GameManagerSc : MonoBehaviour
     private static int totems = 0;
     private static int score = 0;
 
-    private static string database = "crossword";
+    private static string firstTimeWordsLoad = null;
     private static WordGen.Word[] wordList = new WordGen.Word[numLevels];
 
     public static TilemapGen Tilemap;
@@ -37,8 +37,6 @@ public class GameManagerSc : MonoBehaviour
         //unfortunately the only way i can think of
         Tilemap = FindObjectOfType<TilemapGen>();
         uiManager = FindObjectOfType<WordwalkerUIScript>();
-
-        StartCoroutine(WordGen.LoadAsset("worddbs/" + database, database));
     }
 
     private void OnEnable()
@@ -55,6 +53,11 @@ public class GameManagerSc : MonoBehaviour
 
     private void Update()
     {
+        if (firstTimeWordsLoad != null)
+        {
+            StartCoroutine(WordGen.LoadAsset("worddbs/" + firstTimeWordsLoad, firstTimeWordsLoad));
+            firstTimeWordsLoad = null;
+        }
         if (checkingManagerGreenlights) managerSetup();
     }
 
@@ -67,7 +70,7 @@ public class GameManagerSc : MonoBehaviour
 
         Debug.Log("Setting parameters");
         numLevels = numLvl;
-        database = db;
+        firstTimeWordsLoad = db;
 
         // We'll also have to rebuild everything in the scene
         checkingManagerGreenlights = true;
@@ -132,11 +135,6 @@ public class GameManagerSc : MonoBehaviour
             Tilemap.regenerateTileMap(wordList[currLevel - 1]);
             levelReady.Invoke();
         }
-    }
-
-    public static string getWordDB()
-    {
-        return database;
     }
 
     public static int getNumLevels()

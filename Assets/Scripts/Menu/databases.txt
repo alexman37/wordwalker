@@ -1,0 +1,4 @@
+#Format:  inGroup|ID|name|imagefile*|description*|highscore1;highscore2;highscore3;highscore4;highscore5
+standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
+standard|test2|Test Set 2||This does not actually exist|
+standard|test3|Test Set 3||This does not actually exist|

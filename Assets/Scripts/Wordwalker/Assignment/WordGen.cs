@@ -167,21 +167,27 @@ public static class WordGen
     {
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "AssetBundles");
         filePath = System.IO.Path.Combine(filePath, assetBundleName);
+        Debug.Log("Attempting to load " + filePath);
 
         //Load designated AssetBundle (word group)
         var assetBundleCreateRequest = AssetBundle.LoadFromFileAsync(filePath);
         yield return assetBundleCreateRequest;
+        Debug.Log(assetBundleCreateRequest);
 
         AssetBundle assetBundle = assetBundleCreateRequest.assetBundle;
+        Debug.Log(assetBundle);
 
         //Load the text file proper
         AssetBundleRequest asset = assetBundle.LoadAssetAsync<TextAsset>(objectNameToLoad);
         yield return asset;
+        Debug.Log(asset);
+        Debug.Log(asset.asset);
 
         //Retrieve the object
         TextAsset raw = asset.asset as TextAsset;
+        Debug.Log(raw);
 
-        //TODO: should only be one active DB at a time. just remove this completely.
+        //We only have one active database loaded at a time- so load this one up.
         activeDatabase = setupDatabase(raw);
 
         assetBundle.Unload(false);
