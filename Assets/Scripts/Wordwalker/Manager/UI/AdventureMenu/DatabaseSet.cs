@@ -31,9 +31,9 @@ public class DatabaseSet : MonoBehaviour
         for (int i = 0; i < databases.Count; i++)
         {
             Debug.Log(databases[i].displayName);
-            GameObject nextEntry = Instantiate(itemsList.transform.GetChild(0).gameObject);
+            GameObject nextEntry = Instantiate(itemsList.transform.GetChild(0).GetChild(0).gameObject);
 
-            nextEntry.transform.SetParent(itemsList.transform);
+            nextEntry.transform.SetParent(itemsList.transform.GetChild(0));
             nextEntry.GetComponent<RectTransform>().anchoredPosition = new Vector2(oldPos.x, oldPos.y - nextEntry.GetComponent<RectTransform>().rect.height * i);
 
             // Set image, high score and name of DB in entry
@@ -87,6 +87,12 @@ public class DatabaseSet : MonoBehaviour
         }
         expandedSprite.rectTransform.rotation = Quaternion.Euler(0, 0, newDeg);
         yield return null;
+    }
+
+    // Used on initial load
+    public DatabaseItem getFirst()
+    {
+        return databases[0];
     }
 }
 

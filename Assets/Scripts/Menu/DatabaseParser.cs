@@ -12,6 +12,8 @@ public class DatabaseParser : MonoBehaviour
 
     public DatabaseSet[] databaseSet;
 
+    private AdventureMenu adventureMenu;
+
     public void parseDatabasesAtStart()
     {
         string[] raw = dbFile.text.Split('\n');
@@ -29,20 +31,21 @@ public class DatabaseParser : MonoBehaviour
                 // TODO: How to load these images in the first place? Should probably asset bundle...yup, i hate it too
                 Sprite pic = vars[3] != null && File.Exists(vars[1]) ? null : defaultImg;
                 string desc = vars[4]; // TODO better error handling
-                HighScore[] highScores = new HighScore[5];
+                HighScore[] highScores = null;
                 string[] scores = vars[5].Split(';');
-
+                
                 if(scores.Length > 1) //defaults to empty element if no scores given
                 {
+                    highScores = new HighScore[5];
                     for (int s = 0; s < scores.Length; s++)
                     {
                         string[] scoresData = scores[s].Split(',');
-                        int thisScore = Convert.ToInt32(scoresData[1]);
-                        highScores[s] = new HighScore(thisScore, RankBox.getRank(thisScore), scoresData[3]);
+                        int thisScore = Convert.ToInt32(scoresData[0]);
+                        highScores[s] = new HighScore(thisScore, RankBox.getRank(thisScore), scoresData[1]);
                     }
                 }
                 
-                DatabaseItem item = new DatabaseItem(vars[0], vars[2], pic, desc, highScores);
+                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, highScores);
                 databaseSet[0].AddDatabase(item); //TODO which set
             }
 
@@ -50,11 +53,15 @@ public class DatabaseParser : MonoBehaviour
 
         //TODO which set
         databaseSet[0].build();
+
+        // Automatically queue up the first in the list for viewing
+        adventureMenu.displayDatabase(databaseSet[0].getFirst());
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        adventureMenu = FindObjectOfType<AdventureMenu>();
         parseDatabasesAtStart();
     }
 

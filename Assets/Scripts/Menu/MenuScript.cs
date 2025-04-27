@@ -13,6 +13,9 @@ public class MenuScript : MonoBehaviour
 
     public GameObject titleCard;
     public GameObject playButtons;
+    public GameObject adventureMenu;
+
+    private float mult = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +23,42 @@ public class MenuScript : MonoBehaviour
         newGame += filler;
     }
 
+
+    public void toggleAdventureMenu(bool onOrOff)
+    {
+        adventureMenu.gameObject.SetActive(onOrOff);
+    }
+
+
+
+
+
+
+    private void updateDatabase(string database)
+    {
+        this.database = database;
+    }
+
+    private void updateMult(float newMult)
+    {
+        mult = newMult;
+    }
+
     public void startNewGame()
     {
         Debug.Log("Setting up new game");
         GameManagerSc.setParametersOnStart(numLevels, database);
         SceneManager.LoadScene(1);
+    }
+
+    private void OnEnable()
+    {
+        DBClick.dbSelected += updateDatabase;
+    }
+
+    private void OnDisable()
+    {
+        DBClick.dbSelected -= updateDatabase;
     }
 
 
