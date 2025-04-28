@@ -1068,6 +1068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollClue: {fileID: 219530957}
   scrollAnimator: {fileID: 219530962}
+  clueText: {fileID: 1850222697}
 --- !u!1 &224008634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4260,6 +4261,7 @@ GameObject:
   - component: {fileID: 775207874}
   - component: {fileID: 775207873}
   - component: {fileID: 775207872}
+  - component: {fileID: 775207875}
   m_Layer: 5
   m_Name: ClueBox
   m_TagString: Untagged
@@ -4346,6 +4348,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775207870}
   m_CullTransparentMesh: 1
+--- !u!114 &775207875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775207870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5c954650454954d971c0625ec9d84d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786020586
 GameObject:
   m_ObjectHideFlags: 0
@@ -4429,8 +4443,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570114954}
-        m_TargetAssemblyTypeName: WalkManager, Assembly-CSharp
+      - m_Target: {fileID: 1038872061}
+        m_TargetAssemblyTypeName: AnimationManager, Assembly-CSharp
         m_MethodName: startWalkingToNextLevel
         m_Mode: 1
         m_Arguments:
@@ -6462,7 +6476,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 61f588e3bdf5299458475dcdac55b9b0, type: 3}
   - {fileID: 21300000, guid: 54a6fc56182ef1a41b07f4d1c1dae666, type: 3}
   deathSprite: {fileID: 21300000, guid: 6d3b470eeeebb7347a1d7eaa846dc8bc, type: 3}
-  scoreThresholds: f0d8ffff000000006400000096000000c8000000fa0000002c0100005e01000090010000f401000058020000bc0200002003000084030000e8030000
+  neverBeaten: {fileID: 0}
 --- !u!114 &981953206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6626,6 +6640,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1038872059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038872060}
+  - component: {fileID: 1038872061}
+  m_Layer: 0
+  m_Name: AnimationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038872060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038872059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299435051}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038872061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038872059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ce93758638cdc45a521a1fb73a6aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkManager: {fileID: 1570114954}
+  playerManager: {fileID: 1985590259}
+  playerCharacter: {fileID: 1293958602}
+  startingPlayerPos: {x: 0, y: 0.5, z: -14}
+  ledgeStartingPlayerPos: {x: 0, y: 0.5, z: -5}
+  ledgeEndingPlayerPos: {x: 0, y: 0, z: 0}
+  endingPlayerPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1039521807
 GameObject:
   m_ObjectHideFlags: 0
@@ -8165,6 +8229,7 @@ Transform:
   - {fileID: 792848992}
   - {fileID: 1985590260}
   - {fileID: 424504392}
+  - {fileID: 1038872060}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8941,17 +9006,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 792848993}
   playerManager: {fileID: 1985590259}
+  animationManager: {fileID: 1038872061}
   correctTile: {fileID: 2100000, guid: 3b505163b60e94c87ba5475b8d114ac8, type: 2}
   incorrectTile: {fileID: 2100000, guid: 2256cabd8d9a743a594f0401ed05c6c6, type: 2}
   highlightTile: {fileID: 2100000, guid: 875014cfe8f9b4c0995ca97f4f5f89ca, type: 2}
   baseTile: {fileID: 2100000, guid: 6c2faafad786b46b4bf0fdb1e0a2d847, type: 2}
   topBar: {fileID: 1910601765}
-  definition: {fileID: 1850222697}
-  playerCharacter: {fileID: 1293958602}
-  startingPlayerPos: {x: 0, y: 0.5, z: -15}
-  ledgeStartingPlayerPos: {x: 0, y: 0.5, z: -7}
-  ledgeEndingPlayerPos: {x: 0, y: 0, z: 0}
-  endingPlayerPos: {x: 0, y: 0, z: 0}
+  scrollUI: {fileID: 219530963}
+  clueBookUI: {fileID: 775207875}
 --- !u!1 &1605295711
 GameObject:
   m_ObjectHideFlags: 0
@@ -10052,7 +10114,7 @@ GameObject:
   - component: {fileID: 1850222698}
   - component: {fileID: 1850222697}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Definition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11996,10 +12058,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letter: 32
-  physicalObject: {fileID: 0}
   stepped: 0
+  marked: 0
   correct: 0
   isBackRow: 0
+  physicalObject: {fileID: 0}
 --- !u!64 &3433720230646389881
 MeshCollider:
   m_ObjectHideFlags: 0

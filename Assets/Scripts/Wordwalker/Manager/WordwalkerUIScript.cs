@@ -43,12 +43,14 @@ public class WordwalkerUIScript : MonoBehaviour
         greenlight = true;
     }
 
+    // Set how many levels there will be in the game
     public void SetLevelAmount(int amnt)
     {
         displayRoom.text = "0 / " + amnt.ToString();
         numLevels = amnt;
     }
 
+    // When we enter a new room update the level counter
     public void SetNewRoom(int nextLvl)
     {
         displayRoom.text = nextLvl.ToString() + " / " + numLevels;
@@ -58,12 +60,14 @@ public class WordwalkerUIScript : MonoBehaviour
         }
     }
 
+    // Update score (TODO: nicer animation?)
     public void ChangeScore(int oldAmnt, int delta, bool adding)
     {
         StartCoroutine(steadyNumberIncrease(1f, 0.5f, oldAmnt, delta));
         rankBox.determineNewRank(oldAmnt + delta);
     }
 
+    // Number go up
     IEnumerator steadyNumberIncrease(float takeTime, float delay, int oldAmnt, int delta)
     {
         float steps = 10;

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-// This class should only be in charge of generating the actual shape of tiles + the path
+/// <summary>
+/// Manages initial generation of a round - creating the word path and all fake tiles surrounding it.
+/// Does NOT manage anything to do with user input afterwards- see WalkManager.
+/// </summary>
 public class TilemapGen : MonoBehaviour
 {
     public static bool greenlight = false;

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Camera and user input manager.
+/// </summary>
 public class PlayerManager : MonoBehaviour
 {
     public static bool greenlight = false;

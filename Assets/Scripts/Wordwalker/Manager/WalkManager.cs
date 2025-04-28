@@ -6,13 +6,19 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
+/// <summary>
+/// Manager for tracking user's input for clicking on tiles.
+/// </summary>
 public class WalkManager : MonoBehaviour
 {
+    // BASIC
     public static bool greenlight = false;
-
     public GameManagerSc gameManager;
     public PlayerManager playerManager;
+    public AnimationManager animationManager;
 
+    // MATERIALS - What materials a tile becomes in different situations
+    // This can change depending on the setting
     public Material correctTile;
     public Material incorrectTile;
     public Material highlightTile;
@@ -20,25 +26,17 @@ public class WalkManager : MonoBehaviour
 
     // Keep track of where we're going to move next (cannot run these coroutines simultaneously)
     private Tile currTile;
-    private Queue<Tile> queuedMoves;
+    public Queue<Tile> queuedMoves;   // so that we can pre-click multiple tiles
     private bool isActivelyMoving = false;
     private bool preventMovement = false; //for instance, if you're about to die
     private bool hasWon = false;
+    private List<Tile> possibleNext;  // anywhere we can potentially go next
 
+    // Walk manager needs to interact with these components
     public TopBarUI topBar;
-    public TextMeshProUGUI definition;
+    public ScrollUI scrollUI;
+    public ClueBookUI clueBookUI;
 
-    public GameObject playerCharacter;
-    private Animator playerAnimator;
-    public Vector3 startingPlayerPos;
-    public Vector3 ledgeStartingPlayerPos;
-    public Vector3 ledgeEndingPlayerPos;
-    public Vector3 endingPlayerPos;
-
-    public static Action openedScroll;
-    public static Action readyForNextLevelGen;
-
-    private List<Tile> possibleNext;
 
     private string currWord;
     private string currDef;
@@ -48,22 +46,19 @@ public class WalkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        readyForNextLevelGen += () => { };
-        openedScroll += () => { };
-
         possibleNext = new List<Tile>();
         correctTiles = new List<Tile>();
 
         queuedMoves = new Queue<Tile>();
-        playerAnimator = playerCharacter.GetComponentInChildren<Animator>();
 
         greenlight = true;
     }
 
     private void OnEnable()
     {
-        GameManagerSc.levelReady += playStartingAnimation;
-        Tile.fallAllTiles += playFallingAnimation;
+        AnimationManager.setPreventPlayerMovement += preventPlayerMovement;
+        AnimationManager.setActivelyMoving += changeActivelyMoving;
+
         TilemapGen.finishedGeneration += setStartingTiles;
         TilemapGen.regenerate += reset;
         TilemapGen.setCorrects += setCorrect;
@@ -75,10 +70,10 @@ public class WalkManager : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManagerSc.levelReady -= playStartingAnimation;
+        AnimationManager.setPreventPlayerMovement -= preventPlayerMovement;
+
         Tile.tileClicked -= whenTileClickedMakeStep;
         Tile.tileClicked -= whenTileClickedMarkAsDangerous;
-        Tile.fallAllTiles -= playFallingAnimation;
         TilemapGen.finishedGeneration -= setStartingTiles;
         TilemapGen.regenerate -= reset;
         TilemapGen.setCorrects -= setCorrect;
@@ -96,13 +91,16 @@ public class WalkManager : MonoBehaviour
             {
                 isActivelyMoving = true;
                 Tile pos = queuedMoves.Dequeue();
-                StartCoroutine(moveCharacter(pos));
+                StartCoroutine(animationManager.moveCharacter(pos));
 
                 // Will have to update Y-coord for camera in PlayerManager (according to zoom)
                 playerManager.LerpCameraTo(new Vector3(pos.absolutePosition.Item1, 0, pos.absolutePosition.Item2), 0.5f);
             }
         }
     }
+
+    private void preventPlayerMovement(bool val) { preventMovement = val; }
+    private void changeActivelyMoving(bool val) { isActivelyMoving = val; }
 
     // MODE CHANGES
     // Stepper / View: Clicks move as normal
@@ -114,19 +112,21 @@ public class WalkManager : MonoBehaviour
         Tile.tileClicked += whenTileClickedMarkAsDangerous;
         Debug.Log("marker on");
     }
-
     void stepperEnabled()
     {
         Tile.tileClicked -= whenTileClickedMarkAsDangerous;
         Tile.tileClicked += whenTileClickedMakeStep;
         Debug.Log("stepper on");
     }
-
     void viewEnabled()
     {
         Debug.Log("view on");
     }
 
+    /// <summary>
+    /// Reset the walk manager when going to a new level
+    /// Establish the new word and definition as well
+    /// </summary>
     void reset(string w, string d)
     {
         hasWon = false;
@@ -138,12 +138,14 @@ public class WalkManager : MonoBehaviour
         playerManager.setToStartingPosition();
     }
 
+    // (generation) set local copy of which tiles can be stepped on
     void setCorrect(List<Tile> corrects)
     {
         correctTiles.Clear();
         correctTiles = corrects;
     }
 
+    // (generation) set local copy of which tiles you can start the level by stepping on
     void setStartingTiles(List<Tile> starters)
     {
         //TODO: Not set on the first go
@@ -151,86 +153,10 @@ public class WalkManager : MonoBehaviour
         possibleNext = starters;
     }
 
-    void playStartingAnimation()
-    {
-        preventMovement = true;
-        StartCoroutine(startingAnimation());
-    }
-
-    void playEndingAnimation()
-    {
-        preventMovement = true;
-        StartCoroutine(clearLevel(0)); //TODO direction
-    }
-
-    public void startWalkingToNextLevel()
-    {
-        StartCoroutine(walkIntoNextLevel(0));
-    }
-
-    IEnumerator startingAnimation()
-    {
-        playerAnimator.SetBool("Moving", true);
-        playerAnimator.SetInteger("Direction", 0); // TODO direction
-
-        float steps = 50;
-        float timeSec = 1.5f;
-
-        for (float i = 0; i <= steps; i++)
-        {
-            playerCharacter.transform.position = Vector3.Lerp(startingPlayerPos, ledgeStartingPlayerPos, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
-        }
-
-        playerAnimator.SetBool("Moving", false);
-        playerAnimator.SetTrigger("Idle");
-        playerAnimator.SetTrigger("StartReading");
-        openedScroll.Invoke();
-        yield return new WaitForSeconds(3);
-        playerAnimator.SetTrigger("StopReading");
-
-        preventMovement = false;
-    }
-
-    IEnumerator moveCharacter(Tile toTile)
-    {
-        float steps = 20;
-        float timeSec = 0.4f;
-
-        Vector3 start = playerCharacter.transform.position;
-        Vector3 target = new Vector3(toTile.absolutePosition.Item1, 0.5f, toTile.absolutePosition.Item2);
-
-        // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
-        yield return prepareNextMovement(toTile);
-
-
-        this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
-        this.playerAnimator.SetBool("Moving", true);
-
-        for (float i = 0; i <= steps; i++)
-        {
-            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
-        }
-
-        yield return manageStep(toTile);
-
-        //If no moves coming up afterwards, stop walking
-        if (queuedMoves.Count == 0)
-        {
-            this.playerAnimator.SetBool("Moving", false);
-            this.playerAnimator.SetTrigger("Idle");
-        }
-
-        isActivelyMoving = false;
-
-        if (hasWon)
-        {
-            playEndingAnimation();
-        }
-    }
-
-    IEnumerator prepareNextMovement(Tile toTile)
+    /// <summary>
+    /// Remove old highlights and set new ones when moving to a new tile
+    /// </summary>
+    public IEnumerator prepareNextMovement(Tile toTile)
     {
         //Remove all next highlights
         foreach (Tile next in possibleNext)
@@ -256,8 +182,11 @@ public class WalkManager : MonoBehaviour
         yield return null;
     }
 
-    // Once you've moved to a tile you will play the stepping animation
-    IEnumerator manageStep(Tile t)
+
+    /// <summary>
+    /// Several animations play when you move to a new tile. This triggers them
+    /// </summary>
+    public IEnumerator manageStep(Tile t)
     {
         if (t.correct)
         {
@@ -290,95 +219,17 @@ public class WalkManager : MonoBehaviour
             if (onIncorrectChoice())
             {
                 GameManagerSc.signifyWrongStep();
-                yield return drawbackCharacter(currTile);
+                yield return animationManager.drawbackCharacter(currTile);
+                queuedMoves.Clear();
             }
         }
 
         yield return null;
     }
 
-    IEnumerator drawbackCharacter(Tile backToTile)
-    {
-        float steps = 20;
-        float timeSec = 0.4f;
-
-        Vector3 start = playerCharacter.transform.position;
-        Vector3 target = new Vector3(backToTile.absolutePosition.Item1, 0.5f, backToTile.absolutePosition.Item2);
-
-        // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
-        yield return prepareNextMovement(backToTile);
-
-        this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
-        this.playerAnimator.SetBool("Moving", true);
-
-        for (float i = 0; i <= steps; i++)
-        {
-            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
-        }
-
-        // Will stop movement immediately
-        queuedMoves.Clear();
-        this.playerAnimator.SetBool("Moving", false);
-        this.playerAnimator.SetTrigger("Idle");
-
-        isActivelyMoving = false;
-        preventMovement = false;
-    }
-
-    //TODO direction needs to be accounted for
-    IEnumerator clearLevel(int direction)
-    {
-        playerAnimator.SetBool("Moving", true);
-        playerAnimator.SetInteger("Direction", direction);
-        playerAnimator.ResetTrigger("Idle");
-
-        float steps = 50;
-        float timeSec = 1f;
-
-        Vector3 lastKnownPlayerPos = playerCharacter.transform.position;
-        this.ledgeEndingPlayerPos = new Vector3(lastKnownPlayerPos.x, lastKnownPlayerPos.y, lastKnownPlayerPos.z + 7f);
-        this.endingPlayerPos = new Vector3(0, lastKnownPlayerPos.y, lastKnownPlayerPos.z + 17f);
-
-        for (float i = 0; i <= steps; i++)
-        {
-            playerCharacter.transform.position = Vector3.Lerp(lastKnownPlayerPos, ledgeEndingPlayerPos, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
-        }
-
-        playerAnimator.SetBool("Moving", false);
-        playerAnimator.SetTrigger("WinRound");
-        yield return null;
-    }
-
-    IEnumerator walkIntoNextLevel(int direction)
-    {
-        playerAnimator.SetBool("Moving", true);
-        playerAnimator.SetInteger("Direction", direction);
-
-        float steps = 50;
-        float timeSec = 1f;
-
-        for (float i = 0; i <= steps; i++)
-        {
-            playerCharacter.transform.position = Vector3.Lerp(ledgeEndingPlayerPos, endingPlayerPos, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
-        }
-
-        playerAnimator.SetInteger("Direction", 1);
-        playerAnimator.SetTrigger("Idle");
-        playerAnimator.ResetTrigger("WinRound");
-        readyForNextLevelGen.Invoke();
-        yield return null;
-    }
-
-    void playFallingAnimation()
-    {
-        playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        playerAnimator.SetTrigger("Falling");
-        playerManager.walterWhitePan();
-    }
-
+    /// <summary>
+    /// When clicked on a tile add it to the queue
+    /// </summary>
     void whenTileClickedMakeStep(Tile t)
     {
         //Debug.Log("Clicked");
@@ -392,6 +243,9 @@ public class WalkManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// (Marker mode) mark tile as dangerous (or unmark if already marked)
+    /// </summary>
     void whenTileClickedMarkAsDangerous(Tile t)
     {
         if (!t.stepped)
@@ -401,31 +255,44 @@ public class WalkManager : MonoBehaviour
         }
     }
 
-    //TODO do more with color, etc.
+    /// <summary>
+    /// Add letter to progress bar of topBar
+    /// </summary>
     void addLetterToTopWord(Tile t)
     {
         topBar.AddLetterToProgress(t.letter);
     }
 
+    /// <summary>
+    /// Set the clue for this new level
+    /// </summary>
     void setClue()
     {
-        definition.text = currDef;
+        scrollUI.setClue(currDef);
+        //TODO clueBook?
     }
 
+    /// <summary>
+    /// Things to do the exact moment you win a level
+    /// </summary>
     void onWin()
     {
         hasWon = true;
         GameManagerSc.signifyLevelWon();
         topBar.SetAnswer(this.correctTiles, true);
         topBar.kickOffRotation();
+        animationManager.playEndingAnimation();
     }
 
+    /// <summary>
+    /// Things to do the exact moment you done goof and step on an incorrect tile
+    /// </summary>
     bool onIncorrectChoice()
     {
         GameManagerSc.changeTotems(1, false);
         if (GameManagerSc.getNumTotems() < 0)
         {
-            playerAnimator.SetTrigger("Realization");
+            animationManager.realization();
             playerManager.setFreeCamera(false);
             onLose();
             return false;
@@ -433,6 +300,9 @@ public class WalkManager : MonoBehaviour
         else return true;
     }
 
+    /// <summary>
+    /// Things to do the exact moment you lose the game
+    /// </summary>
     void onLose()
     {
         GameManagerSc.signifyGameOver();

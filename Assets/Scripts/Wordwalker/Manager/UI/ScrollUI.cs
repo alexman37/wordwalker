@@ -13,9 +13,17 @@ public class ScrollUI : MonoBehaviour
     private Vector2 scrollStart;
     private Vector2 scrollDest;
 
+    //components
+    public TextMeshProUGUI clueText;
+    RectTransform scrollRect;
+    Image img;
+
     // Start is called before the first frame update
     void Start()
     {
+        img = scrollClue.GetComponent<Image>();
+        scrollRect = scrollClue.GetComponent<RectTransform>();
+
         // Set scroll "start" and "dest" positions when scaling finishes. Assume it wont take long
         // If done before we get a chance to subscribe to it just do so immediately
         ScalingUIComponent scalingComp = GetComponent<ScalingUIComponent>();
@@ -35,7 +43,7 @@ public class ScrollUI : MonoBehaviour
     {
         // When the character plays the animation to open their scroll, start same animation here
         // Win or lose, move the scroll out of view afterwards
-        WalkManager.openedScroll += moveScrollOnStart;
+        AnimationManager.openedScroll += moveScrollOnStart;
         GameManagerSc.levelWon += moveScrollOnFinish;
         GameManagerSc.gameOver += moveScrollOnFinish;
     }
@@ -44,9 +52,14 @@ public class ScrollUI : MonoBehaviour
     {
         // When the character plays the animation to open their scroll, start same animation here
         // Win or lose, move the scroll out of view afterwards
-        WalkManager.openedScroll -= moveScrollOnStart;
+        AnimationManager.openedScroll -= moveScrollOnStart;
         GameManagerSc.levelWon -= moveScrollOnFinish;
         GameManagerSc.gameOver -= moveScrollOnFinish;
+    }
+
+    public void setClue(string clue)
+    {
+        clueText.text = clue;
     }
 
     /// <summary>
@@ -72,11 +85,8 @@ public class ScrollUI : MonoBehaviour
     IEnumerator moveScrollIntoView()
     {
         // "Unfade" the scroll immediately, making it visible again
-        Image img = scrollClue.GetComponent<Image>();
         Color col = img.color;
         img.color = new Color(col.r, col.g, col.b, 1);
-
-        RectTransform scrollRect = scrollClue.GetComponent<RectTransform>();
 
         // Movement animation: Move up
         float steps = 30;
@@ -89,11 +99,10 @@ public class ScrollUI : MonoBehaviour
 
         // Sprite animation: Open scroll, see what's inside
         scrollAnimator.SetTrigger("BeginUnfurl");
-        TextMeshProUGUI texts = scrollRect.GetComponentInChildren<TextMeshProUGUI>();
-        col = texts.color;
+        col = clueText.color;
         for (float i = 0; i <= steps; i++)
         {
-            texts.color = new Color(col.r, col.g, col.b, i / steps);
+            clueText.color = new Color(col.r, col.g, col.b, i / steps);
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
 
@@ -105,8 +114,6 @@ public class ScrollUI : MonoBehaviour
     /// </summary>
     IEnumerator moveScrollOutOfView()
     {
-        RectTransform scrollRect = scrollClue.GetComponent<RectTransform>();
-
         // Movement animation: Move scroll below bottom of screen
         float steps = 30;
         float timeSec = 1f;
@@ -117,9 +124,8 @@ public class ScrollUI : MonoBehaviour
         }
 
         // Make scroll's text invisible (as scroll itself is fading) and close it so the opening animation plays again
-        TextMeshProUGUI texts = scrollRect.GetComponentInChildren<TextMeshProUGUI>();
-        Color col = texts.color;
-        texts.color = new Color(col.r, col.g, col.b, 0);
+        Color col = clueText.color;
+        clueText.color = new Color(col.r, col.g, col.b, 0);
         scrollAnimator.ResetTrigger("BeginUnfurl");
         scrollAnimator.SetTrigger("Reset");
 
@@ -135,7 +141,6 @@ public class ScrollUI : MonoBehaviour
         yield return null;
         float frameTime = 30;
 
-        Image img = scrollClue.GetComponent<Image>();
         Color col = img.color;
 
         for (float i = 0; i <= frameTime; i++)

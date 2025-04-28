@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 
+/// <summary>
+/// Manages overall gameplay state such as score, status and level count.
+/// </summary>
 public class GameManagerSc : MonoBehaviour
 {
     private static int numLevels = 5; //TODO: Increase default
@@ -42,13 +45,13 @@ public class GameManagerSc : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += onReentry;
-        WalkManager.readyForNextLevelGen += goToNextLevel;
+        AnimationManager.readyForNextLevelGen += goToNextLevel;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= onReentry;
-        WalkManager.readyForNextLevelGen -= goToNextLevel;
+        AnimationManager.readyForNextLevelGen -= goToNextLevel;
     }
 
     private void Update()
