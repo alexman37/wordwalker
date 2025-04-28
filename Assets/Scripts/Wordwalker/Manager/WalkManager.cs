@@ -63,21 +63,29 @@ public class WalkManager : MonoBehaviour
     private void OnEnable()
     {
         GameManagerSc.levelReady += playStartingAnimation;
-        Tile.tileClicked += manageTileClick;
         Tile.fallAllTiles += playFallingAnimation;
         TilemapGen.finishedGeneration += setStartingTiles;
         TilemapGen.regenerate += reset;
         TilemapGen.setCorrects += setCorrect;
+
+        ModeToolUI.inMarkerMode += markerEnabled;
+        ModeToolUI.inStepperMode += stepperEnabled;
+        ModeToolUI.inViewMode += viewEnabled;
     }
 
     private void OnDisable()
     {
         GameManagerSc.levelReady -= playStartingAnimation;
-        Tile.tileClicked -= manageTileClick;
+        Tile.tileClicked -= whenTileClickedMakeStep;
+        Tile.tileClicked -= whenTileClickedMarkAsDangerous;
         Tile.fallAllTiles -= playFallingAnimation;
         TilemapGen.finishedGeneration -= setStartingTiles;
         TilemapGen.regenerate -= reset;
         TilemapGen.setCorrects -= setCorrect;
+
+        ModeToolUI.inMarkerMode -= markerEnabled;
+        ModeToolUI.inStepperMode -= stepperEnabled;
+        ModeToolUI.inViewMode -= viewEnabled;
     }
 
     private void Update()
@@ -94,6 +102,29 @@ public class WalkManager : MonoBehaviour
                 playerManager.LerpCameraTo(new Vector3(pos.absolutePosition.Item1, 0, pos.absolutePosition.Item2), 0.5f);
             }
         }
+    }
+
+    // MODE CHANGES
+    // Stepper / View: Clicks move as normal
+    // Marker: Clicks make the tile red and "unsteppable"
+    // TODO different callback functions for clicks.
+    void markerEnabled()
+    {
+        Tile.tileClicked -= whenTileClickedMakeStep;
+        Tile.tileClicked += whenTileClickedMarkAsDangerous;
+        Debug.Log("marker on");
+    }
+
+    void stepperEnabled()
+    {
+        Tile.tileClicked -= whenTileClickedMarkAsDangerous;
+        Tile.tileClicked += whenTileClickedMakeStep;
+        Debug.Log("stepper on");
+    }
+
+    void viewEnabled()
+    {
+        Debug.Log("view on");
     }
 
     void reset(string w, string d)
@@ -348,7 +379,7 @@ public class WalkManager : MonoBehaviour
         playerManager.walterWhitePan();
     }
 
-    void manageTileClick(Tile t)
+    void whenTileClickedMakeStep(Tile t)
     {
         //Debug.Log("Clicked");
         if(possibleNext.Contains(t) && !preventMovement)
@@ -358,6 +389,15 @@ public class WalkManager : MonoBehaviour
         else
         {
             //TODO some sort of warning
+        }
+    }
+
+    void whenTileClickedMarkAsDangerous(Tile t)
+    {
+        if (!t.stepped)
+        {
+            if (t.marked) t.markAsDangerous(incorrectTile);
+            else t.unmarkAsDangerous(incorrectTile);
         }
     }
 

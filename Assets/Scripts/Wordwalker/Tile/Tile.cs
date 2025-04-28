@@ -4,74 +4,89 @@ using UnityEngine;
 using TMPro;
 using System;
 
-// Attach to a physical tile object in the world. tracks all its stats.
+/// <summary>
+/// Attach to a physical tile object in the world. tracks all its stats.
+/// </summary>
 public class Tile : MonoBehaviour
 {
-    public char letter = ' ';
-    public (float, float) absolutePosition;
-    public Coordinate coords;
-    public GameObject physicalObject;
+    // STATS
+    public char letter = ' ';               // Letter this tile represents
+    public (float, float) absolutePosition; // "World" position
+    public Coordinate coords;               // Coordinate system works in (row, space)
 
-    TextMeshProUGUI textComponent;
-    bool finalized;
-    public bool stepped;
-    public bool correct;
-    public bool isBackRow;
+    bool finalized;          // (used solely in generation)
+    public bool stepped;     // Has the tile been stepped on? If correct, you may walk on it again at any time.
+    public bool marked;      // When marked as dangerous this tile cannot be stepped on until unmarked
+    public bool correct;     // Is this tile part of the correct word path?
+    public bool isBackRow;   // Is this tile in the back row? (If correct, you win.)
 
-    //for pushing down animation
-    private float pushDownDistance = 0.5f;
-    private float pushDownTime = 2f;
-    private float pushDownTimeElapsed = 0;
-    private bool pushingDown = false;
-    private Vector3 pushDownTarget;
+    // Note to self- we don't store local copies of the materials here bc it would be needlessly expensive.
 
-    public static event Action fallAllTiles;
+    public List<Adjacency> adjacencies = new List<Adjacency>(); // Order of adjacencies is CLOCKWISE FROM EAST (E, SE, SW, W, NW, NE)
 
-    //Order of adjacencies is CLOCKWISE FROM EAST
-    //E, SE, SW, W, NW, NE
-    public List<Adjacency> adjacencies = new List<Adjacency>();
+    // PHYSICAL
+    public GameObject physicalObject;       // Physical tile object - move it, change it, etc
+    TextMeshProUGUI textComponent;          // Where the tile's letter is drawn
 
-    //When a tile is clicked you propogate it to the WalkManager
-    public static event Action<Tile> tileClicked;
+    // ACTIONS
+    public static event Action fallAllTiles;      // When winning a round or losing the game, all incorrect tiles fall down
+    public static event Action<Tile> tileClicked; // When a tile is clicked you propogate it to the WalkManager
 
-    // Start is called before the first frame update
-    void Start()
+
+    // Sub / unsub to actions
+    private void OnEnable()
     {
         fallAllTiles += fall;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        if (pushingDown)
+        fallAllTiles -= fall;
+    }
+
+
+    // TODO: When you click on a tile one of a number of things can happen
+    public void OnMouseDown()
+    {
+        if (!marked)
         {
-            pushDownTimeElapsed += Time.deltaTime;
-            Vector3 currPos = this.gameObject.transform.position;
-            this.gameObject.transform.position = new Vector3(currPos.x, Vector3.Lerp(transform.position, pushDownTarget, pushDownTimeElapsed).y, currPos.z);
-            if(pushDownTimeElapsed > pushDownTime)
-            {
-                pushingDown = false;
-            }
+            tileClicked.Invoke(this);
+        }
+        else
+        {
+            Debug.Log("Tile marked. Cannot move here");
         }
     }
+
 
     //Will either push down for a correct guess, or fall off for an incorrect one
     public void pressAnimation()
     {
         if (correct) correctPress();
-        else StartCoroutine(incorrectPress());
+        else incorrectPress();
     }
 
-    //Slowly "push down" into place
+    /// <summary>
+    /// Run this when you've stepped on a correct tile
+    /// </summary>
     private void correctPress()
     {
-        pushingDown = true;
-        pushDownTimeElapsed = 0;
-        pushDownTarget = setPushDownTarget();
+        StartCoroutine(pushDownTile());
     }
 
-    //Have the tile fall downwards in a random direction
-    private IEnumerator incorrectPress()
+    /// <summary>
+    /// Run this when you step on an incorrect tile
+    /// </summary>
+    private void incorrectPress()
+    {
+        StartCoroutine(fallTile());
+    }
+
+    /// <summary>
+    /// Tile falling animation
+    /// We also do the "fall all" animation here, if you lose the game
+    /// </summary>
+    private IEnumerator fallTile()
     {
         fall();
 
@@ -84,6 +99,45 @@ public class Tile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Push tile down if correct. Simple pressing animation.
+    /// </summary>
+    private IEnumerator pushDownTile()
+    {
+        float steps = 50;
+        float timeSec = 2f;
+
+        float pushDownDistance = 0.5f;
+
+        Vector3 currPos = this.gameObject.transform.position;
+        for (float i = 0; i <= steps; i++)
+        {
+            this.gameObject.transform.position = new Vector3(currPos.x, currPos.y - (1 / steps) * pushDownDistance, currPos.z);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        yield return null;
+    }
+
+    /// <summary>
+    /// Mark tile as dangerous. Do not allow players to step on it
+    /// The opposite if the tile is already marked
+    /// </summary>
+    public void markAsDangerous(Material changeTo)
+    {
+        marked = true;
+        changeMaterial(changeTo);
+    }
+
+    public void unmarkAsDangerous(Material changeTo)
+    {
+        marked = false;
+        changeMaterial(changeTo);
+    }
+
+    /// <summary>
+    /// Make this tile fall down into the chasm
+    /// </summary>
     private void fall()
     {
         if(this.physicalObject != null)
@@ -93,7 +147,7 @@ public class Tile : MonoBehaviour
                 Rigidbody rbody = this.physicalObject.GetComponent<Rigidbody>();
                 rbody.constraints = RigidbodyConstraints.None;
                 rbody.useGravity = true;
-                rbody.AddForce(new Vector3(UnityEngine.Random.Range(-400, 400), 0, UnityEngine.Random.Range(-400, 400)));
+                rbody.AddForce(new Vector3(UnityEngine.Random.Range(-400, 100), 0, UnityEngine.Random.Range(-400, 100)));
                 rbody.AddTorque(new Vector3(UnityEngine.Random.Range(-400, 400), 0, UnityEngine.Random.Range(-400, 400)));
             } else
             {
@@ -102,6 +156,10 @@ public class Tile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set the letter of this tile (ON GENERATION ONLY)
+    /// Once finalized it cannot be changed again (duh)
+    /// </summary>
     public void setLetter(char setTo, bool isPartOfPath)
     {
         textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -113,38 +171,41 @@ public class Tile : MonoBehaviour
         correct = isPartOfPath;
     }
 
+    /// <summary>
+    /// Highlight surrounding tile (if not stepped on or marked)
+    /// </summary>
     public void highlightMaterial(Material changeTo)
     {
-        if(!stepped)
+        if(!stepped && !marked)
         {
-            Material[] mats = physicalObject.GetComponent<MeshRenderer>().materials;
-            mats[1] = changeTo;
-            physicalObject.GetComponent<MeshRenderer>().materials = mats;
+            changeMaterial(changeTo);
         }
     }
 
+    /// <summary>
+    /// Step on this tile and change the material
+    /// </summary>
     public void stepMaterial(Material changeTo)
     {
         stepped = true;
+        changeMaterial(changeTo);
+    }
+
+    /// <summary>
+    /// Change the material of this tile
+    /// </summary>
+    public void changeMaterial(Material changeTo)
+    {
         Material[] mats = physicalObject.GetComponent<MeshRenderer>().materials;
         mats[1] = changeTo;
         physicalObject.GetComponent<MeshRenderer>().materials = mats;
     }
 
+
+
     public bool isFinalized()
     {
         return finalized;
-    }
-
-    private Vector3 setPushDownTarget()
-    {
-        return new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - pushDownDistance, gameObject.transform.position.z);
-    }
-
-    public void OnMouseDown()
-    {
-        tileClicked.Invoke(this);
-        Debug.Log(this);
     }
 
     public override string ToString()

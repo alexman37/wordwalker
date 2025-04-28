@@ -45,14 +45,24 @@ public class DatabaseParser : MonoBehaviour
                     }
                 }
                 
+                // Add the item to the correct database.
                 DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, highScores);
-                databaseSet[0].AddDatabase(item); //TODO which set
+                foreach(DatabaseSet dbSet in databaseSet)
+                {
+                    if(dbSet.dbName == vars[0])
+                    {
+                        dbSet.AddDatabase(item);
+                        break;
+                    }
+                }
+                
             }
 
         }
 
         //TODO which set
-        databaseSet[0].build();
+        for(int i = 0; i < databaseSet.Length; i++)
+            databaseSet[i].build(i);
 
         // Automatically queue up the first in the list for viewing
         adventureMenu.displayDatabase(databaseSet[0].getFirst());

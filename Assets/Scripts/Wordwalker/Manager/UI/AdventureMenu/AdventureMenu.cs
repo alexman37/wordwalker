@@ -91,8 +91,6 @@ public class AdventureMenu : MonoBehaviour
         if (enabled) numChallenges++;
         else numChallenges--;
 
-        Debug.Log(goButton.color);
-        Debug.Log(goButtonColors[numChallenges]);
         goButton.color = goButtonColors[numChallenges];
         mult.color = multColors[numChallenges];
         mult.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "x" + multSequence[numChallenges];

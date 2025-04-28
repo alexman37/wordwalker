@@ -13,6 +13,8 @@ public class RankBox : MonoBehaviour
     public Sprite deathSprite;
     private int currentRank = 1; // D-
 
+    public Sprite neverBeaten; //only used in showing scores - not included in sprite cycle
+
     public static int[] scoreThresholds = new int[] { 
         -10000,
         0,
@@ -65,26 +67,10 @@ public class RankBox : MonoBehaviour
         return newRank;
     }
 
-    public Sprite getRankAsSprite(int score)
+    public Sprite getRankAsSprite(int rank)
     {
-        int newRank = 0;
-        // Above a certain level it's just always the highest score
-        // Otherwise, use the highest available score
-        for (int i = 0; i < scoreThresholds.Length; i++)
-        {
-            if (i == scoreThresholds.Length - 1)
-            {
-                newRank = scoreThresholds.Length - 1;
-                break;
-            }
-            if (scoreThresholds[i] > score)
-            {
-                newRank = i - 1;
-                break;
-            }
-        }
-
-        return spriteCycle[newRank];
+        if (rank < 0) return neverBeaten;
+        return spriteCycle[rank];
     }
 
     IEnumerator rotateRank(int toNewRank)

@@ -3,19 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class DatabaseSet : MonoBehaviour
 {
     private List<DatabaseItem> databases = new List<DatabaseItem>();
+    public string dbName;
     public bool expanded;
+
     public Image expandedSprite;
     public GameObject itemsList;
     public RankBox rankBox;
+    public TextMeshProUGUI dbNameField;
+
+    private float heightOfEntries;
+    private int slot;
+
+    public static event Action<int, float, bool> usedCollapser;
 
     // Start is called before the first frame update
     void Start()
     {
+        heightOfEntries = itemsList.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
+    }
 
+    private void OnEnable()
+    {
+        usedCollapser += moveElementsBelow;
+    }
+
+    private void OnDisable()
+    {
+        usedCollapser -= moveElementsBelow;
     }
 
     // Update is called once per frame
@@ -24,17 +43,20 @@ public class DatabaseSet : MonoBehaviour
         
     }
 
-    public void build()
+    public void build(int slot)
     {
+        heightOfEntries = itemsList.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
+
         RectTransform oldRect = itemsList.GetComponent<RectTransform>();
         Vector2 oldPos = oldRect.anchoredPosition;
+
         for (int i = 0; i < databases.Count; i++)
         {
             Debug.Log(databases[i].displayName);
-            GameObject nextEntry = Instantiate(itemsList.transform.GetChild(0).GetChild(0).gameObject);
+            GameObject nextEntry = Instantiate(itemsList.transform.GetChild(0).gameObject);
 
-            nextEntry.transform.SetParent(itemsList.transform.GetChild(0));
-            nextEntry.GetComponent<RectTransform>().anchoredPosition = new Vector2(oldPos.x, oldPos.y - nextEntry.GetComponent<RectTransform>().rect.height * i);
+            nextEntry.transform.SetParent(itemsList.transform);
+            nextEntry.GetComponent<RectTransform>().anchoredPosition = new Vector2(oldPos.x, oldPos.y - heightOfEntries * i);
 
             // Set image, high score and name of DB in entry
             nextEntry.transform.GetChild(0).GetComponent<Image>().sprite = databases[i].image;
@@ -44,7 +66,22 @@ public class DatabaseSet : MonoBehaviour
             nextEntry.SetActive(true);
             nextEntry.GetComponent<DBClick>().databaseData = databases[i];
         }
-        itemsList.GetComponent<RectTransform>().sizeDelta = new Vector2(oldRect.rect.width, oldRect.rect.height + 60 * (databases.Count - 1));
+
+        // Size of container for this particular set
+        itemsList.GetComponent<RectTransform>().sizeDelta = new Vector2(oldRect.rect.width, oldRect.rect.height + heightOfEntries * (databases.Count - 1));
+
+        // Size of scroll window - just increase it by the height of this new "top tab" element
+        RectTransform broadScroll = transform.parent.GetComponent<RectTransform>();
+
+        float heightOfTopTab = this.GetComponent<RectTransform>().rect.height;
+        broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfTopTab);
+
+        dbNameField.text = dbName;
+
+        // Now we have to move this to the right Y position according to its slot
+        RectTransform currentPos = this.GetComponent<RectTransform>();
+        currentPos.anchoredPosition = new Vector2(currentPos.anchoredPosition.x, currentPos.anchoredPosition.y - heightOfEntries * slot);
+        this.slot = slot;
     }
 
     public void AddDatabase(DatabaseItem database)
@@ -67,10 +104,35 @@ public class DatabaseSet : MonoBehaviour
         {
             StartCoroutine(rotateExpandedSprite(0));
             itemsList.SetActive(true);
+
+            // Size of 'broadScroller' - affects scrolling for all elements.
+            RectTransform broadScroll = transform.parent.GetComponent<RectTransform>();
+
+            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfEntries * databases.Count);
+
+            // Position of future elements modified
+            usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + 5, false);
         } else
         {
             StartCoroutine(rotateExpandedSprite(90));
             itemsList.SetActive(false);
+
+            // Size of 'broadScroller' - affects scrolling for all elements.
+            RectTransform broadScroll = transform.parent.GetComponent<RectTransform>();
+
+            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height - heightOfEntries * databases.Count);
+
+            // Position of future elements modified
+            usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + 5, true);
+        }
+    }
+
+    private void moveElementsBelow(int slot, float amount, bool up)
+    {
+        if(slot < this.slot)
+        {
+            RectTransform currentPos = this.GetComponent<RectTransform>();
+            currentPos.anchoredPosition = new Vector2(currentPos.anchoredPosition.x, currentPos.anchoredPosition.y + amount * (up ? 1 : -1));
         }
     }
 
@@ -133,6 +195,77 @@ public class HighScoresList
     public HighScoresList(HighScore[] highScores)
     {
         this.highScores = highScores;
+        sortHighScores();
+    }
+
+    // Sort scores in ascending order of value
+    public void sortHighScores()
+    {
+        HighScore[] sorted = new HighScore[5];
+
+        bool putInPlace = false;
+        HighScore temp = null;
+
+        if(highScores != null)
+        {
+            for (int i = 0; i < highScores.Length; i++)
+            {
+                if(highScores[i] != null)
+                {
+                    putInPlace = false;
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if (sorted[j] == null || sorted[j].value <= highScores[i].value)
+                        {
+                            temp = sorted[j];
+                            sorted[j] = highScores[i];
+                            putInPlace = true;
+                        }
+                        else if (putInPlace)
+                        {
+                            HighScore whatever = sorted[j];
+                            sorted[j] = temp;
+                            temp = whatever;
+                        }
+                    }
+                }
+            }
+        } /*else
+        {
+            highScores = new HighScore[5];
+        }*/
+    }
+
+    // Add (or attempt to add) a new high score...if it doesn't make the list then return false
+    public bool addNewHighScore(HighScore hs)
+    {
+        if(highScores == null)
+        {
+            highScores = new HighScore[5];
+            highScores[0] = hs;
+            return true;
+        }
+
+
+        for (int i = 0; i < highScores.Length; i++)
+        {
+            // If there's still not 5 high scores, add this and sort immediately- easy peasy
+            if (highScores[i] == null)
+            {
+                highScores[i] = hs;
+                sortHighScores();
+                return true;
+            }
+            // If the score numerically beats anything on the list, immediately replace the lowest score then sort
+            else if (hs.value > highScores[i].value)
+            {
+                highScores[4] = hs;
+                sortHighScores();
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 
