@@ -27,7 +27,7 @@ public class WalkManager : MonoBehaviour
     // Keep track of where we're going to move next (cannot run these coroutines simultaneously)
     private Tile currTile;
     public Queue<Tile> queuedMoves;   // so that we can pre-click multiple tiles
-    private bool isActivelyMoving = false;
+    public bool isActivelyMoving = false;
     private bool preventMovement = false; //for instance, if you're about to die
     private bool hasWon = false;
     private List<Tile> possibleNext;  // anywhere we can potentially go next
@@ -277,6 +277,7 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void onWin()
     {
+        Debug.Log("The exact win moment");
         hasWon = true;
         GameManagerSc.signifyLevelWon();
         topBar.SetAnswer(this.correctTiles, true);

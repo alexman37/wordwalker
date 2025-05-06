@@ -164,9 +164,12 @@ public class AnimationManager : MonoBehaviour
     //TODO direction needs to be accounted for
     IEnumerator clearLevel(int direction)
     {
+        yield return new WaitUntil(() => !walkManager.isActivelyMoving);
+
+        // TODO moving is often left at "true" in this moment, it has to be set to false somewhere else before then.
+        playerAnimator.ResetTrigger("Idle");
         playerAnimator.SetBool("Moving", true);
         playerAnimator.SetInteger("Direction", direction);
-        playerAnimator.ResetTrigger("Idle");
 
         float steps = 50;
         float timeSec = 1f;
@@ -181,8 +184,9 @@ public class AnimationManager : MonoBehaviour
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
 
-        playerAnimator.SetBool("Moving", false);
         playerAnimator.SetTrigger("WinRound");
+        playerAnimator.SetBool("Moving", false);
+        
         yield return null;
     }
 
