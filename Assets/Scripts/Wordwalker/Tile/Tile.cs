@@ -48,14 +48,7 @@ public class Tile : MonoBehaviour
     // TODO: When you click on a tile one of a number of things can happen
     public void OnMouseDown()
     {
-        if (!marked)
-        {
-            tileClicked.Invoke(this);
-        }
-        else
-        {
-            Debug.Log("Tile marked. Cannot move here");
-        }
+        tileClicked.Invoke(this);
     }
 
 
@@ -125,12 +118,14 @@ public class Tile : MonoBehaviour
     /// </summary>
     public void markAsDangerous(Material changeTo)
     {
+        Debug.Log("MARKING");
         marked = true;
         changeMaterial(changeTo);
     }
 
     public void unmarkAsDangerous(Material changeTo)
     {
+        Debug.Log("UNMARKING");
         marked = false;
         changeMaterial(changeTo);
     }

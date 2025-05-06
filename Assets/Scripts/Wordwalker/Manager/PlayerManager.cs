@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     float sumDistance = 0;
     public GameObject cam;
     bool freeCamera = true;
+    bool inViewMode = false;
 
     public Vector3 startingCamPos;
     public Vector3 walterWhitePos;
@@ -28,6 +29,20 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         greenlight = true;
+    }
+
+    private void OnEnable()
+    {
+        ModeToolUI.inViewMode += inViewer;
+        ModeToolUI.inStepperMode += exitViewer;
+        ModeToolUI.inMarkerMode += exitViewer;
+    }
+
+    private void OnDisable()
+    {
+        ModeToolUI.inViewMode -= inViewer;
+        ModeToolUI.inStepperMode -= exitViewer;
+        ModeToolUI.inMarkerMode -= exitViewer;
     }
 
     // Update is called once per frame
@@ -114,8 +129,12 @@ public class PlayerManager : MonoBehaviour
 
     public void LerpCameraTo(Vector3 position, float time)
     {
-        position.y = cam.transform.position.y;
-        StartCoroutine(lerpCameraCoroutine(cam.transform.position, position, time));
+        // In stepper mode we lerp the camera around to follow the player- but not in viewer
+        if(!inViewMode)
+        {
+            position.y = cam.transform.position.y;
+            StartCoroutine(lerpCameraCoroutine(cam.transform.position, position, time));
+        }
     }
 
     public void XerpCameraTo(Vector3 position, float time)
@@ -216,4 +235,10 @@ public class PlayerManager : MonoBehaviour
         this.maxZoom = 3 * numRows + 8;
         walterWhitePos = new Vector3((maxXBounds + minXBounds) / 2, maxZoom, (maxZBounds + minZBounds) / 2);
     }
+
+
+
+    /// Exclusively used by actions controlling mode changes
+    private void inViewer() { inViewMode = true; }
+    private void exitViewer() { inViewMode = false; }
 }

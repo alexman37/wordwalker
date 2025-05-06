@@ -82,9 +82,11 @@ public class TilemapGen : MonoBehaviour
         List<Tile> starters = new List<Tile>();
         for (int row = 0; row < settledRows; row++)
         {
-            for(int sub = 0; sub <= Mathf.Min(row + subsOnStartingRow - 1,  maxSubs - 1); sub++)
+            float numSubs = Mathf.Min(row + subsOnStartingRow - 1, maxSubs - 1);
+            for (int sub = 0; sub <= numSubs; sub++)
             {
-                Vector3 pos = new Vector3(-xSpacing * (row / 2.0f) + sub * xSpacing, 0, ySpacing * row);
+                float xPos = numSubs < maxSubs - 1 ? (-xSpacing * (row / 2.0f) + sub * xSpacing) : (-xSpacing * (maxSubs / 2.0f) + sub * xSpacing + ((row + 1) % 2) * 2);
+                Vector3 pos = new Vector3(xPos, 0, ySpacing * row);
                 GameObject next = GameObject.Instantiate(baseTile, pos, baseTile.transform.rotation);
                 next.transform.parent = container.transform;
 

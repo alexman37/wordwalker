@@ -109,17 +109,22 @@ public class WalkManager : MonoBehaviour
     void markerEnabled()
     {
         Tile.tileClicked -= whenTileClickedMakeStep;
+        Tile.tileClicked -= whenTileClickedMarkAsDangerous;
         Tile.tileClicked += whenTileClickedMarkAsDangerous;
         Debug.Log("marker on");
     }
     void stepperEnabled()
     {
+        Tile.tileClicked -= whenTileClickedMakeStep;
         Tile.tileClicked -= whenTileClickedMarkAsDangerous;
         Tile.tileClicked += whenTileClickedMakeStep;
         Debug.Log("stepper on");
     }
     void viewEnabled()
     {
+        Tile.tileClicked -= whenTileClickedMakeStep;
+        Tile.tileClicked -= whenTileClickedMarkAsDangerous;
+        Tile.tileClicked += whenTileClickedMakeStep;
         Debug.Log("view on");
     }
 
@@ -233,13 +238,20 @@ public class WalkManager : MonoBehaviour
     void whenTileClickedMakeStep(Tile t)
     {
         //Debug.Log("Clicked");
-        if(possibleNext.Contains(t) && !preventMovement)
+        if(!t.marked)
         {
-            queuedMoves.Enqueue(t);
+            if (possibleNext.Contains(t) && !preventMovement)
+            {
+                queuedMoves.Enqueue(t);
+            }
+            else
+            {
+                //TODO some sort of warning
+            }
         }
         else
         {
-            //TODO some sort of warning
+            Debug.Log("Not doing anything, this tile is marked");
         }
     }
 
@@ -250,8 +262,8 @@ public class WalkManager : MonoBehaviour
     {
         if (!t.stepped)
         {
-            if (t.marked) t.markAsDangerous(incorrectTile);
-            else t.unmarkAsDangerous(incorrectTile);
+            if (!t.marked) t.markAsDangerous(incorrectTile);
+            else t.unmarkAsDangerous(baseTile);
         }
     }
 

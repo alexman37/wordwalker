@@ -167,6 +167,8 @@ public class AnimationManager : MonoBehaviour
         yield return new WaitUntil(() => !walkManager.isActivelyMoving);
 
         // TODO moving is often left at "true" in this moment, it has to be set to false somewhere else before then.
+        playerManager.walterWhitePan();
+
         playerAnimator.ResetTrigger("Idle");
         playerAnimator.SetBool("Moving", true);
         playerAnimator.SetInteger("Direction", direction);
@@ -186,7 +188,7 @@ public class AnimationManager : MonoBehaviour
 
         playerAnimator.SetTrigger("WinRound");
         playerAnimator.SetBool("Moving", false);
-        
+
         yield return null;
     }
 
