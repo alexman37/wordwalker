@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 /// <summary>
 /// Handles the menu for Adventure mode
@@ -10,26 +11,27 @@ using TMPro;
 /// </summary>
 public class AdventureMenu : MonoBehaviour
 {
+    // The databases available to choose from
     public DatabaseSet[] databaseSets;
 
-    public GameObject databaseDescription;
+    // Conveys to MenuScript when a challenge is selected
+    public static event Action<string, bool> challengeEnabled;
+
+    // Display
+    public GameObject databaseDescription;  // Title
     public RankBox rankBox;
-
-    public GameObject highScoresContainer;
-    public Image[] highScores;
-    public GameObject neverWon;
-
     public Image dbImage;
     public Image dbHighRank;
     public TextMeshProUGUI dbName;
     public TextMeshProUGUI dbDesc;
-
-    public GameObject challengeInfo;
+    public GameObject highScoresContainer; // High scores
+    public Image[] highScores;
+    public GameObject neverWon;
+    public GameObject challengeInfo;       // Challenges
     public Image challengePic;
-    public TextMeshProUGUI challengeTitle;
+    public TextMeshProUGUI challengeTitle;  // Challenge info
     public TextMeshProUGUI challengeDesc;
-
-    public Image goButton;
+    public Image goButton;                  // Go
     public Image mult;
 
     // In terms of calculating how much additional challenges bring
@@ -81,7 +83,7 @@ public class AdventureMenu : MonoBehaviour
         
     }
 
-    public void updateChallengeInfo(bool enabled, Sprite spr, string name, string desc)
+    public void updateChallengeInfo(string id, bool enabled, Sprite spr, string name, string desc)
     {
         challengeInfo.SetActive(enabled);
         challengePic.sprite = spr;
@@ -94,12 +96,14 @@ public class AdventureMenu : MonoBehaviour
         goButton.color = goButtonColors[numChallenges];
         mult.color = multColors[numChallenges];
         mult.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "x" + multSequence[numChallenges];
+
+        challengeEnabled.Invoke(id, enabled);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

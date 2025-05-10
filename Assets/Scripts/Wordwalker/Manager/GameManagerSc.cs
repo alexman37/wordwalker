@@ -14,6 +14,8 @@ public class GameManagerSc : MonoBehaviour
     private static int totems = 0;
     private static int score = 0;
 
+    public static HashSet<MenuScript.Challenge> selectedChallenges; // Mostly used by tile generation
+
     private static string firstTimeWordsLoad = null;
     private static WordGen.Word[] wordList = new WordGen.Word[numLevels];
 
@@ -65,16 +67,23 @@ public class GameManagerSc : MonoBehaviour
         if (checkingManagerGreenlights) managerSetup();
     }
 
-    public static void setParametersOnStart(int numLvl, string db)
+    public static void setParametersOnStart(int numLvl, string db, HashSet<MenuScript.Challenge> challenges)
     {
         // Reset in-game variables to defaults
         score = 0;
-        totems = 0;
+        totems = 3;
         currLevel = 0;
+
+        // This is the only time the iron man challenge actually matters
+        if(challenges.Contains(MenuScript.Challenge.IRON_MAN))
+        {
+            totems = 0;
+        }
 
         Debug.Log("Setting parameters");
         numLevels = numLvl;
         firstTimeWordsLoad = db;
+        selectedChallenges = challenges;
 
         // We'll also have to rebuild everything in the scene
         checkingManagerGreenlights = true;

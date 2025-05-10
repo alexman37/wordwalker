@@ -4726,6 +4726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809482216}
   - component: {fileID: 809482215}
+  - component: {fileID: 809482217}
   m_Layer: 0
   m_Name: TileGen
   m_TagString: Untagged
@@ -4745,12 +4746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafb5c9262026c14b941184f57acee21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 792848993}
-  playerManager: {fileID: 1985590259}
-  subsOnStartingRow: 1
-  maxSubs: 5
-  baseTile: {fileID: 919132148221412103}
-  endSide: {fileID: 224008634}
+  generationMethod: {fileID: 809482217}
 --- !u!4 &809482216
 Transform:
   m_ObjectHideFlags: 0
@@ -4765,6 +4761,26 @@ Transform:
   m_Father: {fileID: 1299435051}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &809482217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809482214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b47e9c638d56ed448e466492622e1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 0}
+  corrects: []
+  gameManager: {fileID: 792848993}
+  playerManager: {fileID: 1985590259}
+  subsOnStartingRow: 1
+  maxSubs: 5
+  baseTile: {fileID: 919132148221412103}
+  endSide: {fileID: 224008634}
 --- !u!1 &851187329
 GameObject:
   m_ObjectHideFlags: 0
@@ -9011,6 +9027,7 @@ MonoBehaviour:
   incorrectTile: {fileID: 2100000, guid: 2256cabd8d9a743a594f0401ed05c6c6, type: 2}
   highlightTile: {fileID: 2100000, guid: 875014cfe8f9b4c0995ca97f4f5f89ca, type: 2}
   baseTile: {fileID: 2100000, guid: 6c2faafad786b46b4bf0fdb1e0a2d847, type: 2}
+  isActivelyMoving: 0
   topBar: {fileID: 1910601765}
   scrollUI: {fileID: 219530963}
   clueBookUI: {fileID: 775207875}

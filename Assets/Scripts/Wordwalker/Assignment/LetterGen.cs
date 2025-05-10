@@ -40,16 +40,15 @@ public static class LetterGen
     /// <summary>
     /// Return a random letter which agrees with the chosen word
     /// </summary>
-    public static char getCooperativeRandomLetter(Coordinate pos, string word)
+    public static char getCooperativeRandomLetter(Tile curr, string word)
     {
         //Just keep looking for a letter until you find one
         while (true)
         {
             char letterChosen = getTotallyRandomLetter();
-            Tile curr = TilemapGen.tileMap[(pos.r, pos.s)];
 
             //first, does this letter appear in the given word?
-            if(word.Contains(letterChosen.ToString()))
+            if (word.Contains(letterChosen.ToString()))
             {
                 //find every occurrence of the letter
                 //if there's a connection to the prior and next letter in the word, assume it's bad news, just pick another letter

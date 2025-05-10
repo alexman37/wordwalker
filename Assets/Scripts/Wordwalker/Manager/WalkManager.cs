@@ -59,9 +59,9 @@ public class WalkManager : MonoBehaviour
         AnimationManager.setPreventPlayerMovement += preventPlayerMovement;
         AnimationManager.setActivelyMoving += changeActivelyMoving;
 
-        TilemapGen.finishedGeneration += setStartingTiles;
-        TilemapGen.regenerate += reset;
-        TilemapGen.setCorrects += setCorrect;
+        GenMethod.finishedGeneration += setStartingTiles;
+        GenMethod.regenerate += reset;
+        GenMethod.setCorrects += setCorrect;
 
         ModeToolUI.inMarkerMode += markerEnabled;
         ModeToolUI.inStepperMode += stepperEnabled;
@@ -74,9 +74,9 @@ public class WalkManager : MonoBehaviour
 
         Tile.tileClicked -= whenTileClickedMakeStep;
         Tile.tileClicked -= whenTileClickedMarkAsDangerous;
-        TilemapGen.finishedGeneration -= setStartingTiles;
-        TilemapGen.regenerate -= reset;
-        TilemapGen.setCorrects -= setCorrect;
+        GenMethod.finishedGeneration -= setStartingTiles;
+        GenMethod.regenerate -= reset;
+        GenMethod.setCorrects -= setCorrect;
 
         ModeToolUI.inMarkerMode -= markerEnabled;
         ModeToolUI.inStepperMode -= stepperEnabled;

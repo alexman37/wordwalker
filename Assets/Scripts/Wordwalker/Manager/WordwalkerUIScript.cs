@@ -40,6 +40,9 @@ public class WordwalkerUIScript : MonoBehaviour
         displayTotem = critStats.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
         rankBox = critStats.transform.GetChild(0).GetChild(1).GetComponent<RankBox>();
 
+        // Have to set how many totems given on game start.
+        displayTotem.text = GameManagerSc.getNumTotems().ToString();
+
         greenlight = true;
     }
 

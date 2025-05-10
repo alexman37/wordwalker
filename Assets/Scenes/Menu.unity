@@ -3283,6 +3283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f381572098c34cb9f568e1c1e20e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: fog
   challengeName: The Fog
   desc: You cannot see more than 3 tiles ahead
   enabledSpr: {fileID: 21300000, guid: 83d9ba330d3633a4294d0f1b36fb2dd5, type: 3}
@@ -7046,6 +7047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f381572098c34cb9f568e1c1e20e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: special_tiles
   challengeName: Wild Cards
   desc: Orange tiles are not revealed until stepped on
   enabledSpr: {fileID: 21300000, guid: 83d9ba330d3633a4294d0f1b36fb2dd5, type: 3}
@@ -7772,6 +7774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f381572098c34cb9f568e1c1e20e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: gen_plus
   challengeName: Free Spaces
   desc: Free spaces may replace letters in the path
   enabledSpr: {fileID: 21300000, guid: 83d9ba330d3633a4294d0f1b36fb2dd5, type: 3}
@@ -8648,6 +8651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f381572098c34cb9f568e1c1e20e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: timer
   challengeName: Timer
   desc: Rows disappear every 5 seconds
   enabledSpr: {fileID: 21300000, guid: 83d9ba330d3633a4294d0f1b36fb2dd5, type: 3}
@@ -8932,6 +8936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f381572098c34cb9f568e1c1e20e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: no_items
   challengeName: Split Tiles
   desc: Purple tiles can be one of two letters
   enabledSpr: {fileID: 21300000, guid: 83d9ba330d3633a4294d0f1b36fb2dd5, type: 3}
@@ -9851,6 +9856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f381572098c34cb9f568e1c1e20e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: iron_man
   challengeName: Iron Man
   desc: No starting lives
   enabledSpr: {fileID: 21300000, guid: 83d9ba330d3633a4294d0f1b36fb2dd5, type: 3}
