@@ -42,6 +42,12 @@ public class GameManagerSc : MonoBehaviour
         //unfortunately the only way i can think of
         Tilemap = FindObjectOfType<TilemapGen>();
         uiManager = FindObjectOfType<WordwalkerUIScript>();
+
+        // We'll also have to rebuild everything in the scene
+        checkingManagerGreenlights = true;
+
+        //TODO - uncomment this when we want to go back to the menu
+        firstTimeWordsLoad = "letters/c";
     }
 
     private void OnEnable()
@@ -64,7 +70,11 @@ public class GameManagerSc : MonoBehaviour
             StartCoroutine(WordGen.LoadAsset("worddbs/" + firstTimeWordsLoad, nameOfFile[nameOfFile.Length - 1]));
             firstTimeWordsLoad = null;
         }
-        if (checkingManagerGreenlights) managerSetup();
+        if (checkingManagerGreenlights)
+        {
+            Debug.Log("Man setup");
+            managerSetup();
+        }
     }
 
     public static void setParametersOnStart(int numLvl, string db, HashSet<MenuScript.Challenge> challenges)
@@ -84,9 +94,6 @@ public class GameManagerSc : MonoBehaviour
         numLevels = numLvl;
         firstTimeWordsLoad = db;
         selectedChallenges = challenges;
-
-        // We'll also have to rebuild everything in the scene
-        checkingManagerGreenlights = true;
     }
 
     // Loading into the scene after the first time

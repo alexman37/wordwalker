@@ -43,6 +43,7 @@ public class WordwalkerUIScript : MonoBehaviour
         // Have to set how many totems given on game start.
         displayTotem.text = GameManagerSc.getNumTotems().ToString();
 
+        Debug.Log("Wordwalker UI READY");
         greenlight = true;
     }
 

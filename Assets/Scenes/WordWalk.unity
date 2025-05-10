@@ -4727,6 +4727,8 @@ GameObject:
   - component: {fileID: 809482216}
   - component: {fileID: 809482215}
   - component: {fileID: 809482217}
+  - component: {fileID: 809482218}
+  - component: {fileID: 809482219}
   m_Layer: 0
   m_Name: TileGen
   m_TagString: Untagged
@@ -4779,6 +4781,47 @@ MonoBehaviour:
   playerManager: {fileID: 1985590259}
   subsOnStartingRow: 1
   maxSubs: 5
+  baseTile: {fileID: 919132148221412103}
+  endSide: {fileID: 224008634}
+--- !u!114 &809482218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809482214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043a1e3adc9504c46ac6f26e97dee74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 0}
+  corrects: []
+  gameManager: {fileID: 792848993}
+  playerManager: {fileID: 1985590259}
+  subsOnStartingRow: 5
+  maxSubs: 7
+  minSubs: 2
+  baseTile: {fileID: 919132148221412103}
+  endSide: {fileID: 224008634}
+--- !u!114 &809482219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809482214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f6b0517e2971d47ab76768521ee740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 0}
+  corrects: []
+  gameManager: {fileID: 0}
+  playerManager: {fileID: 0}
+  minSubs: 4
+  maxSubs: 8
   baseTile: {fileID: 919132148221412103}
   endSide: {fileID: 224008634}
 --- !u!1 &851187329

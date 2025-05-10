@@ -51,6 +51,7 @@ public class WalkManager : MonoBehaviour
 
         queuedMoves = new Queue<Tile>();
 
+        Debug.Log("Walk Manager READY");
         greenlight = true;
     }
 

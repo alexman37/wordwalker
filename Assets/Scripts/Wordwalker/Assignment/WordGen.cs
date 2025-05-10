@@ -226,7 +226,7 @@ public static class WordGen
         assetBundle.Unload(false);
 
         //TODO: Remove this
-        Debug.Log("the word database is set up");
+        Debug.Log("Word Gen READY");
         greenlight = true;
     }
 }

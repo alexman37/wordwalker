@@ -17,7 +17,20 @@ public class TilemapGen : MonoBehaviour
 
     public void regenerateTileMap(WordGen.Word word)
     {
+        /*for(int i = 0; i < 10; i++)
+        {
+            try
+            {
+                tileMap = generationMethod.regenerateTileMap(word);
+                break;
+            }
+            catch
+            {
+                Debug.LogWarning("Failed to generate the tilemap- attempt #" + i);
+            }
+        }*/
         tileMap = generationMethod.regenerateTileMap(word);
+
     }
 
     // Start is called before the first frame update
@@ -25,6 +38,7 @@ public class TilemapGen : MonoBehaviour
     {
         //TODO anything we have to do to set up the gen method(s)?
 
+        Debug.Log("Tilemap gen READY");
         greenlight = true;
     }
     

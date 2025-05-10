@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Starts in a single area (potentially multiple tiles), then branches out from there.
-/// </summary>
-public class Triangle : GenMethod
+public class Rectangle : GenMethod
 {
     // BEFORE RUN
-    public int subsOnStartingRow;
+    public int minSubs;
     public int maxSubs;
+
+    // IN-USE
+    private int settledSubs;
 
     // TODO: MOVE TO A SEPARATE, RELATED SCRIPT DICTATING TILE SHAPE / GRID PATTERN
     public GameObject baseTile;
 
     // (TODO?) Map / setting generation
     public GameObject endSide;
-
 
     public override Dictionary<(int, int), Tile> generateShape(string word)
     {
@@ -37,39 +36,29 @@ public class Triangle : GenMethod
 
         endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 13f + 3f * settledRows);
 
-        //First loop - generate increasing rows
-        List<Tile> starters = new List<Tile>();
-        float oddRowOffset = 0;
+        settledSubs = Random.Range(minSubs, maxSubs + 1);
 
+        //First loop - generate constant number of subs in each row
+        List<Tile> starters = new List<Tile>();
         for (int row = 0; row < settledRows; row++)
         {
-            oddRowOffset = row % 2 == 1 ? xSpacing / 2.0f : 0;
+            float oddRowOffset = row % 2 == 1 ? xSpacing / 2.0f : 0;
 
-            float numSubs = Mathf.Min(row + subsOnStartingRow - 1, maxSubs - 1);
-            float proposedSubs = row % 2 == 0 ? Mathf.Ceil(maxSubs / 2 - (numSubs / 2)) : Mathf.Floor(maxSubs / 2 - (numSubs / 2));
-            float minAllowedSub = proposedSubs;
-            float maxAllowedSub = proposedSubs + numSubs;
-
-            for (int sub = 0; sub <= maxSubs; sub++)
+            for (int sub = 0; sub <= settledSubs; sub++)
             {
-                // We have to "center" the subs if we get to a point where there would be more than allowed.
-                // Do this by simply not drawing tiles that fall out of the range.
-                if (!(sub >= minAllowedSub && sub <= maxAllowedSub))
-                {
-                    tileMap[(row, sub)] = null;
-                    continue;
-                }
-
-                float xPos =  (maxSubs * xSpacing / 2) - sub * xSpacing - oddRowOffset;
+                // Set position of real object
+                float xPos = (settledSubs * ySpacing / 2) - sub * xSpacing - oddRowOffset;
                 Vector3 pos = new Vector3(xPos, 0, ySpacing * row);
                 GameObject next = GameObject.Instantiate(baseTile, pos, baseTile.transform.rotation);
                 next.transform.parent = container.transform;
 
+                // Track overall stats
                 if (pos.x < minX) minX = pos.x;
                 if (pos.x > maxX) maxX = pos.x;
                 if (pos.z < minZ) minZ = pos.z;
                 if (pos.z > maxZ) maxZ = pos.z;
 
+                // Set Tile properties
                 Tile t = next.GetComponent<Tile>();
                 t.absolutePosition = (pos.x, pos.z);
                 t.coords = new Coordinate(row, sub);
@@ -90,10 +79,10 @@ public class Triangle : GenMethod
         playerManager.setBounds(minX, maxX, minZ, maxZ, settledRows);
 
         //Second loop - set adjacencies
-        findAdjacencies(maxSubs);
+        findAdjacencies(settledSubs);
 
         corrects = generateWordPath(starters, word, backTracks);
-        fillInOtherTiles(maxSubs);
+        fillInOtherTiles(settledSubs);
         done(starters);
 
         return tileMap;

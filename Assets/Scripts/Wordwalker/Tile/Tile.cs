@@ -48,6 +48,7 @@ public class Tile : MonoBehaviour
     // TODO: When you click on a tile one of a number of things can happen
     public void OnMouseDown()
     {
+        Debug.Log("Clicked on " + this.ToString());
         tileClicked.Invoke(this);
     }
 
