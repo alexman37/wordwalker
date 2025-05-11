@@ -14,6 +14,8 @@ public class TileMats : MonoBehaviour
     public Material spec_blank;
     public Material spec_fake;
 
+    public Material fog;
+
     public Material highlightTileRandom;
     public Material highlightTileSplit;
     public Material highlightTileFake;

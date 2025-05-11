@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System;
 
 /// <summary>
@@ -23,6 +20,9 @@ public class WalkManager : MonoBehaviour
 
     // Keep track of where we're going to move next (cannot run these coroutines simultaneously)
     private Tile currTile;
+    private int maxReachedRow = -1;
+    public static event Action<int> atCurrentRow; // The fog and timer challenges need this.
+
     public Queue<Tile> queuedMoves;   // so that we can pre-click multiple tiles
     public bool isActivelyMoving = false;
     private bool preventMovement = false; //for instance, if you're about to die
@@ -141,6 +141,7 @@ public class WalkManager : MonoBehaviour
         currDef = d;
         topBar.ResetBar();
         setClue();
+        maxReachedRow = -1;
         playerManager.setToStartingPosition();
     }
 
@@ -157,6 +158,11 @@ public class WalkManager : MonoBehaviour
         startingTiles = new List<Tile>(starters);
         possibleNext = starters;
         highlightAllInPossibleNext();
+
+        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+        {
+            atCurrentRow.Invoke(maxReachedRow);
+        }
     }
 
     /// <summary>
@@ -207,7 +213,15 @@ public class WalkManager : MonoBehaviour
             }
             else
             {
-                
+                // If this is the "furthest" we've gone, remove fog, if applicable
+                if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+                {
+                    if (t.coords.r > maxReachedRow)
+                    {
+                        maxReachedRow = t.coords.r;
+                        atCurrentRow.Invoke(maxReachedRow);
+                    }
+                }
             }
         }
 
@@ -292,7 +306,7 @@ public class WalkManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Automatically set "possibleNext" to the startingTiles
+    /// Automatically set "possibleNext" to the startingTiles - used for the drawback animation if you get the first tile wrong.
     /// </summary>
     public void returnToStart()
     {

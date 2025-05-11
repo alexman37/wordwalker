@@ -14,6 +14,8 @@ public class GameManagerSc : MonoBehaviour
     private static int totems = 0;
     private static int score = 0;
 
+    public static int foggyVision = 3;   // How far ahead can you see when fog is enabled?
+
     public static HashSet<MenuScript.Challenge> selectedChallenges = new HashSet<MenuScript.Challenge>(); // Mostly used by tile generation
 
     private static string firstTimeWordsLoad = null;

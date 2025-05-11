@@ -11,6 +11,7 @@ public class Tile : MonoBehaviour
 {
     // STATS
     public char letter = ' ';               // Letter this tile represents
+    public string display = " ";            // What the tile shows - sometimes different from letter if it's a "Special" tile
     public (float, float) absolutePosition; // "World" position
     public Coordinate coords;               // Coordinate system works in (row, space)
 
@@ -45,11 +46,16 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
         fallAllTiles += fall;
+        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+        {
+            WalkManager.atCurrentRow += determineFogginess;
+        }
     }
 
     private void OnDisable()
     {
         fallAllTiles -= fall;
+        WalkManager.atCurrentRow -= determineFogginess;
     }
 
 
@@ -77,7 +83,7 @@ public class Tile : MonoBehaviour
         Debug.Log("Correct press");
         if(specType != SpecialTile.NONE)
         {
-            textComponent.text = letter.ToString();
+            textComponent.text = display.ToString();
         }
     }
 
@@ -166,6 +172,26 @@ public class Tile : MonoBehaviour
     }
 
     /// <summary>
+    /// (If fog challenge enabled) Keep / make all tiles past (passed in row + foggyDistance) foggy.
+    /// WalkManager is supposed to do the calculations to make this value consistently increasing.
+    /// </summary>
+    private void determineFogginess(int row)
+    {
+        //TODO change material as well
+        if(this.coords != null)
+        {
+            if (this.coords.r - row > GameManagerSc.foggyVision)
+            {
+                textComponent.text = "";
+            }
+            else
+            {
+                textComponent.text = display.ToString();
+            }
+        }
+    }
+
+    /// <summary>
     /// Set the letter of this tile (ON GENERATION ONLY)
     /// Once finalized it cannot be changed again (duh)
     /// </summary>
@@ -174,12 +200,16 @@ public class Tile : MonoBehaviour
         if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         letter = setTo;
+        display = setTo.ToString();
         textComponent.text = setTo.ToString();
 
         finalized = true;
         correct = isPartOfPath;
     }
 
+    /// <summary>
+    /// You've chosen to make this a special tile - adjust its appearance / behavior here
+    /// </summary>
     public void setAsSpecialTile(SpecialTile specType)
     {
         if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -190,12 +220,12 @@ public class Tile : MonoBehaviour
         {
             // Random: Appears as "?", value hidden until stepped on
             case SpecialTile.RANDOM:
-                textComponent.text = "?";
+                display = "?";
                 break;
             // Blank: Appears as nothing and can always safely be stepped on
             case SpecialTile.BLANK:
-                textComponent.text = " ";
                 letter = ' ';
+                display = " ";
                 correct = true;
                 break;
             // Fake: Has a certain chance (configure...) of appearing as something else
@@ -204,11 +234,11 @@ public class Tile : MonoBehaviour
                 if(UnityEngine.Random.value < fakeTileLyingChance)
                 {
                     // The tile lies
-                    textComponent.text = "\"" + LetterGen.getProportionallyRandomLetter() + "\"";
+                    display = "\"" + LetterGen.getProportionallyRandomLetter() + "\"";
                 } else
                 {
                     // The tile tells the truth
-                    textComponent.text = "\"" + letter + "\"";
+                    display = "\"" + letter + "\"";
                 }
                 
                 break;
@@ -217,14 +247,16 @@ public class Tile : MonoBehaviour
                 // Will either have the correct tile on top or the bottom
                 if (UnityEngine.Random.value < 0.5f)
                 {
-                    textComponent.text = LetterGen.getProportionallyRandomLetter() + "\n" + letter;
+                    display = LetterGen.getProportionallyRandomLetter() + "\n" + letter;
                 } else
                 {
-                    textComponent.text = letter + "\n" + LetterGen.getProportionallyRandomLetter();
+                    display = letter + "\n" + LetterGen.getProportionallyRandomLetter();
                 }
                 
                 break;
         }
+
+        textComponent.text = display;
     }
 
     /// <summary>

@@ -4190,6 +4190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letter: 32
+  display: ' '
   stepped: 0
   marked: 0
   correct: 0
@@ -9774,6 +9775,91 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609280396}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1616092453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 69b9221ecaff048cbad158c2e632dc26, type: 2}
+    - target: {fileID: -7511558181221131132, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd7596fe719596d41b03a22bbc06876a, type: 2}
+    - target: {fileID: 919132149155446097, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_Name
+      value: FoggyTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
+      propertyPath: m_TagString
+      value: FoggyTile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae8bc4f3418b5e949b0dc5bf85c82ec1, type: 3}
 --- !u!1 &1635570126
 GameObject:
   m_ObjectHideFlags: 0
