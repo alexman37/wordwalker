@@ -84,6 +84,8 @@ public class Triangle : GenMethod
                 //Once done modifying the new tile, put it in the tileMap
                 tileMap[(t.coords.r, t.coords.s)] = t;
                 if (row == 0) starters.Add(t);
+
+                allTiles.Add(t);
             }
         }
 
@@ -91,9 +93,10 @@ public class Triangle : GenMethod
 
         //Second loop - set adjacencies
         findAdjacencies(maxSubs);
-
+        
         corrects = generateWordPath(starters, word, backTracks);
         fillInOtherTiles(maxSubs);
+        addSpecialTiles();
         done(starters);
 
         return tileMap;

@@ -167,6 +167,7 @@ public class WalkManager : MonoBehaviour
         //Remove all next highlights
         foreach (Tile next in possibleNext)
         {
+            //TODO CHANGE
             next.highlightMaterial(baseTile);
         }
 

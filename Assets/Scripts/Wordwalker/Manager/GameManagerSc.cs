@@ -14,7 +14,7 @@ public class GameManagerSc : MonoBehaviour
     private static int totems = 0;
     private static int score = 0;
 
-    public static HashSet<MenuScript.Challenge> selectedChallenges; // Mostly used by tile generation
+    public static HashSet<MenuScript.Challenge> selectedChallenges = new HashSet<MenuScript.Challenge>(); // Mostly used by tile generation
 
     private static string firstTimeWordsLoad = null;
     private static WordGen.Word[] wordList = new WordGen.Word[numLevels];

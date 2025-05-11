@@ -20,6 +20,9 @@ public class Tile : MonoBehaviour
     public bool correct;     // Is this tile part of the correct word path?
     public bool isBackRow;   // Is this tile in the back row? (If correct, you win.)
 
+    public SpecialTile specType; // If special then some of its behavior is changed
+    public static float fakeTileLyingChance = 0.50f;
+
     // Note to self- we don't store local copies of the materials here bc it would be needlessly expensive.
 
     public List<Adjacency> adjacencies = new List<Adjacency>(); // Order of adjacencies is CLOCKWISE FROM EAST (E, SE, SW, W, NW, NE)
@@ -32,6 +35,11 @@ public class Tile : MonoBehaviour
     public static event Action fallAllTiles;      // When winning a round or losing the game, all incorrect tiles fall down
     public static event Action<Tile> tileClicked; // When a tile is clicked you propogate it to the WalkManager
 
+
+    private void Start()
+    {
+        textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+    }
 
     // Sub / unsub to actions
     private void OnEnable()
@@ -158,13 +166,51 @@ public class Tile : MonoBehaviour
     /// </summary>
     public void setLetter(char setTo, bool isPartOfPath)
     {
-        textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         letter = setTo;
         textComponent.text = setTo.ToString();
 
         finalized = true;
         correct = isPartOfPath;
+
+        specType = SpecialTile.NONE;
+    }
+
+    public void setAsSpecialTile(SpecialTile specType)
+    {
+        if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        this.specType = specType;
+
+        switch (specType)
+        {
+            // Random: Appears as "?", value hidden until stepped on
+            case SpecialTile.RANDOM:
+                textComponent.text = "?";
+                break;
+            // Blank: Appears as nothing and can always safely be stepped on
+            case SpecialTile.BLANK:
+                textComponent.text = " ";
+                break;
+            // Fake: Has a certain chance (configure...) of appearing as something else
+            case SpecialTile.FAKE:
+                textComponent.fontSize = 0.9f;
+                if(UnityEngine.Random.value < fakeTileLyingChance)
+                {
+                    // The tile lies
+                    textComponent.text = "\"" + LetterGen.getProportionallyRandomLetter() + "\"";
+                } else
+                {
+                    // The tile tells the truth
+                    textComponent.text = "\"" + letter + "\"";
+                }
+                
+                break;
+            case SpecialTile.SPLIT:
+                // TODO
+                break;
+        }
     }
 
     /// <summary>
@@ -197,6 +243,19 @@ public class Tile : MonoBehaviour
         physicalObject.GetComponent<MeshRenderer>().materials = mats;
     }
 
+    /// <summary>
+    /// Change the material of this tile to whatever the default is
+    /// </summary>
+    /*public void currentBaseMaterial()
+    {
+        Material[] mats = physicalObject.GetComponent<MeshRenderer>().materials;
+        Material changeTo;
+
+
+        mats[1] = changeTo;
+        physicalObject.GetComponent<MeshRenderer>().materials = mats;
+    }*/
+
 
 
     public bool isFinalized()
@@ -207,5 +266,14 @@ public class Tile : MonoBehaviour
     public override string ToString()
     {
         return "Tile at " + coords + ": [" + letter + "]";
+    }
+
+    public enum SpecialTile
+    {
+        NONE,
+        RANDOM,
+        SPLIT,
+        FAKE,
+        BLANK
     }
 }

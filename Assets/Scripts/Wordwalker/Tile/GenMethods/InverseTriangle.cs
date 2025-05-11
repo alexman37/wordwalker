@@ -117,6 +117,8 @@ public class InverseTriangle : GenMethod
                 tileMap[(t.coords.r, t.coords.s)] = t;
                 if (row == 0) starters.Add(t);
                 if (row == settledRows - 1) enders.Add(t);
+
+                allTiles.Add(t);
             }
         }
 
@@ -127,6 +129,7 @@ public class InverseTriangle : GenMethod
 
         corrects = generateWordPath(enders, word, backTracks);
         fillInOtherTiles(maxSubs);
+        addSpecialTiles();
         done(starters);
 
         return tileMap;

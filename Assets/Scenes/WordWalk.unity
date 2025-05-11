@@ -4726,9 +4726,11 @@ GameObject:
   m_Component:
   - component: {fileID: 809482216}
   - component: {fileID: 809482215}
+  - component: {fileID: 809482221}
   - component: {fileID: 809482217}
   - component: {fileID: 809482218}
   - component: {fileID: 809482219}
+  - component: {fileID: 809482220}
   m_Layer: 0
   m_Name: TileGen
   m_TagString: Untagged
@@ -4749,6 +4751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generationMethod: {fileID: 809482217}
+  tileMaterials: {fileID: 809482221}
 --- !u!4 &809482216
 Transform:
   m_ObjectHideFlags: 0
@@ -4777,6 +4780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 0}
   corrects: []
+  tilemapGen: {fileID: 0}
   gameManager: {fileID: 792848993}
   playerManager: {fileID: 1985590259}
   subsOnStartingRow: 1
@@ -4797,6 +4801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 0}
   corrects: []
+  tilemapGen: {fileID: 0}
   gameManager: {fileID: 792848993}
   playerManager: {fileID: 1985590259}
   subsOnStartingRow: 5
@@ -4818,12 +4823,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 0}
   corrects: []
+  tilemapGen: {fileID: 0}
   gameManager: {fileID: 0}
   playerManager: {fileID: 0}
   minSubs: 4
   maxSubs: 8
   baseTile: {fileID: 919132148221412103}
   endSide: {fileID: 224008634}
+--- !u!114 &809482220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809482214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601b16e02c7938d4aab97df1432d8c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 0}
+  corrects: []
+  tilemapGen: {fileID: 0}
+  gameManager: {fileID: 0}
+  playerManager: {fileID: 0}
+  minSubs: 3
+  maxSubs: 5
+  baseTile: {fileID: 919132148221412103}
+  endSide: {fileID: 224008634}
+--- !u!114 &809482221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809482214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1ba2920a7d4e14ba66a7b2bec98eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctTile: {fileID: 2100000, guid: 3b505163b60e94c87ba5475b8d114ac8, type: 2}
+  incorrectTile: {fileID: 2100000, guid: 2256cabd8d9a743a594f0401ed05c6c6, type: 2}
+  highlightTile: {fileID: 2100000, guid: 875014cfe8f9b4c0995ca97f4f5f89ca, type: 2}
+  baseTile: {fileID: 2100000, guid: 6c2faafad786b46b4bf0fdb1e0a2d847, type: 2}
+  spec_random: {fileID: 2100000, guid: 8d6582a220b4ec748a18bcfda671eec5, type: 2}
+  spec_split: {fileID: 2100000, guid: 1f38a81b8b351a142891c5aeebcd8453, type: 2}
+  spec_blank: {fileID: 2100000, guid: 579c78c86d4fcb049ab22aa0e55564c9, type: 2}
+  spec_fake: {fileID: 2100000, guid: d52ec9bcc27f7f44bbe8f201410d437b, type: 2}
 --- !u!1 &851187329
 GameObject:
   m_ObjectHideFlags: 0
@@ -12122,6 +12169,7 @@ MonoBehaviour:
   marked: 0
   correct: 0
   isBackRow: 0
+  specType: 0
   physicalObject: {fileID: 0}
 --- !u!64 &3433720230646389881
 MeshCollider:

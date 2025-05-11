@@ -15,6 +15,8 @@ public class TilemapGen : MonoBehaviour
 
     public GenMethod generationMethod;
 
+    public TileMats tileMaterials;
+
     public void regenerateTileMap(WordGen.Word word)
     {
         /*for(int i = 0; i < 10; i++)

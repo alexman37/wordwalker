@@ -73,6 +73,8 @@ public class Rectangle : GenMethod
                 //Once done modifying the new tile, put it in the tileMap
                 tileMap[(t.coords.r, t.coords.s)] = t;
                 if (row == 0) starters.Add(t);
+
+                allTiles.Add(t);
             }
         }
 
@@ -83,6 +85,7 @@ public class Rectangle : GenMethod
 
         corrects = generateWordPath(starters, word, backTracks);
         fillInOtherTiles(settledSubs);
+        addSpecialTiles();
         done(starters);
 
         return tileMap;

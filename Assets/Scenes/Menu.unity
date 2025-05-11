@@ -4228,6 +4228,10 @@ MonoBehaviour:
   - {fileID: 0}
   databaseDescription: {fileID: 503625279}
   rankBox: {fileID: 1390559541}
+  dbImage: {fileID: 395348546}
+  dbHighRank: {fileID: 253739052}
+  dbName: {fileID: 309597557}
+  dbDesc: {fileID: 1838513626}
   highScoresContainer: {fileID: 1026905852}
   highScores:
   - {fileID: 1034132174}
@@ -4236,10 +4240,6 @@ MonoBehaviour:
   - {fileID: 1112496209}
   - {fileID: 1956664451}
   neverWon: {fileID: 1124800093}
-  dbImage: {fileID: 395348546}
-  dbHighRank: {fileID: 253739052}
-  dbName: {fileID: 309597557}
-  dbDesc: {fileID: 1838513626}
   challengeInfo: {fileID: 304165521}
   challengePic: {fileID: 966156988}
   challengeTitle: {fileID: 1668758884}
@@ -7048,8 +7048,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: special_tiles
-  challengeName: Wild Cards
-  desc: Orange tiles are not revealed until stepped on
+  challengeName: Special Tiles
+  desc: Special tiles will appear
   enabledSpr: {fileID: 21300000, guid: 83d9ba330d3633a4294d0f1b36fb2dd5, type: 3}
   disabledSpr: {fileID: 21300000, guid: 80ad879ba6e06c14db162c18c935befe, type: 3}
 --- !u!1 &1436221472

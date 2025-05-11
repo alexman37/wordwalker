@@ -15,6 +15,7 @@ public abstract class GenMethod : MonoBehaviour
 
     protected int settledRows;  //Number of rows generated may be less than the length of the word.
     protected string word;
+    protected List<Tile> allTiles; // We use this for challenges. We can free it if we don't need it
 
     /// Actions indicating various phases of the tile gen process.
     public static event Action<List<Tile>> finishedGeneration;
@@ -25,6 +26,7 @@ public abstract class GenMethod : MonoBehaviour
     public static float ySpacing = 1.7f * 2f; //1.633f * 2f;
 
     /// These managers needed at several stages
+    public TilemapGen tilemapGen;
     public GameManagerSc gameManager;
     public PlayerManager playerManager;
 
@@ -35,14 +37,17 @@ public abstract class GenMethod : MonoBehaviour
     {
         tileMap = new Dictionary<(int, int), Tile>();
         container = new GameObject();
+        allTiles = new List<Tile>();
 
         gameManager = FindObjectOfType<GameManagerSc>();
         playerManager = FindObjectOfType<PlayerManager>();
+        tilemapGen = FindObjectOfType<TilemapGen>();
 
         finishedGeneration += (_) => { };
         regenerate += (_,__) => { };
         setCorrects += (_) => { };
     }
+
 
     /// <summary>
     /// Generates the complete shape from start to finish. Generally this is the only method of the class you would call externally.
@@ -110,7 +115,7 @@ public abstract class GenMethod : MonoBehaviour
             corrects.Add(curr);
 
             curr.setLetter(word[currLetter], true);
-            //Debug.Log("Curr letter #" + currLetter + " is " + word[currLetter] + ", there are " + backTracksRemaining + " back tracks remaining");
+            ///Debug.Log("Onto letter " + currLetter);
 
             foreach (Adjacency adj in curr.adjacencies)
             {
@@ -150,6 +155,7 @@ public abstract class GenMethod : MonoBehaviour
                     }
                 }
             }
+            ///Debug.Log("[" + currLetter + "] middle of the road");
             currLetter++;
             if (currLetter < word.Length)
             {
@@ -162,6 +168,7 @@ public abstract class GenMethod : MonoBehaviour
                 }
                 curr = chosenAdj.tile;
             }
+            ///Debug.Log("[" + (currLetter-1) + "] end of the road");
         }
         return corrects;
     }
@@ -243,6 +250,66 @@ public abstract class GenMethod : MonoBehaviour
         return currBacktracks;
     }
 
+    /// <summary>
+    /// Add special tiles. They can include the path itself
+    /// </summary>
+    protected virtual void addSpecialTiles()
+    {
+
+        // TODO maybe we end up splitting up the different tiles into separate challenges.
+        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
+            // RANDOM tiles - these appear as ? and are unknown until stepped on.
+            int numRandoms = 4;
+            int numRandomsChosen = UnityEngine.Random.Range(0, numRandoms + 1);
+            for (int i = 0; i < numRandomsChosen; i++)
+            {
+                Tile t = getRandomSpecialTile((1 / (float)numRandoms));
+                //Special rules:
+                //  - Cannot be in the last row
+                //  - Cannot directly border another random, fake, or split tile
+                if(t.coords.r != settledRows - 1 && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                {
+                    t.setAsSpecialTile(Tile.SpecialTile.RANDOM);
+                    t.changeMaterial(tilemapGen.tileMaterials.spec_random);
+                }
+            }
+
+
+            // FAKE tiles - these have a certain chance of being what they actually say they are
+            int numFakes = 4;
+            int numFakesChosen = UnityEngine.Random.Range(0, numFakes + 1);
+            for (int i = 0; i < numFakesChosen; i++)
+            {
+                Tile t = getRandomSpecialTile((1 / (float)numFakes));
+                //Special rules:
+                //  - Cannot be in the last row
+                //  - Cannot directly border another random, fake, or split tile
+                if (t.coords.r != settledRows - 1 && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                {
+                    t.setAsSpecialTile(Tile.SpecialTile.FAKE);
+                    t.changeMaterial(tilemapGen.tileMaterials.spec_fake);
+                }
+            }
+
+            // SPLIT tiles - may be one letter or another
+            // SPACE tiles - these can (and often should) intercede with the path itself - so we may MOVE part of this into the generateWordPath method...
+        }
+    }
+
+    private Tile getRandomSpecialTile(float chanceOfBeingCorrect)
+    {
+        // return a tile directly from corrects
+        if(UnityEngine.Random.value <= chanceOfBeingCorrect)
+        {
+            return corrects[UnityEngine.Random.Range(0, corrects.Count)];
+        }
+
+        // return any tile (might be correct anyways)
+        else
+        {
+            return allTiles[UnityEngine.Random.Range(0, allTiles.Count)];
+        }
+    }
 
     /// <summary>
     /// Get the list of all correct tiles - in some situations you may call this externally.
@@ -259,6 +326,7 @@ public abstract class GenMethod : MonoBehaviour
     public Dictionary<(int, int), Tile> regenerateTileMap(WordGen.Word word)
     {
         tileMap.Clear();
+        allTiles.Clear();
 
         //TODO: definitions currently aren't defined.
         regenerate.Invoke(word.word, word.getClue());
