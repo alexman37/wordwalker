@@ -267,7 +267,7 @@ public abstract class GenMethod : MonoBehaviour
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
-                if(t.coords.r != settledRows - 1 && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                if(!t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
                     t.setAsSpecialTile(Tile.SpecialTile.RANDOM);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_random);
@@ -284,7 +284,7 @@ public abstract class GenMethod : MonoBehaviour
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
-                if (t.coords.r != settledRows - 1 && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                if (!t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
                     t.setAsSpecialTile(Tile.SpecialTile.FAKE);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_fake);
@@ -292,7 +292,35 @@ public abstract class GenMethod : MonoBehaviour
             }
 
             // SPLIT tiles - may be one letter or another
-            // SPACE tiles - these can (and often should) intercede with the path itself - so we may MOVE part of this into the generateWordPath method...
+            int numSplits = 4;
+            int numSplitsChosen = UnityEngine.Random.Range(0, numSplits + 1);
+            for (int i = 0; i < numSplitsChosen; i++)
+            {
+                Tile t = getRandomSpecialTile((1 / (float)numSplits));
+                //Special rules:
+                //  - Cannot be in the last row
+                //  - Cannot directly border another random, fake, or split tile
+                if (!t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                {
+                    t.setAsSpecialTile(Tile.SpecialTile.SPLIT);
+                    t.changeMaterial(tilemapGen.tileMaterials.spec_split);
+                }
+            }
+
+            // BLANK tiles - these can (and often should) intercede with the path itself - so we may MOVE part of this into the generateWordPath method...
+            int numBlanks = 4;
+            int numBlanksChosen = UnityEngine.Random.Range(0, numBlanks + 1);
+            for (int i = 0; i < numBlanksChosen; i++)
+            {
+                Tile t = getRandomSpecialTile((1 / (float)numBlanks));
+                //Special rules:
+                //  - Cannot overtake the path itself (that should have been done earlier.
+                if (!t.correct && !t.isBackRow)
+                {
+                    t.setAsSpecialTile(Tile.SpecialTile.BLANK);
+                    t.changeMaterial(tilemapGen.tileMaterials.spec_blank);
+                }
+            }
         }
     }
 

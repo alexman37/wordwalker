@@ -4,16 +4,14 @@ using UnityEngine;
 
 public static class LetterGen
 {
-    //CHANGE these to whatever you like
-    private static float spaceTileFactor = 0.000f;
-    private static float hiddenTileFactor = 0.001f;
+    private static int numLetters = 26;
 
     /// <summary>
     /// Return any letter with no restrictions.
     /// </summary>
     public static char getTotallyRandomLetter()
     {
-        int randVal = Random.Range(0, 28);
+        int randVal = Random.Range(0, numLetters);
         return letterBase[randVal];
     }
 
@@ -22,7 +20,7 @@ public static class LetterGen
     /// </summary>
     public static char getProportionallyRandomLetter()
     {
-        float sumAll = 100f + spaceTileFactor + hiddenTileFactor;
+        float sumAll = 100f;
         float curr = 0f;
         float randVal = Random.Range(0, sumAll);
 
@@ -78,8 +76,8 @@ public static class LetterGen
 
     }
 
-    static char[] letterBase = { ' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-                                        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '?'};
+    static char[] letterBase = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                                        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     //see https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html
     static Dictionary<float, char> frequencyToLetter = new Dictionary<float,char>()
@@ -110,8 +108,6 @@ public static class LetterGen
         { 0.2722f, 'Z' },
         { 0.1965f, 'J' },
         { 0.1962f, 'Q' },
-        { spaceTileFactor, ' ' },
-        { hiddenTileFactor, '?' }
     };
 
     static Dictionary<char, float> letterToFrequency = new Dictionary<char, float>()
@@ -142,7 +138,5 @@ public static class LetterGen
         { 'Z', 0.2722f },
         { 'J', 0.1965f },
         { 'Q', 0.1962f },
-        { ' ', spaceTileFactor },
-        { '?', hiddenTileFactor }
     };
 }

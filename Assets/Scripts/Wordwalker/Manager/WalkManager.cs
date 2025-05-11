@@ -19,10 +19,7 @@ public class WalkManager : MonoBehaviour
 
     // MATERIALS - What materials a tile becomes in different situations
     // This can change depending on the setting
-    public Material correctTile;
-    public Material incorrectTile;
-    public Material highlightTile;
-    public Material baseTile;
+    public TileMats tileMats;
 
     // Keep track of where we're going to move next (cannot run these coroutines simultaneously)
     private Tile currTile;
@@ -31,6 +28,7 @@ public class WalkManager : MonoBehaviour
     private bool preventMovement = false; //for instance, if you're about to die
     private bool hasWon = false;
     private List<Tile> possibleNext;  // anywhere we can potentially go next
+    private List<Tile> startingTiles;
 
     // Walk manager needs to interact with these components
     public TopBarUI topBar;
@@ -48,6 +46,7 @@ public class WalkManager : MonoBehaviour
     {
         possibleNext = new List<Tile>();
         correctTiles = new List<Tile>();
+        startingTiles = new List<Tile>();
 
         queuedMoves = new Queue<Tile>();
 
@@ -137,6 +136,7 @@ public class WalkManager : MonoBehaviour
     {
         hasWon = false;
         possibleNext.Clear();
+        startingTiles.Clear();
         currWord = w;
         currDef = d;
         topBar.ResetBar();
@@ -154,9 +154,9 @@ public class WalkManager : MonoBehaviour
     // (generation) set local copy of which tiles you can start the level by stepping on
     void setStartingTiles(List<Tile> starters)
     {
-        //TODO: Not set on the first go
-        //Debug.Log("START TILES SET!");
+        startingTiles = new List<Tile>(starters);
         possibleNext = starters;
+        highlightAllInPossibleNext();
     }
 
     /// <summary>
@@ -165,25 +165,18 @@ public class WalkManager : MonoBehaviour
     public IEnumerator prepareNextMovement(Tile toTile)
     {
         //Remove all next highlights
-        foreach (Tile next in possibleNext)
-        {
-            //TODO CHANGE
-            next.highlightMaterial(baseTile);
-        }
+        removeAllHighlightsInPossibleNext();
 
-        //TODO: instead of this hacky workaround we should have a backtracking option.
         possibleNext.Clear();
 
         if (!toTile.isBackRow)
         {
             foreach (Adjacency adj in toTile.adjacencies)
             {
-                if (!adj.tile.stepped)
-                {
-                    possibleNext.Add(adj.tile);
-                    adj.tile.highlightMaterial(highlightTile);
-                }
+                possibleNext.Add(adj.tile);
             }
+
+            highlightAllInPossibleNext();
         }
 
         yield return null;
@@ -200,10 +193,14 @@ public class WalkManager : MonoBehaviour
             currTile = t;
             t.pressAnimation();
 
-            addLetterToTopWord(t);
+            // Will add to topbar unless (A) you already stepped on it, or (B) it's an empty/blank tile
+            if (!t.stepped && t.specType != Tile.SpecialTile.BLANK)
+            {
+                addLetterToTopWord(t);
+            }
 
             //If it's in the back row, you win!
-            t.stepMaterial(correctTile);
+            t.stepMaterial(tileMats.correctTile);
             if (t.isBackRow)
             {
                 onWin();
@@ -219,8 +216,8 @@ public class WalkManager : MonoBehaviour
         {
             preventMovement = true;
             queuedMoves.Clear();
-            addLetterToTopWord(t);
-            t.stepMaterial(incorrectTile);
+            t.stepMaterial(tileMats.incorrectTile);
+            //addLetterToTopWord(t); // TODO - eventually we might have a "not this one" typa animation.
             t.pressAnimation();
 
             if (onIncorrectChoice())
@@ -264,10 +261,55 @@ public class WalkManager : MonoBehaviour
     {
         if (!t.stepped)
         {
-            if (!t.marked) t.markAsDangerous(incorrectTile);
-            else t.unmarkAsDangerous(baseTile);
+            if (!t.marked) t.markAsDangerous(tileMats.incorrectTile);
+            else t.unmarkAsDangerous(tileMats.getCurrentBase(false, t.stepped, t.correct, t.specType));
         }
     }
+
+    /// <summary>
+    /// Spawn highlights (which can vary) for all tiles in possible next
+    /// </summary>
+    void highlightAllInPossibleNext()
+    {
+        foreach (Tile t in possibleNext)
+        {
+            if (!t.stepped)
+            {
+                t.highlightMaterial(tileMats.getCurrentHighlight(t.marked, t.stepped, t.correct, t.specType));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Remove highlights for whatever is in the active possibleNext
+    /// </summary>
+    void removeAllHighlightsInPossibleNext()
+    {
+        foreach (Tile next in possibleNext)
+        {
+            next.changeMaterial(tileMats.getCurrentBase(next.marked, next.stepped, next.correct, next.specType));
+        }
+    }
+
+    /// <summary>
+    /// Automatically set "possibleNext" to the startingTiles
+    /// </summary>
+    public void returnToStart()
+    {
+        removeAllHighlightsInPossibleNext();
+
+        possibleNext.Clear();
+
+        foreach(Tile t in startingTiles)
+        {
+            Debug.Log(startingTiles);
+            if (t.correct || !t.stepped) possibleNext.Add(t);
+        }
+
+        highlightAllInPossibleNext();
+    }
+
+
 
     /// <summary>
     /// Add letter to progress bar of topBar
@@ -320,6 +362,7 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void onLose()
     {
+        removeAllHighlightsInPossibleNext();
         GameManagerSc.signifyGameOver();
         topBar.SetAnswer(this.correctTiles, false);
         topBar.kickOffRotation();

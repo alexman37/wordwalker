@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
     public bool correct;     // Is this tile part of the correct word path?
     public bool isBackRow;   // Is this tile in the back row? (If correct, you win.)
 
-    public SpecialTile specType; // If special then some of its behavior is changed
+    public SpecialTile specType = SpecialTile.NONE; // If special then some of its behavior is changed
     public static float fakeTileLyingChance = 0.50f;
 
     // Note to self- we don't store local copies of the materials here bc it would be needlessly expensive.
@@ -74,6 +74,11 @@ public class Tile : MonoBehaviour
     private void correctPress()
     {
         StartCoroutine(pushDownTile());
+        Debug.Log("Correct press");
+        if(specType != SpecialTile.NONE)
+        {
+            textComponent.text = letter.ToString();
+        }
     }
 
     /// <summary>
@@ -173,8 +178,6 @@ public class Tile : MonoBehaviour
 
         finalized = true;
         correct = isPartOfPath;
-
-        specType = SpecialTile.NONE;
     }
 
     public void setAsSpecialTile(SpecialTile specType)
@@ -192,6 +195,8 @@ public class Tile : MonoBehaviour
             // Blank: Appears as nothing and can always safely be stepped on
             case SpecialTile.BLANK:
                 textComponent.text = " ";
+                letter = ' ';
+                correct = true;
                 break;
             // Fake: Has a certain chance (configure...) of appearing as something else
             case SpecialTile.FAKE:
@@ -208,7 +213,16 @@ public class Tile : MonoBehaviour
                 
                 break;
             case SpecialTile.SPLIT:
-                // TODO
+                textComponent.fontSize = 0.8f;
+                // Will either have the correct tile on top or the bottom
+                if (UnityEngine.Random.value < 0.5f)
+                {
+                    textComponent.text = LetterGen.getProportionallyRandomLetter() + "\n" + letter;
+                } else
+                {
+                    textComponent.text = letter + "\n" + LetterGen.getProportionallyRandomLetter();
+                }
+                
                 break;
         }
     }
@@ -242,19 +256,6 @@ public class Tile : MonoBehaviour
         mats[1] = changeTo;
         physicalObject.GetComponent<MeshRenderer>().materials = mats;
     }
-
-    /// <summary>
-    /// Change the material of this tile to whatever the default is
-    /// </summary>
-    /*public void currentBaseMaterial()
-    {
-        Material[] mats = physicalObject.GetComponent<MeshRenderer>().materials;
-        Material changeTo;
-
-
-        mats[1] = changeTo;
-        physicalObject.GetComponent<MeshRenderer>().materials = mats;
-    }*/
 
 
 

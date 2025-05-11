@@ -138,11 +138,24 @@ public class AnimationManager : MonoBehaviour
         float steps = 20;
         float timeSec = 0.4f;
 
-        Vector3 start = playerCharacter.transform.position;
-        Vector3 target = new Vector3(backToTile.absolutePosition.Item1, 0.5f, backToTile.absolutePosition.Item2);
+        Vector3 start;
+        Vector3 target;
 
-        // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
-        yield return walkManager.prepareNextMovement(backToTile);
+        // If you get a tile in the first row wrong (but survive) you go back to the ledge.
+        if(backToTile == null)
+        {
+            start = playerCharacter.transform.position;
+            target = ledgeStartingPlayerPos;
+
+            walkManager.returnToStart();
+        } else
+        {
+            start = playerCharacter.transform.position;
+            target = new Vector3(backToTile.absolutePosition.Item1, 0.5f, backToTile.absolutePosition.Item2);
+
+            // It's like we are moving back to the tile we just came from.
+            yield return walkManager.prepareNextMovement(backToTile);
+        }
 
         this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
         this.playerAnimator.SetBool("Moving", true);
