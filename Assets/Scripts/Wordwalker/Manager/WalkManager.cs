@@ -16,7 +16,7 @@ public class WalkManager : MonoBehaviour
 
     // MATERIALS - What materials a tile becomes in different situations
     // This can change depending on the setting
-    public TileMats tileMats;
+    public static TileMats tileMats;
 
     // Keep track of where we're going to move next (cannot run these coroutines simultaneously)
     private Tile currTile;
@@ -35,6 +35,8 @@ public class WalkManager : MonoBehaviour
     public ScrollUI scrollUI;
     public ClueBookUI clueBookUI;
 
+    public GameObject fogSheet;  // A sheet of fog (if fog is turned on) which moves in accordance with the fog tiles
+
 
     private string currWord;
     private string currDef;
@@ -44,6 +46,13 @@ public class WalkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tileMats = FindObjectOfType<TileMats>();
+
+        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+        {
+            fogSheet.SetActive(true);
+        }
+
         possibleNext = new List<Tile>();
         correctTiles = new List<Tile>();
         startingTiles = new List<Tile>();
@@ -143,6 +152,7 @@ public class WalkManager : MonoBehaviour
         setClue();
         maxReachedRow = -1;
         playerManager.setToStartingPosition();
+        fogSheet.transform.position = new Vector3(fogSheet.transform.position.x, fogSheet.transform.position.y, GameManagerSc.foggyVision * GenMethod.ySpacing + 48);
     }
 
     // (generation) set local copy of which tiles can be stepped on
@@ -166,7 +176,7 @@ public class WalkManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Remove old highlights and set new ones when moving to a new tile
+    /// Remove old highlights - don't set new ones just yet (due to fog)
     /// </summary>
     public IEnumerator prepareNextMovement(Tile toTile)
     {
@@ -181,8 +191,6 @@ public class WalkManager : MonoBehaviour
             {
                 possibleNext.Add(adj.tile);
             }
-
-            highlightAllInPossibleNext();
         }
 
         yield return null;
@@ -220,9 +228,11 @@ public class WalkManager : MonoBehaviour
                     {
                         maxReachedRow = t.coords.r;
                         atCurrentRow.Invoke(maxReachedRow);
+                        StartCoroutine(moveFog(maxReachedRow));
                     }
                 }
             }
+            highlightAllInPossibleNext();
         }
 
         // When stepping on an incorrect tile, lose a totem if you have one, otherwise game over!
@@ -233,6 +243,7 @@ public class WalkManager : MonoBehaviour
             t.stepMaterial(tileMats.incorrectTile);
             //addLetterToTopWord(t); // TODO - eventually we might have a "not this one" typa animation.
             t.pressAnimation();
+            highlightAllInPossibleNext();
 
             if (onIncorrectChoice())
             {
@@ -241,6 +252,7 @@ public class WalkManager : MonoBehaviour
                 queuedMoves.Clear();
             }
         }
+        
 
         yield return null;
     }
@@ -321,6 +333,24 @@ public class WalkManager : MonoBehaviour
         }
 
         highlightAllInPossibleNext();
+    }
+
+    IEnumerator moveFog(int row)
+    {
+        float steps = 10;
+        float takeTime = 1f;
+
+        Vector3 start = fogSheet.transform.position;
+        Vector3 dest = fogSheet.transform.position + new Vector3(0, 0, GenMethod.ySpacing);
+        for (float i = 0; i <= steps; i++)
+        {
+            fogSheet.transform.position = UIUtils.XerpStandard(start, dest, i / steps);
+
+            yield return new WaitForSeconds(1 / steps * takeTime);
+        }
+        fogSheet.transform.position = dest;
+
+        yield return null;
     }
 
 

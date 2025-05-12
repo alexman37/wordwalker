@@ -183,10 +183,12 @@ public class Tile : MonoBehaviour
             if (this.coords.r - row > GameManagerSc.foggyVision)
             {
                 textComponent.text = "";
+                changeMaterial(WalkManager.tileMats.fog);
             }
             else
             {
                 textComponent.text = display.ToString();
+                changeMaterial(WalkManager.tileMats.getCurrentBase(marked, stepped, correct, specType));
             }
         }
     }
