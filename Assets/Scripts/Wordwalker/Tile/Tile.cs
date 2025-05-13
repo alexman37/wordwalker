@@ -46,6 +46,7 @@ public class Tile : MonoBehaviour
     private void OnEnable()
     {
         fallAllTiles += fall;
+        GameManagerSc.levelWon += startFlipTile;
         if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
         {
             WalkManager.atCurrentRow += determineFogginess;
@@ -55,6 +56,7 @@ public class Tile : MonoBehaviour
     private void OnDisable()
     {
         fallAllTiles -= fall;
+        GameManagerSc.levelWon -= startFlipTile;
         WalkManager.atCurrentRow -= determineFogginess;
     }
 
@@ -65,6 +67,17 @@ public class Tile : MonoBehaviour
         Debug.Log("Clicked on " + this.ToString());
         tileClicked.Invoke(this);
     }
+
+    // When a tile falls and hits the bottom of the floor we'll just remove it
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "FloorBottom")
+        {
+            Destroy(this.gameObject);
+        }
+    }*/
+
+    public static void triggerFallAllTiles() { fallAllTiles.Invoke(); }
 
 
     //Will either push down for a correct guess, or fall off for an incorrect one
@@ -110,6 +123,34 @@ public class Tile : MonoBehaviour
 
             fallAllTiles.Invoke();
         }
+    }
+
+    /// <summary>
+    /// If you win a round, all incorrect tiles will flip over.
+    /// </summary>
+    /// <returns></returns>
+    private void startFlipTile() { StartCoroutine(flipTile()); }
+
+    private IEnumerator flipTile()
+    {
+        if(coords != null && (!correct || specType == Tile.SpecialTile.BLANK))
+        {
+            float steps = 50;
+            float timeSec = 1.5f;
+
+            Quaternion start = Quaternion.Euler(-90, 0, 0);
+            Quaternion end = Quaternion.Euler(90, 0, 0);
+
+            yield return new WaitForSeconds(coords.r * 0.25f);
+
+            for (float i = 0; i <= steps; i++)
+            {
+                this.gameObject.transform.rotation = Quaternion.Lerp(start, end, i / steps);
+                yield return new WaitForSeconds(1 / steps * timeSec);
+            }
+        }
+
+        yield return null;
     }
 
     /// <summary>
@@ -166,6 +207,7 @@ public class Tile : MonoBehaviour
                 rbody.AddTorque(new Vector3(UnityEngine.Random.Range(-400, 400), 0, UnityEngine.Random.Range(-400, 400)));
             } else
             {
+                // Correct tiles, we don't want incorrect ones to "stay" on top of them - so activate the invis wall
                 transform.GetChild(1).gameObject.SetActive(true);
             }
         }

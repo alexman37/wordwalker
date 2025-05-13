@@ -189,7 +189,7 @@ public class WalkManager : MonoBehaviour
         {
             foreach (Adjacency adj in toTile.adjacencies)
             {
-                possibleNext.Add(adj.tile);
+                if(!adj.tile.stepped || adj.tile.correct) possibleNext.Add(adj.tile);
             }
         }
 
@@ -243,13 +243,13 @@ public class WalkManager : MonoBehaviour
             t.stepMaterial(tileMats.incorrectTile);
             //addLetterToTopWord(t); // TODO - eventually we might have a "not this one" typa animation.
             t.pressAnimation();
-            highlightAllInPossibleNext();
 
             if (onIncorrectChoice())
             {
                 GameManagerSc.signifyWrongStep();
                 yield return animationManager.drawbackCharacter(currTile);
                 queuedMoves.Clear();
+                highlightAllInPossibleNext();
             }
         }
         
