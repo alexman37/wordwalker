@@ -28,6 +28,10 @@ public class WordwalkerUIScript : MonoBehaviour
     // The RankBox is also a part of stats
     private RankBox rankBox;
 
+    // The timer needs constant updates when timer challenge is enabled
+    public GameObject timer;
+    public TextMeshProUGUI timeDisplay;
+
     //TODO: not in final product
     public GameObject debugRegen;
 
@@ -43,8 +47,23 @@ public class WordwalkerUIScript : MonoBehaviour
         // Have to set how many totems given on game start.
         displayTotem.text = GameManagerSc.getNumTotems().ToString();
 
+        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+        {
+            timer.SetActive(true);
+        }
+
         Debug.Log("Wordwalker UI READY");
         greenlight = true;
+    }
+
+    private void OnEnable()
+    {
+        TimeManager.secondChanged += setTimerDisplay;
+    }
+
+    private void OnDisable()
+    {
+        TimeManager.secondChanged -= setTimerDisplay;
     }
 
     // Set how many levels there will be in the game
@@ -88,5 +107,18 @@ public class WordwalkerUIScript : MonoBehaviour
     public void ChangeTotems(int newAmnt, int delta, bool adding)
     {
         displayTotem.text = newAmnt.ToString();
+    }
+
+    void setTimerDisplay(int secs)
+    {
+        string timeFormat = ":";
+        if(secs < 10)
+        {
+            timeFormat = timeFormat + "0" + secs;
+        } else
+        {
+            timeFormat = timeFormat + secs;
+        }
+        timeDisplay.text = timeFormat;
     }
 }

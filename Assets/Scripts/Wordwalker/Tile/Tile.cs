@@ -33,7 +33,7 @@ public class Tile : MonoBehaviour
     TextMeshProUGUI textComponent;          // Where the tile's letter is drawn
 
     // ACTIONS
-    public static event Action fallAllTiles;      // When winning a round or losing the game, all incorrect tiles fall down
+    public static event Action<bool, bool> fallAllTiles;      // When winning a round or losing the game, all incorrect tiles fall down
     public static event Action<Tile> tileClicked; // When a tile is clicked you propogate it to the WalkManager
 
 
@@ -47,6 +47,7 @@ public class Tile : MonoBehaviour
     {
         fallAllTiles += fall;
         GameManagerSc.levelWon += startFlipTile;
+        TimeManager.timerExpired += fallIfInRow;
         if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
         {
             WalkManager.atCurrentRow += determineFogginess;
@@ -57,6 +58,7 @@ public class Tile : MonoBehaviour
     {
         fallAllTiles -= fall;
         GameManagerSc.levelWon -= startFlipTile;
+        TimeManager.timerExpired -= fallIfInRow;
         WalkManager.atCurrentRow -= determineFogginess;
     }
 
@@ -77,7 +79,7 @@ public class Tile : MonoBehaviour
         }
     }*/
 
-    public static void triggerFallAllTiles() { fallAllTiles.Invoke(); }
+    public static void triggerFallAllTiles() { fallAllTiles.Invoke(false, true); }
 
 
     //Will either push down for a correct guess, or fall off for an incorrect one
@@ -114,14 +116,14 @@ public class Tile : MonoBehaviour
     /// </summary>
     private IEnumerator fallTile()
     {
-        fall();
+        fall(false, false);
 
         if(GameManagerSc.getNumTotems() <= 0)
         {
             // First wait one second, so you realize you done goofed
             yield return new WaitForSeconds(1.5f);
 
-            fallAllTiles.Invoke();
+            fallAllTiles.Invoke(false, true);
         }
     }
 
@@ -194,22 +196,40 @@ public class Tile : MonoBehaviour
     /// <summary>
     /// Make this tile fall down into the chasm
     /// </summary>
-    private void fall()
+    private void fall(bool evenIfCorrect, bool violently)
     {
         if(this.physicalObject != null)
         {
-            if (!this.correct)
+            if (!this.correct || evenIfCorrect)
             {
+                correct = false; // TODO test thoroughly. make sure nothing breaks...
+
                 Rigidbody rbody = this.physicalObject.GetComponent<Rigidbody>();
                 rbody.constraints = RigidbodyConstraints.None;
                 rbody.useGravity = true;
-                rbody.AddForce(new Vector3(UnityEngine.Random.Range(-400, 100), 0, UnityEngine.Random.Range(-400, 100)));
-                rbody.AddTorque(new Vector3(UnityEngine.Random.Range(-400, 400), 0, UnityEngine.Random.Range(-400, 400)));
+                if(violently)
+                {
+                    rbody.AddForce(new Vector3(UnityEngine.Random.Range(-400, 100), 0, UnityEngine.Random.Range(-400, 100)));
+                    rbody.AddTorque(new Vector3(UnityEngine.Random.Range(-400, 400), 0, UnityEngine.Random.Range(-400, 400)));
+                } else
+                {
+                    rbody.AddForce(new Vector3(UnityEngine.Random.Range(-50, 0), 0, UnityEngine.Random.Range(-50, 0)));
+                    rbody.AddTorque(new Vector3(UnityEngine.Random.Range(-100, 100), 0, UnityEngine.Random.Range(-100, 100)));
+                }
+                
             } else
             {
                 // Correct tiles, we don't want incorrect ones to "stay" on top of them - so activate the invis wall
                 transform.GetChild(1).gameObject.SetActive(true);
             }
+        }
+    }
+
+    private void fallIfInRow(int row)
+    {
+        if(coords != null && coords.r == row)
+        {
+            fall(true, false);
         }
     }
 

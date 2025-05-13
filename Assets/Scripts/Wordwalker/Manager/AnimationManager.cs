@@ -132,6 +132,12 @@ public class AnimationManager : MonoBehaviour
         this.playerAnimator.SetTrigger("Realization");
     }
 
+    public void instaFalling()
+    {
+        this.playerAnimator.SetTrigger("Realization");
+        playFallingAnimation(false,false);
+    }
+
 
     public IEnumerator drawbackCharacter(Tile backToTile)
     {
@@ -226,7 +232,7 @@ public class AnimationManager : MonoBehaviour
         yield return null;
     }
 
-    void playFallingAnimation()
+    void playFallingAnimation(bool _, bool __)
     {
         playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         playerAnimator.SetTrigger("Falling");

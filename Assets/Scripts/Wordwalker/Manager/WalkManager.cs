@@ -13,6 +13,7 @@ public class WalkManager : MonoBehaviour
     public GameManagerSc gameManager;
     public PlayerManager playerManager;
     public AnimationManager animationManager;
+    public TimeManager timeManager;
 
     // MATERIALS - What materials a tile becomes in different situations
     // This can change depending on the setting
@@ -21,7 +22,7 @@ public class WalkManager : MonoBehaviour
     // Keep track of where we're going to move next (cannot run these coroutines simultaneously)
     private Tile currTile;
     private int maxReachedRow = -1;
-    public static event Action<int> atCurrentRow; // The fog and timer challenges need this.
+    public static event Action<int> atCurrentRow; // The fog challenge need this.
 
     public Queue<Tile> queuedMoves;   // so that we can pre-click multiple tiles
     public bool isActivelyMoving = false;
@@ -36,7 +37,6 @@ public class WalkManager : MonoBehaviour
     public ClueBookUI clueBookUI;
 
     public GameObject fogSheet;  // A sheet of fog (if fog is turned on) which moves in accordance with the fog tiles
-
 
     private string currWord;
     private string currDef;
@@ -75,6 +75,8 @@ public class WalkManager : MonoBehaviour
         ModeToolUI.inMarkerMode += markerEnabled;
         ModeToolUI.inStepperMode += stepperEnabled;
         ModeToolUI.inViewMode += viewEnabled;
+
+        TimeManager.timerExpired += ifOnFallenTileLoseImmediately;
     }
 
     private void OnDisable()
@@ -90,6 +92,8 @@ public class WalkManager : MonoBehaviour
         ModeToolUI.inMarkerMode -= markerEnabled;
         ModeToolUI.inStepperMode -= stepperEnabled;
         ModeToolUI.inViewMode -= viewEnabled;
+
+        TimeManager.timerExpired -= ifOnFallenTileLoseImmediately;
     }
 
     private void Update()
@@ -204,6 +208,11 @@ public class WalkManager : MonoBehaviour
     {
         if (t.correct)
         {
+            if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER) && t.coords.r == 0)
+            {
+                timeManager.startIntervalTimer();
+            }
+
             currTile = t;
             t.pressAnimation();
 
@@ -335,6 +344,9 @@ public class WalkManager : MonoBehaviour
         highlightAllInPossibleNext();
     }
 
+    /// <summary>
+    /// Move the sheet of fog
+    /// </summary>
     IEnumerator moveFog(int row)
     {
         float steps = 10;
@@ -353,6 +365,17 @@ public class WalkManager : MonoBehaviour
         yield return null;
     }
 
+    /// <summary>
+    /// With the timing challenge, if you are currently standing on the collapsed row, you lose immediately!
+    /// </summary>
+    void ifOnFallenTileLoseImmediately(int row)
+    {
+        if(currTile.coords.r <= row)
+        {
+            animationManager.instaFalling();
+            onLose();
+        }
+    }
 
 
     /// <summary>
@@ -377,6 +400,11 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void onWin()
     {
+        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+        {
+            timeManager.stopIntervalTimer();
+        }
+
         Debug.Log("The exact win moment");
         hasWon = true;
         GameManagerSc.signifyLevelWon();
@@ -394,7 +422,6 @@ public class WalkManager : MonoBehaviour
         if (GameManagerSc.getNumTotems() < 0)
         {
             animationManager.realization();
-            playerManager.setFreeCamera(false);
             onLose();
             return false;
         }
@@ -406,6 +433,14 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void onLose()
     {
+        preventMovement = true;
+        playerManager.setFreeCamera(false);
+
+        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+        {
+            timeManager.stopIntervalTimer();
+        }
+
         removeAllHighlightsInPossibleNext();
         GameManagerSc.signifyGameOver();
         topBar.SetAnswer(this.correctTiles, false);
