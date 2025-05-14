@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 /// <summary>
 /// Attach to a physical tile object in the world. tracks all its stats.
@@ -16,6 +17,7 @@ public class Tile : MonoBehaviour
     public Coordinate coords;               // Coordinate system works in (row, space)
 
     bool finalized;          // (used solely in generation)
+    public bool banned;      // You cannot interact with this tile no matter what (only special use cases)
     public bool stepped;     // Has the tile been stepped on? If correct, you may walk on it again at any time.
     public bool marked;      // When marked as dangerous this tile cannot be stepped on until unmarked
     public bool correct;     // Is this tile part of the correct word path?
@@ -30,6 +32,7 @@ public class Tile : MonoBehaviour
 
     // PHYSICAL
     public GameObject physicalObject;       // Physical tile object - move it, change it, etc
+    Image timeFader;                        // When this tile is close to falling we fade an image over it (rather than highlight it)
     TextMeshProUGUI textComponent;          // Where the tile's letter is drawn
 
     // ACTIONS
@@ -39,7 +42,12 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
-        textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        textComponent = this.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER)) {
+            timeFader = this.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+            timeFader.gameObject.SetActive(true);
+        }
     }
 
     // Sub / unsub to actions
@@ -48,6 +56,7 @@ public class Tile : MonoBehaviour
         fallAllTiles += fall;
         GameManagerSc.levelWon += startFlipTile;
         TimeManager.timerExpired += fallIfInRow;
+        TimeManager.timerExpired += fadeWarning;
         if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
         {
             WalkManager.atCurrentRow += determineFogginess;
@@ -59,15 +68,21 @@ public class Tile : MonoBehaviour
         fallAllTiles -= fall;
         GameManagerSc.levelWon -= startFlipTile;
         TimeManager.timerExpired -= fallIfInRow;
+        TimeManager.timerExpired -= fadeWarning;
         WalkManager.atCurrentRow -= determineFogginess;
     }
 
 
-    // TODO: When you click on a tile one of a number of things can happen
+    // When you click on a tile one of a number of things can happen.
+    // The only scenario things DON'T actually happen is if the tile is outright banned from use -
+    // Which can happen if it falls out of the game, for example.
     public void OnMouseDown()
     {
-        Debug.Log("Clicked on " + this.ToString());
-        tileClicked.Invoke(this);
+        if(!banned)
+        {
+            Debug.Log("Clicked on " + this.ToString());
+            tileClicked.Invoke(this);
+        }
     }
 
     // When a tile falls and hits the bottom of the floor we'll just remove it
@@ -138,12 +153,12 @@ public class Tile : MonoBehaviour
         if(coords != null && (!correct || specType == Tile.SpecialTile.BLANK))
         {
             float steps = 50;
-            float timeSec = 1.5f;
+            float timeSec = 1.2f;
 
             Quaternion start = Quaternion.Euler(-90, 0, 0);
             Quaternion end = Quaternion.Euler(90, 0, 0);
 
-            yield return new WaitForSeconds(coords.r * 0.25f);
+            yield return new WaitForSeconds(coords.r * 0.2f);
 
             for (float i = 0; i <= steps; i++)
             {
@@ -153,6 +168,28 @@ public class Tile : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    private void fadeWarning(int row)
+    {
+        StartCoroutine(fadeWarningWhenTimeRunningOut(row));
+    }
+
+    private IEnumerator fadeWarningWhenTimeRunningOut(int row)
+    {
+        // Only do this animation if in the next row
+        if(coords != null && row + 1 == coords.r)
+        {
+            float steps = 50;
+            float timeSec = TimeManager.timeInterval;
+            Color col = this.timeFader.color;
+
+            for (float i = 0; i <= steps; i++)
+            {
+                this.timeFader.color = new Color(col.r, col.g, col.b, i / steps);
+                yield return new WaitForSeconds(1 / steps * timeSec);
+            }
+        }
     }
 
     /// <summary>
@@ -202,7 +239,7 @@ public class Tile : MonoBehaviour
         {
             if (!this.correct || evenIfCorrect)
             {
-                correct = false; // TODO test thoroughly. make sure nothing breaks...
+                banned = true;
 
                 Rigidbody rbody = this.physicalObject.GetComponent<Rigidbody>();
                 rbody.constraints = RigidbodyConstraints.None;
@@ -220,7 +257,10 @@ public class Tile : MonoBehaviour
             } else
             {
                 // Correct tiles, we don't want incorrect ones to "stay" on top of them - so activate the invis wall
-                transform.GetChild(1).gameObject.SetActive(true);
+                //transform.GetChild(1).gameObject.SetActive(true);
+
+                // OR we just set them to be untouchable
+                transform.GetComponent<MeshCollider>().isTrigger = true;
             }
         }
     }
@@ -261,7 +301,7 @@ public class Tile : MonoBehaviour
     /// </summary>
     public void setLetter(char setTo, bool isPartOfPath)
     {
-        if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
 
         letter = setTo;
         display = setTo.ToString();
@@ -276,7 +316,7 @@ public class Tile : MonoBehaviour
     /// </summary>
     public void setAsSpecialTile(SpecialTile specType)
     {
-        if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
 
         this.specType = specType;
 

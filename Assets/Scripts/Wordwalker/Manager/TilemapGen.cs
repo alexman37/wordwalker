@@ -11,37 +11,79 @@ public class TilemapGen : MonoBehaviour
 {
     public static bool greenlight = false;
 
+    public bool retryGeneration;  // Turn ON if this is a demo or legit build. Turn OFF if you want to debug/troubleshoot
+
     public static Dictionary<(int, int), Tile> tileMap;
 
-    public GenMethod generationMethod;
+    private GenMethod[] generationMethods;
+    private GenMethod currentGenMethod;
+    private GenMethodAlgorithm currentGenMethodAlgorithm;
 
     public TileMats tileMaterials;
 
+    /// <summary>
+    /// Generate tile map, depending on if retryGeneration is on we will try multiple times on failure
+    /// </summary>
     public void regenerateTileMap(WordGen.Word word)
     {
-        /*for(int i = 0; i < 10; i++)
+        if(retryGeneration)
         {
-            try
+            for (int i = 0; i < 10; i++)
             {
-                tileMap = generationMethod.regenerateTileMap(word);
-                break;
+                try
+                {
+                    fineTuning(word);
+                    break;
+                }
+                catch
+                {
+                    Debug.LogWarning("Failed to generate the tilemap- attempt #" + i);
+                }
             }
-            catch
-            {
-                Debug.LogWarning("Failed to generate the tilemap- attempt #" + i);
-            }
-        }*/
-        tileMap = generationMethod.regenerateTileMap(word);
+        }
+        
+        else
+        {
+            fineTuning(word);
+        }
+    }
 
+    /// <summary>
+    /// Perfect inputs
+    /// </summary>
+    private void fineTuning(WordGen.Word word)
+    {
+        // TODO we take action here to figure out the inputs of the level, they get harder as they go...
+        // Maybe we can transform one or a few inputs across all the various inputs across methods?
+        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.GEN_PLUS))
+        {
+
+        }
+        else
+        {
+
+        }
+
+
+        tileMap = currentGenMethod.regenerateTileMap(word);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //TODO anything we have to do to set up the gen method(s)?
+        generationMethods = GetComponents<GenMethod>();
+        currentGenMethod = generationMethods[0];
 
         Debug.Log("Tilemap gen READY");
         greenlight = true;
+    }
+
+    private enum GenMethodAlgorithm
+    {
+        TRIANGLE,
+        INVERSE_TRIANGLE,
+        RECTANGLE,
+        WINDING
     }
     
 }

@@ -104,7 +104,7 @@ public class WalkManager : MonoBehaviour
             {
                 isActivelyMoving = true;
                 Tile pos = queuedMoves.Dequeue();
-                StartCoroutine(animationManager.moveCharacter(pos));
+                animationManager.moveAnim(pos);
 
                 // Will have to update Y-coord for camera in PlayerManager (according to zoom)
                 playerManager.LerpCameraTo(new Vector3(pos.absolutePosition.Item1, 0, pos.absolutePosition.Item2), 0.5f);
@@ -256,7 +256,7 @@ public class WalkManager : MonoBehaviour
             if (onIncorrectChoice())
             {
                 GameManagerSc.signifyWrongStep();
-                yield return animationManager.drawbackCharacter(currTile);
+                animationManager.drawbackAnim(currTile);
                 queuedMoves.Clear();
                 highlightAllInPossibleNext();
             }
@@ -271,7 +271,6 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void whenTileClickedMakeStep(Tile t)
     {
-        //Debug.Log("Clicked");
         if(!t.marked)
         {
             if (possibleNext.Contains(t) && !preventMovement)
@@ -370,10 +369,30 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void ifOnFallenTileLoseImmediately(int row)
     {
-        if(currTile.coords.r <= row)
+        // You can only fall and die in this way if you're standing on a tile in the falling row
+        /*if(currTile.coords.r <= row)
         {
-            animationManager.instaFalling();
-            onLose();
+            // There is one last chance at salvation...if you are currently moving away from said tile towards a correct one
+            if (queuedMoves.Count == 0 || !queuedMoves.Peek().correct || queuedMoves.Peek().coords.r <= row)
+            {
+                animationManager.instaFalling();
+                onLose();
+            }
+        }*/
+        StartCoroutine(ifOnFallenWaiter(row));
+    }
+
+    IEnumerator ifOnFallenWaiter(int row)
+    {
+        yield return new WaitUntil(() => isActivelyMoving == false);
+        if (currTile.coords.r <= row)
+        {
+            // There is one last chance at salvation...if you are currently moving away from said tile towards a correct one
+            if (queuedMoves.Count == 0 || !queuedMoves.Peek().correct || queuedMoves.Peek().coords.r <= row)
+            {
+                animationManager.instaFalling();
+                onLose();
+            }
         }
     }
 

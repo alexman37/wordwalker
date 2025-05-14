@@ -24,6 +24,8 @@ public class AnimationManager : MonoBehaviour
     public static event Action openedScroll;         // Only when the scroll is opened can we start moving (TODO: should it be when animation done instead?)
     public static event Action readyForNextLevelGen;  // Send when we are ready to start generating next level
 
+    private Coroutine activeMovingCoroutine;  // Constantly updated - there should only be one going at a time.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +54,7 @@ public class AnimationManager : MonoBehaviour
     void playStartingAnimation()
     {
         setPreventPlayerMovement.Invoke(true);
-        StartCoroutine(startingAnimation());
+        activeMovingCoroutine = StartCoroutine(startingAnimation());
     }
 
     /// <summary>
@@ -61,13 +63,13 @@ public class AnimationManager : MonoBehaviour
     public void playEndingAnimation()
     {
         setPreventPlayerMovement.Invoke(true);
-        StartCoroutine(clearLevel(0)); //TODO direction
+        activeMovingCoroutine = StartCoroutine(clearLevel(0)); //TODO direction
     }
 
     // TODO: When this compiles set "Next" in postgame to call this method
     public void startWalkingToNextLevel()
     {
-        StartCoroutine(walkIntoNextLevel(0));
+        activeMovingCoroutine = StartCoroutine(walkIntoNextLevel(0));
     }
 
     IEnumerator startingAnimation()
@@ -94,7 +96,12 @@ public class AnimationManager : MonoBehaviour
         setPreventPlayerMovement.Invoke(false);
     }
 
-    public IEnumerator moveCharacter(Tile toTile)
+    public void moveAnim(Tile toTile)
+    {
+        activeMovingCoroutine = StartCoroutine(moveCharacter(toTile));
+    }
+
+    private IEnumerator moveCharacter(Tile toTile)
     {
         float steps = 20;
         float timeSec = 0.4f;
@@ -134,12 +141,18 @@ public class AnimationManager : MonoBehaviour
 
     public void instaFalling()
     {
+        //this.playerCharacter.GetComponent<BoxCollider>().isTrigger = true;
         this.playerAnimator.SetTrigger("Realization");
+        if(activeMovingCoroutine != null) StopCoroutine(activeMovingCoroutine);
         playFallingAnimation(false,false);
     }
 
+    public void drawbackAnim(Tile backToTile)
+    {
+        activeMovingCoroutine = StartCoroutine(drawbackCharacter(backToTile));
+    }
 
-    public IEnumerator drawbackCharacter(Tile backToTile)
+    private IEnumerator drawbackCharacter(Tile backToTile)
     {
         float steps = 20;
         float timeSec = 0.4f;
