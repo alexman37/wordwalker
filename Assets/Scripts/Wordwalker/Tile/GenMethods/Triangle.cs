@@ -8,18 +8,22 @@ using UnityEngine;
 public class Triangle : GenMethod
 {
     // BEFORE RUN
-    public int subsOnStartingRow;
-    public int maxSubs;
+    private int subsOnStartingRow;
+    private int maxSubs;
 
-    // TODO: MOVE TO A SEPARATE, RELATED SCRIPT DICTATING TILE SHAPE / GRID PATTERN
+    // Maybe base tile will be different for different gen methods? Maybe not...whatever
     public GameObject baseTile;
 
-    // (TODO?) Map / setting generation
+    // Same logic here
     public GameObject endSide;
 
 
-    public override Dictionary<(int, int), Tile> generateShape(string word)
+    public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word)
     {
+        this.difficulty = difficulty;
+        subsOnStartingRow = getRandomInput(difficulty, 1, 3, true);
+        maxSubs = getRandomInput(difficulty, 4, 8, true);
+
         this.word = word;
 
         Destroy(container);

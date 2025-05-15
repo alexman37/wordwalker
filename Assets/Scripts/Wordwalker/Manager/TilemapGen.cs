@@ -15,9 +15,9 @@ public class TilemapGen : MonoBehaviour
 
     public static Dictionary<(int, int), Tile> tileMap;
 
-    private GenMethod[] generationMethods;
+    private GenMethod[] generationMethods;     //default generation methods
+    private GenMethod[] generationMethodsAdv;  //extra generations used only when Gen Plus challenge enabled
     private GenMethod currentGenMethod;
-    private GenMethodAlgorithm currentGenMethodAlgorithm;
 
     public TileMats tileMaterials;
 
@@ -55,35 +55,33 @@ public class TilemapGen : MonoBehaviour
     {
         // TODO we take action here to figure out the inputs of the level, they get harder as they go...
         // Maybe we can transform one or a few inputs across all the various inputs across methods?
+        float difficultyHandicap = 1;
         if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.GEN_PLUS))
         {
-
+            currentGenMethod = generationMethodsAdv[UnityEngine.Random.Range(0, generationMethodsAdv.Length)];
         }
         else
         {
-
+            difficultyHandicap = 2;
+            currentGenMethod = generationMethods[UnityEngine.Random.Range(0, generationMethods.Length)];
         }
 
-
-        tileMap = currentGenMethod.regenerateTileMap(word);
+        float diff = (float)GameManagerSc.getCurrentLevel() / (float)GameManagerSc.getNumLevels() / difficultyHandicap;
+        Debug.Log("Using difficulty " + diff);
+        tileMap = currentGenMethod.regenerateTileMap(diff, word);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        generationMethods = GetComponents<GenMethod>();
+        // All methods up for grabs with Gen Plus turned on...
+        generationMethodsAdv = GetComponents<GenMethod>();
+        // You specify which ones you want for default
+        generationMethods = new GenMethod[] { GetComponent<Triangle>() };
+
         currentGenMethod = generationMethods[0];
 
         Debug.Log("Tilemap gen READY");
         greenlight = true;
     }
-
-    private enum GenMethodAlgorithm
-    {
-        TRIANGLE,
-        INVERSE_TRIANGLE,
-        RECTANGLE,
-        WINDING
-    }
-    
 }

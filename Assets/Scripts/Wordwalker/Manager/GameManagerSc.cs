@@ -159,6 +159,11 @@ public class GameManagerSc : MonoBehaviour
         }
     }
 
+    public static int getCurrentLevel()
+    {
+        return currLevel;
+    }
+
     public static int getNumLevels()
     {
         return numLevels;

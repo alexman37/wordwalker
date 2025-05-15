@@ -8,10 +8,10 @@ public abstract class GenMethod : MonoBehaviour
     /// TileMap represents our code-based representation of which tiles are at which coordinates
     /// Container is just the GameObject that contains all the physical tiles
     public Dictionary<(int, int), Tile> tileMap;
-    public GameObject container;
+    public static GameObject container;
 
     /// The list of all tiles you should step on
-    public List<Tile> corrects;
+    protected List<Tile> corrects;
 
     protected int settledRows;  //Number of rows generated may be less than the length of the word.
     protected string word;
@@ -25,10 +25,14 @@ public abstract class GenMethod : MonoBehaviour
     public static float xSpacing = 4.15f; //4f;
     public static float ySpacing = 1.7f * 2f; //1.633f * 2f;
 
+    /// This value, from 0-1, affects all the inputs to a given gen method such as how many tiles there will be, how much randomness, how difficult the letters.
+    /// To actually apply it...that's up to each method.
+    public float difficulty;
+
     /// These managers needed at several stages
-    public TilemapGen tilemapGen;
-    public GameManagerSc gameManager;
-    public PlayerManager playerManager;
+    protected TilemapGen tilemapGen;
+    protected GameManagerSc gameManager;
+    protected PlayerManager playerManager;
 
     /// <summary>
     /// MUST BE CALLED WHEN THE GEN IS FIRST CREATED - to instantiate actions and the like.
@@ -52,7 +56,7 @@ public abstract class GenMethod : MonoBehaviour
     /// <summary>
     /// Generates the complete shape from start to finish. Generally this is the only method of the class you would call externally.
     /// </summary>
-    public abstract Dictionary<(int, int), Tile> generateShape(string word);
+    public abstract Dictionary<(int, int), Tile> generateShape(float difficulty, string word);
 
     protected virtual void findAdjacencies(int subInterval)
     {
@@ -340,6 +344,28 @@ public abstract class GenMethod : MonoBehaviour
     }
 
     /// <summary>
+    /// Based on difficulty, will randomly give you a value
+    /// </summary>
+    protected int getRandomInput(float difficulty, int min, int max, bool minMeansEasier)
+    {
+        float interval = 1f / (float)(max - min);
+        float chaos = interval / 5f;
+        float v = Mathf.Clamp(Mathf.Abs(difficulty % interval) + chaos, 0, 1) * ((float)(max - min) / 2);
+
+        float res = min + (float)(max - min) * difficulty + UnityEngine.Random.Range(-v, v);
+
+        int intRes = Mathf.Clamp(Mathf.RoundToInt(res), min, max);
+        if (!minMeansEasier) { intRes = max - (intRes - min); }
+        Debug.Log(interval);
+        Debug.Log(chaos);
+        Debug.Log(v);
+        Debug.Log(res);
+        Debug.Log(intRes);
+        Debug.Log("Diff " + difficulty + " with (" + min + "," + max + ")[" + minMeansEasier + "]: " + intRes);
+        return intRes;
+    }
+
+    /// <summary>
     /// Get the list of all correct tiles - in some situations you may call this externally.
     /// </summary>
     public List<Tile> getCorrects()
@@ -351,14 +377,14 @@ public abstract class GenMethod : MonoBehaviour
     /// Try regenerating the entire tileMap from scratch.
     /// Only useful in a debugging context for now - but maybe we use it to redo generation on faulty attempts.
     /// </summary>
-    public Dictionary<(int, int), Tile> regenerateTileMap(WordGen.Word word)
+    public Dictionary<(int, int), Tile> regenerateTileMap(float difficulty, WordGen.Word word)
     {
         tileMap.Clear();
         allTiles.Clear();
 
         //TODO: definitions currently aren't defined.
         regenerate.Invoke(word.word, word.getClue());
-        tileMap = generateShape(word.word);
+        tileMap = generateShape(difficulty, word.word);
         setCorrects.Invoke(corrects);
 
         return tileMap;

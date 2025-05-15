@@ -44,6 +44,7 @@ public class PostgameUI : MonoBehaviour
 
     void postgameReset()
     {
+        if(rectTransform == null) rectTransform = GetComponent<RectTransform>();
         rectTransform.anchorMin = new Vector2(0.5f, 0);
         rectTransform.anchorMax = new Vector2(0.5f, 0);
         rectTransform.pivot = new Vector2(0.5f, 0);

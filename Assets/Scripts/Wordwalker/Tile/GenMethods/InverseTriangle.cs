@@ -5,19 +5,24 @@ using UnityEngine;
 public class InverseTriangle : GenMethod
 {
     // BEFORE RUN
-    public int subsOnStartingRow;
-    public int maxSubs;
-    public int minSubs; // also serves as subs on ending row
+    private int subsOnStartingRow;
+    private int maxSubs;
+    private int minSubs; // also serves as subs on ending row
 
-    // TODO: MOVE TO A SEPARATE, RELATED SCRIPT DICTATING TILE SHAPE / GRID PATTERN
+    // Maybe base tile will be different for different gen methods? Maybe not...whatever
     public GameObject baseTile;
 
-    // (TODO?) Map / setting generation
+    // Same logic here
     public GameObject endSide;
 
 
-    public override Dictionary<(int, int), Tile> generateShape(string word)
+    public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word)
     {
+        this.difficulty = difficulty;
+        subsOnStartingRow = getRandomInput(difficulty, 4, 9, false);
+        maxSubs = getRandomInput(difficulty, 5, 10, true);
+        minSubs = getRandomInput(difficulty, 1, 3, true);
+
         this.word = word;
 
         Destroy(container);

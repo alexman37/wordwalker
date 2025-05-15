@@ -5,20 +5,24 @@ using UnityEngine;
 public class WindingRoad : GenMethod
 {
     // BEFORE RUN
-    public int minSubs;
-    public int maxSubs;
+    private int minSubs;
+    private int maxSubs;
 
     // IN-USE
     private int settledSubs;
 
-    // TODO: MOVE TO A SEPARATE, RELATED SCRIPT DICTATING TILE SHAPE / GRID PATTERN
+    // Maybe base tile will be different for different gen methods? Maybe not...whatever
     public GameObject baseTile;
 
-    // (TODO?) Map / setting generation
+    // Same logic here
     public GameObject endSide;
 
-    public override Dictionary<(int, int), Tile> generateShape(string word)
+    public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word)
     {
+        this.difficulty = difficulty;
+        minSubs = getRandomInput(difficulty, 1, 3, true);
+        maxSubs = getRandomInput(difficulty, 3, 6, true);
+
         this.word = word;
 
         Destroy(container);

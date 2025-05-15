@@ -5479,13 +5479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b47e9c638d56ed448e466492622e1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 0}
-  corrects: []
-  tilemapGen: {fileID: 0}
-  gameManager: {fileID: 792848993}
-  playerManager: {fileID: 1985590259}
-  subsOnStartingRow: 1
-  maxSubs: 5
+  difficulty: 0
   baseTile: {fileID: 693089429}
   endSide: {fileID: 224008634}
 --- !u!114 &809482218
@@ -5500,14 +5494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043a1e3adc9504c46ac6f26e97dee74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 0}
-  corrects: []
-  tilemapGen: {fileID: 0}
-  gameManager: {fileID: 792848993}
-  playerManager: {fileID: 1985590259}
-  subsOnStartingRow: 5
-  maxSubs: 7
-  minSubs: 2
+  difficulty: 0
   baseTile: {fileID: 693089429}
   endSide: {fileID: 224008634}
 --- !u!114 &809482219
@@ -5522,13 +5509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f6b0517e2971d47ab76768521ee740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 0}
-  corrects: []
-  tilemapGen: {fileID: 0}
-  gameManager: {fileID: 0}
-  playerManager: {fileID: 0}
-  minSubs: 4
-  maxSubs: 8
+  difficulty: 0
   baseTile: {fileID: 693089429}
   endSide: {fileID: 224008634}
 --- !u!114 &809482220
@@ -5543,13 +5524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601b16e02c7938d4aab97df1432d8c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 0}
-  corrects: []
-  tilemapGen: {fileID: 0}
-  gameManager: {fileID: 0}
-  playerManager: {fileID: 0}
-  minSubs: 3
-  maxSubs: 5
+  difficulty: 0
   baseTile: {fileID: 693089429}
   endSide: {fileID: 224008634}
 --- !u!114 &809482221
