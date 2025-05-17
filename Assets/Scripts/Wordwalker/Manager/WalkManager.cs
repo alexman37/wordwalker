@@ -392,7 +392,14 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void addLetterToTopWord(Tile t)
     {
-        topBar.AddLetterToProgress(t.letter);
+        if(t.specType != Tile.SpecialTile.SPLIT)
+            topBar.AddLetterToProgress(t.letter, ' ');
+        else
+        {
+            string[] twoSides = t.display.Split('\n');
+            topBar.AddLetterToProgress(twoSides[0][0], twoSides[1][0]);
+        }
+            
     }
 
     /// <summary>

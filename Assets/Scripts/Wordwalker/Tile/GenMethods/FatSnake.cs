@@ -14,7 +14,7 @@ public class FatSnake : GenMethod
         throw new System.NotImplementedException();
     }
 
-    protected override List<Tile> generateWordPath(List<Tile> startingCandidates, string word, int backTracksRemaining)
+    protected override List<Tile> generateWordPath(List<Tile> startingCandidates, string word, int backTracksRemaining, int numBlanks)
     {
         throw new System.NotImplementedException();
     }

@@ -101,11 +101,17 @@ public abstract class GenMethod : MonoBehaviour
     /// <summary>
     /// Generates a path for the word - as often times this needs to be done independently from the rest of the shape
     /// </summary>
-    protected virtual List<Tile> generateWordPath(List<Tile> startingCandidates, string word, int backTracksRemaining)
+    protected virtual List<Tile> generateWordPath(List<Tile> startingCandidates, string word, int backTracksRemaining, int numBlanks)
     {
         int currRow = 0;
         int currLetter = 0;
         List<Tile> corrects = new List<Tile>();
+
+        // Blank Tile interjection - only if the challenge is active
+        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
+        {
+            word = interjectBlanks(word, numBlanks);
+        }
 
         //pick a starter
         Tile curr = startingCandidates[UnityEngine.Random.Range(0, startingCandidates.Count)];
@@ -118,8 +124,9 @@ public abstract class GenMethod : MonoBehaviour
             nextCandidates.Clear();
             corrects.Add(curr);
 
+            Debug.Log("currLetter " + word[currLetter]);
+
             curr.setLetter(word[currLetter], true);
-            ///Debug.Log("Onto letter " + currLetter);
 
             foreach (Adjacency adj in curr.adjacencies)
             {
@@ -261,7 +268,7 @@ public abstract class GenMethod : MonoBehaviour
     {
         if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
             // RANDOM tiles - these appear as ? and are unknown until stepped on.
-            int numRandoms = 4;
+            int numRandoms = Mathf.RoundToInt(4f * difficulty);
             int numRandomsChosen = UnityEngine.Random.Range(0, numRandoms + 1);
             for (int i = 0; i < numRandomsChosen; i++)
             {
@@ -269,7 +276,7 @@ public abstract class GenMethod : MonoBehaviour
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
-                if(!t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                if(t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
                     t.setAsSpecialTile(Tile.SpecialTile.RANDOM);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_random);
@@ -278,7 +285,7 @@ public abstract class GenMethod : MonoBehaviour
 
 
             // FAKE tiles - these have a certain chance of being what they actually say they are
-            int numFakes = 4;
+            int numFakes = Mathf.RoundToInt(8f * difficulty);
             int numFakesChosen = UnityEngine.Random.Range(0, numFakes + 1);
             for (int i = 0; i < numFakesChosen; i++)
             {
@@ -286,7 +293,7 @@ public abstract class GenMethod : MonoBehaviour
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
-                if (!t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                if (t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
                     t.setAsSpecialTile(Tile.SpecialTile.FAKE);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_fake);
@@ -294,7 +301,7 @@ public abstract class GenMethod : MonoBehaviour
             }
 
             // SPLIT tiles - may be one letter or another
-            int numSplits = 4;
+            int numSplits = Mathf.RoundToInt(6f * difficulty);
             int numSplitsChosen = UnityEngine.Random.Range(0, numSplits + 1);
             for (int i = 0; i < numSplitsChosen; i++)
             {
@@ -302,7 +309,7 @@ public abstract class GenMethod : MonoBehaviour
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
-                if (!t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                if (t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
                     t.setAsSpecialTile(Tile.SpecialTile.SPLIT);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_split);
@@ -310,14 +317,14 @@ public abstract class GenMethod : MonoBehaviour
             }
 
             // BLANK tiles - these can (and often should) intercede with the path itself - so we may MOVE part of this into the generateWordPath method...
-            int numBlanks = 4;
+            int numBlanks = Mathf.RoundToInt(3f * difficulty);
             int numBlanksChosen = UnityEngine.Random.Range(0, numBlanks + 1);
             for (int i = 0; i < numBlanksChosen; i++)
             {
                 Tile t = getRandomSpecialTile((1 / (float)numBlanks));
                 //Special rules:
-                //  - Cannot overtake the path itself (that should have been done earlier.
-                if (!t.correct && !t.isBackRow)
+                //  - Cannot overtake the path itself (that should have been done earlier.)
+                if (t != null && !t.correct && !t.isBackRow)
                 {
                     t.setAsSpecialTile(Tile.SpecialTile.BLANK);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_blank);
@@ -326,18 +333,59 @@ public abstract class GenMethod : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Interject blank tiles into the word, represent with an underscore "_"
+    /// It's up to you to handle the underscore later on.
+    /// </summary>
+    protected string interjectBlanks(string word, int numInterjections)
+    {
+        // Find random spot for the interjections to occur - but not at the beginning or end.
+        for (int i = 0; i < numInterjections; i++)
+        {
+            int s = UnityEngine.Random.Range(1, word.Length);
+            string rest = word.Substring(s);
+            word = word.Substring(0, s) + "_" + rest;
+        }
+
+        return word;
+    }
+
+    /// <summary>
+    /// Select a random tile to be special. We should be careful (sorta) about selecting actually correct tiles.
+    /// Also, can't return a tile that has already been made special (it's ok if you can't find one - return null)
+    /// </summary>
     private Tile getRandomSpecialTile(float chanceOfBeingCorrect)
     {
         // return a tile directly from corrects
         if(UnityEngine.Random.value <= chanceOfBeingCorrect)
         {
-            return corrects[UnityEngine.Random.Range(0, corrects.Count)];
+            for(int i = 0; i < 10; i++)
+            {
+                Tile maybe = corrects[UnityEngine.Random.Range(0, corrects.Count)];
+                if(maybe.specType == Tile.SpecialTile.NONE)
+                {
+                    return maybe;
+                }
+            }
+
+            Debug.LogWarning("Could not find any correct tiles to make special!");
+            return null;
         }
 
         // return any tile (might be correct anyways)
         else
         {
-            return allTiles[UnityEngine.Random.Range(0, allTiles.Count)];
+            for (int i = 0; i < 10; i++)
+            {
+                Tile maybe = allTiles[UnityEngine.Random.Range(0, allTiles.Count)];
+                if (maybe.specType == Tile.SpecialTile.NONE)
+                {
+                    return maybe;
+                }
+            }
+
+            Debug.LogWarning("Could not find any generic tiles to make special!");
+            return null;
         }
     }
 

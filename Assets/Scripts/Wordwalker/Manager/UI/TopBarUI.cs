@@ -84,7 +84,7 @@ public class TopBarUI : MonoBehaviour
     /// Add a new letter to the progress bar (and adjust all existing ones)
     /// </summary>
     /// <param name="ch">New letter</param>
-    public void AddLetterToProgress(char ch)
+    public void AddLetterToProgress(char ch, char other)
     {
         // If this is the very first tile then we also do the initialization animation
         if(currProgressVis.Count == 0)
@@ -98,6 +98,14 @@ public class TopBarUI : MonoBehaviour
         TextMeshProUGUI comp = next.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         comp.text = ch.ToString();
         currProgressVis.Add(next);
+
+        // split tiles will pass in their actual other letter...
+        if (other != ' ')
+        {
+            next.GetComponent<Image>().color = new Color(0.1f, 0.1f, 0.9f);
+            comp.text = ch.ToString() + "\n" + other.ToString();
+            comp.fontSize = comp.fontSize / 2f;
+        }
 
         // Adjust position
         next.transform.SetParent(baseTileVis.transform.parent);
@@ -157,6 +165,9 @@ public class TopBarUI : MonoBehaviour
         // Draw the answer made up of (1) correct tiles and (2) correct tiles you skipped
         foreach(Tile til in corrects)
         {
+            // Skip blanks
+            if (til.specType == Tile.SpecialTile.BLANK) continue;
+
             GameObject next = Instantiate(baseTileVis);
             next.SetActive(true);
 

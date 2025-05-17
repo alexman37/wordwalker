@@ -37,7 +37,12 @@ public class Triangle : GenMethod
 
         //TODO configure
         int backTracks = generateNumBacktracks(word.Length, 0.4f, 3);
-        settledRows = word.Length - backTracks;
+        int numBlanks = 0;
+        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
+        {
+            numBlanks = generateNumBacktracks(word.Length, 0.25f, 2);
+        }
+        settledRows = word.Length - backTracks + numBlanks;
 
         endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 13f + 3f * settledRows);
 
@@ -98,7 +103,7 @@ public class Triangle : GenMethod
         //Second loop - set adjacencies
         findAdjacencies(maxSubs);
         
-        corrects = generateWordPath(starters, word, backTracks);
+        corrects = generateWordPath(starters, word, backTracks, numBlanks);
         fillInOtherTiles(maxSubs);
         addSpecialTiles();
         done(starters);

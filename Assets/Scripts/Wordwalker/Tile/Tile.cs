@@ -16,6 +16,8 @@ public class Tile : MonoBehaviour
     public (float, float) absolutePosition; // "World" position
     public Coordinate coords;               // Coordinate system works in (row, space)
 
+    private static bool acceptingClicks = true;
+
     bool finalized;          // (used solely in generation)
     public bool banned;      // You cannot interact with this tile no matter what (only special use cases)
     public bool stepped;     // Has the tile been stepped on? If correct, you may walk on it again at any time.
@@ -36,7 +38,7 @@ public class Tile : MonoBehaviour
     TextMeshProUGUI textComponent;          // Where the tile's letter is drawn
 
     // ACTIONS
-    public static event Action<bool, bool> fallAllTiles;      // When winning a round or losing the game, all incorrect tiles fall down
+    public static event Action<bool, bool> fallAllTiles;      // When losing the game, all incorrect tiles fall down
     public static event Action<Tile> tileClicked; // When a tile is clicked you propogate it to the WalkManager
 
 
@@ -78,7 +80,7 @@ public class Tile : MonoBehaviour
     // Which can happen if it falls out of the game, for example.
     public void OnMouseDown()
     {
-        if(!banned)
+        if(acceptingClicks && !banned)
         {
             Debug.Log("Clicked on " + this.ToString());
             tileClicked.Invoke(this);
@@ -94,6 +96,7 @@ public class Tile : MonoBehaviour
         }
     }*/
 
+    public static void toggleCanClickTiles(bool canClick) { acceptingClicks = canClick; }
     public static void triggerFallAllTiles() { fallAllTiles.Invoke(false, true); }
 
 
@@ -111,9 +114,9 @@ public class Tile : MonoBehaviour
     {
         StartCoroutine(pushDownTile());
         Debug.Log("Correct press");
-        if(specType != SpecialTile.NONE)
+        if(specType != SpecialTile.SPLIT && specType != SpecialTile.BLANK)
         {
-            textComponent.text = display.ToString();
+            textComponent.text = letter.ToString();
         }
     }
 
@@ -122,6 +125,7 @@ public class Tile : MonoBehaviour
     /// </summary>
     private void incorrectPress()
     {
+        textComponent.text = letter.ToString();
         StartCoroutine(fallTile());
     }
 
@@ -150,7 +154,8 @@ public class Tile : MonoBehaviour
 
     private IEnumerator flipTile()
     {
-        if(coords != null && (!correct || specType == Tile.SpecialTile.BLANK))
+        // This weird check basically checks for tiles that are: Incorrect, or blanks that were NOT part of the path.
+        if(coords != null && (!correct || (specType == Tile.SpecialTile.BLANK && letter != '_')))
         {
             float steps = 50;
             float timeSec = 1.2f;
@@ -303,9 +308,23 @@ public class Tile : MonoBehaviour
     {
         if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
 
-        letter = setTo;
-        display = setTo.ToString();
-        textComponent.text = setTo.ToString();
+        // Sometimes blank tiles will interject the path of the word
+        if(setTo != '_')
+        {
+            letter = setTo;
+            display = setTo.ToString();
+            textComponent.text = setTo.ToString();
+        } else
+        {
+            // These aren't "normal" blank tiles - kind of part of the word, kind of not
+            // Confusing i know - just don't change it please
+            letter = '_';
+            display = " ";
+            textComponent.text = " ";
+            specType = SpecialTile.BLANK;
+            changeMaterial(WalkManager.tileMats.getCurrentBase(false, false, true, specType));
+        }
+        
 
         finalized = true;
         correct = isPartOfPath;
@@ -338,11 +357,11 @@ public class Tile : MonoBehaviour
                 if(UnityEngine.Random.value < fakeTileLyingChance)
                 {
                     // The tile lies
-                    display = "\"" + LetterGen.getProportionallyRandomLetter() + "\"";
+                    display = LetterGen.getProportionallyRandomLetter() + "?";
                 } else
                 {
                     // The tile tells the truth
-                    display = "\"" + letter + "\"";
+                    display = letter + "?";
                 }
                 
                 break;

@@ -145,6 +145,7 @@ public class WordwalkerUIScript : MonoBehaviour
     /// Special Tiles Guide
     public void openPopup()
     {
+        Tile.toggleCanClickTiles(false);
         StartCoroutine(openPopupCo());
     }
 
@@ -169,6 +170,7 @@ public class WordwalkerUIScript : MonoBehaviour
 
     public void closePopup()
     {
+        Tile.toggleCanClickTiles(true);
         StartCoroutine(closePopupCo());
     }
 

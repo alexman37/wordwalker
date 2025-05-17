@@ -36,7 +36,11 @@ public class InverseTriangle : GenMethod
 
         //TODO configure
         int backTracks = generateNumBacktracks(word.Length, 0.4f, 3);
-        settledRows = word.Length - backTracks;
+        int numBlanks = 0;
+        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
+            numBlanks = generateNumBacktracks(word.Length, 0.25f, 2);
+        }
+        settledRows = word.Length - backTracks + numBlanks;
 
         endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 13f + 3f * settledRows);
 
@@ -132,7 +136,7 @@ public class InverseTriangle : GenMethod
         //Second loop - set adjacencies
         findAdjacencies(maxSubs);
 
-        corrects = generateWordPath(enders, word, backTracks);
+        corrects = generateWordPath(enders, word, backTracks, numBlanks);
         fillInOtherTiles(maxSubs);
         addSpecialTiles();
         done(starters);
@@ -140,12 +144,18 @@ public class InverseTriangle : GenMethod
         return tileMap;
     }
 
-    protected override List<Tile> generateWordPath(List<Tile> finalRow, string word, int backTracksRemaining)
+    protected override List<Tile> generateWordPath(List<Tile> finalRow, string word, int backTracksRemaining, int numBlanks)
     {
         // Since the player would likely want to work backwards for this genMethod, we will also generate backwards
         int currRow = settledRows - 1;
         int currLetter = word.Length - 1;
         List<Tile> corrects = new List<Tile>();
+
+        // Blank Tile interjection - only if the challenge is active
+        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
+        {
+            word = interjectBlanks(word, numBlanks);
+        }
 
         //pick a starter on the back row
         Tile curr = finalRow[UnityEngine.Random.Range(0, finalRow.Count)];
