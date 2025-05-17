@@ -17,7 +17,12 @@ public class WordwalkerUIScript : MonoBehaviour
     public Animator clueBoxAnimator;          // Animation component
     public GameObject inventory;         // Inventory menu
 
+    public Sprite[] critStatsOptions;
+    public GameObject specialGuide;
+    public GameObject specialGuidePopup;
 
+    private Vector2 specAnimationOffsite;
+    private Vector2 specAnimationStart;
 
     // Critical stat fields
     private TextMeshProUGUI displayScore;
@@ -44,12 +49,24 @@ public class WordwalkerUIScript : MonoBehaviour
         displayTotem = critStats.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
         rankBox = critStats.transform.GetChild(0).GetChild(1).GetComponent<RankBox>();
 
+        specAnimationOffsite = new Vector2(0, -Screen.safeArea.height);
+        specAnimationStart = new Vector2(0, 0);
+
         // Have to set how many totems given on game start.
         displayTotem.text = GameManagerSc.getNumTotems().ToString();
 
         if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
         {
             timer.SetActive(true);
+        }
+
+        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
+        {
+            critStats.GetComponent<Image>().sprite = critStatsOptions[1];
+            specialGuide.SetActive(true);
+        } else
+        {
+            critStats.GetComponent<Image>().sprite = critStatsOptions[0];
         }
 
         Debug.Log("Wordwalker UI READY");
@@ -120,5 +137,57 @@ public class WordwalkerUIScript : MonoBehaviour
             timeFormat = timeFormat + secs;
         }
         timeDisplay.text = timeFormat;
+    }
+
+
+
+
+    /// Special Tiles Guide
+    public void openPopup()
+    {
+        StartCoroutine(openPopupCo());
+    }
+
+    IEnumerator openPopupCo()
+    {
+        float steps = 30;
+        float timeSec = 0.5f;
+
+        RectTransform rectTransform = specialGuidePopup.GetComponent<RectTransform>();
+
+        Vector2 pos = rectTransform.anchoredPosition;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            rectTransform.anchoredPosition = UIUtils.XerpStandard(pos,
+                    specAnimationStart,
+                    i / steps);
+
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+    }
+
+    public void closePopup()
+    {
+        StartCoroutine(closePopupCo());
+    }
+
+    IEnumerator closePopupCo()
+    {
+        float steps = 30;
+        float timeSec = 0.5f;
+
+        RectTransform rectTransform = specialGuidePopup.GetComponent<RectTransform>();
+
+        Vector2 pos = rectTransform.anchoredPosition;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            rectTransform.anchoredPosition = UIUtils.XerpStandard(pos,
+                    specAnimationOffsite,
+                    i / steps);
+
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
     }
 }

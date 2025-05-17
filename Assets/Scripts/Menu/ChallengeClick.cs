@@ -9,10 +9,9 @@ public class ChallengeClick : MonoBehaviour
     private Image imgContent;
     private Image imgBackground;
 
-    public string id;
-    public string challengeName;
-    public string desc;
-    public static event Action<string, bool, Sprite, string, string> enable;
+    public MenuScript.Challenge id;
+
+    public static event Action<MenuScript.Challenge, bool, Sprite> enable;
     private bool challengeEnabled = false;
 
     public Sprite enabledSpr;
@@ -23,15 +22,32 @@ public class ChallengeClick : MonoBehaviour
         challengeEnabled = !challengeEnabled;
         if (challengeEnabled) imgBackground.sprite = enabledSpr;
         else imgBackground.sprite = disabledSpr;
-        enable.Invoke(id, challengeEnabled, imgContent.sprite, challengeName, desc);
+        enable.Invoke(id, challengeEnabled, imgContent.sprite);
+    }
+
+    public void enableFromAll(bool on)
+    {
+        challengeEnabled = on;
+        if (challengeEnabled) imgBackground.sprite = enabledSpr;
+        else imgBackground.sprite = disabledSpr;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        enable += (i,b,_,__,___) => { };
-        imgContent = transform.GetChild(0).GetComponent<Image>();
+        enable += (i,b,_) => { };
+        imgContent = transform.GetComponent<Image>();
         imgBackground = GetComponent<Image>();
+    }
+
+    private void OnEnable()
+    {
+        ChallengeEnabler.enableAllChallenges += enableFromAll;
+    }
+
+    private void OnDisable()
+    {
+        ChallengeEnabler.enableAllChallenges -= enableFromAll;
     }
 
 

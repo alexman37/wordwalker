@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 /// <summary>
 /// Handles the menu for Adventure mode
@@ -13,9 +12,6 @@ public class AdventureMenu : MonoBehaviour
 {
     // The databases available to choose from
     public DatabaseSet[] databaseSets;
-
-    // Conveys to MenuScript when a challenge is selected
-    public static event Action<string, bool> challengeEnabled;
 
     // Display
     public GameObject databaseDescription;  // Title
@@ -27,18 +23,10 @@ public class AdventureMenu : MonoBehaviour
     public GameObject highScoresContainer; // High scores
     public Image[] highScores;
     public GameObject neverWon;
-    public GameObject challengeInfo;       // Challenges
-    public Image challengePic;
-    public TextMeshProUGUI challengeTitle;  // Challenge info
-    public TextMeshProUGUI challengeDesc;
-    public Image goButton;                  // Go
-    public Image mult;
 
-    // In terms of calculating how much additional challenges bring
-    private int numChallenges = 0;
-    private float[] multSequence = new float[] { 1, 1.5f, 2, 2.5f, 3, 4, 5};
-    public Color[] goButtonColors;
-    public Color[] multColors;
+    // TODO challenges...
+
+    public Image goButton;                  // Go
 
 
 
@@ -83,23 +71,6 @@ public class AdventureMenu : MonoBehaviour
         
     }
 
-    public void updateChallengeInfo(string id, bool enabled, Sprite spr, string name, string desc)
-    {
-        challengeInfo.SetActive(enabled);
-        challengePic.sprite = spr;
-        challengeTitle.text = name;
-        challengeDesc.text = desc;
-
-        if (enabled) numChallenges++;
-        else numChallenges--;
-
-        goButton.color = goButtonColors[numChallenges];
-        mult.color = multColors[numChallenges];
-        mult.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "x" + multSequence[numChallenges];
-
-        challengeEnabled.Invoke(id, enabled);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -114,12 +85,12 @@ public class AdventureMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        ChallengeClick.enable += updateChallengeInfo;
+        //ChallengeClick.enable += updateChallengeInfo;
     }
 
     private void OnDisable()
     {
-        ChallengeClick.enable -= updateChallengeInfo;
+        //ChallengeClick.enable -= updateChallengeInfo;
     }
 
 

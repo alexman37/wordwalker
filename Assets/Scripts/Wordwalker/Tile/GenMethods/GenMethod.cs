@@ -259,8 +259,6 @@ public abstract class GenMethod : MonoBehaviour
     /// </summary>
     protected virtual void addSpecialTiles()
     {
-
-        // TODO maybe we end up splitting up the different tiles into separate challenges.
         if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
             // RANDOM tiles - these appear as ? and are unknown until stepped on.
             int numRandoms = 4;

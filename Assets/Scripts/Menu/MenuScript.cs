@@ -59,33 +59,21 @@ public class MenuScript : MonoBehaviour
     private void OnEnable()
     {
         DBClick.dbSelected += updateDatabase;
-        AdventureMenu.challengeEnabled += changedChallengeStatus;
+        ChallengePopup.challengeEnabled += changedChallengeStatus;
     }
 
     private void OnDisable()
     {
         DBClick.dbSelected -= updateDatabase;
-        AdventureMenu.challengeEnabled -= changedChallengeStatus;
+        ChallengePopup.challengeEnabled -= changedChallengeStatus;
     }
 
-    private void changedChallengeStatus(string id, bool enabled)
+    private void changedChallengeStatus(Challenge id, bool enabled)
     {
-        if (enabled) selectedChallenges.Add(getChallengeFromId(id));
-        else selectedChallenges.Remove(getChallengeFromId(id));
-    }
-
-
-    private Challenge getChallengeFromId(string id)
-    {
-        switch (id)
+        lock (selectedChallenges)
         {
-            case "iron_man": return Challenge.IRON_MAN;
-            case "timer": return Challenge.TIMER;
-            case "fog": return Challenge.FOG;
-            case "no_items": return Challenge.NO_ITEMS;
-            case "special_tiles": return Challenge.SPECIAL_TILES;
-            case "gen_plus": return Challenge.GEN_PLUS;
-            default: return Challenge.IRON_MAN;
+            if (enabled) selectedChallenges.Add(id);
+            else selectedChallenges.Remove(id);
         }
     }
 
@@ -95,7 +83,6 @@ public class MenuScript : MonoBehaviour
         TIMER,
         FOG,
         SPECIAL_TILES,
-        GEN_PLUS,
-        NO_ITEMS
+        GEN_PLUS
     }
 }

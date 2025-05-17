@@ -369,16 +369,6 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void ifOnFallenTileLoseImmediately(int row)
     {
-        // You can only fall and die in this way if you're standing on a tile in the falling row
-        /*if(currTile.coords.r <= row)
-        {
-            // There is one last chance at salvation...if you are currently moving away from said tile towards a correct one
-            if (queuedMoves.Count == 0 || !queuedMoves.Peek().correct || queuedMoves.Peek().coords.r <= row)
-            {
-                animationManager.instaFalling();
-                onLose();
-            }
-        }*/
         StartCoroutine(ifOnFallenWaiter(row));
     }
 
@@ -438,7 +428,7 @@ public class WalkManager : MonoBehaviour
     bool onIncorrectChoice()
     {
         GameManagerSc.changeTotems(1, false);
-        if (GameManagerSc.getNumTotems() < 0)
+        if (GameManagerSc.getNumTotems() < 0 || GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
         {
             animationManager.realization();
             onLose();

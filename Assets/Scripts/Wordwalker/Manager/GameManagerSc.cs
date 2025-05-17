@@ -86,12 +86,6 @@ public class GameManagerSc : MonoBehaviour
         totems = 3;
         currLevel = 0;
 
-        // This is the only time the iron man challenge actually matters
-        if(challenges.Contains(MenuScript.Challenge.IRON_MAN))
-        {
-            totems = 0;
-        }
-
         Debug.Log("Setting parameters");
         numLevels = numLvl;
         firstTimeWordsLoad = db;

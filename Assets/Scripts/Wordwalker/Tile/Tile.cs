@@ -133,7 +133,7 @@ public class Tile : MonoBehaviour
     {
         fall(false, false);
 
-        if(GameManagerSc.getNumTotems() <= 0)
+        if (GameManagerSc.getNumTotems() <= 0 || GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
         {
             // First wait one second, so you realize you done goofed
             yield return new WaitForSeconds(1.5f);
