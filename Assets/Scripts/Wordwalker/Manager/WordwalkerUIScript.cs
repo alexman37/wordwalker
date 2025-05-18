@@ -35,6 +35,8 @@ public class WordwalkerUIScript : MonoBehaviour
 
     // The timer needs constant updates when timer challenge is enabled
     public GameObject timer;
+    public Image timerVis;
+    public Sprite[] timerSprites;
     public TextMeshProUGUI timeDisplay;
 
     //TODO: not in final product
@@ -76,11 +78,13 @@ public class WordwalkerUIScript : MonoBehaviour
     private void OnEnable()
     {
         TimeManager.secondChanged += setTimerDisplay;
+        TimeManager.activationChange += shiftTimer;
     }
 
     private void OnDisable()
     {
         TimeManager.secondChanged -= setTimerDisplay;
+        TimeManager.activationChange -= shiftTimer;
     }
 
     // Set how many levels there will be in the game
@@ -126,17 +130,36 @@ public class WordwalkerUIScript : MonoBehaviour
         displayTotem.text = newAmnt.ToString();
     }
 
+    private void shiftTimer(bool ontoScreen)
+    {
+        StartCoroutine(shiftTimerCo(ontoScreen));
+    }
+
+    IEnumerator shiftTimerCo(bool ontoScreen)
+    {
+        float steps = 50;
+        float timeSec = 1f;
+
+        Vector2 onScreen = new Vector2(0, 0);
+        Vector2 offScreen = new Vector2(-timer.GetComponent<RectTransform>().rect.width, 0);
+
+        Vector2 to = ontoScreen ? onScreen : offScreen;
+        Vector2 fro = ontoScreen ? offScreen : onScreen;
+
+        for (float i = 0; i <= steps; i++)
+        {
+            timer.GetComponent<RectTransform>().anchoredPosition = UIUtils.XerpStandard(fro, to, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        yield return null;
+    }
+
     void setTimerDisplay(int secs)
     {
-        string timeFormat = ":";
-        if(secs < 10)
-        {
-            timeFormat = timeFormat + "0" + secs;
-        } else
-        {
-            timeFormat = timeFormat + secs;
-        }
-        timeDisplay.text = timeFormat;
+        secs = (int)((float)secs % TimeManager.timeInterval);
+        timerVis.sprite = timerSprites[secs];
+        timeDisplay.text = secs.ToString();
     }
 
 

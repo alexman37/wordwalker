@@ -37,6 +37,7 @@ public class WalkManager : MonoBehaviour
     public ClueBookUI clueBookUI;
 
     public GameObject fogSheet;  // A sheet of fog (if fog is turned on) which moves in accordance with the fog tiles
+    bool fogIsMoving = false;
 
     private string currWord;
     private string currDef;
@@ -348,19 +349,27 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     IEnumerator moveFog(int row)
     {
+        yield return new WaitUntil(() => !fogIsMoving);
+        fogIsMoving = true;
         float steps = 10;
-        float takeTime = 1f;
+        float takeTime = 0.5f;
 
         Vector3 start = fogSheet.transform.position;
         Vector3 dest = fogSheet.transform.position + new Vector3(0, 0, GenMethod.ySpacing);
+        if(row + GameManagerSc.foggyVision == GenMethod.settledRows)
+        {
+            dest += new Vector3(0, 0, 25);
+        }
+
         for (float i = 0; i <= steps; i++)
         {
-            fogSheet.transform.position = UIUtils.XerpStandard(start, dest, i / steps);
+            fogSheet.transform.position = Vector3.Lerp(start, dest, i / steps);
 
             yield return new WaitForSeconds(1 / steps * takeTime);
         }
         fogSheet.transform.position = dest;
 
+        fogIsMoving = false;
         yield return null;
     }
 
@@ -381,7 +390,7 @@ public class WalkManager : MonoBehaviour
             if (queuedMoves.Count == 0 || !queuedMoves.Peek().correct || queuedMoves.Peek().coords.r <= row)
             {
                 animationManager.instaFalling();
-                onLose();
+                onLose(GameManagerSc.LossReason.TIME);
             }
         }
     }
@@ -438,7 +447,7 @@ public class WalkManager : MonoBehaviour
         if (GameManagerSc.getNumTotems() < 0 || GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
         {
             animationManager.realization();
-            onLose();
+            onLose(GameManagerSc.LossReason.TOTEMS);
             return false;
         }
         else return true;
@@ -447,7 +456,7 @@ public class WalkManager : MonoBehaviour
     /// <summary>
     /// Things to do the exact moment you lose the game
     /// </summary>
-    void onLose()
+    void onLose(GameManagerSc.LossReason lr)
     {
         preventMovement = true;
         playerManager.setFreeCamera(false);
@@ -458,7 +467,7 @@ public class WalkManager : MonoBehaviour
         }
 
         removeAllHighlightsInPossibleNext();
-        GameManagerSc.signifyGameOver();
+        GameManagerSc.signifyGameOver(lr);
         topBar.SetAnswer(this.correctTiles, false);
         topBar.kickOffRotation();
     }

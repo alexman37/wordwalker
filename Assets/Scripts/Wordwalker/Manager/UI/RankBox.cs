@@ -103,7 +103,7 @@ public class RankBox : MonoBehaviour
     /// <summary>
     /// On death, rotate the rankbox to an appropriate sprite
     /// </summary>
-    public void onDeath()
+    public void onDeath(GameManagerSc.LossReason _)
     {
         StartCoroutine(rotateToDeath());
     }

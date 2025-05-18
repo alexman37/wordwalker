@@ -78,6 +78,11 @@ public class ScrollUI : MonoBehaviour
         StartCoroutine(fadeClueScroll());
         StartCoroutine(moveScrollOutOfView());
     }
+    public void moveScrollOnFinish(GameManagerSc.LossReason _)
+    {
+        StartCoroutine(fadeClueScroll());
+        StartCoroutine(moveScrollOutOfView());
+    }
 
     /// <summary>
     /// Move scroll up into the bottom of the screen where it shall remain

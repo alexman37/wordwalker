@@ -223,7 +223,7 @@ public class TopBarUI : MonoBehaviour
         StartCoroutine(postgameTransitionCo(1));
     }
 
-    private void gameOverTransition()
+    private void gameOverTransition(GameManagerSc.LossReason _)
     {
         StartCoroutine(gameOverTransitionCo(1));
     }

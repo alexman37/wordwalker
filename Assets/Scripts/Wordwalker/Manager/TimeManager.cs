@@ -16,6 +16,9 @@ public class TimeManager : MonoBehaviour
     private int lastFullSecond = (int) timeInterval;
     private int interval = -1;
 
+    // The timer is now on or off
+    public static event Action<bool> activationChange;
+
     // The second has changed - update displays
     public static event Action<int> secondChanged;
 
@@ -26,6 +29,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        activationChange += (_) => { };
         secondChanged += (_) => { };
         timerExpired += (_) => { };
     }
@@ -57,10 +61,13 @@ public class TimeManager : MonoBehaviour
         interval = -1;
         lastFullSecond = (int) timeInterval;
         timerEnabled = true;
+        activationChange.Invoke(true);
+        timerExpired.Invoke(-1);
     }
 
     public void stopIntervalTimer()
     {
         timerEnabled = false;
+        activationChange.Invoke(false);
     }
 }

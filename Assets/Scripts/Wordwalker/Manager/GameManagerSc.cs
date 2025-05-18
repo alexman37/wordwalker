@@ -30,7 +30,7 @@ public class GameManagerSc : MonoBehaviour
     public static event Action levelReady;
     public static event Action levelWon;
     public static event Action wrongStep;
-    public static event Action gameOver;
+    public static event Action<LossReason> gameOver;
     public static event Action levelReset;
 
     private void Start()
@@ -38,7 +38,7 @@ public class GameManagerSc : MonoBehaviour
         levelReady += () => { };
         levelWon += () => { };
         wrongStep += () => { };
-        gameOver += () => { };
+        gameOver += (_) => { };
         levelReset += () => { };
 
         //unfortunately the only way i can think of
@@ -197,13 +197,19 @@ public class GameManagerSc : MonoBehaviour
         wrongStep.Invoke();
     }
 
-    public static void signifyGameOver()
+    public static void signifyGameOver(LossReason lr)
     {
-        gameOver.Invoke();
+        gameOver.Invoke(lr);
     }
 
     public static void returnToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public enum LossReason
+    {
+        TOTEMS,
+        TIME
     }
 }

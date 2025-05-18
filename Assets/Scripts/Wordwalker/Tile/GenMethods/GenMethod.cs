@@ -13,7 +13,7 @@ public abstract class GenMethod : MonoBehaviour
     /// The list of all tiles you should step on
     protected List<Tile> corrects;
 
-    protected int settledRows;  //Number of rows generated may be less than the length of the word.
+    public static int settledRows;  //Number of rows generated may be less than the length of the word.
     protected string word;
     protected List<Tile> allTiles; // We use this for challenges. We can free it if we don't need it
 

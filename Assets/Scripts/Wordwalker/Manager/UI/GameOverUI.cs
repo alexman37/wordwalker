@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameOverUI : MonoBehaviour
 {
     //animating - gotta know the right positions
+    public TextMeshProUGUI title;
     private Vector2 gameOverAnimationStart;
     private Vector2 gameOverAnimationDest;
     private RectTransform rectTransform;
@@ -40,14 +42,21 @@ public class GameOverUI : MonoBehaviour
 
     void gameOverReset()
     {
+        if(rectTransform == null) rectTransform = GetComponent<RectTransform>();
         rectTransform.anchorMin = new Vector2(0.5f, 0);
         rectTransform.anchorMax = new Vector2(0.5f, 0);
         rectTransform.pivot = new Vector2(0.5f, 0);
         rectTransform.anchoredPosition = gameOverAnimationStart;
     }
 
-    private void BeginGameOverAnimation()
+    private void BeginGameOverAnimation(GameManagerSc.LossReason lr)
     {
+        //TODO maybe we have one of many messages?
+        switch (lr)
+        {
+            case GameManagerSc.LossReason.TOTEMS: title.text = "GAME OVER"; break;
+            case GameManagerSc.LossReason.TIME: title.text = "TIME'S UP!"; break;
+        }
         StartCoroutine(gameOverAnimation(1.5f));
     }
 
