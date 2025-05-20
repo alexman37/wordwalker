@@ -60,12 +60,20 @@ public class MenuScript : MonoBehaviour
     {
         DBClick.dbSelected += updateDatabase;
         ChallengePopup.challengeEnabled += changedChallengeStatus;
+        GameLengthSelect.lengthSelected += changeNumLevels;
     }
 
     private void OnDisable()
     {
         DBClick.dbSelected -= updateDatabase;
         ChallengePopup.challengeEnabled -= changedChallengeStatus;
+        GameLengthSelect.lengthSelected -= changeNumLevels;
+    }
+
+    private void changeNumLevels(int numLs, string __)
+    {
+        Debug.Log(numLs);
+        numLevels = numLs;
     }
 
     private void changedChallengeStatus(Challenge id, bool enabled)
