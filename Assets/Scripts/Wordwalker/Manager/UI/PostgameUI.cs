@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// The popup that appears when you win a round.
@@ -12,6 +13,12 @@ public class PostgameUI : MonoBehaviour
     private Vector2 postgameAnimationDest;
     private RectTransform rectTransform;
     public RectTransform scoreSheet;
+
+    // Score sheet
+    public TextMeshProUGUI timeDisp;
+    public TextMeshProUGUI mistakesDisp;
+    public TextMeshProUGUI mistakesPenalty;
+    public TextMeshProUGUI scoreDisp;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +41,14 @@ public class PostgameUI : MonoBehaviour
     {
         GameManagerSc.levelWon += BeginPostgameAnimation;
         GameManagerSc.levelReset += postgameReset;
+        GameManagerSc.updatePostgameScoreSheet += setScoreSheetDisplay;
     }
 
     private void OnDisable()
     {
         GameManagerSc.levelWon -= BeginPostgameAnimation;
         GameManagerSc.levelReset -= postgameReset;
+        GameManagerSc.updatePostgameScoreSheet -= setScoreSheetDisplay;
     }
 
     void postgameReset()
@@ -50,6 +59,16 @@ public class PostgameUI : MonoBehaviour
         rectTransform.pivot = new Vector2(0.5f, 0);
         rectTransform.anchoredPosition = postgameAnimationStart;
         scoreSheet.anchoredPosition = new Vector2(0, 250);
+    }
+
+    private void setScoreSheetDisplay(int timeSecondsTaken, int mistakes, int penalty, int scoreChange)
+    {
+        int seconds = (timeSecondsTaken % 60);
+        timeDisp.text = (timeSecondsTaken / 60) + ":" + (seconds < 10 ? "0" + seconds : seconds.ToString());
+        mistakesDisp.text = mistakes.ToString();
+        mistakesPenalty.text = "-" + penalty;
+        if (penalty > 0) mistakesPenalty.color = Color.red; else mistakesPenalty.color = Color.white;
+        scoreDisp.text = (scoreChange >= 0 ? "+" : "-") + scoreChange.ToString();
     }
 
     private void BeginPostgameAnimation()

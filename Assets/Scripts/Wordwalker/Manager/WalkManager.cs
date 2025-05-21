@@ -23,6 +23,8 @@ public class WalkManager : MonoBehaviour
     private Tile currTile;
     private int maxReachedRow = -1;
     public static event Action<int> atCurrentRow; // The fog challenge need this.
+    private int numMistakes = 0;
+    private bool timerStarted = false;
 
     public Queue<Tile> queuedMoves;   // so that we can pre-click multiple tiles
     public bool isActivelyMoving = false;
@@ -151,6 +153,8 @@ public class WalkManager : MonoBehaviour
         hasWon = false;
         possibleNext.Clear();
         startingTiles.Clear();
+        timerStarted = false;
+        numMistakes = 0;
         currWord = w;
         currDef = d;
         topBar.ResetBar();
@@ -207,6 +211,13 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     public IEnumerator manageStep(Tile t)
     {
+        // On first step
+        if(!timerStarted)
+        {
+            timerStarted = true;
+            TimeManager.startNamedTimer("walk_time");
+        }
+
         if (t.correct)
         {
             if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER) && t.coords.r == 0)
@@ -432,7 +443,8 @@ public class WalkManager : MonoBehaviour
 
         Debug.Log("The exact win moment");
         hasWon = true;
-        GameManagerSc.signifyLevelWon();
+        float timeTotal = TimeManager.stopNamedTimer("walk_time");
+        GameManagerSc.signifyLevelWon((int)timeTotal, numMistakes);
         topBar.SetAnswer(this.correctTiles, true);
         topBar.kickOffRotation();
         animationManager.playEndingAnimation();
@@ -443,6 +455,7 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     bool onIncorrectChoice()
     {
+        numMistakes += 1;
         GameManagerSc.changeTotems(1, false);
         if (GameManagerSc.getNumTotems() < 0 || GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
         {

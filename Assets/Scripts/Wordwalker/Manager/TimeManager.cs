@@ -16,6 +16,9 @@ public class TimeManager : MonoBehaviour
     private int lastFullSecond = (int) timeInterval;
     private int interval = -1;
 
+    private static Dictionary<string, float> namedTimer;
+    private static float totalTimeElapsed = 0;
+
     // The timer is now on or off
     public static event Action<bool> activationChange;
 
@@ -29,6 +32,8 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        namedTimer = new Dictionary<string, float>();
+
         activationChange += (_) => { };
         secondChanged += (_) => { };
         timerExpired += (_) => { };
@@ -53,8 +58,11 @@ public class TimeManager : MonoBehaviour
                 timerExpired.Invoke(interval);
             }
         }
+
+        totalTimeElapsed += Time.deltaTime;
     }
 
+    /// INTERVAL TIMER
     public void startIntervalTimer()
     {
         timeRemaining = timeInterval;
@@ -69,5 +77,26 @@ public class TimeManager : MonoBehaviour
     {
         timerEnabled = false;
         activationChange.Invoke(false);
+    }
+
+    /// INTERVAL TIMER
+    public static void startNamedTimer(string n)
+    {
+        if(namedTimer.ContainsKey(n))
+        {
+            Debug.LogWarning("Cannot start timer of name " + n + ": already exists");
+        } else
+        {
+            Debug.Log("Set key " + n);
+            namedTimer[n] = totalTimeElapsed;
+        }
+    }
+
+    public static float stopNamedTimer(string n)
+    {
+        Debug.Log("Search for key " + n);
+        float timeStarted = namedTimer[n];
+        namedTimer.Remove(n);
+        return totalTimeElapsed - timeStarted;
     }
 }

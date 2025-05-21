@@ -32,6 +32,7 @@ public class GameManagerSc : MonoBehaviour
     public static event Action wrongStep;
     public static event Action<LossReason> gameOver;
     public static event Action levelReset;
+    public static event Action<int, int, int, int> updatePostgameScoreSheet;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class GameManagerSc : MonoBehaviour
         wrongStep += () => { };
         gameOver += (_) => { };
         levelReset += () => { };
+        updatePostgameScoreSheet += (_,__,___,____) => { };
 
         //unfortunately the only way i can think of
         Tilemap = FindObjectOfType<TilemapGen>();
@@ -186,9 +188,11 @@ public class GameManagerSc : MonoBehaviour
         return totems;
     }
 
-    public static void signifyLevelWon()
+    public static void signifyLevelWon(int numTimeSeconds, int numMistakes)
     {
-        changeScore(100, true);
+        changeScore(100 - (25 * numMistakes), true);
+        updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, score);
+
         levelWon.Invoke();
     }
 
