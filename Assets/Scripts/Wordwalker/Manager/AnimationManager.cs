@@ -72,6 +72,9 @@ public class AnimationManager : MonoBehaviour
         activeMovingCoroutine = StartCoroutine(walkIntoNextLevel(0));
     }
 
+    /// <summary>
+    /// At beginning of a level
+    /// </summary>
     IEnumerator startingAnimation()
     {
         playerAnimator.SetBool("Moving", true);
@@ -101,6 +104,9 @@ public class AnimationManager : MonoBehaviour
         activeMovingCoroutine = StartCoroutine(moveCharacter(toTile));
     }
 
+    /// <summary>
+    /// Walk character to this tile
+    /// </summary>
     private IEnumerator moveCharacter(Tile toTile)
     {
         float steps = 20;
@@ -152,6 +158,9 @@ public class AnimationManager : MonoBehaviour
         activeMovingCoroutine = StartCoroutine(drawbackCharacter(backToTile));
     }
 
+    /// <summary>
+    /// Character returns to original tile when they step on a wrong one
+    /// </summary>
     private IEnumerator drawbackCharacter(Tile backToTile)
     {
         float steps = 20;
@@ -193,7 +202,57 @@ public class AnimationManager : MonoBehaviour
         setPreventPlayerMovement.Invoke(false);
     }
 
+    public void prepareJump()
+    {
+        //TODO we have to ensure the player can only do this when theyre not moving
+        this.playerAnimator.SetTrigger("JumpPrep");
+    }
+
+    public void launchJump(Tile toTile)
+    {
+        StartCoroutine(jumpingFlight(toTile));
+    }
+
+    IEnumerator jumpingFlight(Tile toTile)
+    {
+        this.playerAnimator.SetTrigger("JumpLaunch");
+
+        float steps = 20;
+        float timeSec = 0.4f;
+
+        Vector3 start = playerCharacter.transform.position;
+        Vector3 target = new Vector3(toTile.absolutePosition.Item1, 0.5f, toTile.absolutePosition.Item2);
+
+        // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
+        yield return walkManager.prepareNextMovement(toTile);
+
+        this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
+        this.playerAnimator.SetBool("Moving", true);
+
+        for (float i = 0; i <= steps; i++)
+        {
+            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
+            yield return new WaitForSeconds(1 / steps * timeSec);
+        }
+
+        yield return walkManager.manageStep(toTile);
+
+        //If no moves coming up afterwards, stop walking
+        if (walkManager.queuedMoves.Count == 0)
+        {
+            this.playerAnimator.SetBool("Moving", false);
+            this.playerAnimator.SetTrigger("Idle");
+        }
+
+        setActivelyMoving.Invoke(false);
+
+        yield return null;
+    }
+
     //TODO direction needs to be accounted for
+    /// <summary>
+    /// Walk off the tileset and begin postgame animations
+    /// </summary>
     IEnumerator clearLevel(int direction)
     {
         yield return new WaitUntil(() => !walkManager.isActivelyMoving);
@@ -224,6 +283,9 @@ public class AnimationManager : MonoBehaviour
         yield return null;
     }
 
+    /// <summary>
+    /// Leave this level entirely
+    /// </summary>
     IEnumerator walkIntoNextLevel(int direction)
     {
         playerAnimator.SetBool("Moving", true);

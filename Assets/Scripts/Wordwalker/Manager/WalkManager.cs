@@ -29,7 +29,7 @@ public class WalkManager : MonoBehaviour
     public Queue<Tile> queuedMoves;   // so that we can pre-click multiple tiles
     public bool isActivelyMoving = false;
     private bool preventMovement = false; //for instance, if you're about to die
-    private bool hasWon = false;
+    private bool jumping = false;       // used for blue item
     private List<Tile> possibleNext;  // anywhere we can potentially go next
     private List<Tile> startingTiles;
 
@@ -85,6 +85,7 @@ public class WalkManager : MonoBehaviour
 
         ItemsScript.greenItemUsed += onUsedGreenItem;
         ItemsScript.redItemUsed += onUsedRedItem;
+        ItemsScript.blueItemUsed += onUsedBlueItem;
     }
 
     private void OnDisable()
@@ -105,6 +106,7 @@ public class WalkManager : MonoBehaviour
 
         ItemsScript.greenItemUsed -= onUsedGreenItem;
         ItemsScript.redItemUsed -= onUsedRedItem;
+        ItemsScript.blueItemUsed -= onUsedBlueItem;
     }
 
     private void Update()
@@ -219,13 +221,69 @@ public class WalkManager : MonoBehaviour
         }
     }
 
+    void onUsedBlueItem()
+    {
+        //TODO undo
+        jumping = true;
+
+        // First, get all tiles within a certain radius (of either start, or currTile)
+        int radius = GameManagerSc.foggyVision;
+        removeAllHighlightsInPossibleNext();
+        possibleNext.Clear();
+
+        // Case: anywhere in the middle
+        if (currTile != null)
+        {
+            HashSet<Tile> locked = new HashSet<Tile>();
+            Dictionary<Tile, int> discoveredDepths = new Dictionary<Tile, int>();
+
+            searchAdjacenciesHelper(currTile, locked, discoveredDepths, 0, radius);
+            discoveredDepths.Clear();
+            possibleNext = new List<Tile>(locked);
+        } 
+        // Case: at the start
+        else
+        {
+            HashSet<Tile> locked = new HashSet<Tile>();
+            Dictionary<Tile, int> discoveredDepths = new Dictionary<Tile, int>();
+            HashSet<Tile> superSet = new HashSet<Tile>();
+
+            for(int i = 0; i < startingTiles.Count; i++)
+            {
+                searchAdjacenciesHelper(startingTiles[i], locked, discoveredDepths, 1, radius);
+                superSet.UnionWith(locked);
+                discoveredDepths.Clear();
+                locked.Clear();
+            }
+            possibleNext = new List<Tile>(superSet);
+        }
+        highlightAllInPossibleNext();
+
+        // And prepare the jumping animation
+        animationManager.prepareJump();
+    }
+
+    void searchAdjacenciesHelper(Tile curr, HashSet<Tile> locked, Dictionary<Tile, int> discoveredDepths, int depth, int allowedRad)
+    {
+        if (depth <= allowedRad)
+        {
+            locked.Add(curr);
+            foreach (Adjacency adj in curr.adjacencies)
+            {
+                if (!discoveredDepths.ContainsKey(curr)) discoveredDepths.Add(curr, depth);
+                else if (discoveredDepths[curr] > depth) discoveredDepths[curr] = depth;
+
+                searchAdjacenciesHelper(adj.tile, locked, discoveredDepths, depth + 1, allowedRad);
+            }
+        }
+    }
+
     /// <summary>
     /// Reset the walk manager when going to a new level
     /// Establish the new word and definition as well
     /// </summary>
     void reset(string w, string d)
     {
-        hasWon = false;
         possibleNext.Clear();
         startingTiles.Clear();
         timerStarted = false;
@@ -389,7 +447,16 @@ public class WalkManager : MonoBehaviour
         {
             if (possibleNext.Contains(t) && !preventMovement)
             {
-                queuedMoves.Enqueue(t);
+                if (!jumping)
+                    queuedMoves.Enqueue(t);
+                else
+                {
+                    isActivelyMoving = true;
+                    animationManager.launchJump(t);
+
+                    // Will have to update Y-coord for camera in PlayerManager (according to zoom)
+                    playerManager.LerpCameraTo(new Vector3(t.absolutePosition.Item1, 0, t.absolutePosition.Item2), 0.5f);
+                }
             }
             else
             {
@@ -547,7 +614,6 @@ public class WalkManager : MonoBehaviour
         }
 
         Debug.Log("The exact win moment");
-        hasWon = true;
         float timeTotal = TimeManager.stopNamedTimer("walk_time");
         GameManagerSc.signifyLevelWon((int)timeTotal, numMistakes);
         topBar.SetAnswer(this.correctTiles, true);
