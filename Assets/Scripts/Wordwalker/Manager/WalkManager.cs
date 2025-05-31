@@ -44,6 +44,8 @@ public class WalkManager : MonoBehaviour
     private string currWord;
     private string currDef;
     private List<Tile> correctTiles;
+    private List<Tile> whitelist; // correct tiles not yet stepped on- used by green item
+    private List<Tile> allTiles; // every tile out there - used by red item
 
 
     // Start is called before the first frame update
@@ -80,6 +82,9 @@ public class WalkManager : MonoBehaviour
         ModeToolUI.inViewMode += viewEnabled;
 
         TimeManager.timerExpired += ifOnFallenTileLoseImmediately;
+
+        ItemsScript.greenItemUsed += onUsedGreenItem;
+        ItemsScript.redItemUsed += onUsedRedItem;
     }
 
     private void OnDisable()
@@ -97,6 +102,9 @@ public class WalkManager : MonoBehaviour
         ModeToolUI.inViewMode -= viewEnabled;
 
         TimeManager.timerExpired -= ifOnFallenTileLoseImmediately;
+
+        ItemsScript.greenItemUsed -= onUsedGreenItem;
+        ItemsScript.redItemUsed -= onUsedRedItem;
     }
 
     private void Update()
@@ -144,6 +152,73 @@ public class WalkManager : MonoBehaviour
         Debug.Log("view on");
     }
 
+
+    /// USE OF ITEMS
+    /// Green: Reveal a single correct tile not yet discovered
+    /// Red: Reveal multiple incorrect tiles not yet discovered
+    /// Blue: For your next move you may jump to any tile up to 3 spots away
+    void onUsedGreenItem()
+    {
+        // Create whitelist if not yet done
+        if (whitelist == null) whitelist = new List<Tile>(correctTiles);
+
+        while(whitelist.Count > 0)
+        {
+            Tile revealMe = whitelist[UnityEngine.Random.Range(0, whitelist.Count)];
+
+            // Not fallen off the map, not stepped on either
+            if (!revealMe.banned && !revealMe.revealed)
+            {
+                // Shortened version of manage step
+                revealTile(revealMe);
+                return;
+            }
+            else
+            {
+                whitelist.Remove(revealMe);
+            }
+        }
+        Debug.LogWarning("Could not find any tiles to reveal!");
+    }
+
+    void onUsedRedItem()
+    {
+        // Create all list if not yet done
+        if(allTiles == null)
+        {
+            allTiles = new List<Tile>();
+            foreach (Tile t in TilemapGen.tileMap.Values)
+            {
+                if(t != null) allTiles.Add(t);
+            }
+        }
+        
+        for(int i = 0; i < 5; i++) // TODO how many?
+        {
+            while (allTiles.Count > 0)
+            {
+                Tile revealMe = allTiles[UnityEngine.Random.Range(0, allTiles.Count)];
+
+                // Not fallen off the map, not stepped on either
+                Debug.Log(revealMe);
+                if (!revealMe.banned && !revealMe.revealed && !revealMe.correct)
+                {
+                    // Shortened version of manage step
+                    revealTile(revealMe);
+                    break;
+                }
+                else
+                {
+                    allTiles.Remove(revealMe);
+                }
+            }
+            if (allTiles.Count == 0) {
+                Debug.LogWarning("Could not find any tiles to reveal!");
+                return;
+            }
+        }
+    }
+
     /// <summary>
     /// Reset the walk manager when going to a new level
     /// Establish the new word and definition as well
@@ -162,6 +237,8 @@ public class WalkManager : MonoBehaviour
         maxReachedRow = -1;
         playerManager.setToStartingPosition();
         fogSheet.transform.position = new Vector3(fogSheet.transform.position.x, fogSheet.transform.position.y, GameManagerSc.foggyVision * GenMethod.ySpacing + 48);
+        allTiles = null;
+        whitelist = null;
     }
 
     // (generation) set local copy of which tiles can be stepped on
@@ -203,6 +280,31 @@ public class WalkManager : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    /// <summary>
+    /// Show a tile as correct or not and "step" on it, but do not move to there.
+    /// </summary>
+    private void revealTile(Tile t)
+    {
+        t.revealAnimation();
+        if (t.correct)
+        {
+            t.revealMaterial(tileMats.correctTile);
+            
+
+            // TODO Will add to topbar unless (A) you already stepped on it, or (B) it's an empty/blank tile
+            /*if (!t.stepped && t.specType != Tile.SpecialTile.BLANK)
+            {
+                addLetterToTopWord(t);
+            }*/
+        }
+
+        // When stepping on an incorrect tile, lose a totem if you have one, otherwise game over!
+        else
+        {
+            t.revealMaterial(tileMats.incorrectTile);
+        }
     }
 
 
@@ -319,7 +421,7 @@ public class WalkManager : MonoBehaviour
     {
         foreach (Tile t in possibleNext)
         {
-            if (!t.stepped)
+            if (!t.revealed && !t.marked)
             {
                 t.highlightMaterial(tileMats.getCurrentHighlight(t.marked, t.stepped, t.correct, t.specType));
             }
@@ -333,7 +435,10 @@ public class WalkManager : MonoBehaviour
     {
         foreach (Tile next in possibleNext)
         {
-            next.changeMaterial(tileMats.getCurrentBase(next.marked, next.stepped, next.correct, next.specType));
+            if(!next.revealed && !next.marked)
+            {
+                next.changeMaterial(tileMats.getCurrentBase(next.marked, next.stepped, next.correct, next.specType));
+            }
         }
     }
 

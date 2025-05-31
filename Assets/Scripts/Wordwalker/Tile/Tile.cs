@@ -21,6 +21,7 @@ public class Tile : MonoBehaviour
     bool finalized;          // (used solely in generation)
     public bool banned;      // You cannot interact with this tile no matter what (only special use cases)
     public bool stepped;     // Has the tile been stepped on? If correct, you may walk on it again at any time.
+    public bool revealed;    // You know if the tile is correct or not.
     public bool marked;      // When marked as dangerous this tile cannot be stepped on until unmarked
     public bool correct;     // Is this tile part of the correct word path?
     public bool isBackRow;   // Is this tile in the back row? (If correct, you win.)
@@ -105,6 +106,18 @@ public class Tile : MonoBehaviour
     {
         if (correct) correctPress();
         else incorrectPress();
+    }
+
+    // Will only reveal the tile as opposed to above
+    public void revealAnimation()
+    {
+        // Maybe we do cam movement stuff here
+        if (correct) correctPress();
+        else
+        {
+            textComponent.text = letter.ToString();
+            fall(false, false);
+        }
     }
 
     /// <summary>
@@ -399,6 +412,13 @@ public class Tile : MonoBehaviour
     public void stepMaterial(Material changeTo)
     {
         stepped = true;
+        revealed = true;
+        changeMaterial(changeTo);
+    }
+
+    public void revealMaterial(Material changeTo)
+    {
+        revealed = true;
         changeMaterial(changeTo);
     }
 

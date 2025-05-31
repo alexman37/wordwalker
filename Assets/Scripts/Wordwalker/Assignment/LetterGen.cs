@@ -43,7 +43,7 @@ public static class LetterGen
         //Just keep looking for a letter until you find one
         while (true)
         {
-            char letterChosen = getTotallyRandomLetter();
+            char letterChosen = getProportionallyRandomLetter();
 
             //first, does this letter appear in the given word?
             if (word.Contains(letterChosen.ToString()))
