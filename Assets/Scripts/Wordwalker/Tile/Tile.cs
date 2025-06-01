@@ -143,6 +143,15 @@ public class Tile : MonoBehaviour
     }
 
     /// <summary>
+    /// When you jump on the wrong tile you immediately crash through it
+    /// </summary>
+    public void incorrectAndLoseImmediately()
+    {
+        textComponent.text = letter.ToString();
+        fallAllTiles.Invoke(false, true);
+    }
+
+    /// <summary>
     /// Tile falling animation
     /// We also do the "fall all" animation here, if you lose the game
     /// </summary>

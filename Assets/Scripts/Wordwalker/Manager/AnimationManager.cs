@@ -128,7 +128,7 @@ public class AnimationManager : MonoBehaviour
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
 
-        yield return walkManager.manageStep(toTile);
+        yield return walkManager.manageStep(toTile, false);
 
         //If no moves coming up afterwards, stop walking
         if (walkManager.queuedMoves.Count == 0)
@@ -206,6 +206,7 @@ public class AnimationManager : MonoBehaviour
     {
         //TODO we have to ensure the player can only do this when theyre not moving
         this.playerAnimator.SetTrigger("JumpPrep");
+        this.playerAnimator.SetBool("Moving", false);
     }
 
     public void launchJump(Tile toTile)
@@ -218,7 +219,8 @@ public class AnimationManager : MonoBehaviour
         this.playerAnimator.SetTrigger("JumpLaunch");
 
         float steps = 20;
-        float timeSec = 0.4f;
+        float timeSec = 1f;
+        float maxHeightOfJump = 5;
 
         Vector3 start = playerCharacter.transform.position;
         Vector3 target = new Vector3(toTile.absolutePosition.Item1, 0.5f, toTile.absolutePosition.Item2);
@@ -226,25 +228,23 @@ public class AnimationManager : MonoBehaviour
         // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
         yield return walkManager.prepareNextMovement(toTile);
 
-        this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
-        this.playerAnimator.SetBool("Moving", true);
-
         for (float i = 0; i <= steps; i++)
         {
-            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
+            Vector3 xAndz = Vector3.Lerp(start, target, i / steps);
+            // Y should follow an exponential path, peaking at the midway point
+            xAndz.y = -(maxHeightOfJump * 4) * Mathf.Pow((i / steps) - 0.5f, 2) + maxHeightOfJump + 0.5f;
+            Debug.Log(xAndz.y);
+            playerCharacter.transform.position = xAndz;
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
 
-        yield return walkManager.manageStep(toTile);
-
-        //If no moves coming up afterwards, stop walking
-        if (walkManager.queuedMoves.Count == 0)
-        {
-            this.playerAnimator.SetBool("Moving", false);
-            this.playerAnimator.SetTrigger("Idle");
-        }
+        yield return walkManager.manageStep(toTile, true);
 
         setActivelyMoving.Invoke(false);
+
+        this.playerAnimator.ResetTrigger("JumpPrep");
+        this.playerAnimator.ResetTrigger("JumpLaunch");
+        this.playerAnimator.SetTrigger("Idle");
 
         yield return null;
     }
@@ -307,7 +307,7 @@ public class AnimationManager : MonoBehaviour
         yield return null;
     }
 
-    void playFallingAnimation(bool _, bool __)
+    public void playFallingAnimation(bool _, bool __)
     {
         playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         playerAnimator.SetTrigger("Falling");

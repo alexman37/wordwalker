@@ -214,6 +214,7 @@ public class GameManagerSc : MonoBehaviour
     public enum LossReason
     {
         TOTEMS,
-        TIME
+        TIME,
+        JUMP
     }
 }

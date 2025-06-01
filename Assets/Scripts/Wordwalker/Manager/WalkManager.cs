@@ -369,7 +369,7 @@ public class WalkManager : MonoBehaviour
     /// <summary>
     /// Several animations play when you move to a new tile. This triggers them
     /// </summary>
-    public IEnumerator manageStep(Tile t)
+    public IEnumerator manageStep(Tile t, bool jumped)
     {
         // On first step
         if(!timerStarted)
@@ -419,18 +419,31 @@ public class WalkManager : MonoBehaviour
         // When stepping on an incorrect tile, lose a totem if you have one, otherwise game over!
         else
         {
-            preventMovement = true;
-            queuedMoves.Clear();
-            t.stepMaterial(tileMats.incorrectTile);
-            //addLetterToTopWord(t); // TODO - eventually we might have a "not this one" typa animation.
-            t.pressAnimation();
-
-            if (onIncorrectChoice())
+            // You lose immediately if you jump on the wrong tile no matter what
+            if(jumped)
             {
-                GameManagerSc.signifyWrongStep();
-                animationManager.drawbackAnim(currTile);
+                preventMovement = true;
                 queuedMoves.Clear();
-                highlightAllInPossibleNext();
+                t.stepMaterial(tileMats.incorrectTile);
+                t.incorrectAndLoseImmediately();
+                animationManager.playFallingAnimation(false, false);
+                onLose(GameManagerSc.LossReason.JUMP);
+            }
+            else
+            {
+                preventMovement = true;
+                queuedMoves.Clear();
+                t.stepMaterial(tileMats.incorrectTile);
+                //addLetterToTopWord(t); // TODO - eventually we might have a "not this one" typa animation.
+                t.pressAnimation();
+
+                if (onIncorrectChoice())
+                {
+                    GameManagerSc.signifyWrongStep();
+                    animationManager.drawbackAnim(currTile);
+                    queuedMoves.Clear();
+                    highlightAllInPossibleNext();
+                }
             }
         }
         
@@ -456,6 +469,7 @@ public class WalkManager : MonoBehaviour
 
                     // Will have to update Y-coord for camera in PlayerManager (according to zoom)
                     playerManager.LerpCameraTo(new Vector3(t.absolutePosition.Item1, 0, t.absolutePosition.Item2), 0.5f);
+                    jumping = false;
                 }
             }
             else
