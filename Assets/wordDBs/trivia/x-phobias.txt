@@ -1,0 +1,112 @@
+DEMONOPHOBIA|Fear of demons or evil spirits
+GEPHYROPHOBIA|Fear of crossing bridges
+GYNOPHOBIA|Fear of women
+CACOPHOBIA|Fear of ugliness
+TECHNOPHOBIA|Fear of advanced technology
+AVIOPHOBIA|Fear of flying
+AICHMOPHOBIA|Fear of sharp objects
+GERMOPHOBIA|Fear of germs or dirt
+FELINOPHOBIA|Fear of cats
+NOMOPHOBIA|Fear of being without a mobile phone
+SPECTROPHOBIA|Fear of mirrors or reflections
+ZOOPHOBIA|Fear of animals
+BIBLIOPHOBIA|Fear of books
+MELANOPHOBIA|Fear of the color black
+ACROPHOBIA|Fear of heights
+BOTANOPHOBIA|Fear of plants
+GLOSSOPHOBIA|Fear of public speaking
+HELIOPHOBIA|Fear of sunlight
+PEDOPHOBIA|Fear of children
+OMBROPHOBIA|Fear of rain
+ENOCHLOPHOBIA|Fear of crowds
+THEOPHOBIA|Fear of gods or religion
+ALGOPHOBIA|Fear of pain
+ICHTHYOPHOBIA|Fear of fish
+LILAPSOPHOBIA|Fear of tornadoes or hurricanes
+HYDROPHOBIA|Fear of water
+AUTOPHOBIA|Fear of being alone
+PHOTOPHOBIA|Sensitivity or fear of light
+ANDROPHOBIA|Fear of men
+CYBERPHOBIA|Fear of computers or technology
+MYSOPHOBIA|Fear of dirt or contamination
+LOCKIOPHOBIA|Fear of childbirth
+AUTOMATONOPHOBIA|Fear of human-like figures (mannequins, dolls, etc.)
+DENDROPHOBIA|Fear of trees
+TOPOPHOBIA|Fear of performing on stage
+GENUPHOBIA|Fear of knees
+TOKOPHOBIA|Fear of pregnancy
+OCTOPHOBIA|Fear of the number eight
+OBESOPHOBIA|Fear of gaining weight
+KATSARIDAPHOBIA|Fear of cockroaches
+ARACHNOPHOBIA|Fear of spiders
+SCELEROPHOBIA|Fear of crime
+ATYCHIPHOBIA|Fear of failure
+ATAXOPHOBIA|Fear of disorder or untidiness
+NYCTOPHOBIA|Fear of the dark
+EMETOPHOBIA|Fear of vomiting
+APHENPHOSMPHOBIA|Fear of being touched
+DECIDOPHOBIA|Fear of making decisions
+CIBOPHOBIA|Fear of food
+EQUINOPHOBIA|Fear of horses
+SPHEKSOPHOBIA|Fear of wasps
+HERPETOPHOBIA|Fear of reptiles or snakes
+KERAUNOPHOBIA|Fear of lightning
+GALEOPHOBIA|Fear of sharks
+POGONOPHOBIA|Fear of beards
+LYGOPHOBIA|Fear of darkness
+TRYPANOPHOBIA|Fear of needles or injections
+HEMOPHOBIA|Fear of blood
+AILUROPHOBIA|Fear of cats
+COULROPHOBIA|Fear of clowns
+CLAUSTROPHOBIA|Fear of confined spaces
+ECOPHOBIA|Fear of home
+ORNITHOPHOBIA|Fear of birds
+HYPOCHONDRIASIS|Fear of illness
+INSECTOPHOBIA|Fear of insects
+ONEIROPHOBIA|Fear of dreams
+GLOBOPHOBIA|Fear of balloons
+HAPHEPHOBIA|Fear of being touched
+AGORAPHOBIA|Fear of open or crowded spaces
+NEOPHOBIA|Fear of anything new
+THANATOPHOBIA|Fear of death or dying
+ERYTHROPHOBIA|Fear of blushing
+DROMOPHOBIA|Fear of crossing streets
+PAPYROPHOBIA|Fear of paper
+MEGALOPHOBIA|Fear of large objects
+LACHANOPHOBIA|Fear of vegetables
+ATELOPHOBIA|Fear of imperfection
+CHRONOPHOBIA|Fear of time
+XENOPHOBIA|Fear of strangers or foreigners
+RADIOPHOBIA|Fear of radiation or X-rays
+BRONTOPHOBIA|Fear of thunder
+ANTHOPHOBIA|Fear of flowers
+SOMNIPHOBIA|Fear of sleep
+PHASMOPHOBIA|Fear of ghosts
+ANTHROPOPHOBIA|Fear of people or society
+BANANAPHOBIA|Fear of bananas
+PYROPHOBIA|Fear of fire
+OPHIDIOPHOBIA|Fear of snakes
+HIPPOPHOBIA|Fear of horses
+EPHEBIPHOBIA|Fear of teenagers
+PODOPHOBIA|Fear of feet
+BATRACHOPHOBIA|Fear of amphibians
+NECROPHOBIA|Fear of death or dead things
+DOMATOPHOBIA|Fear of houses
+PATHOPHOBIA|Fear of disease
+CARCINOPHOBIA|Fear of cancer
+ALEKTOROPHOBIA|Fear of chickens
+CATOPTROPHOBIA|Fear of mirrors
+ASTRAPHOBIA|Fear of thunder and lightning
+CYNOPHOBIA|Fear of dogs
+RANIDAPHOBIA|Fear of frogs
+ELECTROPHOBIA|Fear of electricity
+PHOBOPHOBIA|Fear of fear itself
+DENTOPHOBIA|Fear of dentists
+BACILLOPHOBIA|Fear of germs
+GAMOPHOBIA|Fear of marriage or commitment
+HODOPHOBIA|Fear of travel
+TACHOPHOBIA|Fear of speed
+IATROPHOBIA|Fear of doctors
+NOSOCOMEPHOBIA|Fear of hospitals
+ISOLOPHOBIA|Fear of being alone or isolated
+CHROMOPHOBIA|Fear of colors

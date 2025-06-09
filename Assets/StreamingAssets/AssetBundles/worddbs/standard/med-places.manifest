@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 4041182324
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c1cbdca2d763850c665b70a0f5be9662
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/wordDBs/standard/m-places.txt
+Dependencies: []

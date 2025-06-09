@@ -1,0 +1,113 @@
+TAILORESS|Female garment maker
+OCCUPANT|Job title in use?
+MIDWIFE|Assists with childbirth
+BRICKLAYER|Lays mortar and stone
+TEACHER|Classroom instructor
+CONSULTANT|Paid professional adviser
+MECHANIC|Vehicle repair expert
+TECHNICIAN|Skilled technical worker
+NAVIGATOR|Charts travel paths
+RECEPTIONIST|Greets office visitors
+BOOKKEEPER|Maintains financial records
+RESEARCHER|Conducts investigations
+TREASURER|Manages funds
+LABORER|Manual worker
+BARTENDER|Drink-mixing professional
+LANDSCAPER|Designs outdoor spaces
+PEDIATRICIAN|Children's doctor
+SONGWRITER|Composes lyrics and tunes
+FARMER|Cultivates crops or livestock
+PROGRAMMER|Codes software
+ECONOMIST|Analyzes markets and money
+TRANSLATOR|Converts written languages
+REPORTER|News gatherer
+RADIOLOGIST|Medical imaging expert
+PATHOLOGIST|Disease diagnosis expert
+JOURNALIST|Reports the news
+LECTURER|University speaker
+STATISTICIAN|Crunches numbers and data
+LAWYER|Legal professional
+COMPOSER|Writes musical scores
+DIRECTOR|Film or company leader
+ATHLETE|Sports competitor
+ENGINEER|Designer of structures or systems
+INVESTOR|Puts money into ventures
+MACHINIST|Operates machine tools
+OPERATOR|Controls machinery or systems
+COUNSELOR|Offers guidance or therapy
+PSYCHOLOGIST|Studies human behavior
+NURSEMAID|Cares for young children
+VETERAN|Former military member
+ANIMATOR|Brings drawings to life
+POETESS|Female verse writer
+HAIRDRESSER|Cuts and styles hair
+MANAGER|Oversees operations
+ENOLOGIST|Wine expert
+DECORATOR|Room design expert
+MEDIATOR|Neutral dispute settler
+PLUMBER|Fixes pipes and drains
+PRODUCER|Oversees film or music
+MUSICIAN|Performs with instruments
+SHOEMAKER|Cobbler by trade
+JEWELLER|Sells or makes gems
+GUNSMITH|Firearm maker or repairer
+JANITOR|Building cleaner and caretaker
+FIREFIGHTER|Emergency responder to flames
+PILOTAGE|Aerial navigation job
+PHARMACIST|Medication dispenser
+POLICEMAN|Law enforcement officer
+CASHIER|Works at the checkout
+PAINTER|Applies color to surfaces
+LOCKSMITH|Works with keys and locks
+MODELER|Builds small-scale replicas
+DESIGNER|Creator of plans or looks
+PSYCHIATRIST|Mental health doctor
+CURATOR|Oversees a museum collection
+GLAZIER|Installs glass panels
+INSPECTOR|Investigative official
+MAGICIAN|Performer of illusions
+OPTICIAN|Fits glasses or lenses
+POLITICIAN|Runs for public office
+SURVEYOR|Measures land boundaries
+SCULPTOR|Carves or molds forms
+LIBRARIAN|Keeper of books
+ELECTRICIAN|Installs wiring systems
+ARCHIVIST|Keeper of historical records
+ACCOUNTANT|Preparer of financial records
+EDUCATOR|Instructor or teacher
+CONTRACTOR|Oversees construction work
+CONTROLLER|Oversees accounting and finance
+BIOLOGIST|Life science expert
+THERAPIST|Mental health counselor
+LINEMAN|Repairs power or phone lines
+SEAMSTRESS|Female garment sewer
+OPTOMETRIST|Examines eyesight
+PROFESSOR|University academic
+CHEMIST|Studies substances and reactions
+PLAYWRIGHT|Writes plays
+SUPERVISOR|Oversees work teams
+PHYSICIST|Studies matter and energy
+INTERPRETER|Translates spoken words
+DENTIST|Tooth doctor
+SECRETARY|Office assistant
+CHAUFFEUR|Hired car driver
+PHOTOGRAPHER|Takes pictures professionally
+DIETITIAN|Expert on nutrition
+MARKETER|Promotes products
+BUTCHER|Meat-cutting expert
+FLORIST|Sells and arranges flowers
+HISTORIAN|Studies the past
+CLERKSHIP|Entry-level legal job
+PROOFREADER|Checks for typos
+EXPLORER|Adventurous traveler
+DISPATCHER|Sends out emergency responders
+NOTARY|Certifies legal documents
+PHILOSOPHER|Thinker of big ideas
+INSTRUCTOR|One who teaches skills
+GEOLOGIST|Studies Earth's structure
+NOVELIST|Writes fiction books
+PRESENTER|Host of a show
+SCIENTIST|Research professional
+SHERIFF|County law enforcer
+MORTICIAN|Prepares the deceased
+DEVELOPER|Builds software or buildings

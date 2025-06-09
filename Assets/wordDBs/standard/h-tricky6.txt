@@ -1,0 +1,84 @@
+REBECS|(noun) medieval stringed instruments.
+HERNIA|(noun) protrusion of an organ through the wall of the cavity.
+IMBRUE|(verb) to stain, especially with blood.
+WHELKY|(adjective) knobby or swollen, especially with pustules.
+GLOUTY|(adjective) sticky or glutinous.
+HARPIN|(noun) a protein that helps some plant pathogens infect.
+NIDIFY|(nidify) to build a nest.
+EUTAXY|(noun) good order or arrangement.
+PESTLE|(noun) tool used to crush or grind substances.
+OVOLOS|(noun) architectural moldings with an egg-like profile.
+CHERTY|(adjective) containing or resembling chert (a hard rock).
+ROTGUT|(noun) cheap, poor-quality alcohol.
+KAINIT|(noun) a mineral used in fertilizer.
+UAKARI|(noun) a short-tailed monkey from the Amazon.
+FRAZIL|(noun) loose ice crystals in water.
+APHTHA|(noun) a small ulcer occurring in the mouth.
+KEDGED|(verb) moved a ship by hauling on an anchor.
+DILUTE|(verb) to make thinner or weaker.
+EFFLUX|(noun) the process of flowing out.
+CAJOLE|(verb) to persuade with flattery or gentle urging.
+HAPTEN|(noun) a small molecule that elicits an immune response when attached to a larger carrier.
+VAMURE|(noun) a low wall or rampart.
+SALLET|(noun) a type of medieval helmet.
+LAZULI|(noun) a blue gemstone, "lapis ___".
+LEPTIN|(noun) a hormone regulating hunger.
+AXENIC|(adjective) free from other living organisms (used in lab cultures).
+MUREIN|(noun) a component of bacterial cell walls.
+URTEXT|(noun) the original or earliest version of a text.
+ANOMIE|(noun) lack of the usual social or ethical standards.
+XENIAL|(adjective) relating to hospitality to guests.
+THUJAS|(noun) evergreen coniferous trees, also known as arborvitae.
+GLOZER|(noun) one who flatters.
+DINGLE|(noun) a small wooded valley.
+CAULKS|(noun) waterproof filler and sealant used in building work.
+RIMPLE|(verb) to wrinkle or crumple.
+HELOMA|(noun) a corn (thickened skin).
+FAUCET|(noun) a tap or valve controlling the flow of liquid.
+PALFRY|(noun) a light riding horse, especially for women.
+BEPELT|(verb) covered in pelts or furs.
+ISATIN|(noun) a crystalline compound used in dyes.
+IBEXES|(noun) wild goats with large curved horns.
+ASARUM|(noun) a genus of plants known as wild ginger.
+TARSUS|(noun) part of the foot or insect leg.
+RASURE|(noun) the act of scraping or erasing.
+NACRED|(adjective) having a pearly luster.
+TYMBAL|(noun) a vibrating organ used by cicadas to make sound.
+HAEMIN|(noun) a component of hemoglobin.
+YABBER|(verb) to talk rapidly and unintelligibly.
+FLENSE|(verb) to strip the blubber or skin from a whale or seal.
+ZANILY|(adverb) in a crazy or comical manner.
+CESTUS|(noun) an ancient battle glove.
+DRYLOT|(noun) a type of animal feeding area with no vegetation.
+DADOES|(noun) lower parts of a wall, decorated or paneled.
+ELUVIA|(noun) residues from the weathering of rocks.
+JINKER|(noun) a light cart or wagon.
+VEXILS|(noun) small flags or streamers (esp. in botany or heraldry).
+NIMROD|(noun) originally a hunter, later slang for a fool.
+IZZARD|(noun) archaic term for the letter "Z".
+KAOLIN|(noun) a fine white clay used in porcelain.
+BIFLEX|(adjective) having a double curve or bend.
+ADYTUM|(noun) inner sanctum of a temple.
+WEAZEN|(adjective) thin, shriveled, or wrinkled.
+VASTUS|(noun) part of the quadriceps muscle group.
+ARROYO|(noun) a dry creek or stream bed that temporarily fills with water.
+WIMBLE|(noun) a boring tool (like a gimlet or auger).
+PICOTS|(noun) small ornamental loops on lace or ribbon.
+GNEISS|(noun) a metamorphic rock.
+TUYERE|(noun) a nozzle through which air is blown into a furnace.
+OBVERT|(verb) to turn something so its face is shown.
+RAMATE|(adjective) branched like antlers.
+FIRKIN|(noun) a small cask or container.
+LENTIC|(adjective) relating to still freshwater (e.g., lakes, ponds).
+ULLAGE|(noun) the amount by which a container falls short of being full.
+LABRET|(noun) a type of lip piercing.
+BRULOT|(noun) a spiced alcoholic drink set alight.
+ANLACE|(noun) a medieval dagger.
+WHARVE|(noun) a small flywheel on a spindle.
+MACULA|(noun) a spot or small area (especially on the retina).
+FEAGUE|(noun) an old term for a prank or trick, esp. with animals.
+USHERS|(noun) attendants or doorkeepers.
+TOCSIN|(noun) an alarm bell or warning signal.
+YIRRED|(verb) uttered a whirring or humming sound.
+BODKIN|(noun) a sharp slender instrument for making holes in cloth.
+CHOUGH|(noun) a black bird of the crow family.

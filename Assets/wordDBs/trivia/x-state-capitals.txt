@@ -1,0 +1,50 @@
+JUNEAU|Alaska
+RALEIGH|North Carolina
+HONOLULU|Hawaii
+SPRINGFIELD|Illinois
+CHEYENNE|Wyoming
+LITTLEROCK|Arkansas
+FRANKFORT|Kentucky
+TALLAHASSEE|Florida
+SALTLAKECITY|Utah
+MADISON|Wisconsin
+TOPEKA|Kansas
+INDIANAPOLIS|Indiana
+SAINTPAUL|Minnesota
+MONTGOMERY|Alabama
+PROVIDENCE|Rhode Island
+NASHVILLE|Tennessee
+MONTPELIER|Vermont
+CHARLESTON|West Virginia
+LINCOLN|Nebraska
+OLYMPIA|Washington
+JACKSON|Mississippi
+HELENA|Montana
+COLUMBIA|South Carolina
+DENVER|Colorado
+BATONROUGE|Louisiana
+SANTAFE|New Mexico
+LANSING|Michigan
+OKLAHOMACITY|Oklahoma
+CARSONCITY|Nevada
+ATLANTA|Georgia
+HARTFORD|Connecticut
+PHOENIX|Arizona
+HARRISBURG|Pennsylvania
+BOISE|Idaho
+TRENTON|New Jersey
+AUSTIN|Texas
+SACRAMENTO|California
+BISMARCK|North Dakota
+JEFFERSONCITY|Missouri
+DESMOINES|Iowa
+PIERRE|South Dakota
+SALEM|Oregon
+BOSTON|Massachusetts
+AUGUSTA|Maine
+DOVER|Delaware
+ALBANY|New York
+CONCORD|New Hampshire
+COLUMBUS|Ohio
+ANNAPOLIS|Maryland
+RICHMOND|Virginia

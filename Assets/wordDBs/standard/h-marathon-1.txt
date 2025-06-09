@@ -1,0 +1,128 @@
+RADIOTHERAPY|(noun) Treatment using radiation, typically for cancer.
+SUFFICIENT|(adjective) Enough to meet the needs.
+ASCENDENCY|(noun) The state of being in power or control.
+UNEMPLOYED|(adjective) Without a job.
+DISCIPLINE|(noun) Training to improve behavior.
+WATERPROOF|(adjective) Impervious to water.
+DELIBERATION|(noun) Long and careful consideration.
+STABILIZATION|(noun) The process of making something stable.
+CORRESPONDENCE|(noun) Communication by letters.
+MAGNANIMOUS|(adjective) Generous and forgiving.
+PSYCHOLOGY|(noun) The scientific study of the mind and behavior.
+PRESERVATION|(noun) The act of keeping something safe.
+AERODYNAMICS|(noun) The study of air flow around objects.
+STIPULATION|(noun) A condition or requirement in an agreement.
+PRIESTHOOD|(noun) The office or position of a priest.
+TECHNOLOGY|(noun) The application of scientific knowledge for practical purposes.
+PROTECTION|(noun) The act of keeping safe from harm.
+MONUMENTAL|(adjective) Great in importance or size.
+CHOREOGRAPH|(verb) To plan or create dance movements.
+THERMOMETER|(noun) An instrument for measuring temperature.
+YEARNINGLY|(adverb) With a feeling of intense longing.
+MINISTERIAL|(adjective) Relating to a minister of government.
+MUTABILITY|(noun) The quality of being changeable.
+EXCLUSIVELY|(adverb) Only; solely.
+EXASPERATE|(verb) To irritate or annoy intensely.
+PRECIPITATE|(verb) To cause something to happen suddenly.
+OMNIPOTENCE|(noun) Unlimited power.
+OBSTRUCTION|(noun) Something that blocks a path.
+ESSENTIALLY|(adverb) Basically or fundamentally.
+RECTIFICATION|(noun) The action of correcting something.
+MODERATION|(noun) The avoidance of excess or extremes.
+SKEPTICISM|(noun) Doubt as to the truth of something.
+AUDITORIUM|(noun) A large room for an audience.
+CHARACTERIZE|(verb) To describe the qualities of something.
+CONVERSATION|(noun) Informal talk between people.
+UNDISPUTED|(adjective) Not challenged or questioned.
+ORCHESTRATION|(noun) The arrangement or coordination of elements.
+ONOMATOPOEIA|(noun) A word that imitates a sound.
+MISFORTUNE|(noun) Bad luck.
+ENCAPSULATION|(noun) The process of enclosing something in or as if in a capsule.
+SUBSTANTIAL|(adjective) Of considerable importance or size.
+INDISPENSABLE|(adjective) Absolutely necessary.
+CONSTITUTION|(noun) A body of fundamental principles.
+PICTURESQUE|(adjective) Visually attractive, like a picture.
+VERSATILITY|(noun) Ability to adapt or be adapted to many different functions.
+CARNIVOROUS|(adjective) Feeding on meat.
+CONFISCATE|(verb) To take something away as a penalty.
+MUNICIPALITY|(noun) A city or town with its own government.
+THOUGHTFUL|(adjective) Showing consideration for others.
+UNGRATEFUL|(adjective) Not showing gratitude.
+PROCLAMATION|(noun) A public or official announcement.
+INDIFFERENCE|(noun) Lack of interest or concern.
+PARTICULAR|(adjective) Specific or special.
+EQUANIMITY|(noun) Mental calmness and composure, especially in difficult situations.
+INGRATITUDE|(noun) Lack of thankfulness.
+DOMINATION|(noun) The exercise of control or influence.
+INTERCEPTION|(noun) The act of stopping or interrupting.
+CALCULATIVE|(adjective) Acting with careful planning or calculation.
+SIGNIFICANCE|(noun) The quality of being important or meaningful.
+PROSPECTIVE|(adjective) Expected or likely to happen.
+NEGOTIATION|(noun) Discussion aimed at reaching an agreement.
+FRAGMENTATION|(noun) The process of breaking or being broken into fragments.
+ANOMALOUSLY|(adverb) In a way that deviates from what is standard.
+RESOLUTION|(noun) A firm decision or solution.
+EQUIVOCATE|(verb) To use ambiguous language to avoid committing oneself.
+METAPHORICAL|(adjective) Using metaphors; symbolic.
+ELECTRICITY|(noun) A form of energy resulting from charged particles.
+MARGINALIZE|(verb) To treat a person or group as insignificant.
+REMEMBRANCE|(noun) The act of remembering or honoring someone.
+QUESTIONNAIRE|(noun) A set of printed questions for gathering information.
+PERSONALITY|(noun) The combination of characteristics that form an individual’s character.
+SIMULTANEOUS|(adjective) Occurring at the same time.
+PARTICIPATION|(noun) The act of taking part.
+TRANSPORTATION|(noun) The movement of people or goods.
+ACCLIMATIZE|(verb) To adapt to a new environment or climate.
+ZOOPLANKTON|(noun) Small floating aquatic animals that drift in water.
+PUBLICATION|(noun) The act of making information public.
+PLANETARIUM|(noun) A theater with a dome for showing astronomical presentations.
+THOROUGHNESS|(noun) The quality of being complete and careful.
+FULFILLMENT|(noun) The achievement of something desired or promised.
+EXTRAVAGANT|(adjective) Excessive or wasteful in spending.
+DESTITUTION|(noun) Extreme poverty.
+MODIFICATION|(noun) The act of changing something.
+TELEVISION|(noun) A system for transmitting visual images and sound.
+INSINUATION|(noun) An indirect or covert suggestion or hint.
+INDIGNATION|(noun) Anger caused by unfair treatment.
+COLLABORATE|(verb) To work together on a project.
+ZOOLOGISTS|(noun) Scientists who study animals.
+INTELLECTUAL|(adjective) Relating to the intellect or understanding.
+MACHINATION|(noun) A plot or scheme.
+CREDIBILITY|(noun) The quality of being trusted or believed.
+PURIFICATION|(noun) The process of making something pure.
+CONSEQUENCE|(noun) A result or effect.
+HALLUCINATE|(verb) To experience a perception of something not present.
+INUNDATION|(noun) An overwhelming abundance or flood.
+REDEMPTION|(noun) The action of being saved from error or evil.
+FUNDAMENTAL|(adjective) Forming a necessary base or core.
+LEGISLATION|(noun) Laws considered collectively.
+INCONCEIVABLE|(adjective) Not capable of being imagined or grasped.
+INEVITABILITY|(noun) The quality of being certain to happen.
+SYNCHRONIZATION|(noun) The process of coordinating events.
+VULNERABILITY|(noun) The quality of being open to harm or attack.
+INAUGURATION|(noun) The formal admission of someone to office.
+GRATIFICATION|(noun) Pleasure obtained from satisfying a desire.
+SAGITTARIUS|(noun) The ninth astrological sign of the zodiac.
+DISCRETIONARY|(adjective) Available to be used at one's own discretion.
+CLASSIFICATION|(noun) The arrangement of things into classes.
+CONTROVERSIAL|(adjective) Giving rise to disagreement.
+JEOPARDIZE|(verb) To put at risk or in danger.
+RECONCILIATION|(noun) Restoration of friendly relations.
+YIELDINGLY|(adverb) In a manner that gives way under pressure.
+OBSERVATION|(noun) The action of closely monitoring something.
+EXPENDITURE|(noun) The action of spending funds.
+OPTIMISTIC|(adjective) Hopeful about the future.
+INNOVATION|(noun) The introduction of new ideas or methods.
+ADOLESCENCE|(noun) The transitional period from childhood to adulthood.
+INFRASTRUCTURE|(noun) Basic physical and organizational structures needed for operation.
+PLAGIARISM|(noun) Using someone else’s work without credit.
+PROTESTANT|(noun) A member of a Christian church separated from the Catholic Church.
+PRACTICALITY|(noun) The quality of being practical.
+HOSPITALITY|(noun) The friendly reception of guests or strangers.
+DISPLACEMENT|(noun) The moving of something from its place.
+POSTPONEMENT|(noun) The action of delaying something.
+UNIVERSITY|(noun) An institution of higher learning.
+PECULIARITY|(noun) An odd or unusual characteristic.
+INSTITUTION|(noun) An established organization or foundation.
+POPULATION|(noun) All inhabitants of a particular place.
+VIVACIOUSLY|(adverb) In a lively and animated manner.

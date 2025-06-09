@@ -1,0 +1,90 @@
+ACQUIRE|(verb) To get or obtain something|aquire, acqire
+SECRETARY|(noun) A person who manages office tasks|secratary, secritary
+INDEPENDENT|(adjective) Not influenced by others|independant, independant
+RESTAURANT|(noun) Place where meals are served|resturant, restrant
+ACCOMMODATE|(verb) To provide space or adapt to needs|accomodate, acommodate
+RHYTHM|(noun) A strong, regular beat|rythm, rhytm
+DEFINITELY|(adverb) Without doubt, surely|definately, definatly
+PASTIME|(noun) An activity done for enjoyment|pasttime, pastime
+SEPARATE|(verb) To set apart or divide|seperate, separete
+SUBSEQUENT|(adjective) Coming after something else|subsequant, subseqent
+ARGUMENT|(noun) A disagreement or reasoned discussion|arguement, arugment
+UNNECESSARY|(adjective) Not needed or essential|unecessary, unnessesary
+LICENSE|(noun) Official permission to do something|lisence, liscense
+COLLECTIBLE|(adjective) Worth collecting as a hobby or investment|collectable, colectible
+LEISURE|(noun) Free time for relaxation|liesure, leasure
+NOTICEABLE|(adjective) Easily seen or recognized|noticable, noticable
+REFERENCE|(noun) Mention of a source or authority|referance, referense
+COMMITTEE|(noun) Group appointed to perform a task|commitee, committe
+EXAGGERATE|(verb) To make something seem larger or more|exagerrate, exeggerate
+PRIVILEGE|(noun) A special right or advantage|priviledge, privlege
+SOPHOMORE|(noun) A second-year student in high school/college|somphomore, sophmore
+PROCEDURE|(noun) A series of steps followed|procedeure, procedur
+VILLAGE|(noun) Small group of houses in a rural area|vilage, villiage
+CONSCIENCE|(noun) Inner sense of right and wrong|conscence, consience
+RECEIVE|(verb) To get or accept something|recieve, recive
+IGNORANCE|(noun) Lack of knowledge or awareness|ignorence, ignorence
+EXCELLENT|(adjective) Extremely good or outstanding|excelent, excillent
+PREJUDICE|(noun) Pre-judgment, often unfair opinion|prejudace, prejedice
+GRATEFUL|(adjective) Feeling thankful|greatful, gratefull
+PHYSICIAN|(noun) A medical doctor|physican, physitian
+FASCINATE|(verb) To attract and hold attention|fascinate, fasinait
+HUMOROUS|(adjective) Funny or amusing|humourous, humerous
+DISCIPLINE|(noun) Training to obey rules or self-control|disipline, disciplne
+TWELFTH|(adjective) The ordinal number after eleventh|twelth, twelf
+CALENDAR|(noun) A system to organize days and months|calender, calandar
+ACQUAINTANCE|(noun) Someone you know but not very well|aquaintance, acquaintence
+GUARANTEE|(noun) A promise of quality or performance|gaurantee, guarentee
+WEDNESDAY|(noun) The middle day of the workweek|Wensday, Wendsday
+EMBARRASSED|(adjective) Feeling ashamed or awkward|embarassed, embaressed
+LIBRARY|(noun) Place where books are kept|libary, librery
+ADVICE|(noun) Guidance or recommendation|advise
+CEMETERY|(noun) Place where the dead are buried|cemetary, cemetary
+SKYSCRAPER|(noun) Very tall building|skycraper, skyscaper
+EXPERIENCE|(noun) Knowledge gained through doing something|experiance, experence
+OCCASIONALLY|(adverb) Happening sometimes, not often|ocassionally, ocasionaly
+SCENARIO|(noun) A possible sequence of events|scenerio, scenareo
+MAINTENANCE|(noun) The process of keeping something in good condition|maintainance, maintanence
+MISCHIEVOUS|(adjective) Playfully causing trouble|mischievious, mischevious
+CONSCIOUS|(adjective) Aware of and responding to surroundings|conscous, consious
+CONVENIENCE|(noun) Something that makes life easier|conveniance, convienence
+INTELLIGENCE|(noun) Ability to learn, understand, and think|inteligence, intilligence
+STRENGTH|(noun) Quality of being strong|strenght, strengh
+SURPRISE|(noun) An unexpected event|suprise, suprize
+MINIATURE|(noun) Very small version of something|minature, miniuture
+PARLIAMENT|(noun) Lawmaking body of government|parliment, parliement
+COLUMN|(noun) A vertical structure or text alignment|colum, colomn
+EXPLANATION|(noun) Clarification or reason for something|explanantion, explenation
+POSSESSION|(noun) Ownership or control over something|posession, possesion
+PRECEDE|(verb) To come before in time or order|preceed, procede
+SINCERELY|(adverb) In a genuine or honest way|sincerly, sinserely
+OCCURRENCE|(noun) An event or incident|occurence, ocurance
+KNOWLEDGE|(noun) Facts, information, and skills acquired|knowlege, knoledge
+CATEGORY|(noun) A group or class with shared features|catagory, categary
+HEIGHT|(noun) Measurement from base to top|heigth, hight
+HARASSMENT|(noun) Unwanted aggressive pressure or intimidation|harrassment, harasment
+AMATEUR|(noun) A non-professional or beginner|amature, amatuer
+RELEVANT|(adjective) Closely connected to the matter at hand|relavent, relevent
+ADDRESS|(verb) To speak to someone formally|addres, adress
+VACUUM|(noun) Space entirely devoid of matter|vaccum, vacum
+SACRIFICE|(noun) Giving up something valuable|sacrafice, sacrific
+FOREIGN|(adjective) From another country|foriegn, forein
+HIERARCHY|(noun) A system with ranks or levels|heirarchy, hierachy
+VEGETABLE|(noun) Edible plant or part of a plant|vegtable, vegitable
+LANGUAGE|(noun) A system of communication|langauge, languge
+ACHIEVE|(verb) To successfully complete a goal|acheive, achive
+CURRICULUM|(noun) A set course of study in school|curriculm, curricullum
+PROFESSOR|(noun) A teacher at a university|professer, professer
+LIGHTNING|(noun) Flash of electricity during a storm|lightening, ligthning
+CHANGEABLE|(adjective) Able to be altered or modified|changeible, changable
+EXISTENCE|(noun) The fact of being alive or real|existance, existense
+MEDIEVAL|(adjective) Relating to the Middle Ages|medeival, medival
+PREFERRED|(adjective) Liked better than others|prefered, preffered
+RECOMMEND|(verb) To suggest something as good or suitable|recomend, reccomend
+JUDGMENT|(noun) The ability to make considered decisions|judgement, judgemant
+ENVIRONMENT|(noun) Surroundings or conditions around something|enviroment, enviornment
+PREPARATION|(noun) The act of getting ready|preparration, preperation
+EXERCISE|(noun) Physical activity to stay healthy|excersize, exersize
+SIMILAR|(adjective) Having likeness or resemblance|simillar, similair
+ATTENDANCE|(noun) Being present at an event|atendance, attendence
+BELIEVE|(verb) To accept as true or real|beleive, belive

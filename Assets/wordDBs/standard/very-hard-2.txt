@@ -1,0 +1,104 @@
+PIQUANT|(adjective) Having a pleasantly sharp taste or appetizing flavor.
+APOSTASY|(noun) The abandonment or renunciation of a religious or political belief.
+SYBARITIC|(adjective) Fond of sensuous luxury or pleasure; self-indulgent.
+DYSPEPTIC|(adjective) Of or having indigestion or irritability.
+CAPRICIOUS|(adjective) Given to sudden and unaccountable changes of mood or behavior.
+ELUCIDATE|(verb) To make something clear; explain.
+DEMIURGE|(noun) A being responsible for the creation of the universe, especially in Platonic philosophy.
+WIDDERSHINS|(adverb) In a direction contrary to the sun’s course; counterclockwise.
+PACHYDERM|(noun) A large, thick-skinned mammal, such as an elephant or rhinoceros.
+ANTIPODES|(noun) Places diametrically opposite each other on the globe.
+PHANTASMAGORIA|(noun) A sequence of real or imaginary images like those seen in a dream.
+HEGIRA|(noun) A journey, especially a flight to escape danger.
+TAUTOLOGICAL|(adjective) Needless repetition of the same sense in different words; redundant.
+CACOPHONY|(noun) A harsh, discordant mixture of sounds.
+PERNICIOUS|(adjective) Having a harmful effect, especially in a gradual or subtle way.
+NONPAREIL|(noun) A person or thing regarded as having no match or equal.
+HYPNAGOGIC|(adjective) Relating to the state immediately before falling asleep.
+FARRAGO|(noun) A confused mixture; hodgepodge.
+HYLOZOISM|(noun) The philosophical view that all matter has life.
+PHLEGMATIC|(adjective) Having an unemotional and stolidly calm disposition.
+EUDEMONIC|(adjective) Conducive to happiness.
+CALLIPYGIAN|(adjective) Having well-shaped buttocks.
+EREMITIC|(adjective) Living in seclusion, like a hermit.
+PREVARICATE|(verb) To speak or act in an evasive way.
+NOSOCOMIAL|(adjective) Originating in a hospital, especially an infection.
+NOISOME|(adjective) Having an extremely offensive smell.
+MYOPIC|(adjective) Nearsighted; lacking foresight.
+CALIGINOUS|(adjective) Dark, dim, or gloomy.
+CATAFALQUE|(noun) A decorated wooden framework supporting the coffin of a distinguished person.
+MELLIFLUOUS|(adjective) Sweet or musical; pleasant to hear.
+INIMICAL|(adjective) Hostile; unfriendly.
+BELLWETHER|(noun) A person or thing that indicates future trends.
+PSITHURISM|(noun) The sound of the wind through trees or rustling leaves.
+EXCULPATE|(verb) To show or declare that someone is not guilty of wrongdoing.
+CLAFOUTI|(noun) A French dessert of fruit baked in a flan-like batter.
+MONOLITHIC|(adjective) Large, powerful, and intractably indivisible and uniform.
+CAUTELOUS|(adjective) Cunning or treacherous.
+NUGATORY|(adjective) Of no value or importance.
+NONPLUSSED|(adjective) Surprised and confused so much that one is unsure how to react.
+SALUBRIOUS|(adjective) Health-giving; healthy.
+BUMFUZZLE|(verb) To confuse or fluster.
+DEMULCENT|(adjective) Having a soothing effect on irritated or inflamed skin or mucous membranes.
+ADYNAMIA|(noun) Lack of strength or vigor, especially due to illness.
+OLEAGINOUS|(adjective) Excessively or ingratiatingly flattering; oily.
+CIRCUMLOCUTION|(noun) The use of many words where fewer would do.
+REFRACTORY|(adjective) Stubborn or unmanageable.
+BLOVIATE|(verb) To speak pompously or verbosely.
+OBSTREPEROUS|(adjective) Noisy and difficult to control.
+LANGUID|(adjective) Weak or faint from illness or fatigue.
+TEMERARIOUS|(adjective) Reckless; rash.
+EPISTOLARY|(adjective) Relating to the writing of letters.
+CLERISY|(noun) A class of learned or literary people.
+APHELION|(noun) The point in the orbit of a planet farthest from the sun.
+GARRULOUS|(adjective) Excessively talkative, especially on trivial matters.
+EGREGIOUS|(adjective) Outstandingly bad; shocking.
+HERMETIC|(adjective) Airtight; also relating to esoteric knowledge.
+LUGUBRIOUS|(adjective) Looking or sounding sad and dismal.
+SPECIOUS|(adjective) Superficially plausible, but actually wrong or misleading.
+POCOCURANTE|(adjective) Indifferent or nonchalant.
+RATIOCINATE|(verb) To reason, especially in a logical or methodical way.
+OBDURATE|(adjective) Stubbornly refusing to change one’s opinion.
+ECTOMORPHIC|(adjective) Having a slim, lean physique.
+CHREMATISTIC|(adjective) Relating to making money.
+HOLOGRAPH|(noun) A manuscript written by the author.
+HUBRIS|(noun) Excessive pride or self-confidence.
+SANGUINE|(adjective) Optimistic or positive, especially in a difficult situation.
+NEOPHYTE|(noun) A beginner or novice.
+ELEEMOSYNARY|(adjective) Relating to or dependent on charity.
+ONOMATOPOEIA|(noun) The formation of a word from a sound associated with what is named.
+LUMINOUS|(adjective) Emitting or reflecting light; glowing.
+PHTHISIS|(noun) A wasting disease, especially pulmonary tuberculosis.
+LIMINAL|(adjective) Relating to a transitional or initial stage of a process.
+ZOANTHROPY|(noun) A mental disorder in which a person believes they are an animal.
+DEFENESTRATION|(noun) The act of throwing someone out of a window.
+DYSPHORIA|(noun) A state of unease or generalized dissatisfaction with life.
+LISSOME|(adjective) Thin, supple, and graceful.
+VINDICTIVE|(adjective) Having or showing a strong or unreasoning desire for revenge.
+FRANGIPANNI|(noun) A tropical tree or its fragrant flowers.
+OXYMORON|(noun) A figure of speech in which apparently contradictory terms appear in conjunction.
+ANACHRONISM|(noun) Something belonging to a different time period.
+EXTEMPORANEOUS|(adjective) Done without preparation; impromptu.
+DIDACTIC|(adjective) Intended to teach, particularly in having moral instruction as an ulterior motive.
+OBFUSCATE|(verb) To render obscure, unclear, or unintelligible.
+DILATORY|(adjective) Slow to act; intended to cause delay.
+REDOLENT|(adjective) Strongly reminiscent or suggestive of something; fragrant or aromatic.
+UROBOROS|(noun) An ancient symbol depicting a serpent or dragon eating its own tail.
+DISQUISITION|(noun) A long or elaborate essay or discussion on a particular subject.
+AMARANTHINE|(adjective) Undying or unfading; eternally beautiful.
+HETERODOX|(adjective) Not conforming with accepted or orthodox standards or beliefs.
+LANGUOR|(noun) The state or feeling of tiredness or inertia.
+EXIGENT|(adjective) Urgent; requiring immediate action or attention.
+SOMNAMBULIST|(noun) A sleepwalker.
+HIRSUTE|(adjective) Covered with hair; hairy.
+PANACEA|(noun) A solution or remedy for all difficulties or diseases.
+SUPERCILIOUS|(adjective) Behaving as though one thinks one is superior to others.
+FUTILITARIAN|(noun) A person who believes that human efforts are ultimately futile.
+LACONIC|(adjective) Using very few words; concise to the point of seeming rude or mysterious.
+CAMARILLA|(noun) A secret group of plotters or intriguers.
+REFULGENT|(adjective) Shining brightly.
+RODOMONTADE|(noun) Boastful or inflated talk or behavior.
+ESCHEW|(verb) To deliberately avoid using or abstain from.
+MYRIAD|(noun) A countless or extremely great number.
+DEFENESTRATE|(verb) To throw someone or something out of a window.
+TRANSMOGRIFY|(verb) To transform in a surprising or magical manner.

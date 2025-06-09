@@ -1,0 +1,103 @@
+PARSIMONIOUS|(adjective) Unwilling to spend money; stingy.
+JOCUND|(adjective) Cheerful and lighthearted.
+LUSUS NATURAE|(noun) A freak of nature; a genetic anomaly.
+JACTITATION|(noun) A false boast or claim.
+CIPOLLINO|(noun) A type of Roman marble with layers of silicates.
+QUOTIDIAN|(adjective) Occurring every day; commonplace or mundane.
+ULOTRICHOUS|(adjective) Having woolly or tightly curled hair.
+QUIXOTIC|(adjective) Extremely idealistic; unrealistic and impractical.
+SOLIPSISM|(noun) The philosophical idea that only one’s own mind is sure to exist.
+LYMPHATIC|(adjective) Relating to lymph or its secretion.
+EXSANGUINATE|(verb) To drain of blood.
+CADUCITY|(noun) Frailty or transience; tendency to fade or perish.
+RACONTEUR|(noun) A person who tells anecdotes in a skillful and amusing way.
+FOUDROYANT|(adjective) Sudden and overwhelming; stunning.
+PARAPROSDOKIAN|(noun) A figure of speech in which the latter part of a sentence is surprising or unexpected.
+JARGONIZE|(verb) To use specialized language or terminology.
+ALFRESCO|(adjective) In the open air, outside.
+STULTIFY|(verb) To cause to lose enthusiasm and initiative, especially as a result of a tedious or restrictive routine.
+KALEIDOSCOPE|(noun) A tube containing mirrors and pieces of colored glass, whose reflections produce changing patterns.
+ADUMBRATE|(verb) To foreshadow or symbolize vaguely.
+SOLIPSISTIC|(adjective) Characterized by the belief that only one's self exists or matters.
+ORNITHOLOGY|(noun) The study of birds.
+UVULAR|(adjective) Pertaining to the uvula (the small fleshy extension at the back of the soft palate).
+CHIAROSCURO|(noun) The treatment of light and shade in drawing and painting.
+SESQUIPEDALIAN|(adjective) (Of a word) polysyllabic; long; characterized by long words.
+ENCOMIUM|(noun) A speech or piece of writing that praises someone or something highly.
+HYPERBOLE|(noun) Exaggerated statements or claims not meant to be taken literally.
+BILIOUS|(adjective) Bad-tempered; spiteful.
+JUXTAPOSITION|(noun) The fact of two things being seen or placed close together with contrasting effect.
+BIFURCATE|(verb) To divide into two branches or forks.
+CHIAROSCURIST|(noun) An artist who uses light and shade rather than color.
+EUDAIMONIA|(noun) Human flourishing or blessedness; a contented state of being happy, healthy, and prosperous.
+XANTHOCHROI|(noun) People with light hair and fair skin.
+MUMPSIMUS|(noun) A person who obstinately adheres to old customs or ideas despite evidence that they are wrong.
+LACHRYMOSE|(adjective) Tearful or given to weeping.
+CACOGRAPHY|(noun) Bad handwriting or spelling.
+EIDOLON|(noun) An idealized person or thing; a specter or phantom.
+SCINTILLA|(noun) A tiny trace or spark of a specified quality or feeling.
+PLETHORA|(noun) An excess of something.
+RECALCITRANT|(adjective) Resisting authority or control; not obedient or compliant.
+MACHIAVELLIAN|(adjective) Cunning, scheming, and unscrupulous, especially in politics.
+INEFFABLE|(adjective) Too great or extreme to be expressed or described in words.
+SOBRIQUET|(noun) A person's nickname.
+HEGEMONY|(noun) Leadership or dominance, especially by one country or social group over others.
+BLATHERSKITE|(noun) A person who talks at great length without making much sense.
+NICTITATE|(verb) To wink or blink.
+NOSTALGIA|(noun) A sentimental longing or wistful affection for the past.
+HAPLESS|(adjective) Unfortunate; having no luck.
+SKEDADDLE|(verb) To run away hurriedly; flee.
+BIBLIOPOLE|(noun) A person who buys and sells books, especially rare ones.
+MYRMECOPHILOUS|(adjective) Living in close association with ants.
+EXIGUOUS|(adjective) Very small in amount or size; scanty.
+ALACRITY|(noun) Brisk and cheerful readiness.
+DYSPHAGIA|(noun) Difficulty or discomfort in swallowing.
+INSOUCIANT|(adjective) Showing a casual lack of concern; indifferent.
+ABULIA|(noun) A pathological lack of willpower or inability to make decisions.
+BACCHANALIA|(noun) A wild, drunken celebration.
+SAGACIOUS|(adjective) Having or showing keen mental discernment and good judgment; wise.
+BROBDINGNAGIAN|(adjective) Gigantic; enormous.
+VELLICATING|(verb) Twitching or causing to twitch, especially involuntarily.
+HEBETUDE|(noun) The state of being dull or lethargic.
+EXCORIATE|(verb) To criticize severely and publicly.
+OENOPHILE|(noun) A person who enjoys wines; a connoisseur of wines.
+HERMENEUTICS|(noun) The branch of knowledge dealing with interpretation, especially of texts.
+FUGACIOUS|(adjective) Fleeting; lasting a very short time.
+EMOLLIENT|(noun) A softening or soothing agent, especially for the skin.
+EXPIATE|(verb) To atone for guilt or sin.
+BANAUSIC|(adjective) Mechanical or mundane, especially work lacking intellectual appeal.
+GOBEMOUCHE|(noun) A gullible person.
+DISPARATE|(adjective) Essentially different in kind; not allowing comparison.
+PERSPICACIOUS|(adjective) Having a ready insight into and understanding of things.
+OCCLUDE|(verb) To stop, close up, or obstruct.
+LIMERENCE|(noun) The state of being infatuated or obsessed with another person.
+ENERVATE|(verb) To cause someone to feel drained of energy or vitality.
+OSCILLATE|(verb) To move or swing back and forth at a regular speed.
+JAMBOREE|(noun) A large celebration or gathering.
+OPALESCENT|(adjective) Showing varying colors as an opal does.
+KAKISTOCRACY|(noun) A government run by the worst, least qualified, or most unscrupulous citizens.
+JUBILATION|(noun) A feeling of great happiness and joy.
+REBARBATIVE|(adjective) Unattractive and objectionable; repellent.
+PUSILLANIMOUS|(adjective) Showing a lack of courage or determination; timid.
+EXONERATE|(verb) To clear someone of blame or fault.
+CATACHRESIS|(noun) The use of a word in a way that is not correct or proper.
+OPSIMATH|(noun) A person who begins to learn late in life.
+REPROBATE|(noun) An unprincipled person, someone morally unworthy.
+BACCHANAL|(noun) A drunken reveler or wild party.
+NEBULOUS|(adjective) Vague or ill-defined.
+RENASCENT|(adjective) Becoming active or popular again.
+GOSSAMER|(noun) A fine, filmy substance consisting of cobwebs spun by small spiders.
+FEUILLETON|(noun) A part of a European magazine or newspaper devoted to light literature, criticism, or the arts.
+PEREGRINATE|(verb) To travel or wander from place to place.
+LASSITUDE|(noun) A state of physical or mental weariness; lack of energy.
+ABSQUATULATE|(verb) To leave abruptly; to decamp.
+WOOLGATHERING|(noun) Indulgence in aimless thought or daydreaming.
+GOBSMACKED|(adjective) Astonished; utterly amazed.
+CALUMNY|(noun) The making of false and defamatory statements about someone.
+CANTANKEROUS|(adjective) Bad-tempered, argumentative, and uncooperative.
+OBSEQUIOUS|(adjective) Obedient or attentive to an excessive or servile degree.
+INCHOATE|(adjective) Just begun and so not fully formed or developed; rudimentary.
+EPHEMERAL|(adjective) Lasting for a very short time.
+MIASMA|(noun) A noxious atmosphere or influence.
+AQUILINE|(adjective) Resembling an eagle; having a hooked nose.
+NUMINOUS|(adjective) Having a strong religious or spiritual quality; indicating or suggesting the presence of a divinity.

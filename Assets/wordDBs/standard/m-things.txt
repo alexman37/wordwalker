@@ -1,0 +1,145 @@
+MAILBOX|Letter drop box
+HEADLAMP|Light on forehead
+DOORBELL|Entryway alert
+PANCAKE|Breakfast stack
+BACKREST|Chair support
+CEILING|Above your head indoors
+BATTERY|Power source
+OILCAN|Greasing tool
+WORKBENCH|Crafting table
+CANDLELIT|Light from wax
+FREEZERS|Ice-keepers
+XYLOPHONE|Musical instrument
+ENVELOPE|Mail container
+COUCHING|Sofa synonym
+PLAYPEN|Safe baby area
+STADIUM|Arena with seats
+MICROWAVE|Fast food heater
+COATRACK|Hanger stand
+FLASHGUN|Camera light
+SEATBELT|Car safety strap
+MIRROR|Reflective surface
+GAMEPAD|Video game controller
+OVERCOAT|Long outer garment
+HELMET|Safety headgear
+SOAPDISH|Holds bath bar
+NOTEBOOK|Paper for notes
+SIDEWALK|Footpath beside a street
+YARDSTICK|Measuring stick
+LOCKERS|Storage at school or gym
+FIREPLACE|Indoor heat source
+UMBRELLA|Rain shield
+TOOLBOX|Holds tools
+HARDHAT|Safety helmet
+CUPBOARD|Kitchen storage
+FLAGSHIP|Lead vessel or product
+BACKPACK|Worn on the back
+MONITOR|Screen for computers
+CANOEIST|One with a paddle
+WRISTBAND|Wearable band
+FANLIGHT|Window above door
+PALETTE|Artist’s paint tray
+CLOTHES|Worn daily
+IRONING|Clothes-smoothing process
+CABINET|Enclosed storage unit
+CLIPBOARD|Writing support with a clip
+CUPCAKE|Small frosted dessert
+HAIRBRUSH|Tames your locks
+KNAPSACK|Carrying bag
+CUTLERY|Forks, knives, and spoons
+CHARGER|Powers your phone
+LUGGAGE|Travel bags
+FURNITURE|Chairs, tables, etc.
+HIGHHEEL|Dressy women’s shoe
+TRASHCAN|Waste container
+TEAPOT|Holds brewed tea
+CLOCKWORK|Mechanism inside clocks
+POSTCARD|Mailed travel greeting
+FOOTREST|For tired legs
+DRUMSET|Percussion setup
+FLAGPOLE|Banner support
+FOOTPATH|Walking trail
+BLANKET|Keeps you warm at night
+PAINTBOX|Set of watercolors
+JOYSTICK|Gaming control stick
+KEYBOARD|Typing tool
+EYEGLASS|Vision aid
+MATTRESS|Sleep surface
+TOASTER|Browns bread slices
+LOCKSTEP|Strict sequence
+PAPERBAG|Grocery sack
+WALLPAPER|Decorative wall covering
+EARPHONE|Personal audio device
+WINDOW|Glass in wall
+MOUSEPAD|Desk accessory for cursor control
+HANDCART|Pushable load carrier
+CARSEAT|Child's ride restraint
+COMPASS|Navigational tool
+ZIPPERED|Fastened with teeth
+LANTERN|Old-school portable light
+MEGAPHONE|Voice amplifier
+HAMMER|Tool for nails
+BOTTLE|Holds liquids
+DISHCLOTH|Kitchen wiping rag
+WASHING|Laundry process
+WHEELBARROW|Garden carrying cart
+WORKSHOP|Place to build
+LADDER|Step-up structure
+PARKING|Where cars are kept
+LIFESPAN|Duration of life
+GASOLINE|Car fuel
+SUNSHADE|Protection from sun
+HANDBAG|Shoulder-held accessory
+CRAYONS|Kids' coloring sticks
+SHOVEL|Digger’s tool
+BRACELET|Wrist jewelry
+PILLOWS|Cushions for heads
+DAYBED|Couch for napping
+PRINTER|Produces paper copies
+STROLLER|Baby transport on wheels
+SCISSORS|Cutting tool
+SKILLET|Frying pan
+PENKNIFE|Small folding blade
+ELEVATOR|Vertical transport
+DISHWARE|Plates and bowls
+DRAWERS|Sliding storage parts
+BEDSTEAD|Bed frame part
+PERFUME|Fragrance in a bottle
+SUITCASE|Travel luggage
+PAINTBRUSH|Tool for painting
+BEDFRAME|Mattress support
+HEADREST|Neck support in chairs
+BUNKBED|Stacked sleeping setup
+KICKSTAND|Bike support leg
+RADIATOR|Room heater
+LIGHTERS|Fire starters
+MAILDROP|Letter box
+BOOKCASE|Furniture for volumes
+IRONWORK|Metal craftsmanship
+BLUEPRINT|Architectural plan
+SOFABED|Couch that converts
+CHAINSAW|Cuts through wood fast
+LIFEBOAT|Rescue watercraft
+WATCHBAND|Strap for timepiece
+FOUNTAIN|Decorative water feature
+HOSEPIPE|Water tube
+REFRIGERATOR|Kitchen cooler
+SHOEHORN|Helps foot into footwear
+PHONEBOOK|Listings of contacts
+FIREWOOD|Logs for burning
+CAMERA|Captures images
+MOUSETRAP|Rodent catcher
+PHOTOCOPIER|Machine for duplicates
+TOWELRACK|Holds bath linens
+PAPERCLIP|Holds sheets together
+SHOPPING|Buying goods
+KETTLES|Water boilers
+CURTAIN|Window covering
+COMPUTER|Digital work machine
+EARPIECE|Worn for hearing sound
+FLASHLIGHT|Portable light source
+RAINCOAT|Waterproof jacket
+NECKLACE|Worn around the neck
+KEYCHAIN|Holds your keys
+VENDING|Automated seller
+LAWNMOWER|Grass trimmer

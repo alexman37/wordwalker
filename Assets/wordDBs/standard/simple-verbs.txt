@@ -1,0 +1,109 @@
+WALK|To Move using your feet
+JUMP|To Leap into the air
+READ|To Look at words in a book
+PLAY|To Have fun
+SING|To Make music with your voice
+SWIM|To Move through water
+TALK|To Speak
+LOOK|To Use your eyes
+BAKE|To Cook in an oven
+DRAW|To Make a picture
+HELP|To Give support
+WASH|To Clean something
+CLAP|To Hit hands together
+KICK|To Hit with your foot
+MOVE|To Change place
+OPEN|To Let something out or in
+LIFT|To Raise something up
+FOLD|To Bend something
+STOP|To Cease action
+PUSH|To Press something forward
+PULL|To Draw something toward you
+WAVE|To Move your hand as a greeting
+RACE|To Compete in speed
+TURN|To Change direction
+CALL|To Use the phone
+JOIN|To Come together
+HIDE|To Stay out of sight
+FEED|To Give food
+FIND|To Discover something
+ROLL|To Move in circles
+GIVE|To Hand something over
+GRAB|To Take quickly
+PACK|To Put things in a bag
+REST|To Take a break
+YAWN|To What you do when sleepy
+BOIL|To Heat until bubbling
+MAIL|To Send a letter
+ZOOM|To Move very fast
+KNIT|To Make fabric with yarn
+FLIP|To Turn over quickly
+CHAT|To Talk casually
+SKIP|To Jump with a step
+PICK|To Choose one
+STAY|To Don’t leave
+WAIT|To Stay until it’s time
+RIDE|To Go on a bike or horse
+LOVE|To Care deeply
+HATE|To Strongly dislike
+SEND|To Make something go
+TEST|To Try it out
+WRAP|To Cover something up
+SCAN|To Look closely or use a machine
+FILL|To Make something full
+BEEP|To Short electronic sound
+BEND|To Curve or lean
+SHIP|To Send a package
+FORM|To Make a shape
+TYPE|To Use a keyboard
+DROP|To Let something fall
+GRIN|To A happy face
+PEEP|To Look quickly
+SHOW|To Display something
+DIVE|To Jump into water
+MELT|To Turn into liquid
+GROW|To Get bigger
+FLOW|To Move like water
+MARK|To Show with a sign
+CLIP|To Cut a little
+PLAN|To Think ahead
+NOTE|To Write something down
+NAME|To Tell what it's called
+ROAM|To Move without goal
+TOSS|To Throw lightly
+SNAP|To Break or click
+GLOW|To Shine softly
+TEAR|To Rip apart
+SLAP|To Quick hit
+DRAG|To Pull with effort
+TRIP|To Fall over
+RISE|To Go up
+SEEK|To Try to find
+LIVE|To Be alive
+MISS|To Not catch
+TAKE|To Grab or accept
+WIPE|To Clean with cloth
+LIKE|To Enjoy something
+HOPE|To Wish for good
+RING|To Make a bell sound
+SPIN|To Turn around
+COOK|To Make food
+LEAP|To Jump far
+CHEW|To Bite your food
+BLOW|To Use your breath
+FALL|To Come down
+PEEK|To Look quickly
+SWING|To Move back and forth
+LAUGH|To Make a happy sound
+SMILE|To Show you're happy
+CHASE|To Run after
+DANCE|To Move with music
+BRUSH|To Clean or smooth
+WATCH|To Look closely
+LEARN|To Gain knowledge
+SHARE|To Give a part to others
+DREAM|To See images while sleeping
+CLIMB|To Go up
+THINK|To Use your brain
+BLINK|To Close your eyes fast
+PAINT|To Use color on something

@@ -1,0 +1,145 @@
+COORDINATE|To organize smoothly
+DERAIL|To cause to fail or deviate
+INTERCEDE|To intervene on behalf of
+STABILIZE|To make steady
+FORTIFY|To strengthen
+EMANCIPATE|To free from restraint
+DELIBERATE|To consider carefully
+LEGISLATE|To make laws
+RESUSCITATE|To revive
+INCINERATE|To burn completely
+INOCULATE|To vaccinate
+ENDEAVOR|To try hard
+IMPLICATE|To show involvement
+INTERTWINE|To twist together
+TRANSLATE|To convert languages
+ADVOCATE|To support or argue for
+VALIDATE|To confirm the truth
+REPLICATE|To copy exactly
+RECIPROCATE|To give in return
+DISPEL|To scatter or drive away
+VISUALIZE|To form a mental image
+SPECULATE|To guess or theorize
+ALLOCATE|To distribute or assign
+REJUVENATE|To make young again
+CAPITULATE|To surrender
+ACCLIMATE|To adjust to a new environment
+PROLIFERATE|To increase rapidly
+EXACERBATE|To make worse
+ANTICIPATE|To expect beforehand
+DENOUNCE|To condemn openly
+ANNIHILATE|To destroy completely
+INFLUENCE|To affect
+ADMONISH|To warn or reprimand gently
+CONTEMPLATE|To think deeply
+DENIGRATE|To criticize unfairly
+INCARCERATE|To imprison
+ABSCOND|To leave secretly
+EXCAVATE|To dig out
+TERMINATE|To end or stop
+ANNOTATE|To add notes
+FORMULATE|To create or devise
+INFILTRATE|To secretly enter
+DEVASTATE|To destroy or ruin
+AUTHENTICATE|To prove genuine
+COLLABORATE|To work jointly
+EXPEDITE|To speed up
+OVERESTIMATE|To assess too highly
+ARTICULATE|To express clearly
+ARBITRATE|To settle a dispute
+SCRUTINIZE|To examine closely
+ADHERE|To stick firmly
+SURROGATE|To substitute for someone
+DETONATE|To explode
+FLUCTUATE|To vary irregularly
+IMPLEMENT|To carry out
+DISENTANGLE|To free from knots
+CONSOLIDATE|To combine or unify
+ACCREDIT|To authorize officially
+PERPETUATE|To make permanent
+PROPAGATE|To spread or reproduce
+NEGOTIATE|To discuss terms
+GRATIFY|To please or satisfy
+PRESUPPOSE|To assume beforehand
+EXEMPLIFY|To illustrate by example
+VACILLATE|To waver between options
+ENUNCIATE|To pronounce clearly
+APPRAISE|To assess value
+ENLIGHTEN|To give knowledge
+MODULATE|To adjust or regulate
+DISTILL|To purify by heating
+CAUTERIZE|To burn tissue to stop bleeding
+DISGUISE|To conceal identity
+CORROBORATE|To confirm or support
+TRANSPORT|To carry from one place to another
+AMPLIFY|To increase in volume or intensity
+FRATERNIZE|To socialize with others
+DOMINATE|To have control over
+REHABILITATE|To restore to health
+ILLUMINATE|To light up
+EMBROIDER|To decorate with needlework
+FACILITATE|To make easier
+DEFIBRILLATE|To shock the heart electrically
+WITHSTAND|To resist successfully
+UNDERWRITE|To support financially
+SUBVERT|To overthrow secretly
+OBFUSCATE|To confuse deliberately
+DILAPIDATE|To cause to fall into ruin
+OBLITERATE|To destroy completely
+CIRCUMVENT|To avoid by cleverness
+UNDERMINE|To weaken gradually
+DECIMATE|To destroy a large part
+DEFLECT|To turn aside
+PLAGIARIZE|To copy without credit
+DELEGATE|To assign tasks
+IMPROVISE|To make up on the spot
+GENERATE|To produce
+EMIGRATE|To leave one’s country
+DECIPHER|To interpret or decode
+AUTOMATE|To make automatic
+ENGENDER|To cause or produce
+PREDOMINATE|To be the strongest
+PROMULGATE|To announce officially
+VAPORIZE|To turn into vapor
+COAGULATE|To thicken or clot
+SUPPLICATE|To ask earnestly
+ENCOMPASS|To include or surround
+EXONERATE|To clear from blame
+COMPENSATE|To make up for loss
+FASCINATE|To attract strongly
+WRANGLE|To argue or dispute
+MANIPULATE|To skillfully control
+DERIVATE|To derive from
+HYPNOTIZE|To put in a trance
+CONSTRICT|To tighten
+DEMARCATE|To set boundaries
+MEDIATE|To resolve differences
+SIMPLIFY|To make easier
+VINDICATE|To clear from blame
+INVESTIGATE|To examine carefully
+QUANTIFY|To measure
+THEORIZE|To form a theory
+SUBSTANTIATE|To prove with evidence
+SATURATE|To soak thoroughly
+DISSUADE|To persuade not to do something
+CONVALESCE|To recover health
+AUTHORIZE|To give official permission
+SUMMARIZE|To give a brief overview
+DEDICATE|To devote to a purpose
+EXASPERATE|To irritate intensely
+AGGRAVATE|To worsen or irritate
+GALVANIZE|To stimulate into action
+VOLATILIZE|To evaporate quickly
+DISSEMINATE|To spread widely
+ACCUMULATE|To gather or collect over time
+MOBILIZE|To prepare for action
+TESTIFY|To give evidence under oath
+COALESCE|To come together
+CAPTIVATE|To attract and hold attention
+DISCHARGE|To release
+DEPRECATE|To express disapproval
+SUBJUGATE|To bring under control
+ABSORB|To soak up
+COMMENCE|To begin
+FERTILIZE|To supply nutrients
+CONFLATE|To combine ideas

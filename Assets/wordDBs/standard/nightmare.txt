@@ -1,0 +1,120 @@
+MOLYBDOUS|(adjective) Containing or resembling molybdenum.
+JACTITATION|(noun) A false claim or boast.
+BAILIWICK|(noun) One's area of skill, knowledge, or authority.
+ABACINATE|(verb) To blind by placing a red-hot metal near the eyes.
+DYSPROSIUM|(noun) A chemical element with the symbol Dy and atomic number 66.
+DENDROCHRONOLOGY|(noun) The science of dating events and variations in environment in former periods by comparative study of tree-ring growth.
+BOUSTROPHEDONIC|(adjective) Written alternately left-to-right and right-to-left.
+LACUSTRINE|(adjective) Relating to or associated with lakes.
+FUTILITARIAN|(noun) A person who believes that human striving is ultimately futile.
+BASILISK|(noun) A mythical reptile said to have a lethal gaze.
+LOGOMACHY|(noun) An argument about words.
+AMOEBOID|(adjective) Having or resembling the form or movement of an amoeba.
+RECALCITRANT|(adjective) Having an obstinately uncooperative attitude.
+PACHYDERM|(noun) A large, thick-skinned mammal, such as an elephant or rhinoceros.
+JALAPENO|(noun) A medium-sized chili pepper.
+HAPAX LEGOMENON|(noun) A word that appears only once within a context.
+KINESIOLOGY|(noun) The study of the mechanics and anatomy of human movement.
+SPHYGMOMANOMETER|(noun) An instrument for measuring blood pressure.
+APOPEMPTIC|(adjective) Relating to or serving as a farewell.
+ULTRACREPIDARIAN|(noun) A person who gives opinions on subjects beyond their knowledge.
+DESUETUDE|(noun) A state of disuse.
+AUTOCHTHONOUS|(adjective) Indigenous; native to the place where found.
+GIMCRACK|(noun/adjective)*: A cheap or showy ornament; flimsy or tasteless.
+INSOUCIANCE|(noun) Casual lack of concern; indifference.
+NOCTIVAGANT|(adjective) Wandering at night.
+QUOTIDIAN|(adjective) Occurring every day; daily.
+XANTHOCHROI|(noun) People having light-colored hair and fair skin.
+LEMNISCATE|(noun) A figure-eight shaped curve, often used in math and logic.
+MACHIAVELLIAN|(adjective) Cunning, scheming, and unscrupulous, especially in politics.
+CYMOTRICHOUS|(adjective) Having wavy hair.
+KARYOKINESIS|(noun) The division of a cell nucleus during cell division.
+OPSIMATH|(noun) A person who begins to learn late in life.
+SUSURRUS|(noun) Whispering, murmuring, or rustling.
+DOPPELGäNGER|(noun) A non-ghostly counterpart of a living person.
+ARCTOPHILE|(noun) A person who collects or is very fond of teddy bears.
+VEXILLOLOGY|(noun) The study of flags.
+CACODOXY|(noun) Incorrect or heretical doctrine.
+VOLUPTUARY|(noun) A person devoted to luxury and sensual pleasure.
+CLEPSYDRA|(noun) An ancient time-measuring device using the flow of water.
+OBDORMITION|(noun) Numbness in a limb from pressure on a nerve.
+ECDYSIAST|(noun) A striptease performer (originated by H.L. Mencken).
+ANTEDILUVIAN|(adjective) Extremely old-fashioned; from the period before the biblical flood.
+EXIMIOUS|(adjective) Excellent; distinguished.
+MELANOCHROIC|(adjective) Having dark pigmentation, especially of skin.
+PEREGRINATE|(verb) To travel or wander around from place to place.
+EXSANGUINATE|(verb) To drain of blood.
+CAMPANOLOGY|(noun) The study or art of bell ringing.
+WELTSCHMERZ|(noun) A feeling of melancholy and world-weariness.
+ANACOLUTHIA|(noun) A grammatical error where the beginning of a sentence does not align with its conclusion.
+SESQUIPEDALIAN|(adjective) (of a word) polysyllabic; long; characterized by long words; long-winded.
+LALOCHEZIA|(noun) Emotional relief gained from using vulgar or strong language.
+KLEPTOMANIA|(noun) A recurrent urge to steal, typically without regard for need or profit.
+CICATRICE|(noun) A scar resulting from the healing of a wound.
+EXCORIATE|(verb) To criticize severely or strip skin from.
+CHTHONIAN|(adjective) Concerning the underworld or deities of the underworld.
+OBFUSCATE|(verb) To deliberately make something unclear or difficult to understand.
+APOCRYPHAL|(adjective) Of doubtful authenticity, although widely circulated as being true.
+NOSTALGIA|(noun) A sentimental longing for the past.
+MALEDICTION|(noun) A curse; a wish of evil upon another.
+UBIQUITOUS|(adjective) Present, appearing, or found everywhere.
+ECCLESIASTIC|(adjective) Of or relating to the Christian Church or its clergy.
+BIBLIOPOLE|(noun) A person who buys and sells books, especially rare ones.
+JURISPRUDENCE|(noun) The theory or philosophy of law.
+ZUGZWANG|(noun) A situation in chess (or metaphorically in life) where every possible move is disadvantageous.
+GORGONIZE|(verb) To paralyze or mesmerize, as if by a Gorgon.
+EISEGESIS|(noun) The interpretation of a text (as of the Bible) by reading into it one's own ideas.
+BOUSTROPHEDON|(noun) An ancient method of writing in which alternate lines are written in opposite directions.
+DIAPHANOUS|(adjective) Light, delicate, and translucent.
+EBULLIENT|(adjective) Overflowing with enthusiasm or excitement.
+ICHTHYOPHAGIST|(noun) One who subsists on fish.
+ASSIDUOUS|(adjective) Showing great care and perseverance.
+EPIZOOTIOLOGIES|(noun) The branch of medicine that deals with the study of diseases in animals.
+TAUTOCHRONE|(noun) A curve for which the time taken by a particle sliding without friction to its lowest point is the same for all starting points.
+CACOGRAPHY|(noun) Bad handwriting or spelling.
+GIBBOSITY|(noun) The state of being hunchbacked.
+DEPHLOGISTICATE|(verb) To remove phlogiston (an obsolete concept of fire substance); metaphorically, to purify.
+CATACHRESIS|(noun) The misuse or strained use of words, especially in a mixed metaphor.
+ANFRACTUOSITY|(noun) A winding channel or path; intricacy.
+ASPERGILLUS|(noun) A genus of fungi, some species of which are pathogenic to humans.
+EFFERVESCENT|(adjective) Giving off bubbles; fizzy; enthusiastic.
+QUIXOTIC|(adjective) Extremely idealistic; unrealistic and impractical.
+CHIAROSCURO|(noun) The use of strong contrasts between light and dark to create a sense of volume and three-dimensionality.
+FIBRILLATION|(noun) Rapid, irregular, and unsynchronized contraction of muscle fibers.
+HIPPOCAMPUS|(noun) A part of the brain involved in memory formation.
+ALGEDONIC|(adjective) Pertaining to both pleasure and pain.
+NAUPATHIA|(noun) Seasickness.
+INCONDITE|(adjective) Badly constructed or poorly put together.
+TACHYPHAGIA|(noun) The act of eating food too quickly.
+ESURIENT|(adjective) Hungry or greedy.
+RACONTEUR|(noun) A person who tells anecdotes in a skillful and amusing way.
+ISOPOLITY|(noun) Equal rights or mutual political rights between states or cities.
+OBSEQUIOUS|(adjective) Excessively eager to please or obey.
+AITCHBONE|(noun) The rump bone in cattle, used as a cut of meat.
+DACTYLION|(noun) The tip of the middle finger.
+ANTIMETABOLE|(noun) Repetition of words in reverse order (e.g., "Eat to live, not live to eat").
+BATRACHIAN|(adjective) Relating to frogs or toads.
+ATARAXIA|(noun) A state of serene calmness.
+TELEOLOGY|(noun) The explanation of phenomena by the purpose they serve rather than by postulated causes.
+PHANTASMAGORIA|(noun) A sequence of real or imaginary images like those seen in a dream.
+NEFARIOUS|(adjective) Wicked or criminal.
+CACOPHONY|(noun) A harsh, discordant mixture of sounds.
+HOLOGRAPH|(noun) A manuscript written by the author.
+NICTITATE|(verb) To wink or blink.
+VIGNETTE|(noun) A brief evocative description, account, or episode; also a small illustration or portrait.
+BACCHANALIAN|(adjective) Characterized by drunken revelry.
+FILIBUSTER|(noun) An action such as a prolonged speech that obstructs progress in a legislative assembly.
+ABDERIAN|(adjective) Given to excessive or silly laughter.
+TANTAMOUNT|(adjective) Equivalent in seriousness to; virtually the same as.
+KALEIDOSCOPE|(noun) A toy consisting of a tube containing mirrors and pieces of colored glass, whose reflections produce changing patterns.
+GARRULITY|(noun) Excessive talkativeness.
+MELLIFLUOUS|(adjective) Sweet or musical; pleasant to hear.
+VITUPERATE|(verb) To blame or insult someone in strong or violent language.
+SYNECDOCHE|(noun) A figure of speech in which a part is made to represent the whole or vice versa.
+GALVANIZE|(verb) To shock or excite someone into taking action.
+HETEROCHROMIA|(noun) The condition of having differently colored eyes or eyes with more than one color.
+EPHEMERAL|(adjective) Lasting for a very short time.
+PANTOMIME|(noun) A dramatic entertainment, originating in Roman mime, in which performers express meaning through gestures accompanied by music.
+DEFENESTRATION|(noun) The act of throwing someone or something out of a window.
+HAPLOGRAPHY|(noun) The accidental omission of a repeated letter or syllable.
+CENESTHESIA|(noun) The general sense of bodily well-being.

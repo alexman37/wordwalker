@@ -1,0 +1,133 @@
+MISCONSTRUE|(verb) To interpret wrongly.
+UNFAVORABLE|(adjective) Not beneficial or positive.
+FLUCTUATION|(noun) An irregular rising and falling in number or amount.
+RECOGNITION|(noun) The act of identifying or acknowledging something.
+VERIFICATION|(noun) The process of establishing the truth or accuracy of something.
+RENOVATION|(noun) The process of improving by repairing.
+OBSOLESCENCE|(noun) The process of becoming outdated.
+REVOLUTION|(noun) A forcible overthrow of a government or social order.
+UTILIZATION|(noun) The act of using something effectively.
+SEASONALITY|(noun) The characteristic of varying according to the season.
+ABSTENTION|(noun) The act of deliberately not voting or participating.
+OUTLANDISH|(adjective) Strange or bizarre.
+INCREDIBLE|(adjective) Difficult to believe; extraordinary.
+INFORMATION|(noun) Facts provided or learned about something.
+ILLUMINATION|(noun) Lighting or light.
+PROCRASTINATE|(verb) To delay or postpone action.
+TURPENTINE|(noun) A volatile oil used as a solvent and for thinning paint.
+AMBASSADOR|(noun) An official representative of a country.
+STANDARDIZE|(verb) To make consistent or uniform.
+ADVANCEMENT|(noun) The process of promoting or moving forward.
+SOLUBILITY|(noun) The ability to dissolve in a solvent.
+UNDENIABLE|(adjective) Impossible to deny or dispute.
+TRADITIONAL|(adjective) Based on long-established customs.
+RETIREMENT|(noun) The period of life after leaving one’s job.
+REFRIGERATE|(verb) To keep something cool to prevent spoilage.
+INFLAMMATION|(noun) The body’s response to injury or infection.
+RECEPTIONIST|(noun) A person who greets visitors and handles communications.
+THREATENING|(adjective) Having a hostile or dangerous quality.
+FORMULATION|(noun) The action of devising or creating something.
+INHABITANT|(noun) A person or animal that lives in a place.
+ASSIGNMENT|(noun) A task or piece of work given.
+CULTIVATION|(noun) The act of preparing land for crops.
+BIOLOGICAL|(adjective) Related to living organisms.
+MEMORANDUM|(noun) A written message, especially in business.
+OCCUPATIONAL|(adjective) Relating to a job or profession.
+UNEXPECTED|(adjective) Not anticipated.
+UNANIMOUSLY|(adverb) With complete agreement.
+COMPROMISE|(noun) An agreement reached by mutual concession.
+CIRCUMSTANCE|(noun) A fact or condition connected to an event.
+STATISTICAL|(adjective) Pertaining to statistics or data analysis.
+INSTALLATION|(noun) The act of putting something in place.
+NEGLIGENCE|(noun) Failure to take proper care.
+INTERVENTION|(noun) The action of becoming involved.
+ATTENDANCE|(noun) The act of being present.
+SYMMETRICAL|(adjective) Balanced and proportionate in shape.
+LITERATURE|(noun) Written works, especially those considered of superior or lasting artistic merit.
+HABITUATION|(noun) The process of becoming used to a stimulus.
+OCCASIONALLY|(adverb) At infrequent or irregular intervals.
+MASTERMIND|(noun) A person who plans and directs a complex project.
+NAVIGATIONAL|(adjective) Relating to the process of directing a course.
+HIERARCHICAL|(adjective) Arranged in order of rank.
+CERTIFICATION|(noun) The process of verifying something’s status.
+PLAYWRIGHT|(noun) A person who writes plays.
+UNBELIEVING|(adjective) Not accepting as true.
+POTENTIALLY|(adverb) Possibly but not yet actual.
+WRONGDOING|(noun) Illegal or immoral behavior.
+PRELIMINARY|(adjective) Coming before the main event.
+WITHDRAWAL|(noun) The act of taking back or removing something.
+BENEFICENT|(adjective) Doing good or causing good to be done.
+ERADICATION|(noun) The complete destruction of something.
+REFLECTION|(noun) The throwing back of light or an image; deep thought.
+SATURATION|(noun) The state of being completely soaked or filled.
+ILLUSTRATION|(noun) A picture or example explaining something.
+CELEBRATION|(noun) The act of marking a special event.
+QUALIFICATION|(noun) A condition or standard that must be met.
+FABRICATION|(noun) The act of inventing something false.
+RETALIATION|(noun) The act of returning an attack.
+FELICITATION|(noun) An expression of good wishes; congratulations.
+FRIENDLINESS|(noun) The quality of being friendly.
+PROMINENCE|(noun) The state of being important or famous.
+REHABILITATION|(noun) The process of restoring someone to health or normal life.
+STIMULATING|(adjective) Encouraging or arousing interest or enthusiasm.
+ACCOUNTABLE|(adjective) Responsible for one’s actions.
+KALEIDOSCOPE|(noun) A constantly changing pattern or sequence of elements.
+RELUCTANCE|(noun) Unwillingness or hesitation.
+APPRECIABLE|(adjective) Large or significant enough to be noticed.
+REGENERATION|(noun) The process of renewal or growth.
+TOLERATION|(noun) The practice of allowing differences.
+DESCRIPTION|(noun) A spoken or written account.
+NEUTRALIZE|(verb) To counteract or cancel the effect.
+SUPPLEMENT|(noun) Something added to complete or enhance.
+AUTHORIZATION|(noun) Official permission.
+RESTRICTION|(noun) A limiting condition or regulation.
+RESURRECTION|(noun) The act of rising from the dead.
+COMPASSIONATE|(adjective) Feeling or showing sympathy and concern.
+SPIRITUALITY|(noun) The quality of being concerned with the soul or spirit.
+MANUFACTURE|(verb) To make something on a large scale using machinery.
+ACCELERATION|(noun) The increase in speed or rate.
+EXCELLENCE|(noun) The quality of being outstanding or extremely good.
+REMODELING|(noun) The process of changing the structure or form.
+DISTINCTION|(noun) A difference or contrast.
+IMAGINATION|(noun) The faculty of forming mental images or concepts.
+REFORMULATE|(verb) To devise or express in a new way.
+ENRICHMENT|(noun) The action of improving or enhancing the quality or value of something.
+PERTURBATION|(noun) Disturbance or agitation.
+DEFINITENESS|(noun) The quality of being clear or certain.
+ORIENTATION|(noun) The direction or position of something.
+PACIFICATION|(noun) The act of calming or restoring peace.
+VINDICATION|(noun) The clearing of blame or suspicion.
+SEDIMENTARY|(adjective) Formed by the deposition of material at the Earth’s surface.
+PHILOSOPHY|(noun) The study of fundamental questions about existence and knowledge.
+SACRAMENTAL|(adjective) Relating to sacred rites.
+QUANTITATIVE|(adjective) Relating to measurement or quantity.
+INTERPRETATION|(noun) The act of explaining meaning.
+UNINTENTIONAL|(adjective) Not done on purpose.
+CAPITULATE|(verb) To surrender or give in.
+PREDOMINANT|(adjective) Having power or influence over others.
+UNNECESSARY|(adjective) Not needed.
+SUPERFICIAL|(adjective) Existing or occurring at or on the surface.
+MAINTENANCE|(noun) The process of preserving something.
+SUPPRESSION|(noun) The act of stopping or restraining.
+PROFICIENCY|(noun) A high degree of skill.
+FASCINATION|(noun) The power of attracting intense interest.
+ENGAGEMENT|(noun) An arrangement to do something or go somewhere.
+DISTRIBUTION|(noun) The action of sharing something out.
+INTERFERENCE|(noun) The action of obstructing or hindering.
+IMPRESSIONIST|(noun) An artist who paints in a style emphasizing light and color.
+CONVICTION|(noun) A firmly held belief.
+MATERIALISM|(noun) A tendency to consider material possessions as important.
+CONCENTRATION|(noun) The action of focusing attention.
+DETERIORATE|(verb) To become worse.
+SUBTERRANEAN|(adjective) Existing below the surface of the earth.
+THERAPEUTIC|(adjective) Having healing properties.
+WORKMANSHIP|(noun) The skill with which something is made.
+INTIMIDATION|(noun) The act of frightening or threatening.
+EXPLOITATION|(noun) Taking unfair advantage of a situation or person.
+PRETENTIOUS|(adjective) Attempting to impress by showing greater importance.
+FUTURISTIC|(adjective) Having or involving very modern technology or design.
+DETERMINATION|(noun) Firmness of purpose.
+ASSUMPTION|(noun) A thing accepted as true without proof.
+SOLICITATION|(noun) The act of asking for something formally.
+MEDITATION|(noun) The practice of focused thought for relaxation or spiritual purposes.
+INITIATIVE|(noun) The ability to assess and start things independently.

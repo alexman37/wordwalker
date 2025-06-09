@@ -1,0 +1,156 @@
+RUNWAY|Plane launch strip
+CHAMBER|Private room
+BOARDROOM|Corporate meeting spot
+SHANTYTOWN|Makeshift housing area
+CABINET|Furniture for storage
+HOSTEL|Cheap traveler lodging
+TOWNSHIP|Local municipality
+CROSSING|Intersection point
+HALLWAYS|Connecting building paths
+LIBRARY|Book-borrowing spot
+KITCHEN|Where meals are made
+HIDEAWAY|Secret refuge
+BREAKROOM|Employee rest area
+MUSEUM|Place for exhibits
+PALACE|Royal residence
+FIREHOUSE|Station for firetrucks
+GALLERY|Art on display
+RESORT|Vacation destination
+METROPLEX|Massive urban area
+PARLOR|Old-fashioned sitting room
+BAKERY|Bread seller’s shop
+FORTRESS|Stronghold for defense
+RESERVE|Protected natural area
+ALCOVE|Small recessed space
+QUARTERS|Living space
+BREWERY|Where beer is made
+AQUARIUM|Fish-display tank room
+SANDBOX|Play area for kids
+PLAYGROUND|Kids’ fun zone
+PUBHOUSE|Ale-serving locale
+GROTTO|Rocky cave
+BUNKERS|Protective shelters
+SEAPORT|Dock for ships
+PLAYROOM|Kids’ toy-filled space
+CROSSWALK|Marked pedestrian path
+RETREAT|Peaceful hideaway
+LIGHTHOUSE|Coastal warning beacon
+BALLPARK|Baseball stadium
+CEMETERY|Burial ground
+GYMNASIUM|Indoor sports area
+ROOFTOP|Top of a building
+COLONY|Settled territory
+PLAYHOUSE|Children's small home
+VILLAGE|Small rural community
+BILLIARD|Pool-playing room
+COURTYARD|Open area inside walls
+FUNHOUSE|Wacky maze attraction
+RECEPTION|Event greeting area
+CIRCUS|Tent with acrobats
+RAILROAD|Train transport system
+SANCTUM|Private, sacred space
+MANSION|Grand estate home
+THEATER|Stage performance venue
+COTTAGE|Cozy rural home
+CAPITAL|Seat of government
+STORAGE|Space to keep things
+AVIARIES|Homes for birds
+BAZAAR|Market of many stalls
+COLLEGE|Higher education site
+PORTICO|Columned entrance
+LOOKOUT|Vantage viewing point
+GREENHOUSE|Glass plant shelter
+INNKEEPER|Lodging manager’s place
+CONVENT|Nunnery location
+BACKSTAGE|Behind-the-scenes area
+BEDROOM|Place to sleep
+MOUNTAINS|High elevation places
+LAUNDRY|Place for washing clothes
+RANCHES|Cowboy homesteads
+CINEMA|Movie-watching venue
+CLUBHOUSE|Social group space
+DOWNTOWN|Urban city center
+BOUTIQUE|Fashionable small store
+PAVILION|Open-air shelter
+CORRIDOR|Hallway or passage
+HANGOUTS|Informal meeting places
+STADIUM|Sports venue
+BUNGALOW|One-story house
+OVERPASS|Road above another
+HARBOUR|Docking site for ships
+CLINIC|Outpatient care facility
+POSTBOX|Mail drop-off point
+FREEWAY|High-speed road
+FACTORY|Mass production site
+SCHOOL|Place of learning
+SYNAGOGUE|Jewish house of worship
+BATHHOUSE|Public bathing site
+HOTSPOT|Wi-Fi or nightlife place
+STOREFRONT|Retail display area
+MARSHLAND|Wet grassy area
+BALLROOM|Dance floor setting
+GATEWAY|Entry point
+SHOWROOM|Display floor for goods
+CLOSET|Small storage room
+TERRACE|Flat outdoor area
+OUTPOST|Remote station
+FOUNTAIN|Decorative water feature
+HIGHWAY|Major road route
+CARRIAGE|Train or horse transport
+POSTHOUSE|Old postal inn
+CHAPEL|Small worship place
+TEMPLE|Sacred place
+PENTHOUSE|Luxurious top-floor flat
+HARBOR|Protected ship area
+STUDIO|Art or recording space
+JAILHOUSE|Detention center
+SUBURBIA|Residential outskirts
+CAMPUS|College grounds
+PRISON|Inmate facility
+EMBASSY|Diplomatic headquarters
+BACKYARD|Private outdoor area
+ICEHOUSE|Cold storage building
+ELEVATOR|Vertical transport space
+CHURCH|Place of prayer
+CANTEEN|Workplace lunch spot
+SCHOOLYARD|Outdoor school area
+WINERY|Wine production place
+PARLOURS|Sitting rooms
+SANCTUARY|Safe or holy place
+NURSERY|Plant or baby room
+RESIDENCE|Someone’s home
+BASEMENT|Room below ground level
+RESTROOM|Public lavatory
+SUBURB|Residential outskirts
+PARKLAND|Public green space
+HOSPITAL|Place for healing
+PHARMACY|Drugstore location
+BUILDING|A structure with walls
+AIRPORT|Place for flights
+SIDEWALK|Pedestrian path
+CAMPSITE|Tent-setup location
+HANGOUT|Casual gathering spot
+ROADSIDE|Edge of the highway
+PENTAGON|Military HQ
+GROTTOES|Cave-like places
+GARDEN|Flower or veggie plot
+FARMHOUSE|Rural family home
+WORKSHOP|Hands-on work space
+STATION|Train or bus hub
+PANTRY|Food storage room
+SHIPYARD|Vessel construction site
+MOSQUE|Muslim prayer hall
+PRESERVE|Protected wild area
+MEGASTORE|Giant retail space
+CARWASH|Vehicle-cleaning place
+MEADOW|Field of wildflowers
+OUTDOORS|In the open air
+TERMINAL|Transit end-point
+MARKET|Goods-for-sale venue
+HALLMARK|Branded card store
+DUNGEON|Medieval prison
+LOBBYIST|One who operates in halls
+SHELTER|Place for safety
+JUNCTION|Meeting of roads
+CASINO|Place to gamble
+POOLSIDE|By the water’s edge

@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 2430079967
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ddfe46691d3a05c40e98c0076a4d709d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/wordDBs/standard/m-things.txt
+Dependencies: []

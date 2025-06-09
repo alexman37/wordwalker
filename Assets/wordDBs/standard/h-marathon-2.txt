@@ -1,0 +1,136 @@
+PROPAGANDA|(noun) Information used to promote a political cause.
+NOURISHMENT|(noun) The food necessary for health and growth.
+PHENOMENON|(noun) A remarkable event or fact.
+SUSPICIOUS|(adjective) Having or showing a cautious distrust.
+TECHNICIAN|(noun) A person skilled in a technical field.
+DEDICATION|(noun) The quality of being committed.
+VACILLATION|(noun) The inability to decide between different opinions or actions.
+ZOOMORPHIC|(adjective) Having animal form or characteristics.
+UNMANAGEABLE|(adjective) Difficult to control.
+SPONTANEOUS|(adjective) Occurring without external cause.
+BRAINSTORM|(verb) To generate ideas spontaneously.
+HYPOTHESIS|(noun) A proposed explanation made on the basis of limited evidence.
+PROFITABLE|(adjective) Yielding financial gain.
+COMPLACENCY|(noun) A feeling of smug satisfaction.
+CONTINUANCE|(noun) The state of remaining in existence.
+VEGETARIAN|(noun) A person who does not eat meat.
+ATTACHMENT|(noun) A strong emotional connection.
+ATMOSPHERE|(noun) The envelope of gases surrounding the Earth.
+ADJUDICATION|(noun) The legal process of resolving a dispute.
+SPECULATION|(noun) Forming a theory without firm evidence.
+UNCERTAINTY|(noun) The state of being unsure.
+COMPETITION|(noun) The act of competing.
+CONTRIBUTION|(noun) A gift or payment to help achieve something.
+ABSORPTION|(noun) The process of soaking up or taking in.
+SOPHISTICATED|(adjective) Developed to a high degree of complexity.
+ENTITLEMENT|(noun) The fact of having a right to something.
+COLLOQUIAL|(adjective) Used in ordinary or familiar conversation.
+ARCHAEOLOGY|(noun) The study of human history through excavation.
+TABULATION|(noun) The arrangement of data in tables.
+EMBODIMENT|(noun) A tangible or visible form of an idea or quality.
+RATIONALIZE|(verb) To justify or explain with logical reasons.
+ALLEGIANCE|(noun) Loyalty or commitment to a group or cause.
+INEXORABLE|(adjective) Impossible to stop or prevent.
+INCARNATION|(noun) A person who embodies a quality or idea.
+MISLEADING|(adjective) Giving the wrong idea or impression.
+INSTRUCTION|(noun) Detailed information on how to do something.
+SCRUTINIZE|(verb) To examine carefully.
+IMPLEMENTATION|(noun) The process of putting a decision into effect.
+SURVEILLANCE|(noun) Close observation, especially for security.
+SIMPLISTIC|(adjective) Treating complex issues as simple.
+DEPRESSION|(noun) A state of low mood or economic downturn.
+DAUGHTERHOOD|(noun) The state or condition of being a daughter.
+RECONSTRUCTION|(noun) The process of rebuilding after damage.
+ENVIRONMENT|(noun) The surroundings or conditions in which a person, animal, or plant lives.
+VALIDATION|(noun) The act of confirming something is valid or acceptable.
+IDENTIFICATION|(noun) The process of recognizing or establishing identity.
+LINGUISTICS|(noun) The scientific study of language.
+MANIPULATE|(verb) To control or influence cleverly.
+SCHOLARSHIP|(noun) Academic study or achievement; a grant for education.
+DESPERATION|(noun) A state of despair.
+UNDERTAKING|(noun) A task or project.
+IMPROVEMENT|(noun) The process of making something better.
+APPRENTICE|(noun) A person learning a trade from a skilled employer.
+AGGREGATION|(noun) A collection or gathering of things.
+TRUSTWORTHY|(adjective) Reliable and deserving of trust.
+TEMPTATION|(noun) The desire to do something wrong.
+PARLIAMENT|(noun) The legislative body of a country.
+SEGMENTATION|(noun) The division into separate parts.
+EVALUATION|(noun) The making of a judgment about the value of something.
+IRRITATION|(noun) The state of being annoyed or inflamed.
+PASSIONATE|(adjective) Showing strong emotion or enthusiasm.
+INTERMITTENT|(adjective) Occurring at irregular intervals.
+OPPOSITION|(noun) Resistance or dissent.
+ENTERTAINMENT|(noun) Activities that provide amusement or enjoyment.
+EQUILIBRIUM|(noun) A state of balance.
+MELANCHOLY|(noun) A deep, persistent sadness.
+TRIUMPHANT|(adjective) Having achieved victory or success.
+RELATIONSHIP|(noun) The way in which two or more people or things are connected.
+OFFICIATING|(verb) Acting as an official at an event.
+TEMPORARILY|(adverb) For a limited time.
+FORTIFICATION|(noun) The act of strengthening a place against attack.
+DEPENDENCE|(noun) The state of relying on something.
+SUPERIORITY|(noun) The state of being higher in status or quality.
+INTOLERANCE|(noun) Unwillingness to accept different views.
+PERCEPTION|(noun) The ability to see or understand something.
+COMMENCEMENT|(noun) A beginning or start.
+YELLOWTAIL|(noun) A type of fish with a yellow tail.
+YOUTHFULLY|(adverb) In a manner characteristic of young people.
+EVAPORATION|(noun) The process of turning from liquid into vapor.
+INSURRECTION|(noun) An act or instance of rebellion.
+RESTORATION|(noun) The act of returning something to its original state.
+HESITATION|(noun) The act of pausing before acting.
+VANQUISHED|(adjective) Defeated thoroughly in a contest or battle.
+REPETITION|(noun) The act of repeating.
+COMPLIMENTARY|(adjective) Expressing praise.
+PERSISTENCE|(noun) Continued existence or action despite difficulty.
+TUMULTUOUS|(adjective) Making a loud, confused noise; uproarious.
+BLASPHEMOUS|(adjective) Showing disrespect for God or sacred things.
+REFINEMENT|(noun) The process of improving something by making small changes.
+CATEGORIZE|(verb) To place into groups.
+LONELINESS|(noun) Sadness caused by being alone.
+FACILITATE|(verb) To make an action or process easier.
+REPLICATION|(noun) The action of copying or reproducing.
+CONTRADICTION|(noun) A combination of statements that are opposed.
+CONDEMNATION|(noun) The expression of very strong disapproval.
+SUCCESSION|(noun) A number of people or things following one another.
+LABORATORY|(noun) A place equipped for scientific experiments.
+INVESTMENT|(noun) The act of putting money into something to gain profit.
+INTERRUPTION|(noun) The act of stopping something temporarily.
+NECESSITATE|(verb) To make something necessary.
+MOMENTARILY|(adverb) For a very short time.
+SEPARATION|(noun) The action of moving apart or dividing.
+INDIVISIBLE|(adjective) Unable to be divided or separated.
+CONTEMPLATION|(noun) Deep reflective thought.
+UNQUESTIONED|(adjective) Accepted without doubt.
+REGULATION|(noun) A rule or directive made and maintained by an authority.
+SATISFACTION|(noun) Fulfillment of a need or desire.
+EFFECTIVENESS|(noun) The degree to which something is successful.
+CONSOLIDATE|(verb) To combine into a single whole.
+EMANCIPATION|(noun) The act of freeing someone from slavery.
+ENLIGHTENED|(adjective) Having or showing a rational, modern, and well-informed outlook.
+PUNISHMENT|(noun) The infliction of a penalty for wrongdoing.
+JUSTIFICATION|(noun) The action of showing something to be right or reasonable.
+INVITATION|(noun) A request to participate or attend.
+ANTAGONIST|(noun) A person who opposes or competes with another.
+GENERATIVITY|(noun) Concern for establishing and guiding the next generation.
+SUBVERSION|(noun) The act of overthrowing authority.
+INDISTINCT|(adjective) Not clear or sharply defined.
+XENOPHOBIA|(noun) Dislike or fear of strangers or foreigners.
+NIGHTMARISH|(adjective) Resembling a nightmare; very frightening.
+ASSIMILATE|(verb) To absorb or integrate information or people.
+CORPORATION|(noun) A large company or group authorized to act as a single entity.
+DEVELOPMENT|(noun) The process of growth or progress.
+PREVALENCE|(noun) The fact of being widespread.
+RESILIENCE|(noun) The capacity to recover quickly from difficulties.
+PERSEVERANCE|(noun) Persistent determination.
+UNIMAGINABLE|(adjective) Difficult or impossible to imagine.
+SUPERINTENDENT|(noun) A person who manages or oversees.
+FIGURATIVE|(adjective) Departing from literal meaning to use metaphor.
+MOTIVATION|(noun) The reason one has for acting or behaving.
+OVERWHELMED|(adjective) Overcome by strong emotion or too much to handle.
+TERRITORIAL|(adjective) Relating to ownership of land.
+WILDERNESS|(noun) An uncultivated, uninhabited, and inhospitable region.
+OBFUSCATION|(noun) The act of making something unclear.
+AMPLIFICATION|(noun) The process of making something louder or stronger.
+ESTABLISHMENT|(noun) A business organization or a place of business.

@@ -1,0 +1,106 @@
+USUFRUCT|(noun) The right to enjoy the use and advantages of another’s property short of the destruction or waste of its substance.
+TERGIVERSATE|(verb) To make conflicting or evasive statements; to equivocate.
+EVANESCENT|(adjective) Quickly fading or disappearing.
+DEMITASSE|(noun) A small coffee cup.
+NEOLOGISM|(noun) A newly coined word or expression.
+HOLOPHRASIS|(noun) The use of a single word to express a complex idea.
+APOCRYPHA|(noun) Writings or reports not considered genuine.
+BOUSTROPHEDON|(noun) An ancient method of writing in which alternate lines are reversed.
+TANTAMOUNT|(adjective) Equivalent in seriousness to; virtually the same as.
+GRAVAMEN|(noun) The most serious part of an accusation or complaint.
+SPURIOUS|(adjective) Not genuine, authentic, or true; false or fake.
+OBAMBULATE|(verb) To wander about.
+CATAWAMPUS|(adjective) Askew; awry.
+CENOTAPH|(noun) A monument erected in honor of a person whose remains are elsewhere.
+MUNIFICENT|(adjective) More generous than is usual or necessary.
+REMONSTRATE|(verb) To make a forcefully reproachful protest.
+NASCENT|(adjective) Just coming into existence and beginning to display signs of future potential.
+VOCIFEROUS|(adjective) Vehement or clamorous in speech or expression.
+KLEPTOMANIA|(noun) An irresistible urge to steal items, typically without regard for value or need.
+SYCOPHANT|(noun) A person who acts obsequiously toward someone important to gain advantage.
+ABSTERGE|(verb) To wipe clean; to purify.
+TATTERDEMALION|(noun) A person dressed in ragged clothing; a ragamuffin.
+OMPHALOSKEPSIS|(noun) Contemplation of one's navel as an aid to meditation.
+VITUPERATIVE|(adjective) Bitter and abusive.
+CNEMIDOCOPTES|(noun) A genus of microscopic mites infecting birds.
+TYPIFY|(verb) To be characteristic or a representative example of.
+CONSCIENTIOUS|(adjective) Wishing to do what is right, especially to do one's work or duty well and thoroughly.
+MUGWUMP|(noun) A person who remains aloof or independent, especially from party politics.
+DIPHTHONG|(noun) A complex vowel sound that begins with one vowel sound and glides into another within the same syllable.
+APOCRYPHAL|(adjective) Of doubtful authenticity; spurious.
+BROUHAHA|(noun) An uproar or commotion.
+NOMENCLATURE|(noun) The devising or choosing of names for things, especially in a science or other discipline.
+ARCANE|(adjective) Understood by few; mysterious or secret.
+HETERIZE|(verb) To transform or change.
+RECUMBENTIBUS|(noun) A knockout punch, either verbal or physical.
+COGNOSCENTE|(noun) A person with expert knowledge in a particular subject.
+EFFERVESCENT|(adjective) Bubbling; vivacious.
+IRRUPTIVE|(adjective) Sudden and violent.
+EXPATRIATE|(noun) A person who lives outside their native country.
+PERFIDIOUS|(adjective) Deceitful and untrustworthy.
+MISANTHROPY|(noun) Dislike or hatred of humankind.
+INTERROBANG|(noun) A punctuation mark combining a question mark and an exclamation point.
+VERISIMILITUDE|(noun) The appearance of being true or real.
+AMELIORATE|(verb) To make something better or more tolerable.
+SIBILANT|(adjective) Making or characterized by a hissing sound.
+HALCYON|(adjective) Denoting a period of time in the past that was idyllically happy and peaceful.
+LAMBENT|(adjective) Glowing or flickering with a soft radiance.
+MERETRICIOUS|(adjective) Apparently attractive but having no real value.
+HIFALUTIN|(adjective) Pompous or pretentious.
+OSTENTATIOUS|(adjective) Designed to impress or attract notice.
+OLIGARCHY|(noun) A small group of people having control of a country, organization, or institution.
+PULCHRITUDE|(noun) Physical beauty.
+BRUMOUS|(adjective) Foggy or misty.
+VICISSITUDE|(noun) A change of circumstances or fortune, typically one that is unwelcome or unpleasant.
+ABECEDARIAN|(adjective) Arranged alphabetically (A, B, C, D...).
+WAMBLE|(verb) To feel nauseated or experience a rumbling stomach.
+BORBORYGMUS|(noun) The rumbling sound caused by the movement of gas in the intestines.
+ZUGZWANG|(noun) A situation in chess where any move worsens the player's position.
+NEFARIOUS|(adjective) (Typically of an action or activity) wicked or criminal.
+TUMULTUOUS|(adjective) Making a loud, confused noise; uproarious.
+STENTORIAN|(adjective) (Of a voice) loud and powerful.
+INDEFATIGABLE|(adjective) Persisting tirelessly.
+SPLANCHNIC|(adjective) Relating to the viscera or internal organs.
+LOGORRHEA|(noun) Excessive and often incoherent talkativeness.
+NIHILISM|(noun) The rejection of all religious and moral principles.
+ECLECTIC|(adjective) Deriving ideas, style, or taste from a broad and diverse range of sources.
+NIDIFICATE|(verb) To build a nest.
+OTIOSE|(adjective) Serving no practical purpose or result; futile.
+APISHAMORE|(noun) A saddle-blanket.
+DELIQUESCE|(verb) To become liquid, typically by absorbing moisture from the air.
+ZYMURGY|(noun) The branch of chemistry concerned with fermentation, as in brewing.
+ANTEDILUVIAN|(adjective) Extremely old or outdated; literally, before the flood.
+DOPPELGäNGER|(noun) A non-related look-alike or double of a living person.
+PROCLIVITY|(noun) A tendency to choose or do something regularly; an inclination or predisposition.
+LETHOLOGICA|(noun) The inability to remember a word or put your thoughts into words.
+DICHOTOMY|(noun) A division or contrast between two things that are represented as opposed or entirely different.
+LACUSTRINE|(adjective) Relating to or associated with lakes.
+PACHYDERMATOUS|(adjective) Thick-skinned; insensitive.
+ANFRACTUOUS|(adjective) Full of twists and turns; winding.
+ZIGGURAT|(noun) A rectangular stepped tower, often associated with temples in ancient Mesopotamia.
+MENDACIOUS|(adjective) Not telling the truth; lying.
+PANTOMIME|(noun) A dramatic entertainment, originating in Roman mime, in which performers express meaning through gestures accompanied by music.
+CROMULENT|(adjective) Acceptable; adequate.
+EPICANTHIC|(adjective) Referring to a fold of skin covering the inner corner of the eye.
+QUAQUAVERSAL|(adjective) Directed outward in all directions from a common center.
+PARSIMONY|(noun) Extreme unwillingness to spend money or use resources.
+PALIMPSEST|(noun) A manuscript or piece of writing material on which later writing has been superimposed.
+BAEDEKER|(noun) A travel guidebook.
+DISCOMBOBULATE|(verb) To confuse or disconcert; upset.
+ANOMIE|(noun) Lack of moral standards or social norms in a society.
+MORDANT|(adjective) Having or showing a sharp or critical quality; biting.
+ACQUIESCE|(verb) To accept something reluctantly but without protest.
+TURPITUDE|(noun) Depravity; wickedness.
+PANJANDRUM|(noun) A person who has or claims to have a great deal of authority or influence.
+RISIBLE|(adjective) Provoking laughter.
+TRUCULENT|(adjective) Eager or quick to argue or fight; aggressively defiant.
+EXACERBATE|(verb) To make a problem, situation, or feeling worse.
+INTERLOCUTOR|(noun) A person who takes part in a dialogue or conversation.
+SURREPTITIOUS|(adjective) Kept secret, especially because it would not be approved of.
+EXTIRPATE|(verb) To root out and destroy completely.
+EFFULGENT|(adjective) Shining brightly; radiant.
+EXTRAPOLATE|(verb) To infer or estimate by extending or projecting known information.
+TENEBROUS|(adjective) Dark; shadowy or obscure.
+PANGLOSSIAN|(adjective) Excessively optimistic.
+INCOMMISCIBLE|(adjective) Unable to be mixed or intermingled.
+ICONOCLAST|(noun) A person who attacks or criticizes cherished beliefs or institutions.

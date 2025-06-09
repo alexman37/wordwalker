@@ -1,0 +1,128 @@
+APPLE|A red or green fruit
+CHAIR|You sit on it
+BREAD|You eat this with butter
+PLANT|Grows in soil
+HOUSE|A place to live
+CLOUD|Floats in the sky
+LIGHT|Helps you see in the dark
+SMILE|What your mouth does when happy
+GLASS|Used to drink water
+TABLE|You eat meals on this
+SHEEP|Woolly farm animal
+GRASS|Green and grows on lawns
+CLOCK|Tells the time
+STONE|A small rock
+SPOON|Used to eat soup
+WATER|You drink this
+HEART|Pumps blood in your body
+TRUCK|Big vehicle for carrying stuff
+MOUSE|Small rodent or computer tool
+DRESS|Worn by some people
+CHILD|A young person
+BRUSH|Used for hair or paint
+PHONE|Used to call people
+BRAIN|Thinks for you
+STICK|Found on trees or ground
+LEMON|A sour yellow fruit
+GLOVE|Worn on your hand
+BEACH|Sandy place by the sea
+CROWN|Worn by a king or queen
+PAINT|Used to color things
+SNAKE|A long, slithering reptile
+BLOCK|A small solid piece
+COIN|Round metal money
+PLATE|Holds your food
+TRAIN|Moves on tracks
+FLAME|A part of fire
+FAIRY|Tiny, magical creature
+CANDY|A sweet treat
+BOOTS|Worn on your feet
+STARS|Shine at night
+PAPER|You write on it
+HONEY|Sweet and made by bees
+LEAF|Grows on a tree
+KITE|Flies with the wind
+JUICE|A fruity drink
+SHIRT|Worn on your top half
+SOCKS|Worn on your feet
+MOON|Lights up the night
+TOAST|Warm bread
+PHOTO|Captures a moment
+DRINK|You sip this
+FRUIT|Grows on trees
+SNACK|A small meal
+GRAPE|Small round fruit
+BRICK|Used to build
+DREAM|Happens during sleep
+TIGER|Big striped cat
+HORSE|You can ride it
+NIGHT|Time for sleep
+WORLD|Planet Earth
+RIVER|Flows with water
+PEACH|Juicy fruit
+PARTY|A fun event
+RAIN|Falls from clouds
+STAR|Bright in the sky
+DOOR|You open it
+BALL|You can bounce it
+FISH|Lives in water
+FACE|Has eyes and mouth
+BEAR|Large furry animal
+SEED|Grows into a plant
+FIRE|Hot and bright
+GAME|Played for fun
+POND|Small water body
+TREE|Has trunk and leaves
+SNOW|Cold and white
+BOAT|Floats on water
+BOOK|You read it
+FARM|Where crops grow
+GIFT|Given on birthdays
+BELL|Rings loudly
+TENT|Used for camping
+ROOM|Part of a house
+SONG|Something you sing
+WAVE|Found at sea
+ROAD|Cars drive on it
+HAND|Part of your arm
+SAND|Found on beaches
+BIKE|Has two wheels
+ROPE|Used for tying things
+CAVE|Hollow in a mountain
+LAKE|Big body of water
+KING|Wears a crown
+TOOL|Used to fix things
+BULB|Lights a room
+PLUM|A purple fruit
+MILK|Comes from cows
+YARN|Used to knit
+FROG|Jumps and croaks
+WORM|Wiggly and soft
+WOLF|Wild dog
+PATH|A small road
+SOCK|Covers your foot
+NAIL|Metal pin
+OVEN|Bakes food
+DESK|Work or study here
+DOLL|Toy baby
+DRUM|You hit it to make sound
+LAMP|Used for light
+DUCK|Quacks and swims
+WOOD|Comes from trees
+FORK|Used to eat
+WALL|Stands up tall
+SOAP|Used to clean
+CARD|Can say "Happy Birthday!"
+FLAG|Symbol for a country
+GATE|Opens and closes
+NOTE|Small written message
+LION|Big cat with a mane
+WIND|Moves the trees
+HILL|A small mountain
+CRAB|Has claws
+TWIG|Small stick
+DUST|Found on old things
+BARK|Sound a dog makes
+POOL|You can swim here
+CAKE|Served at parties
+RING|Worn on fingers

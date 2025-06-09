@@ -1,0 +1,101 @@
+COPENHAGEN|Famous for its "hygge" lifestyle, emphasizing coziness.
+ORLANDO|This Florida city is home to Disney World, a famous amusement park.
+SANDIEGO|A west coast US city with famously good weather and a large naval base.
+NEWDELHI|India's capital, featuring historic sites like the Red Fort.
+ATHENS|Site of the original Olympic Games in 776 BC.
+BUDAPEST|The Danube River splits the city into two parts, which make up its full name.
+HANOI|Famous for its centuries-old architecture and vibrant street markets.
+DENVER|Nicknamed the "Mile High City", this is a large city at the foot of the Rocky Mountains.
+MOSCOW|The Kremlin, a historic fortified complex, is the heart of the city and government.
+BANGALORE|Known as the "Silicon Valley of India" for its tech industry.
+KARACHI|Pakistan's largest city and economic hub.
+IQALUIT|The capital of Nunavut Territory and a major home for the Inuit people.
+CHICAGO|Known as the "Windy City" and birthplace of the skyscraper.
+VIENNA|Renowned for classical music and historic coffee houses.
+PARIS|Nicknamed "The City of Light," it was one of the first cities to have street lighting.
+HOUSTON|Home to NASA's Johnson Space Center.
+HAVANA|Famous for its vintage cars and vibrant music scene.
+PHILADELPHIA|The Liberty Bell rang here in Independence Hall.
+MADRID|Home to the Prado Museum, one of the finest art museums worldwide.
+HONGKONG|Financial capital of Asia, dubbed "Asia's world city".
+DARWIN|Named after the British scientist who theorized evolution.
+AMUNDSENSCOTT|The name of the American Antarctic base at the geographic South Pole.
+TEHRAN|This ancient city has served as the center of Persian culture for over 2,500 years.
+DUBAI|Known for the Burj Khalifa, the tallest building in the world.
+EDINBURGH|Hosts the world's largest performance arts festival, the _____ Fringe.
+ISTANBUL|Once the capital of three empires: Roman, Byzantine, and Ottoman.
+MUNICH|Famous for Oktoberfest, the world's largest beer festival.
+QUITO|The closest capital city to the equator (in a country also named after the equator.)
+SINGAPORE|This city is an independent country located at the tip of the Malay peninsula.
+BERLIN|Home of a (now dismantled) famous wall that was a symbol of Cold War division.
+LAGOS|Africa's largest city by population.
+CAIRO|Home to the nearby ancient Pyramids of Giza, one of the Seven Wonders of the Ancient World.
+CARACAS|Known for the nearby Avila National Park with stunning views.
+FLORENCE|Credited as the birthplace of the Renaissance art movement.
+SANFRANCISCO|Famous for the Golden Gate Bridge and surrounding steep hills.
+BRUSSELS|The administrative center of the European Union.
+MIAMI|Known for its Art Deco architecture and vibrant nightlife.
+BUENOSAIRES|The birthplace of tango dance and music.
+ATLANTA|This Southern US City contains the headquarters of the Centers for Disease Control (CDC).
+HELSINKI|Known for its design district and sauna culture.
+LONDON|Home to the world's oldest underground railway, the Underground.
+SYDNEY|Famous for an iconic Opera House that is a UNESCO World Heritage site.
+TOKYO|The largest metropolitan area in the world by population.
+LISBON|The westernmost capital city in continental Europe.
+NASHVILLE|This Tennessee city is known as the "Music City" for its country music contributions.
+BEIJING|Hosts the Forbidden City, the world's largest ancient palace complex.
+MUMBAI|Home to Bollywood, the world's largest film industry by output.
+RIODEJANEIRO|Hosts the world's largest carnival festival annually.
+PYONGYANG|One of the only places in "The Hermit Kingdom" that tourists can visit.
+PANAMACITY|This capital city is close to a canal that connects the Atlantic and Pacific Oceans.
+BORDEAUX|This Southern French city is most well known for producing wine.
+NEWYORKCITY|Known as "The Big Apple," it was the first capital of the United States.
+TUNIS|This major capital city in North Africa was once home of Ancient Carthage.
+PRAGUE|Known as "The City of a Hundred Spires" for its historic skyline.
+LOSANGELES|The entertainment capital of the world, home to Hollywood.
+DUBLIN|Home to the Guinness Brewery, producing the famous stout beer.
+NAIROBI|A popular destination for safari-goers, this city is also 100 miles from Mount Kilimanjaro.
+JERUSALEM|A city sacred to Judaism, Christianity, and Islam.
+CANBERRA|A planned city designed specifically to be Australia's capital.
+VANCOUVER|West coast metropolis in Canada known for it natural beauty.
+DAKAR|Known for its lively music scene, birthplace of mbalax.
+CAPETOWN|The nearby Robben Island is where Nelson Mandela was imprisoned.
+SEOUL|Known for its cutting-edge technology and pop culture (K-pop).
+JOHANNESBURG|Known as the "City of Gold" for its mining history.
+AMSTERDAM|Famous for its canals and bike-friendly streets.
+JAKARTA|This city is planned to no longer be the capital of its country due to sea level rise.
+HONOLULU|This large city is in the most remote archipelago in the Pacific Ocean.
+GENEVA|Hosts many international organizations, including the UN.
+WELLINGTON|This New Zealand city rests on the Cook Strait, separating North and South islands.
+CASABLANCA|The setting of the classic 1942 film of the same name.
+DAMASCUS|Capital of Syria, often cites as one of the oldest cities in the world.
+HOCHIMINHCITY|Formerly known as Saigon, a bustling economic hub.
+STOCKHOLM|The Nobel Prize ceremonies are held here annually.
+MEXICOCITY|Built on the ruins of Tenochtitlan, the ancient Aztec capital.
+KUALALUMPUR|Famous for the Petronas Twin Towers, once the tallest buildings globally.
+OTTAWA|This city's Rideau canal turns into the world's largest skating rink in winter.
+KAZAN|The capital of Tatarstan, a predominantly Muslim region of Russia.
+MURMANSK|This Russian City on the Kola peninsula is the largest city North of the Arctic Circle.
+VENICE|Built on more than 100 small islands connected by canals.
+GIBRALTAR|An important port town in Southern Spain, serving as a gate to the Mediterranean.
+KINGSTON|Caribbean city, the birthplace of reggae music.
+SANJUAN|The largest city in Puerto Rico, known for its vibrant culture.
+MONTREAL|It is the largest city in Quebec, a French-speaking part of Canada.
+MONROVIA|The capital city of Liberia, named after the 5th US President.
+MELBOURNE|Hosts the Australian Open tennis tournament.
+NEWORLEANS|Birthplace of jazz music and famous for Mardi Gras.
+SEVASTOPOL|Crimean city that has historically served as an important military objective.
+LAPAZ|At over 3,600m in altitude, it is the highest capital city in the world.
+FRANKFURT|Known as a major financial center with Europe's busiest airport.
+POMPEII|Ancient city near Naples, Italy that was famously destroyed by a volcano.
+KAMPALA|Uganda's capital, resting beside Lake Victoria.
+SAOPAULO|The largest city in Brazil and economic powerhouse.
+TIMBUKTU|An ancient city in Mali, once a lavish trade and intellectual center of Africa.
+KHARTOUM|The capital of Sudan, located at the confluence of the Blue and White Nile.
+PORTLAND|City in Oregon, USA known for its environmental activism.
+BANGKOK|Famous for vibrant street life and ornate Buddhist temples.
+KATHMANDU|Famous for its historic temples and as a gateway to the Himalayas.
+PHOENIX|This desert city shares its name with a mythical resurrecting bird.
+MILAN|A global fashion capital in the Po Valley of Italy.
+MECCA|Home to the Kaaba, a centerpiece of the religion of Islam.
+BARCELONA|Famous for architect Antoni Gaudí's unique works, like Sagrada Família.

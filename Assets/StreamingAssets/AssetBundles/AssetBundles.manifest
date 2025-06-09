@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 700952549
+CRC: 1483717635
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -13,4 +13,73 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: worddbs/letters/c
+      Dependencies: {}
+    Info_4:
+      Name: worddbs/standard/simple-nouns
+      Dependencies: {}
+    Info_5:
+      Name: worddbs/standard/marathon-1
+      Dependencies: {}
+    Info_6:
+      Name: worddbs/standard/marathon-2
+      Dependencies: {}
+    Info_7:
+      Name: worddbs/standard/marathon-3
+      Dependencies: {}
+    Info_8:
+      Name: worddbs/standard/spelling-bee
+      Dependencies: {}
+    Info_9:
+      Name: worddbs/standard/tricky-6
+      Dependencies: {}
+    Info_10:
+      Name: worddbs/standard/med-adjectives
+      Dependencies: {}
+    Info_11:
+      Name: worddbs/standard/med-actions
+      Dependencies: {}
+    Info_12:
+      Name: worddbs/standard/med-cool
+      Dependencies: {}
+    Info_13:
+      Name: worddbs/standard/med-nature
+      Dependencies: {}
+    Info_14:
+      Name: worddbs/standard/med-people
+      Dependencies: {}
+    Info_15:
+      Name: worddbs/standard/med-places
+      Dependencies: {}
+    Info_16:
+      Name: worddbs/standard/med-things
+      Dependencies: {}
+    Info_17:
+      Name: worddbs/standard/nightmare
+      Dependencies: {}
+    Info_18:
+      Name: worddbs/standard/simple-adjectives
+      Dependencies: {}
+    Info_19:
+      Name: worddbs/standard/simple-verbs
+      Dependencies: {}
+    Info_20:
+      Name: worddbs/standard/very-hard-1
+      Dependencies: {}
+    Info_21:
+      Name: worddbs/standard/very-hard-2
+      Dependencies: {}
+    Info_22:
+      Name: worddbs/standard/very-hard-3
+      Dependencies: {}
+    Info_23:
+      Name: worddbs/trivia/101-cities
+      Dependencies: {}
+    Info_24:
+      Name: worddbs/trivia/capitals
+      Dependencies: {}
+    Info_25:
+      Name: worddbs/trivia/phobias
+      Dependencies: {}
+    Info_26:
+      Name: worddbs/trivia/state-capitals
       Dependencies: {}

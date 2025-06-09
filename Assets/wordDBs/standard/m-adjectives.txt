@@ -1,0 +1,216 @@
+STATUTORY|Required by law
+RESTLESS|Unable to relax
+PERVASIVE|Widespread
+RADIATIVE|Emitting energy as radiation
+RESOURCEFUL|Good at problem-solving
+EXCESSIVE|Too much
+LAMENTED|Mourned or grieved for
+FORMIDABLE|Inspiring fear or respect
+ENCHANTING|Delightfully charming
+GENEROUS|Willing to give
+CURVACEOUS|Having shapely curves
+RIGHTEOUS|Morally right
+STRENUOUS|Requiring great effort
+CONVOLUTED|Complex and twisted
+VIGILANT|Watchful and alert
+AUTHENTIC|Genuine or real
+SACRIFICIAL|Given up for others
+REFLECTIVE|Thoughtful or mirroring
+PERPLEXED|Confused
+SCANDALOUS|Morally offensive
+INHERENT|Naturally existing in something
+FURTIVE|Secretive or sneaky
+SIGNIFICANT|Meaningful or important
+INVITING|Appealing or welcoming
+FASTIDIOUS|Very attentive to detail
+ALTRUISTIC|Selfless and giving
+TIMOROUS|Fearful or shy
+GRIEVOUS|Causing grief
+MOMENTOUS|Very important
+QUERULOUS|Complaining often
+OMNISCIENT|All-knowing
+LOATHSOME|Disgusting or hateful
+EMPHATIC|Strongly expressive
+SCRUPULOUS|Extremely careful and honest
+DISTORTED|Twisted out of shape
+SENTIMENTAL|Overly emotional
+TENACIOUS|Persistent and determined
+REPUTABLE|Having a good reputation
+AESTHETIC|Concerned with beauty
+PROVOCATIVE|Causing a strong reaction
+AMBITIOUS|Eager for success
+GARRULOUS|Excessively talkative
+FLAMBOYANT|Showy or flashy
+OBNOXIOUS|Highly offensive
+SPITEFUL|Malicious or vengeful
+UNCANNY|Mysteriously strange
+AMBIGUOUS|Unclear or having multiple meanings
+SEQUENTIAL|In order or series
+METICULOUS|Extremely careful and precise
+POIGNANT|Emotionally touching
+COMPETENT|Capable and skilled
+CATASTROPHIC|Disastrous
+SENSELESS|Lacking meaning or logic
+MONOTONOUS|Dull and repetitive
+MYSTERIOUS|Difficult to understand
+REVOLTING|Disgusting or offensive
+BARBAROUS|Cruel or primitive
+SLANDEROUS|Falsely damaging to reputation
+HAPHAZARD|Lacking order
+VENERATED|Highly respected
+ABYSMAL|Extremely bad
+REDUNDANT|Unnecessarily repetitive
+OPAQUE|Not transparent or hard to understand
+CAPRICIOUS|Impulsive or unpredictable
+IMPARTIAL|Unbiased
+ADVISORY|Giving recommendations
+TEDIOUS|Long and boring
+ENERGETIC|Full of energy
+LEGIBLE|Easy to read
+FEASIBLE|Possible to do
+TRUCULENT|Aggressively defiant
+CONCEITED|Arrogantly proud
+MUNDANE|Ordinary or boring
+SURREAL|Dreamlike or bizarre
+COLOSSAL|Extremely large
+SCHOLARLY|Academic or intellectual
+DETRIMENTAL|Harmful
+BOISTEROUS|Loud and energetic
+STRATEGIC|Carefully planned
+AGGRESSIVE|Forceful or confrontational
+SHAMEFUL|Causing shame
+PERSUASIVE|Convincing
+LAVISH|Extravagant or luxurious
+PALLID|Pale, often due to illness
+DEFECTIVE|Imperfect or faulty
+WHIMSICAL|Playfully unusual
+DUBIOUS|Doubtful or suspicious
+SHIMMERING|Gleaming softly
+TENTATIVE|Uncertain or hesitant
+GRATIFYING|Satisfying
+HOSPITABLE|Welcoming and kind
+DILIGENT|Hard-working
+PALATABLE|Pleasant to taste
+OBSCURE|Not well known; hard to see
+FLUSTERED|Nervously confused
+BENEFICIAL|Helpful or advantageous
+DIVERSE|Varied
+IMPETUOUS|Acting without thinking
+COMBATIVE|Eager to fight
+ENDEARING|Lovable
+ELOQUENT|Well-spoken
+PRETENTIOUS|Attempting to impress falsely
+OPULENT|Rich and luxurious
+SOCIABLE|Friendly and outgoing
+BENEVOLENT|Kind and generous
+ECCENTRIC|Unconventional
+IRASCIBLE|Easily angered
+DISCREET|Tactful and careful
+TRANQUIL|Calm and peaceful
+ADHESIVE|Sticky
+PATHETIC|Arousing pity
+REBELLIOUS|Resisting authority
+ACOUSTIC|Related to sound
+SOPHISTIC|Deceptively subtle or clever
+INEFFABLE|Too great to describe in words
+DEXTEROUS|Skillful, especially with hands
+TOLERABLE|Bearable or acceptable
+CUMBERSOME|Unwieldy or clumsy
+SPONTANEOUS|Done on impulse
+CREDIBLE|Believable
+INTREPID|Fearless and adventurous
+SUBTLE|Delicate or hard to detect
+GLORIOUS|Magnificent
+ADJACENT|Next to
+MALICIOUS|Intending to cause harm
+OBDURATE|Stubbornly refusing to change
+DELICATE|Fragile or sensitive
+WISTFUL|Longing or reflective in a sad way
+HEINOUS|Shockingly evil
+ARBITRARY|Based on personal whim
+DOCILE|Easy to teach or manage
+UNWIELDY|Hard to handle due to size or shape
+EXEMPLARY|Worthy of imitation
+TEMPERATE|Mild or moderate in climate or behavior
+RUTHLESS|Without mercy
+CONCISE|Brief and clear
+OBLIVIOUS|Unaware or forgetful
+INCESSANT|Never-ending
+NEFARIOUS|Wicked or criminal
+FRAGRANT|Having a pleasant smell
+RESILIENT|Able to recover quickly
+CAUTIOUS|Careful to avoid danger
+INDIGNANT|Angrily offended
+PESSIMISTIC|Expecting the worst
+FRIVOLOUS|Not serious or silly
+SARCASTIC|Mocking or ironic
+SPLENDID|Magnificent or impressive
+DESIRABLE|Worth wanting
+QUARRELSOME|Inclined to argue
+BLISSFUL|Full of joy
+MELODIOUS|Pleasing to the ear
+DISHEVELED|Messy or untidy
+VIVACIOUS|Lively and energetic
+COPIOUS|Abundant
+SUSPICIOUS|Distrustful
+APPARENT|Clearly visible or obvious
+FRETFUL|Irritable or restless
+VERSATILE|Adaptable to many functions
+PLAINTIVE|Expressing sadness
+CRUCIAL|Extremely important
+RAVENOUS|Extremely hungry
+COMPLACENT|Self-satisfied
+HAZARDOUS|Dangerous
+ENIGMATIC|Mysterious
+APPETIZING|Appealing to the appetite
+CANDID|Honest and open
+PRECOCIOUS|Advanced for one's age
+IMMINENT|About to happen
+CLANDESTINE|Secretive
+RECLUSIVE|Avoiding others
+PARANOID|Unreasonably suspicious
+LETHARGIC|Sluggish or lacking energy
+FICTITIOUS|Imaginary or made up
+RESOLUTE|Firm and determined
+NOXIOUS|Harmful or poisonous
+RIGOROUS|Strict or thorough
+ORNAMENTAL|Decorative
+DECEITFUL|Misleading or dishonest
+FALLACIOUS|Based on false reasoning
+EXHAUSTIVE|Thorough and complete
+GENUINE|Real or sincere
+QUAINTLY|In a charmingly old-fashioned way
+AMORPHOUS|Lacking shape
+THOROUGH|Complete and detailed
+PERILOUS|Very dangerous
+QUESTIONABLE|Doubtful or suspicious
+STUPENDOUS|Amazingly large or great
+THEATRICAL|Overly dramatic
+OFFENSIVE|Causing anger or hurt
+ADMIRABLE|Worthy of praise
+EXQUISITE|Extremely beautiful
+VACUOUS|Lacking intelligence or thought
+COMPATIBLE|Able to work together
+MISCHIEVOUS|Playfully troublesome
+NEGLIGENT|Careless or inattentive
+BRILLIANT|Very intelligent or bright
+DAUNTING|Intimidating
+ANXIOUS|Nervously worried
+MORBID|Relating to death or disease
+EUPHORIC|Extremely happy
+SYSTEMATIC|Methodical and organized
+DELIRIOUS|Mentally confused
+PUNGENT|Strong-smelling or biting
+ENTHUSIASTIC|Eager and passionate
+SLUGGISH|Slow-moving
+UPTIGHT|Tense or overly controlled
+PROFOUND|Deep or intense
+ANIMATED|Full of life
+SUPERFICIAL|Shallow or lacking depth
+CAPACIOUS|Roomy or spacious
+RESPECTFUL|Showing regard or honor
+JUDICIOUS|Showing good judgment
+TURBULENT|Unstable or chaotic
+ZEALOUS|Passionately devoted
+BELLIGERENT|Hostile and aggressive
+PLENTIFUL|Abundant

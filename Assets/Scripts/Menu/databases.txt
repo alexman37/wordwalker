@@ -1,10 +1,35 @@
 #Format:  inGroup|ID|name|imagefile*|description*|highscore1;highscore2;highscore3;highscore4;highscore5
-standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
-standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
-standard|test3|Test Set 3||This does not actually exist|
-letters|letters/a|A (as in Aardvark)||Aha! All A's!|
-letters|letters/b|B (as in Barter)||B words|
-letters|letters/c|C (as in Cornfield)||C words|
-letters|letters/d|D||D words (not complete)|
-letters|letters/e|E||E words (not complete)|
-letters|letters/f|F||F words (not complete)|
+#standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
+#standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
+#standard|test3|Test Set 3||This does not actually exist|
+#letters|letters/a|A (as in Aardvark)||Aha! All A's!|
+#letters|letters/b|B (as in Barter)||B words|
+#letters|letters/c|C (as in Cornfield)||C words|
+#
+easy|standard/simple-nouns|Simple Nouns||Nouns or whatever idk|
+easy|standard/simple-verbs|Simple Verbs||Verbs, as in "wordwalk: to walk on words"|
+easy|standard/simple-adjectives|Simple Adjectives||Adjective is a cool word|
+#
+medium|standard/m-places|Places||Locations you might find yourself in (no proper nouns)|
+medium|standard/m-people|People||People you might meet|
+medium|standard/m-things|Things||Stuff that someone made|
+medium|standard/m-nature|Nature||I didn't do that|
+medium|standard/m-actions|Actions||Tougher verbs|
+medium|standard/m-adjectives|Adjectives||Tougher adjectives|
+medium|standard/m-cool|Cool||Words that I personally think sound cool|
+#
+hard|standard/h-marathon-1|Marathon I||These words are 10 letters or longer|
+hard|standard/h-marathon-2|Marathon II||These words are 10 letters or longer|
+hard|standard/h-marathon-3|Marathon III||These words are 10 letters or longer|
+hard|standard/h-spelling-bee|Spelling Bee||Words that are commonly misspelled|
+hard|standard/h-tricky-6|Tricky 6||All these difficult words are exactly 6 letters long.|
+#
+very-hard|standard/very-hard-1|Very Hard I||These obscure words are all long and very difficult to guess|
+very-hard|standard/very-hard-2|Very Hard II||These obscure words are all long and very difficult to guess|
+very-hard|standard/very-hard-3|Very Hard III||These obscure words are all long and very difficult to guess|
+very-hard|standard/nightmare|Nightmare||Good luck...|
+#
+trivia|trivia/101-cities|Around the world||101 cities identified by various interesting facts about them.|
+trivia|standard/capitals|Country Capitals||Capital cities of world countries|
+trivia|standard/state-capitals|State Capitals||Capital cities of US states|
+trivia|standard/phobias|Phobias||It always ends in "phobia".|

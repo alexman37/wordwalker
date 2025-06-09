@@ -1,0 +1,173 @@
+OUAGADOUGOU|Burkina Faso
+NEWDELHI|India
+WELLINGTON|New Zealand
+MUSCAT|Oman
+HELSINKI|Finland
+TUNIS|Tunisia
+TAIPEI|Taiwan
+QUITO|Ecuador
+HARARE|Zimbabwe
+MONROVIA|Liberia
+CAIRO|Egypt
+YAOUNDE|Cameroon
+VIENNA|Austria
+CONAKRY|Guinea
+BANJUL|Gambia
+BERLIN|Germany
+MOGADISHU|Somalia
+KUWAITCITY|Kuwait
+KIGALI|Rwanda
+SANMARINO|San Marino
+BEIRUT|Lebanon
+DUBLIN|Ireland
+PRAGUE|Czechia
+ANTANANARIVO|Madagascar
+TASHKENT|Uzbekistan
+BRAZZAVILLE|Republic of Congo
+CASTRIES|Saint Lucia
+PARIS|France
+SEOUL|South Korea
+CHISINAU|Moldova
+NOUAKCHOTT|Mauritania
+BRASILIA|Brazil
+TEGUCIGALPA|Honduras
+TRIPOLI|Libya
+MBABANE|Eswatini
+TALLINN|Estonia
+YEREVAN|Armenia
+LISBON|Portugal
+LJUBLJANA|Slovenia
+LONDON|United Kingdom
+ADDISABABA|Ethiopia
+NUKUALOFA|Tonga
+TBILISI|Georgia
+DHAKA|Bangladesh
+SANJOSE|Costa Rica
+NIAMEY|Niger
+ANKARA|Turkey
+BISHKEK|Kyrgyzstan
+PALIKIR|Micronesia
+PYONGYANG|North Korea
+BRUSSELS|Belgium
+OTTAWA|Canada
+PRISTINA|Kosovo
+PORTMORESBY|Papua New Guinea
+ABUJA|Nigeria
+TOKYO|Japan
+MADRID|Spain
+PARAMARIBO|Suriname
+BRIDGETOWN|Barbados
+ISLAMABAD|Pakistan
+MANAGUA|Nicaragua
+GEORGETOWN|Guyana
+GABORONE|Botswana
+CARACAS|Venezuela
+YAMOUSSOUKRO|Cote d'Ivoire
+RIYADH|Saudi Arabia
+ULAANBAATAR|Mongolia
+SANTIAGO|Chile
+JAKARTA|Indonesia
+MASERU|Lesotho
+LILONGWE|Malawi
+KAMPALA|Uganda
+KATHMANDU|Nepal
+WINDHOEK|Namibia
+SINGAPORE|Singapore
+NAYPYIDAW|Myanmar
+BUENOSAIRES|Argentina
+FUNAFUTI|Tuvalu
+ASTANA|Kazakhstan
+MONTEVIDEO|Uruguay
+REYKJAVIK|Iceland
+NAIROBI|Kenya
+THIMPHU|Bhutan
+BRATISLAVA|Slovakia
+ROSEAU|Dominica
+BASSETERRE|Saint Kitts and Nevis
+VALLETTA|Malta
+MEXICOCITY|Mexico
+BEIJING|China
+VIENTIANE|Laos
+PORTVILA|Vanuatu
+HANOI|Vietnam
+NGERULMUD|Palau
+RABAT|Morocco
+GUATEMALACITY|Guatemala
+BAMAKO|Mali
+MANILA|Philippines
+LIBREVILLE|Gabon
+PORTLOUIS|Mauritius
+MORONI|Comoros
+SOFIA|Bulgaria
+ASHGABAT|Turkmenistan
+MONACO|Monaco
+VICTORIA|Seychelles
+TEHRAN|Iran
+ALGIERS|Algeria
+BANGUI|Central African Republic
+VADUZ|Liechtenstein
+SANAA|Yemen
+SANTODOMINGO|Dominican Republic
+PANAMACITY|Panama
+BISSAU|Guinea-Bissau
+LUANDA|Angola
+DODOMA|Tanzania
+SARAJEVO|Bosnia and Herzegovina
+AMSTERDAM|Netherlands
+HONIARA|Solomon Islands
+GITEGA|Burundi
+ACCRA|Ghana
+NASSAU|Bahamas
+LUXEMBOURG|Luxembourg
+ZAGREB|Croatia
+KINSHASA|Democratic Republic of the Congo
+SKOPJE|North Macedonia
+KINGSTOWN|Saint Vincent and the Grenadines
+JERUSALEM|Israel
+MANAMA|Bahrain
+NICOSIA|Cyprus
+AMMAN|Jordan
+BUDAPEST|Hungary
+TIRANA|Albania
+DUSHANBE|Tajikistan
+SANSALVADOR|El Salvador
+BOGOTA|Colombia
+PRAIA|Cabo Verde
+KHARTOUM|Sudan
+HAVANA|Cuba
+SAOTOME|Sao Tome and Principe
+MAPUTO|Mozambique
+PHNOMPENH|Cambodia
+KUALALUMPUR|Malaysia
+WARSAW|Poland
+COPENHAGEN|Denmark
+KINGSTON|Jamaica
+MALABO|Equatorial Guinea
+MINSK|Belarus
+TARAWA|Kiribati
+WASHINGTON|United States of America
+KABUL|Afghanistan
+DAKAR|Senegal
+ASMARA|Eritrea
+LUSAKA|Zambia
+BELMOPAN|Belize
+FREETOWN|Sierra Leone
+VILNIUS|Lithuania
+MOSCOW|Russia
+NDJAMENA|Chad
+VATICANCITY|Vatican City
+PORTAUPRINCE|Haiti
+PODGORICA|Montenegro
+MAJURO|Marshall Islands
+DJIBOUTI|Djibouti
+STOCKHOLM|Sweden
+CANBERRA|Australia
+ASUNCION|Paraguay
+COLOMBO|Sri Lanka
+SUCRE|Bolivia
+ABUDHABI|United Arab Emirates
+ATHENS|Greece
+BAGHDAD|Iraq
+BUCHAREST|Romania
+BANGKOK|Thailand
+BELGRADE|Serbia

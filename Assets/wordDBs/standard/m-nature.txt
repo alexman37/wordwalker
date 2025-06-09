@@ -1,0 +1,142 @@
+BARNACLE|Shellfish that clings to rocks
+SHRUBBERY|Cluster of bushes
+CUMULUS|Puffy clouds
+ICICLES|Hanging frozen water
+PRIMROSE|Early spring flower
+HUMMING|Sound of bees or birds
+ARCHIPELAGO|Group of islands
+OTTERS|Playful aquatic mammals
+HORIZON|Where earth meets sky
+DOLPHIN|Intelligent marine mammal
+CHEETAH|Fast African predator
+BEAVERS|Dam-building rodents
+MEADOW|Grass and flowers
+KELPBED|Seaweed forest
+PORCUPINE|Spiny rodent
+JAGUAR|Big spotted cat
+VULTURE|Scavenging bird
+AQUIFER|Underground water source
+HILLOCK|Small hill
+JUNGLE|Dense tropical forest
+GRASSLAND|Open plains
+OUTCROP|Rock surface exposure
+HAWKSBILL|Sea turtle species
+TADPOLES|Baby frogs
+BAMBOO|Fast-growing grass
+EVEREST|Earth’s highest peak
+SUNBEAM|Ray of sunlight
+CAVERNS|Large natural caves
+BRAMBLES|Thorny bushes
+NECTAR|Sweet flower juice
+AVALANCHE|Snow slide down a slope
+MEERKAT|Desert mongoose
+PELICAN|Large-beaked water bird
+REDWOOD|Giant California tree
+JUNIPER|Coniferous shrub
+WALRUS|Large tusked marine mammal
+MOSQUITO|Blood-sucking insect
+FIREFLY|Glowing night insect
+ZEPHYR|Gentle breeze
+MESQUITE|Desert tree
+NARWHAL|Unicorn of the sea
+RAINFOREST|Dense tropical forest
+CICADAS|Loud summer insects
+STALACTITE|Cave ceiling dripstone
+FOLIAGE|Plant leaves
+ALPINES|Mountain plants
+HEDGEHOG|Spiny insectivore
+LEOPARD|Spotted jungle cat
+BOGLANDS|Wet, spongy ground
+STARFISH|Ocean star-shaped creature
+DAISIES|White-petaled flowers
+VOLCANO|Lava-spewing mountain
+PINEAPPLE|Tropical fruit
+PEBBLES|Small smooth stones
+BOULDERS|Large rocks
+KANGAROO|Australian marsupial
+COCOON|Protective insect casing
+RATTLESNAKE|Sounding venomous snake
+DESERTS|Dry sandy regions
+OREGANO|Culinary herb
+ORCHIDS|Exotic flowers
+LAVENDER|Purple fragrant herb
+OCELOT|Small wild cat
+SHALLOWS|Low water areas
+PANTHER|Black big cat
+SEQUOIAS|Giant redwoods
+STARLING|Noisy black bird
+HICKORY|Nut-producing tree
+TORNADO|Violent rotating wind
+TAMARIND|Tropical fruit tree
+PIRANHA|Sharp-toothed fish
+TUNDRAS|Cold, treeless regions
+MUSTANGS|Wild horses
+OCELOTS|Spotted wild cats
+REPTILE|Cold-blooded animal
+GEYSERS|Hot water fountains
+MANGROVES|Saltwater swamp trees
+LAGOON|Coastal water pool
+LIZARDS|Scaly reptiles
+MANGROVE|Coastal swamp tree
+PEACOCK|Bird with colorful tail
+WOODLAND|Forested area
+FIRWOOD|Pine family tree
+HURRICANE|Tropical storm
+RIVERBED|Bottom of a river
+TOUCAN|Colorful beaked bird
+SNOWDROP|Early spring flower
+DELTAS|River mouth lands
+WINDMILL|Wind-powered structure
+EROSION|Soil wearing away
+BADLANDS|Eroded barren land
+ANTELOPE|Swift grassland animal
+CACTUS|Spiny desert plant
+MONSOON|Seasonal rains
+CRICKETS|Chirping insects
+SEABIRD|Ocean-dwelling bird
+HAILSTORM|Frozen rain shower
+KINGFISHER|Bright fishing bird
+FLOODS|Overflowing water
+PRAIRIE|Wide grassy plain
+CHIMERA|Mythical nature beast
+KESTREL|Small falcon
+DRAGONFLY|Agile flying insect
+OYSTER|Shellfish pearl producer
+CANYONS|Deep valleys
+DOLPHINS|Intelligent sea mammals
+STREAM|Small flowing water
+QUAKING|Aspen tree nickname
+GRASSHOPPER|Jumping insect
+CATFISH|Whiskered freshwater fish
+PINECONE|Tree seed holder
+SWALLOW|Fast-flying bird
+FUNGUS|Mushroom family member
+TROPICS|Warm earth regions
+PETUNIA|Garden flower
+SNOWFALL|Winter precipitation
+NUTHATCH|Woodland bird
+CANOPY|Tree-top layer
+CARIBOU|Arctic reindeer
+MARIGOLD|Orange flower
+RIPTIDE|Strong ocean current
+FOXGLOVE|Spotted bell flower
+RAINFALL|Water from clouds
+TUNDRIC|Relating to tundra areas
+ISLAND|Land surrounded by water
+MIMOSA|Sensitive plant
+CREEKS|Small streams
+LICHEN|Mossy rock growth
+FOSSILS|Preserved ancient remains
+WILDFIRE|Uncontrolled burning forest
+SEQUOIA|Tallest tree species
+PYRAMID|Sand dune shape
+PREDATOR|Hunting animal
+CLIFFS|Steep rock faces
+MUSHROOM|Fungi with cap
+WATERFALL|Falling river water
+CLIFFSIDE|Edge of a steep slope
+CASCADES|Small waterfalls
+GLACIER|Slow-moving ice mass
+ROSEMARY|Fragrant herb
+IGUANAS|Large lizards
+BLIZZARD|Severe snowstorm

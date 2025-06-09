@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 3467185131
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 13f7b51bd21de2454bf31451ec5f9dee
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/wordDBs/standard/very-hard-2.txt
+Dependencies: []

@@ -1,0 +1,112 @@
+SMALL|Not big
+FAST|Moves quickly
+SLOW|Takes time
+NICE|Kind or pleasant
+KIND|Caring and helpful
+SOFT|Easy to press or touch
+HARD|Not soft
+WARM|Slightly hot
+COLD|Low temperature
+LOUD|Easy to hear
+QUIET|Not noisy
+CLEAN|Not dirty
+DIRTY|Needs washing
+HAPPY|Feeling good
+DARK|No light
+CLEAR|Easy to see through
+CLOSE|Near something
+COOL|Slightly cold
+SWEET|Like candy
+SOUR|Like a lemon
+SMART|Good at thinking
+QUICK|Happens fast
+THICK|Not thin
+THIN|Not thick
+NEAT|Clean and tidy
+ROUGH|Not smooth
+TASTY|Good flavor
+YOUNG|Not old
+CUTE|Very sweet or small
+FRESH|Recently made or picked
+EMPTY|Nothing inside
+FULL|No space left
+SHINY|Reflects light
+DULL|Not shiny or bright
+GLAD|Happy about something
+BLUE|Color of the sky
+GREEN|Color of grass
+PINK|Light red
+WHITE|Like snow
+BLACK|Opposite of white
+GRAY|Mix of black and white
+BROWN|Color of wood or dirt
+GOLD|Shiny yellow metal
+BEST|Better than all others
+WORST|Most bad
+MEAN|Not kind
+BOLD|Brave and confident
+PROUD|Happy about something you did
+FAIR|Equal and just
+CALM|Peaceful and relaxed
+SHARP|Can cut easily
+BLUNT|Not sharp
+ROUND|Like a circle
+FLAT|No curves
+SILLY|Funny in a playful way
+SHORT|Not tall or long
+TALL|High up
+LONG|From end to end
+TINY|Very small
+WEAK|Not strong
+LAZY|Doesn’t like to work
+BUSY|Doing lots of things
+WIDE|Big side-to-side
+NEAR|Close by
+DEEP|Goes far down
+FINE|Okay or good
+PURE|Nothing mixed in
+RICH|Has a lot (usually money)
+POOR|Has little
+OPEN|Not closed
+SHUT|Closed tightly
+SAFE|Not in danger
+TAME|Not wild
+WILD|Not tamed
+PLAIN|Not fancy
+FANCY|Special and pretty
+HUSH|Very quiet
+LIGHT|Bright or not heavy
+RUDE|Not polite
+EARLY|Before expected
+LATE|After expected
+AWAKE|Not asleep
+BLAND|No strong flavor
+DUSTY|Has dust
+LUCKY|Has good fortune
+RAINY|Has rain
+SUNNY|Lots of sunshine
+SNOWY|Covered in snow
+WINDY|Lots of wind
+FUNNY|Makes you laugh
+NOISY|Makes lots of sound
+READY|Prepared
+ALIVE|Living
+DEAD|No longer living
+GREAT|Very good
+GRAND|Big and impressive
+TIGHT|Hard to move or open
+LOOSE|Not tight
+TIRED|Needs rest
+CRISP|Firm and fresh
+EVIL|Very bad
+GOOD|Not bad
+SPICY|Hot flavor
+LOYAL|Always supports
+BRAVE|Not afraid
+EAGER|Really wants to do something
+FIRM|Solid, not soft
+JUMBO|Very big
+GRIM|Serious or dark
+CRAZY|Very silly or wild
+ANGRY|Feeling mad
+HARSH|Very strong or rough
