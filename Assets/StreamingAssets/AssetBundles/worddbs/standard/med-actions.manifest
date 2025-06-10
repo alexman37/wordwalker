@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1681215565
+CRC: 1550515667
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9f6fccad68367f4b953b3f56ad5e385c
+    Hash: 8b037333ec352dfbe25712997460fb0d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/standard/m-actions.txt
+- Assets/wordDBs/standard/med-actions.txt
 Dependencies: []

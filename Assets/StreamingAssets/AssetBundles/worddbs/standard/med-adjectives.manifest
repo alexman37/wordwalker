@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3654595281
+CRC: 3858195570
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 38bf98aaba028729e5b05aad0431d464
+    Hash: 23242672870a69b3f5ec31d45a8c4d8c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/standard/m-adjectives.txt
+- Assets/wordDBs/standard/med-adjectives.txt
 Dependencies: []

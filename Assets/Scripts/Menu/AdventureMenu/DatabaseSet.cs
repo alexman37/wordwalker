@@ -11,6 +11,8 @@ public class DatabaseSet : MonoBehaviour
     public string dbName;
     public bool expanded;
 
+    private const int DB_OFFSET = 5;
+
     public Image expandedSprite;
     public GameObject itemsList;
     public RankBox rankBox;
@@ -111,7 +113,7 @@ public class DatabaseSet : MonoBehaviour
             broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfEntries * databases.Count);
 
             // Position of future elements modified
-            usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + 5, false);
+            usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, false);
         } else
         {
             StartCoroutine(rotateExpandedSprite(90));
@@ -123,7 +125,7 @@ public class DatabaseSet : MonoBehaviour
             broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height - heightOfEntries * databases.Count);
 
             // Position of future elements modified
-            usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + 5, true);
+            usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, true);
         }
     }
 

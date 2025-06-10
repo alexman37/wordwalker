@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4041182324
+CRC: 786080494
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c1cbdca2d763850c665b70a0f5be9662
+    Hash: 65da418323823c070b3e3e75bc388e8d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/standard/m-places.txt
+- Assets/wordDBs/standard/med-places.txt
 Dependencies: []

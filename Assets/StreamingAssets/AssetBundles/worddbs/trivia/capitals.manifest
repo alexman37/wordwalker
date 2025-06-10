@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1879971935
+CRC: 4169963539
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 349c95968b16968712546b345127587f
+    Hash: 9fa9ed0b96de7540d55428c7f663f00c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/trivia/x-capitals.txt
+- Assets/wordDBs/trivia/capitals.txt
 Dependencies: []

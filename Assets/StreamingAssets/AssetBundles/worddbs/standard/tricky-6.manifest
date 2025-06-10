@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 686814987
+CRC: 3655635426
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 397cf66320855b9ccbdf703a1aa6c003
+    Hash: a08d75ac88f0f1e49b3a464c1eec5e1d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/standard/h-tricky6.txt
+- Assets/wordDBs/standard/tricky-6.txt
 Dependencies: []

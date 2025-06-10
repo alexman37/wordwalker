@@ -50,8 +50,10 @@ public class GameManagerSc : MonoBehaviour
         // We'll also have to rebuild everything in the scene
         checkingManagerGreenlights = true;
 
-        //TODO - uncomment this when we want to go back to the menu
-        firstTimeWordsLoad = "letters/c";
+        // INFLECTION POINT!
+        // UNCOMMENT THIS IF YOU WANT TO BE ABLE TO START FROM THE WORDWALK SCENE.
+        // COMMENT OUT IF YOU WANT TO BE ABLE TO SELECT A DATABASE OF YOUR LIKING FROM THE MENU
+        //firstTimeWordsLoad = "letters/c";
     }
 
     private void OnEnable()

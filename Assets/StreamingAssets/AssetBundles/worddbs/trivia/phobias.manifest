@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4258106540
+CRC: 3131863065
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7fb8a8c18934cfe1587dfea1e43401fc
+    Hash: 9e3bb34421973e6af457d43978cfcb09
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/trivia/x-phobias.txt
+- Assets/wordDBs/trivia/phobias.txt
 Dependencies: []

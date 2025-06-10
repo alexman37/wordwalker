@@ -7104,6 +7104,7 @@ MonoBehaviour:
   display: ' '
   banned: 0
   stepped: 0
+  revealed: 0
   marked: 0
   correct: 0
   isBackRow: 0
@@ -8143,7 +8144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &769113257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9062,7 +9063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafb5c9262026c14b941184f57acee21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  retryGeneration: 0
+  retryGeneration: 1
   tileMaterials: {fileID: 809482221}
 --- !u!4 &809482216
 Transform:

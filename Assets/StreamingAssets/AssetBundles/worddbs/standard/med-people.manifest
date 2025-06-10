@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1135995321
+CRC: 3348584648
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9c1c296b32bf1ea7e79b9e1f5fee40fc
+    Hash: 7f7b020b452f1c7229889c82bf90b646
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/standard/m-people.txt
+- Assets/wordDBs/standard/med-people.txt
 Dependencies: []

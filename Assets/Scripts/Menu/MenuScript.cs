@@ -51,7 +51,7 @@ public class MenuScript : MonoBehaviour
 
     public void startNewGame()
     {
-        Debug.Log("Setting up new game");
+        Debug.Log("Setting up new game with DB " + database);
         GameManagerSc.setParametersOnStart(numLevels, database, selectedChallenges);
         SceneManager.LoadScene(1);
     }

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 409273115
+CRC: 83196359
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4cf9214b7e2cb4e4e73722b14d1e970d
+    Hash: a960afc92a0a98f0c88d1474b88a1844
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/standard/m-nature.txt
+- Assets/wordDBs/standard/med-nature.txt
 Dependencies: []

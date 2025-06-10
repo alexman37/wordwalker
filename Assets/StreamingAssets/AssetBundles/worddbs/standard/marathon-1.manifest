@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2905760333
+CRC: 1198897229
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0cbdedaabea56f72760124dd64f4c3b7
+    Hash: 8ba46f03fb6185669791bf2f564139fc
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/standard/h-marathon-1.txt
+- Assets/wordDBs/standard/marathon-1.txt
 Dependencies: []
