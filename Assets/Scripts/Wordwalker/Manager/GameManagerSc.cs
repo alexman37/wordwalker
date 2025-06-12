@@ -53,7 +53,7 @@ public class GameManagerSc : MonoBehaviour
         // INFLECTION POINT!
         // UNCOMMENT THIS IF YOU WANT TO BE ABLE TO START FROM THE WORDWALK SCENE.
         // COMMENT OUT IF YOU WANT TO BE ABLE TO SELECT A DATABASE OF YOUR LIKING FROM THE MENU
-        //firstTimeWordsLoad = "letters/c";
+        // firstTimeWordsLoad = "letters/c";
     }
 
     private void OnEnable()

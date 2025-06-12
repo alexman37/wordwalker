@@ -1,35 +1,36 @@
-#Format:  inGroup|ID|name|imagefile*|description*|highscore1;highscore2;highscore3;highscore4;highscore5
+#Format:  inGroup|ID|name|imagefile*|description*|highscore1;highscore2;highscore3;highscore4;highscore5|size|imagePath*
 #standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
 #standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
 #
-easy|standard/simple-nouns|Simple Nouns||Nouns or whatever idk|
-easy|standard/simple-verbs|Simple Verbs||Verbs, as in "wordwalk: to walk on words"|
-easy|standard/simple-adjectives|Simple Adjectives||Adjective is a cool word|
+easy|standard/simple-nouns|Simple Nouns||Nouns or whatever idk|||
+easy|standard/simple-verbs|Simple Verbs||Verbs, as in "wordwalk: to walk on words"|||
+easy|standard/simple-adjectives|Simple Adjectives||Adjective is a cool word|||
 #
-medium|standard/med-places|Places||Locations you might find yourself in (no proper nouns)|
-medium|standard/med-people|People||People you might meet|
-medium|standard/med-things|Things||Stuff that someone made|
-medium|standard/med-nature|Nature||I didn't do that|
-medium|standard/med-actions|Actions||Tougher verbs|
-medium|standard/med-adjectives|Adjectives||Tougher adjectives|
-medium|standard/med-cool|Cool||Words that I personally think sound cool|
+medium|standard/med-places|Places||Locations you might find yourself in (no proper nouns)|||
+medium|standard/med-people|People||People you might meet|||
+medium|standard/med-things|Things||Stuff that someone made|||
+medium|standard/med-nature|Nature||I didn't do that|||
+medium|standard/med-actions|Actions||Tougher verbs|||
+medium|standard/med-adjectives|Adjectives||Tougher adjectives|||
+medium|standard/med-cool|Cool||Words that I personally think sound cool|||
 #
-hard|standard/marathon-1|Marathon I||These words are 10 letters or longer|
-hard|standard/marathon-2|Marathon II||These words are 10 letters or longer|
-hard|standard/marathon-3|Marathon III||These words are 10 letters or longer|
-hard|standard/spelling-bee|Spelling Bee||Words that are commonly misspelled|
-hard|standard/tricky-6|Tricky 6||All these difficult words are exactly 6 letters long.|
+hard|standard/marathon-1|Marathon I||These words are 10 letters or longer|||
+hard|standard/marathon-2|Marathon II||These words are 10 letters or longer|||
+hard|standard/marathon-3|Marathon III||These words are 10 letters or longer|||
+hard|standard/spelling-bee|Spelling Bee||Words that are commonly misspelled|||
+hard|standard/tricky-6|Tricky 6||All these difficult words are exactly 6 letters long.|||
 #
-very-hard|standard/very-hard-1|Very Hard I||These obscure words are all long and very difficult to guess|
-very-hard|standard/very-hard-2|Very Hard II||These obscure words are all long and very difficult to guess|
-very-hard|standard/very-hard-3|Very Hard III||These obscure words are all long and very difficult to guess|
-very-hard|standard/nightmare|Nightmare||Good luck...|
+very-hard|standard/very-hard-1|Very Hard I||These obscure words are all long and very difficult to guess|||
+very-hard|standard/very-hard-2|Very Hard II||These obscure words are all long and very difficult to guess|||
+very-hard|standard/very-hard-3|Very Hard III||These obscure words are all long and very difficult to guess|||
+very-hard|standard/nightmare|Nightmare||Good luck...|||
 #
-letters|letters/a|A||"A" words, like Aardvark, Avocado, Arbiter and Axle|
-letters|letters/b|B||"B"" words, like Barking, Battle, Bounded and Buttons|
-letters|letters/c|C||"C" words, like Camper, Centerpiece, Cryogenics and Competition|
+letters|letters/a|A||"A" words, like Aardvark, Avocado, Arbiter and Axle|||
+letters|letters/b|B||"B"" words, like Barking, Battle, Bounded and Buttons|||
+letters|letters/c|C||"C" words, like Camper, Centerpiece, Cryogenics and Competition|||
 #
-trivia|trivia/101-cities|Around the world||101 cities identified by various interesting facts about them.|
-trivia|trivia/capitals|Country Capitals||Capital cities of world countries|
-trivia|trivia/state-capitals|State Capitals||Capital cities of US states|
-trivia|trivia/phobias|Phobias||It always ends in "phobia".|
+trivia|trivia/101-cities|Around the world||101 cities identified by various interesting facts about them.|||
+trivia|trivia/flags|Flags||Flags of various countries and territories around the world|||base/flags
+trivia|trivia/capitals|Country Capitals||Capital cities of world countries|||
+trivia|trivia/state-capitals|State Capitals||Capital cities of US states|||
+trivia|trivia/phobias|Phobias||It always ends in "phobia".|||

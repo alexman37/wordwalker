@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 80260503
+CRC: 3646789044
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -82,4 +82,10 @@ AssetBundleManifest:
       Dependencies: {}
     Info_26:
       Name: worddbs/trivia/state-capitals
+      Dependencies: {}
+    Info_27:
+      Name: worddbs/trivia/flags
+      Dependencies: {}
+    Info_28:
+      Name: imagedbs/base/flags
       Dependencies: {}

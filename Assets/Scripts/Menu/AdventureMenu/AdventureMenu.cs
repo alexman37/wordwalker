@@ -20,6 +20,8 @@ public class AdventureMenu : MonoBehaviour
     public Image dbHighRank;
     public TextMeshProUGUI dbName;
     public TextMeshProUGUI dbDesc;
+    public TextMeshProUGUI wordsDiscovered;
+    public TextMeshProUGUI winRate;
     public GameObject highScoresContainer; // High scores
     public Image[] highScores;
     public GameObject neverWon;
@@ -68,7 +70,10 @@ public class AdventureMenu : MonoBehaviour
                 }
             }
         }
-        
+
+        Debug.Log("size is " + item.size);
+        wordsDiscovered.text = $"Words Discovered\n{item.wordsDiscovered.Count} / {item.size}";
+        winRate.text = $"Win Rate\n0 / 0"; //TODO
     }
 
     // Start is called before the first frame update

@@ -31,9 +31,10 @@ public class DatabaseParser : MonoBehaviour
                 // TODO: How to load these images in the first place? Should probably asset bundle...yup, i hate it too
                 Sprite pic = vars[3] != null && File.Exists(vars[1]) ? null : defaultImg;
                 string desc = vars[4]; // TODO better error handling
+
+                // TODO everything about high scores should be moved into a persistent data storage module
                 HighScore[] highScores = null;
                 string[] scores = vars[5].Split(';');
-                
                 if(scores.Length > 1) //defaults to empty element if no scores given
                 {
                     highScores = new HighScore[5];
@@ -44,9 +45,23 @@ public class DatabaseParser : MonoBehaviour
                         highScores[s] = new HighScore(thisScore, RankBox.getRank(thisScore), scoresData[1]);
                     }
                 }
-                
+
+                // We hard-code size to avoid having to actually iterate through these databases without using them.
+                int dbSize = -1;
+                if(vars.Length > 6 && vars[6] != null && vars[6] != "") dbSize = Convert.ToInt32(vars[6]);
+
+                // Is it an image database or not?
+                bool imageDB = false;
+                if (vars.Length > 7 && vars[7] != null)
+                {
+                    if(vars[7] == "true")
+                    {
+                        imageDB = true;
+                    }
+                }
+
                 // Add the item to the correct database.
-                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, highScores);
+                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, highScores, dbSize, imageDB);
                 foreach(DatabaseSet dbSet in databaseSet)
                 {
                     if(dbSet.dbName == vars[0])

@@ -10,20 +10,20 @@ public static class WordGen
     public class Word
     {
         public string word;
-        public string[] clues;
+        public WordClue[] clues;
         public string definition; //TODO: could also be a picture
 
         // Specified with only one clue
         public Word(string w, string c)
         {
             word = w;
-            clues = new string[] { c };
+            clues = new WordClue[] { new WordClue(c) };
         }
 
         public Word(string w, string c, string d)
         {
             word = w;
-            clues = new string[] { c };
+            clues = new WordClue[] { new WordClue(c) };
             definition = d;
         }
 
@@ -31,13 +31,22 @@ public static class WordGen
         public Word(string w, string[] c)
         {
             word = w;
-            clues = c;
+            clues = new WordClue[c.Length];
+            for(int i = 0; i < c.Length; i++)
+            {
+                clues[i] = new WordClue(c[i]);
+            }
         }
 
         public Word(string w, string[] c, string d)
         {
             word = w;
-            clues = c;
+            clues = new WordClue[c.Length];
+            for (int i = 0; i < c.Length; i++)
+            {
+                clues[i].clue = c[i];
+            }
+            // TODO multiple different definitions??
             definition = d;
         }
 
@@ -46,7 +55,7 @@ public static class WordGen
         /// </summary>
         public string getClue()
         {
-            return clues[Random.Range(0, clues.Length)];
+            return clues[Random.Range(0, clues.Length)].clue;
         }
 
         public override bool Equals(object obj)
@@ -64,6 +73,31 @@ public static class WordGen
         public bool Equals(Word w2)
         {
             return w2.word == word;
+        }
+    }
+
+    // Clue for a given word - can basically be text or an image
+    public class WordClue
+    {
+        public string clue; // if given alongside an image clue, it will be a caption
+        public Sprite sprite; // only used for image clues
+
+        public WordClue(string textClue)
+        {
+            clue = textClue;
+            sprite = null;
+        }
+
+        public WordClue(string caption, Sprite image)
+        {
+            sprite = image;
+            clue = caption;
+        }
+
+        public WordClue(Sprite image)
+        {
+            sprite = image;
+            clue = "???";
         }
     }
 
@@ -90,6 +124,7 @@ public static class WordGen
             }
         }
 
+        // Text clues
         public void parseFromFileRaw(string[] split)
         {
             for (int i = 0; i < split.Length; i++)
@@ -196,6 +231,7 @@ public static class WordGen
         return newDB;
     }
 
+    // Call this on the full list of words when using it for the first time.
     public static IEnumerator LoadAsset(string assetBundleName, string objectNameToLoad)
     {
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "AssetBundles");
@@ -224,9 +260,36 @@ public static class WordGen
         activeDatabase = setupDatabase(raw);
 
         assetBundle.Unload(false);
-
-        //TODO: Remove this
+        
         Debug.Log("Word Gen READY");
         greenlight = true;
+    }
+
+
+
+    // Call this when loading each image you want to use in an image DB.
+    public static IEnumerator LoadImageAsset(string assetBundleName, string imageToLoad)
+    {
+        string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+        filePath = System.IO.Path.Combine(filePath, assetBundleName);
+        Debug.Log("Attempting to load " + filePath);
+
+        //Load designated AssetBundle (word group)
+        var assetBundleCreateRequest = AssetBundle.LoadFromFileAsync(filePath);
+        yield return assetBundleCreateRequest;
+
+        AssetBundle assetBundle = assetBundleCreateRequest.assetBundle;
+
+        //Load the text file proper
+        AssetBundleRequest asset = assetBundle.LoadAssetAsync<Sprite>(imageToLoad);
+        yield return asset;
+
+        //Retrieve the object
+        Sprite raw = asset.asset as Sprite;
+
+        //Display the image.
+        // TODO
+
+        assetBundle.Unload(false);
     }
 }

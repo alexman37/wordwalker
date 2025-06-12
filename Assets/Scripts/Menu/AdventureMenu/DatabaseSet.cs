@@ -84,6 +84,19 @@ public class DatabaseSet : MonoBehaviour
         RectTransform currentPos = this.GetComponent<RectTransform>();
         currentPos.anchoredPosition = new Vector2(currentPos.anchoredPosition.x, currentPos.anchoredPosition.y - heightOfEntries * slot);
         this.slot = slot;
+
+        // Sometimes it'll be expanded on startup
+        // TODO - not moving down others on startup, probably because others don't exist yet...
+        /*if (expanded)
+        {
+            expandedSprite.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
+            itemsList.SetActive(true);
+
+            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfEntries * databases.Count);
+
+            // Position of future elements modified
+            usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, false);
+        }*/
     }
 
     public void AddDatabase(DatabaseItem database)
@@ -169,10 +182,15 @@ public class DatabaseItem
     public GameObject actualObject; // only property to be assigned (and unassigned) when expanded/unexpanded
     public Sprite image;
     public string description;
+
     public int highestRank; // these should be stored...somewhere...else
     public HighScoresList highScores;
 
-    public DatabaseItem(string id, string name, Sprite pic, string desc, HighScore[] scores)
+    public bool imageDB;
+    public int size;  // how many words are in this list
+    public HashSet<WordGen.Word> wordsDiscovered;
+
+    public DatabaseItem(string id, string name, Sprite pic, string desc, HighScore[] scores, int sizeOf, bool imageDB)
     {
         databaseId = id;
         displayName = name;
@@ -181,6 +199,9 @@ public class DatabaseItem
 
         highestRank = (scores != null && scores[0] != null) ? scores[0].rank : -1;
         highScores = new HighScoresList(scores);
+
+        size = sizeOf;
+        wordsDiscovered = new HashSet<WordGen.Word>();
     }
 }
 
