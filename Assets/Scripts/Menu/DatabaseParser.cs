@@ -51,12 +51,12 @@ public class DatabaseParser : MonoBehaviour
                 if(vars.Length > 6 && vars[6] != null && vars[6] != "") dbSize = Convert.ToInt32(vars[6]);
 
                 // Is it an image database or not?
-                bool imageDB = false;
+                string imageDB = null;
                 if (vars.Length > 7 && vars[7] != null)
                 {
-                    if(vars[7] == "true")
+                    if(vars[7] != "")
                     {
-                        imageDB = true;
+                        imageDB = vars[7];
                     }
                 }
 

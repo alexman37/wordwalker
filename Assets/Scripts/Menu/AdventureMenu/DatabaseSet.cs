@@ -186,11 +186,11 @@ public class DatabaseItem
     public int highestRank; // these should be stored...somewhere...else
     public HighScoresList highScores;
 
-    public bool imageDB;
+    public string imageDB;
     public int size;  // how many words are in this list
     public HashSet<WordGen.Word> wordsDiscovered;
 
-    public DatabaseItem(string id, string name, Sprite pic, string desc, HighScore[] scores, int sizeOf, bool imageDB)
+    public DatabaseItem(string id, string name, Sprite pic, string desc, HighScore[] scores, int sizeOf, string imageDB)
     {
         databaseId = id;
         displayName = name;

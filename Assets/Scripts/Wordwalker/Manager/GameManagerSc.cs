@@ -24,7 +24,11 @@ public class GameManagerSc : MonoBehaviour
     public static TilemapGen Tilemap;
     public static WordwalkerUIScript uiManager;
 
+    private static ScrollUI scrollUI;
+    private static ClueBookUI clueBookUI;
+
     private static bool numLevelsBool = true;
+    private static DatabaseItem localDBcopy;
     private static bool checkingManagerGreenlights = true;
 
     public static event Action levelReady;
@@ -44,8 +48,12 @@ public class GameManagerSc : MonoBehaviour
         updatePostgameScoreSheet += (_,__,___,____) => { };
 
         //unfortunately the only way i can think of
+        Debug.Log("Find at start");
         Tilemap = FindObjectOfType<TilemapGen>();
         uiManager = FindObjectOfType<WordwalkerUIScript>();
+        scrollUI = FindObjectOfType<ScrollUI>();
+        clueBookUI = FindObjectOfType<ClueBookUI>();
+        Debug.Log(scrollUI);
 
         // We'll also have to rebuild everything in the scene
         checkingManagerGreenlights = true;
@@ -83,16 +91,18 @@ public class GameManagerSc : MonoBehaviour
         }
     }
 
-    public static void setParametersOnStart(int numLvl, string db, HashSet<MenuScript.Challenge> challenges)
+    public static void setParametersOnStart(int numLvl, DatabaseItem dbItem, HashSet<MenuScript.Challenge> challenges)
     {
         // Reset in-game variables to defaults
         score = 0;
         totems = 3;
         currLevel = 0;
 
+        localDBcopy = dbItem;
+
         Debug.Log("Setting parameters");
         numLevels = numLvl;
-        firstTimeWordsLoad = db;
+        firstTimeWordsLoad = dbItem.databaseId;
         selectedChallenges = challenges;
     }
 
@@ -116,6 +126,10 @@ public class GameManagerSc : MonoBehaviour
             PlayerManager.greenlight &&
             WordGen.greenlight)
         {
+            // Depending on if it's a text or image DB we will enable either the scroll or clueBook
+            if (localDBcopy.imageDB == null) { scrollUI.gameObject.SetActive(false); }
+            else { clueBookUI.gameObject.SetActive(false);  }
+
             //TODO: eventually we want to "track" which words the player has already seen
             wordList = WordGen.getTailoredList(numLevels);
 

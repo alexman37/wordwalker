@@ -20,6 +20,16 @@ public class ClueBookUI : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+
+    }
+
+    private void OnDisable()
+    {
+
+    }
+
     // TODO not sure what this was used for
     /*Color colS = scrollClue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color;
     clueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(colS.r, colS.g, colS.b, 0);

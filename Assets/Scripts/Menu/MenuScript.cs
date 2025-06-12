@@ -13,7 +13,7 @@ public class MenuScript : MonoBehaviour
     public HashSet<Challenge> selectedChallenges;
 
     public int numLevels = 5;
-    public string database;
+    public DatabaseItem dbItem;
 
     public GameObject titleCard;
     public GameObject playButtons;
@@ -39,9 +39,9 @@ public class MenuScript : MonoBehaviour
 
 
 
-    private void updateDatabase(string database)
+    private void updateDatabase(DatabaseItem database)
     {
-        this.database = database;
+        this.dbItem = database;
     }
 
     private void updateMult(float newMult)
@@ -51,8 +51,8 @@ public class MenuScript : MonoBehaviour
 
     public void startNewGame()
     {
-        Debug.Log("Setting up new game with DB " + database);
-        GameManagerSc.setParametersOnStart(numLevels, database, selectedChallenges);
+        Debug.Log("Setting up new game with DB " + dbItem.databaseId);
+        GameManagerSc.setParametersOnStart(numLevels, dbItem, selectedChallenges);
         SceneManager.LoadScene(1);
     }
 

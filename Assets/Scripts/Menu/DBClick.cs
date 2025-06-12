@@ -8,7 +8,7 @@ public class DBClick : MonoBehaviour
 {
     private AdventureMenu adventureMenu;
     public DatabaseItem databaseData;
-    public static event Action<string> dbSelected;
+    public static event Action<DatabaseItem> dbSelected;
 
     private Image backgroundCol;
     private bool selected;
@@ -16,7 +16,7 @@ public class DBClick : MonoBehaviour
     public void showData()
     {
         //Debug.Log("you clicked on " + databaseData.displayName);
-        dbSelected.Invoke(databaseData.databaseId);
+        dbSelected.Invoke(databaseData);
         adventureMenu.displayDatabase(databaseData);
     }
 
@@ -57,9 +57,9 @@ public class DBClick : MonoBehaviour
         backgroundCol.color = new Color(135f / 255f, 146f / 255f, 171f / 255f);
     }
 
-    private void StopSelect(string dbName)
+    private void StopSelect(DatabaseItem dbItem)
     {
-        if(databaseData.databaseId == dbName)
+        if(databaseData.databaseId == dbItem.databaseId)
         {
             OnSelectMe();
         } else
