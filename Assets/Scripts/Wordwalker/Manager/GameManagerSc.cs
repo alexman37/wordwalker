@@ -127,8 +127,11 @@ public class GameManagerSc : MonoBehaviour
             WordGen.greenlight)
         {
             // Depending on if it's a text or image DB we will enable either the scroll or clueBook
-            if (localDBcopy.imageDB == null) { scrollUI.gameObject.SetActive(false); }
-            else { clueBookUI.gameObject.SetActive(false);  }
+            if (localDBcopy.imageDB != null) {
+                clueBookUI.setImageAssetBundlePath(localDBcopy.imageDB);
+                scrollUI.gameObject.SetActive(false);
+            }
+            else { clueBookUI.gameObject.SetActive(false);}
 
             //TODO: eventually we want to "track" which words the player has already seen
             wordList = WordGen.getTailoredList(numLevels);

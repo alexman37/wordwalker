@@ -54,9 +54,9 @@ public class DatabaseParser : MonoBehaviour
                 string imageDB = null;
                 if (vars.Length > 7 && vars[7] != null)
                 {
-                    if(vars[7] != "")
+                    if(vars[7].Trim() != "")
                     {
-                        imageDB = vars[7];
+                        imageDB = vars[7].Trim();
                     }
                 }
 

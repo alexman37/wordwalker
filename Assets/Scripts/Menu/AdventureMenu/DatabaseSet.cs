@@ -190,12 +190,13 @@ public class DatabaseItem
     public int size;  // how many words are in this list
     public HashSet<WordGen.Word> wordsDiscovered;
 
-    public DatabaseItem(string id, string name, Sprite pic, string desc, HighScore[] scores, int sizeOf, string imageDB)
+    public DatabaseItem(string id, string name, Sprite pic, string desc, HighScore[] scores, int sizeOf, string imagePath)
     {
         databaseId = id;
         displayName = name;
         image = pic;
         description = desc;
+        imageDB = imagePath;
 
         highestRank = (scores != null && scores[0] != null) ? scores[0].rank : -1;
         highScores = new HighScoresList(scores);

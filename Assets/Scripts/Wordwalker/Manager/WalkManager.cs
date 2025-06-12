@@ -614,7 +614,9 @@ public class WalkManager : MonoBehaviour
     void setClue()
     {
         scrollUI.setClue(currDef);
-        //TODO clueBook?
+
+        // TODO hopefully nothing bad here, bc the cluebook is disabled if this isnt an image clue list...
+        clueBookUI.setPage(currDef); // TODO caption
     }
 
     /// <summary>

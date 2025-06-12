@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class WordGen
 {
@@ -268,7 +269,7 @@ public static class WordGen
 
 
     // Call this when loading each image you want to use in an image DB.
-    public static IEnumerator LoadImageAsset(string assetBundleName, string imageToLoad)
+    public static IEnumerator LoadImageAsset(string assetBundleName, string imageToLoad, Image clueBookPicture, (float maxW, float maxH) maxes)
     {
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "AssetBundles");
         filePath = System.IO.Path.Combine(filePath, assetBundleName);
@@ -287,9 +288,26 @@ public static class WordGen
         //Retrieve the object
         Sprite raw = asset.asset as Sprite;
 
-        //Display the image.
-        // TODO
+        //Display the image (and scale appropriately).
+        clueBookPicture.sprite = raw;
+        if (raw.rect.width > maxes.maxW || raw.rect.height > maxes.maxH)
+        {
+            float compareW = raw.rect.width / maxes.maxW;
+            float compareH = raw.rect.height / maxes.maxH;
+            if(compareW > compareH)
+            {
+                clueBookPicture.rectTransform.sizeDelta = new Vector2(maxes.maxW, raw.rect.height * (maxes.maxW / raw.rect.width));
+            } else
+            {
+                clueBookPicture.rectTransform.sizeDelta = new Vector2(raw.rect.width * (maxes.maxH / raw.rect.height), raw.rect.height);
+            }
+        } else
+        {
+            clueBookPicture.rectTransform.sizeDelta = new Vector2(raw.rect.width, raw.rect.height);
+        }
 
         assetBundle.Unload(false);
+        
+        yield return null;
     }
 }
