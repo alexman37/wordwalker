@@ -34,3 +34,5 @@ trivia|trivia/flags|Flags||Flags of various countries and territories around the
 trivia|trivia/capitals|Country Capitals||Capital cities of world countries|||
 trivia|trivia/state-capitals|State Capitals||Capital cities of US states|||
 trivia|trivia/phobias|Phobias||It always ends in "phobia".|||
+trivia|trivia/celebs|Fresh Tomatoes||Famous actors, directors and movie stars.|||base/celebs
+trivia|trivia/pokemon|Pokemon (Gen 1)||Gotta spell 'em all.|||base/pokemon

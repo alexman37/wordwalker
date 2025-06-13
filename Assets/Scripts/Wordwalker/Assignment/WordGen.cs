@@ -299,12 +299,14 @@ public static class WordGen
                 clueBookPicture.rectTransform.sizeDelta = new Vector2(maxes.maxW, raw.rect.height * (maxes.maxW / raw.rect.width));
             } else
             {
-                clueBookPicture.rectTransform.sizeDelta = new Vector2(raw.rect.width * (maxes.maxH / raw.rect.height), raw.rect.height);
+                clueBookPicture.rectTransform.sizeDelta = new Vector2(raw.rect.width * (maxes.maxH / raw.rect.height), maxes.maxH);
             }
         } else
         {
             clueBookPicture.rectTransform.sizeDelta = new Vector2(raw.rect.width, raw.rect.height);
         }
+
+        Debug.Log("Ended with size " + clueBookPicture.rectTransform.rect.width + "," + clueBookPicture.rectTransform.rect.height);
 
         assetBundle.Unload(false);
         
