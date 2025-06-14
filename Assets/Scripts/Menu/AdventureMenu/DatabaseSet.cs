@@ -54,7 +54,7 @@ public class DatabaseSet : MonoBehaviour
 
         for (int i = 0; i < databases.Count; i++)
         {
-            Debug.Log(databases[i].displayName);
+            DatabasePersistentStats persistent = DatabaseTracker.loadDatabaseTracker(databases[i].databaseId);
             GameObject nextEntry = Instantiate(itemsList.transform.GetChild(0).gameObject);
 
             nextEntry.transform.SetParent(itemsList.transform);
@@ -62,7 +62,7 @@ public class DatabaseSet : MonoBehaviour
 
             // Set image, high score and name of DB in entry
             nextEntry.transform.GetChild(0).GetComponent<Image>().sprite = databases[i].image;
-            nextEntry.transform.GetChild(1).GetComponent<Image>().sprite = rankBox.getRankAsSprite(databases[i].highestRank);
+            nextEntry.transform.GetChild(1).GetComponent<Image>().sprite = rankBox.getRankAsSprite(persistent.highScores.highestRank);
             nextEntry.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = databases[i].displayName;
 
             nextEntry.SetActive(true);
@@ -183,14 +183,11 @@ public class DatabaseItem
     public Sprite image;
     public string description;
 
-    public int highestRank; // these should be stored...somewhere...else
-    public HighScoresList highScores;
-
     public string imageDB;
     public int size;  // how many words are in this list
     public HashSet<WordGen.Word> wordsDiscovered;
 
-    public DatabaseItem(string id, string name, Sprite pic, string desc, HighScore[] scores, int sizeOf, string imagePath)
+    public DatabaseItem(string id, string name, Sprite pic, string desc, int sizeOf, string imagePath)
     {
         databaseId = id;
         displayName = name;
@@ -198,112 +195,8 @@ public class DatabaseItem
         description = desc;
         imageDB = imagePath;
 
-        highestRank = (scores != null && scores[0] != null) ? scores[0].rank : -1;
-        highScores = new HighScoresList(scores);
-
         size = sizeOf;
         wordsDiscovered = new HashSet<WordGen.Word>();
-    }
-}
-
-// List of high scores - add a new one (maybe), display them, etc...
-public class HighScoresList
-{
-    public HighScore[] highScores;
-
-    public HighScoresList()
-    {
-        highScores = new HighScore[5];
-    }
-
-    public HighScoresList(HighScore[] highScores)
-    {
-        this.highScores = highScores;
-        sortHighScores();
-    }
-
-    // Sort scores in ascending order of value
-    public void sortHighScores()
-    {
-        HighScore[] sorted = new HighScore[5];
-
-        bool putInPlace = false;
-        HighScore temp = null;
-
-        if(highScores != null)
-        {
-            for (int i = 0; i < highScores.Length; i++)
-            {
-                if(highScores[i] != null)
-                {
-                    putInPlace = false;
-                    for (int j = 0; j < 5; j++)
-                    {
-                        if (sorted[j] == null || sorted[j].value <= highScores[i].value)
-                        {
-                            temp = sorted[j];
-                            sorted[j] = highScores[i];
-                            putInPlace = true;
-                        }
-                        else if (putInPlace)
-                        {
-                            HighScore whatever = sorted[j];
-                            sorted[j] = temp;
-                            temp = whatever;
-                        }
-                    }
-                }
-            }
-        } /*else
-        {
-            highScores = new HighScore[5];
-        }*/
-    }
-
-    // Add (or attempt to add) a new high score...if it doesn't make the list then return false
-    public bool addNewHighScore(HighScore hs)
-    {
-        if(highScores == null)
-        {
-            highScores = new HighScore[5];
-            highScores[0] = hs;
-            return true;
-        }
-
-
-        for (int i = 0; i < highScores.Length; i++)
-        {
-            // If there's still not 5 high scores, add this and sort immediately- easy peasy
-            if (highScores[i] == null)
-            {
-                highScores[i] = hs;
-                sortHighScores();
-                return true;
-            }
-            // If the score numerically beats anything on the list, immediately replace the lowest score then sort
-            else if (hs.value > highScores[i].value)
-            {
-                highScores[4] = hs;
-                sortHighScores();
-                return true;
-            }
-        }
-
-        return false;
-    }
-}
-
-public class HighScore
-{
-    public int value;
-    public int rank;
-    public string dateAchieved;
-
-    public HighScore(int value, int rank, string dateAchieved)
-    {
-        this.value = value;
-        this.rank = rank;
-        this.dateAchieved = dateAchieved;
     }
 }
 

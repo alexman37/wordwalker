@@ -20,6 +20,8 @@ public class PostgameUI : MonoBehaviour
     public TextMeshProUGUI mistakesPenalty;
     public TextMeshProUGUI scoreDisp;
 
+    public bool usingComp = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +39,16 @@ public class PostgameUI : MonoBehaviour
         }
     }
 
+    public void enableComp() { usingComp = true; }
+    public void disableComp() { usingComp = false; }
+
     private void OnEnable()
     {
         GameManagerSc.levelWon += BeginPostgameAnimation;
         GameManagerSc.levelReset += postgameReset;
         GameManagerSc.updatePostgameScoreSheet += setScoreSheetDisplay;
+        GameManagerSc.onLastLevel += disableComp;
+        GameManagerSc.newGame += enableComp;
     }
 
     private void OnDisable()
@@ -49,6 +56,8 @@ public class PostgameUI : MonoBehaviour
         GameManagerSc.levelWon -= BeginPostgameAnimation;
         GameManagerSc.levelReset -= postgameReset;
         GameManagerSc.updatePostgameScoreSheet -= setScoreSheetDisplay;
+        GameManagerSc.onLastLevel -= disableComp;
+        GameManagerSc.newGame -= enableComp;
     }
 
     void postgameReset()
@@ -73,7 +82,10 @@ public class PostgameUI : MonoBehaviour
 
     private void BeginPostgameAnimation()
     {
-        StartCoroutine(postgameAnimation(1.5f));
+        if(usingComp)
+        {
+            StartCoroutine(postgameAnimation(1.5f));
+        }
     }
 
     IEnumerator postgameAnimation(float delay)

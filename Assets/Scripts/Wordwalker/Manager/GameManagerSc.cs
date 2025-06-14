@@ -9,7 +9,7 @@ using System;
 /// </summary>
 public class GameManagerSc : MonoBehaviour
 {
-    private static int numLevels = 5; //TODO: Increase default
+    private static int numLevels = 2; //TODO: Increase default
     private static int currLevel = 0;
     private static int totems = 0;
     private static int score = 0;
@@ -31,20 +31,24 @@ public class GameManagerSc : MonoBehaviour
     private static DatabaseItem localDBcopy;
     private static bool checkingManagerGreenlights = true;
 
+    public static event Action newGame;
     public static event Action levelReady;
     public static event Action levelWon;
     public static event Action wrongStep;
     public static event Action<LossReason> gameOver;
     public static event Action levelReset;
+    public static event Action onLastLevel;
     public static event Action<int, int, int, int> updatePostgameScoreSheet;
 
     private void Start()
     {
+        newGame += () => { };
         levelReady += () => { };
         levelWon += () => { };
         wrongStep += () => { };
         gameOver += (_) => { };
         levelReset += () => { };
+        onLastLevel += () => { };
         updatePostgameScoreSheet += (_,__,___,____) => { };
 
         //unfortunately the only way i can think of
@@ -62,6 +66,7 @@ public class GameManagerSc : MonoBehaviour
         // UNCOMMENT THIS IF YOU WANT TO BE ABLE TO START FROM THE WORDWALK SCENE.
         // COMMENT OUT IF YOU WANT TO BE ABLE TO SELECT A DATABASE OF YOUR LIKING FROM THE MENU
         // firstTimeWordsLoad = "letters/c";
+        // localDBcopy = new DatabaseItem("letters/c", "C", null, null, 100, null);
     }
 
     private void OnEnable()
@@ -146,6 +151,8 @@ public class GameManagerSc : MonoBehaviour
             PlayerManager.greenlight = false;
             WordGen.greenlight = false;
 
+            newGame.Invoke();
+            DatabaseTracker.startNewGame(localDBcopy.databaseId);
             goToNextLevel();
         }
     }
@@ -163,11 +170,18 @@ public class GameManagerSc : MonoBehaviour
         
         if(currLevel == numLevels)
         {
-            Debug.Log("youre a winner");
+            // TODO WINNING STUFF
+            Debug.LogError("You should never have been able to click this button...");
 
         } else
         {
             currLevel += 1;
+            if (currLevel == numLevels)
+            {
+                Debug.Log("LAST LEVEL");
+                onLastLevel.Invoke();
+                // TODO a little more with this...should be the "treasure room"
+            }
             uiManager.SetNewRoom(currLevel);
             Tilemap.regenerateTileMap(wordList[currLevel - 1]);
             levelReady.Invoke();
@@ -202,6 +216,12 @@ public class GameManagerSc : MonoBehaviour
         return score;
     }
 
+    public static HighScore getOfficialScore()
+    {
+        string formattedDate = DateTime.Today.ToString("d");
+        return new HighScore(score, RankBox.getRank(score), formattedDate);
+    }
+
     public static int getNumTotems()
     {
         return totems;
@@ -213,6 +233,11 @@ public class GameManagerSc : MonoBehaviour
         updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, score);
 
         levelWon.Invoke();
+        // Update persistent storage stats to reflect your win the moment it happens!
+        // TODO
+        if(currLevel == numLevels) {
+            DatabaseTracker.winGame(localDBcopy.databaseId, getOfficialScore());
+        }
     }
 
     public static void signifyWrongStep()

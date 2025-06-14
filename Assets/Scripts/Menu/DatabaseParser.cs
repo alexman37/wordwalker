@@ -32,21 +32,7 @@ public class DatabaseParser : MonoBehaviour
                 Sprite pic = vars[3] != null && File.Exists(vars[1]) ? null : defaultImg;
                 string desc = vars[4]; // TODO better error handling
 
-                // TODO everything about high scores should be moved into a persistent data storage module
-                HighScore[] highScores = null;
-                string[] scores = vars[5].Split(';');
-                if(scores.Length > 1) //defaults to empty element if no scores given
-                {
-                    highScores = new HighScore[5];
-                    for (int s = 0; s < scores.Length; s++)
-                    {
-                        string[] scoresData = scores[s].Split(',');
-                        int thisScore = Convert.ToInt32(scoresData[0]);
-                        highScores[s] = new HighScore(thisScore, RankBox.getRank(thisScore), scoresData[1]);
-                    }
-                }
-
-                // We hard-code size to avoid having to actually iterate through these databases without using them.
+                // We hard-code size to avoid having to actually iterate through these databases before using them.
                 int dbSize = -1;
                 if(vars.Length > 6 && vars[6] != null && vars[6] != "") dbSize = Convert.ToInt32(vars[6]);
 
@@ -61,7 +47,7 @@ public class DatabaseParser : MonoBehaviour
                 }
 
                 // Add the item to the correct database.
-                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, highScores, dbSize, imageDB);
+                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, dbSize, imageDB);
                 foreach(DatabaseSet dbSet in databaseSet)
                 {
                     if(dbSet.dbName == vars[0])
@@ -70,12 +56,12 @@ public class DatabaseParser : MonoBehaviour
                         break;
                     }
                 }
-                
+
+                DatabaseTracker.initializeDatabaseTracker(item.databaseId);
             }
 
         }
 
-        //TODO which set
         for(int i = 0; i < databaseSet.Length; i++)
             databaseSet[i].build(i);
 

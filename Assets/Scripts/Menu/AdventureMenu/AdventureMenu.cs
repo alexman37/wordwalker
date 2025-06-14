@@ -34,14 +34,18 @@ public class AdventureMenu : MonoBehaviour
 
     public void displayDatabase(DatabaseItem item)
     {
+        // Get persistent data
+        DatabasePersistentStats dbStats = DatabaseTracker.loadDatabaseTracker(item.databaseId);
+        Debug.Log(dbStats);
+
         //Update title stuff
         dbImage.sprite = item.image;
-        dbHighRank.sprite = rankBox.getRankAsSprite(item.highestRank);
+        dbHighRank.sprite = rankBox.getRankAsSprite(dbStats.highScores.highestRank);
         dbName.text = item.displayName;
         dbDesc.text = item.description;
 
         // If you've never beaten this database display "NEVER WON"
-        if(item.highScores.highScores == null)
+        if(dbStats.highScores.highScores == null || dbStats.highScores.highestRank < 0)
         {
             neverWon.SetActive(true);
             highScoresContainer.SetActive(false);
@@ -49,20 +53,21 @@ public class AdventureMenu : MonoBehaviour
             {
                 highScores[i].gameObject.SetActive(false);
             }
-        } 
+        }
         // If you have beaten it show the high scores
         else
         {
             neverWon.SetActive(false);
             highScoresContainer.SetActive(true);
+            //dbStats.highScores.sortHighScores();
             for (int i = 0; i < highScores.Length; i++)
             {
-                if(i < item.highScores.highScores.Length && item.highScores.highScores[i] != null)
+                if(i < dbStats.highScores.highScores.Length && dbStats.highScores.highScores[i] != null && dbStats.highScores.highScores[i].value > 0)
                 {
                     highScores[i].gameObject.SetActive(true);
-                    highScores[i].sprite = rankBox.getRankAsSprite(item.highScores.highScores[i].rank);
-                    highScores[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.highScores.highScores[i].value.ToString();
-                    highScores[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.highScores.highScores[i].dateAchieved;
+                    highScores[i].sprite = rankBox.getRankAsSprite(dbStats.highScores.highScores[i].rank);
+                    highScores[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = dbStats.highScores.highScores[i].value.ToString();
+                    highScores[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = dbStats.highScores.highScores[i].dateAchieved;
                 }
                 else
                 {
@@ -73,19 +78,7 @@ public class AdventureMenu : MonoBehaviour
 
         Debug.Log("size is " + item.size);
         wordsDiscovered.text = $"Words Discovered\n{item.wordsDiscovered.Count} / {item.size}";
-        winRate.text = $"Win Rate\n0 / 0"; //TODO
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        winRate.text = $"Win Rate\n{dbStats.wins} / {dbStats.attempts}";
     }
 
     private void OnEnable()

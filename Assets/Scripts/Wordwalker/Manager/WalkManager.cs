@@ -613,10 +613,14 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void setClue()
     {
-        scrollUI.setClue(currDef);
-
-        // TODO hopefully nothing bad here, bc the cluebook is disabled if this isnt an image clue list...
-        clueBookUI.setPage(currDef); // TODO caption
+        if(scrollUI.gameObject.activeSelf)
+        {
+            scrollUI.setClue(currDef);
+        } else
+        {
+            // TODO hopefully nothing bad here, bc the cluebook is disabled if this isnt an image clue list...
+            clueBookUI.setPage(currDef); // TODO caption
+        }
     }
 
     /// <summary>
