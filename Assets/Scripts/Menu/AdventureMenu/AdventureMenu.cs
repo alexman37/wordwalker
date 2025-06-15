@@ -26,6 +26,8 @@ public class AdventureMenu : MonoBehaviour
     public Image[] highScores;
     public GameObject neverWon;
 
+    public Sprite[] challengeStarDisplays;
+
     // TODO challenges...
 
     public Image goButton;                  // Go
@@ -67,6 +69,7 @@ public class AdventureMenu : MonoBehaviour
                     highScores[i].sprite = rankBox.getRankAsSprite(dbStats.highScores.highScores[i].rank);
                     highScores[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = dbStats.highScores.highScores[i].value.ToString();
                     highScores[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = dbStats.highScores.highScores[i].dateAchieved;
+                    highScores[i].transform.GetChild(2).GetComponent<Image>().sprite = challengeStarDisplays[dbStats.highScores.highScores[i].numStars];
                 }
                 else
                 {

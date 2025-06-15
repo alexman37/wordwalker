@@ -8,7 +8,11 @@ public class DBClick : MonoBehaviour
 {
     private AdventureMenu adventureMenu;
     public DatabaseItem databaseData;
+    private DatabasePersistentStats persistentStats;
     public static event Action<DatabaseItem> dbSelected;
+
+    public Image challengeStarBackground;
+    public Sprite[] challengeStarBackgrounds;
 
     private Image backgroundCol;
     private bool selected;
@@ -26,6 +30,9 @@ public class DBClick : MonoBehaviour
         dbSelected += (_) => { };
         adventureMenu = FindObjectOfType<AdventureMenu>();
         backgroundCol = this.GetComponent<Image>();
+
+        persistentStats = DatabaseTracker.loadDatabaseTracker(databaseData.databaseId);
+        challengeStarBackground.sprite = challengeStarBackgrounds[persistentStats.highScores.highestNumStars];
     }
 
     private void OnEnable()

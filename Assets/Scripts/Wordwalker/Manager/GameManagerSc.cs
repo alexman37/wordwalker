@@ -226,7 +226,7 @@ public class GameManagerSc : MonoBehaviour
     public static HighScore getOfficialScore()
     {
         string formattedDate = DateTime.Today.ToString("d");
-        return new HighScore(score, RankBox.getRank(score), formattedDate);
+        return new HighScore(score, RankBox.getRank(score), formattedDate, selectedChallenges.Count);
     }
 
     public static int getNumTotems()

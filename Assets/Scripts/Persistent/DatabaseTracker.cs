@@ -189,6 +189,7 @@ public class HighScoresList
 {
     public HighScore[] highScores;
     public int highestRank; // for ease
+    public int highestNumStars;
 
     public HighScoresList()
     {
@@ -198,6 +199,7 @@ public class HighScoresList
             highScores[i] = null; // first time for everything...
         }
         highestRank = -1;
+        highestNumStars = 0;
     }
 
     public HighScoresList(HighScore[] highScores)
@@ -211,6 +213,7 @@ public class HighScoresList
     {
         if (highScores == null)
         {
+            if (hs.numStars > highestNumStars) highestNumStars = hs.numStars;
             highScores = new HighScore[5];
             highScores[0] = hs;
             return true;
@@ -252,6 +255,7 @@ public class HighScoresList
             {
                 if (highScores[i] != null)
                 {
+                    if (highScores[i].numStars > highestNumStars) highestNumStars = highScores[i].numStars;
                     putInPlace = false;
                     for (int j = 0; j < 5; j++)
                     {
@@ -283,11 +287,13 @@ public class HighScore
     public int value;
     public int rank;
     public string dateAchieved;
+    public int numStars;
 
-    public HighScore(int value, int rank, string dateAchieved)
+    public HighScore(int value, int rank, string dateAchieved, int stars)
     {
         this.value = value;
         this.rank = rank;
         this.dateAchieved = dateAchieved;
+        this.numStars = stars;
     }
 }
