@@ -9757,7 +9757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafb5c9262026c14b941184f57acee21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  retryGeneration: 1
+  retryGeneration: 0
   tileMaterials: {fileID: 809482221}
 --- !u!4 &809482216
 Transform:

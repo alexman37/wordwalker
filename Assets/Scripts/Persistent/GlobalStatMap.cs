@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using Newtonsoft.Json;
 
 public static class GlobalStatMap
 {
@@ -15,7 +16,7 @@ public static class GlobalStatMap
         {
             Directory.CreateDirectory(Path.GetDirectoryName(globalStatsFilePath));
 
-            string dataToStore = JsonUtility.ToJson(statMap, true);
+            string dataToStore = JsonConvert.SerializeObject(statMap);
 
             using (FileStream stream = new FileStream(globalStatsFilePath, FileMode.Create))
             {
@@ -46,7 +47,7 @@ public static class GlobalStatMap
                     }
                 }
 
-                loadedData = JsonUtility.FromJson<StatMap>(dataToLoad);
+                loadedData = JsonConvert.DeserializeObject<StatMap>(dataToLoad);
             }
             catch (Exception e)
             {
@@ -55,16 +56,79 @@ public static class GlobalStatMap
         }
         return loadedData;
     }
+
+    public static void AddOrModifyInt(string varName, int val)
+    {
+        if(statMap.intMap.ContainsKey(varName))
+        {
+            statMap.intMap[varName] = val;
+        } else
+        {
+            statMap.intMap.Add(varName, val);
+        }
+        saveGlobalStatMap();
+    }
+
+    public static void AddOrModifyFloat(string varName, float val)
+    {
+        if (statMap.floatMap.ContainsKey(varName))
+        {
+            statMap.floatMap[varName] = val;
+        }
+        else
+        {
+            statMap.floatMap.Add(varName, val);
+        }
+        saveGlobalStatMap();
+    }
+
+    public static void AddOrModifyText(string varName, string txt)
+    {
+        if (statMap.textMap.ContainsKey(varName))
+        {
+            statMap.textMap[varName] = txt;
+        }
+        else
+        {
+            statMap.textMap.Add(varName, txt);
+        }
+        saveGlobalStatMap();
+    }
+
+    public static void AddOrModifyBool(string varName, bool bs)
+    {
+        if (statMap.boolMap.ContainsKey(varName))
+        {
+            statMap.boolMap[varName] = bs;
+        }
+        else
+        {
+            statMap.boolMap.Add(varName, bs);
+        }
+        saveGlobalStatMap();
+    }
+
+    public static void AddFlag(string flagName)
+    {
+        statMap.flags.Add(flagName);
+        saveGlobalStatMap();
+    }
+
+    public static void RemoveFlag(string flagName)
+    {
+        statMap.flags.Remove(flagName);
+        saveGlobalStatMap();
+    }
 }
 
 [System.Serializable]
 public class StatMap
 {
-    public static Dictionary<string, int> intMap;
-    public static Dictionary<string, float> floatMap;
-    public static Dictionary<string, string> textMap;
-    public static Dictionary<string, bool> boolMap;
-    public static HashSet<string> flags;
+    public Dictionary<string, int> intMap;
+    public Dictionary<string, float> floatMap;
+    public Dictionary<string, string> textMap;
+    public Dictionary<string, bool> boolMap;
+    public HashSet<string> flags;
 
     public StatMap()
     {

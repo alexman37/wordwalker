@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using Newtonsoft.Json;
 
 public static class DatabaseTracker
 {
@@ -24,11 +25,11 @@ public static class DatabaseTracker
                 getStats = databaseTracker.databaseStorages[id];
             } else
             {
-                getStats = new DatabasePersistentStats(0, 0, 3, new HighScoresList(), new HashSet<WordGen.Word>());
+                getStats = new DatabasePersistentStats(0, 0, 3, new HighScoresList(), new HashSet<WordGen.Word>(), 0);
                 databaseTracker.databaseStorages[id] = getStats;
             }
 
-            string dataToStore = JsonUtility.ToJson(getStats, true);
+            string dataToStore = JsonConvert.SerializeObject(getStats);
             Debug.Log(dataToStore);
 
             string jsonPath = Path.Combine(dataTrackerFilePath, id + ".json");
@@ -66,7 +67,7 @@ public static class DatabaseTracker
                     }
                 }
 
-                loadedData = JsonUtility.FromJson<DatabasePersistentStats>(dataToLoad);
+                loadedData = JsonConvert.DeserializeObject<DatabasePersistentStats>(dataToLoad);
             }
             catch (Exception e)
             {
@@ -121,6 +122,28 @@ public static class DatabaseTracker
             saveDatabaseTracker(id);
         }
     }
+
+    public static void addToCycle(string id, WordGen.Word word)
+    {
+        // It always should, unless you're starting from WW for debugging purposes
+        if (databaseTracker.databaseStorages.ContainsKey(id))
+        {
+            databaseTracker.databaseStorages[id].wordCycle.Add(word);
+            if(!databaseTracker.databaseStorages[id].allWordsSeen) databaseTracker.databaseStorages[id].wordsDiscovered += 1;
+            saveDatabaseTracker(id);
+        }
+    }
+
+    public static void resetCycle(string id)
+    {
+        // It always should, unless you're starting from WW for debugging purposes
+        if (databaseTracker.databaseStorages.ContainsKey(id))
+        {
+            databaseTracker.databaseStorages[id].wordCycle.Clear();
+            databaseTracker.databaseStorages[id].allWordsSeen = true;
+            saveDatabaseTracker(id);
+        }
+    }
 }
 
 /*
@@ -144,15 +167,18 @@ public class DatabasePersistentStats
     public HashSet<WordGen.Word> wordCycle;
     public int wins;
     public int attempts;
+    public int wordsDiscovered;
+    public bool allWordsSeen;
 
     public HighScoresList highScores;
 
-    public DatabasePersistentStats(int w, int a, int hrank, HighScoresList highs, HashSet<WordGen.Word> cycle)
+    public DatabasePersistentStats(int w, int a, int hrank, HighScoresList highs, HashSet<WordGen.Word> cycle, int wordsDisc)
     {
         wordCycle = cycle;
         wins = w;
         attempts = a;
         highScores = highs;
+        wordsDiscovered = wordsDisc;
     }
 }
 
@@ -183,12 +209,6 @@ public class HighScoresList
     // Add (or attempt to add) a new high score...if it doesn't make the list then return false
     public bool addNewHighScore(HighScore hs)
     {
-        Debug.Log("Before sorting");
-        for (int i = 0; i < highScores.Length; i++)
-        {
-            Debug.Log(i + ". " + highScores[i].ToString());
-        }
-
         if (highScores == null)
         {
             highScores = new HighScore[5];

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Linq;
 
 /// <summary>
 /// Manages overall gameplay state such as score, status and level count.
@@ -117,7 +118,7 @@ public class GameManagerSc : MonoBehaviour
         if(!checkingManagerGreenlights && scene.buildIndex == 1)
         {
             Debug.Log("REENTRY POINT");
-            goToNextLevel();
+            //goToNextLevel();
         }
     }
 
@@ -139,7 +140,7 @@ public class GameManagerSc : MonoBehaviour
             else { clueBookUI.gameObject.SetActive(false);}
 
             //TODO: eventually we want to "track" which words the player has already seen
-            wordList = WordGen.getTailoredList(numLevels);
+            wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
 
             Debug.Log("Starting the game");
             checkingManagerGreenlights = false;
@@ -184,6 +185,12 @@ public class GameManagerSc : MonoBehaviour
             }
             uiManager.SetNewRoom(currLevel);
             Tilemap.regenerateTileMap(wordList[currLevel - 1]);
+            DatabaseTracker.addToCycle(localDBcopy.databaseId, wordList[currLevel - 1]);
+            // Checks exactly when to reset the word cycle
+            if(wordList[currLevel-1].word == WordGen.resetCycleOnThisWord)
+            {
+                DatabaseTracker.resetCycle(localDBcopy.databaseId);
+            }
             levelReady.Invoke();
         }
     }

@@ -2,6 +2,7 @@
 #standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
 #standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
 #
+easy|test-set|TEST SET||DEBUGGING ONLY||7|
 easy|standard/simple-nouns|Simple Nouns||Nouns or whatever idk|||
 easy|standard/simple-verbs|Simple Verbs||Verbs, as in "wordwalk: to walk on words"|||
 easy|standard/simple-adjectives|Simple Adjectives||Adjective is a cool word|||

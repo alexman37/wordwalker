@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1623361508
+CRC: 3134201741
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -100,4 +100,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_32:
       Name: imagedbs/base/celebs
+      Dependencies: {}
+    Info_33:
+      Name: worddbs/test-set
       Dependencies: {}

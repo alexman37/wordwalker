@@ -36,7 +36,6 @@ public class AdventureMenu : MonoBehaviour
     {
         // Get persistent data
         DatabasePersistentStats dbStats = DatabaseTracker.loadDatabaseTracker(item.databaseId);
-        Debug.Log(dbStats);
 
         //Update title stuff
         dbImage.sprite = item.image;
@@ -62,7 +61,7 @@ public class AdventureMenu : MonoBehaviour
             //dbStats.highScores.sortHighScores();
             for (int i = 0; i < highScores.Length; i++)
             {
-                if(i < dbStats.highScores.highScores.Length && dbStats.highScores.highScores[i] != null && dbStats.highScores.highScores[i].value > 0)
+                if(i < dbStats.highScores.highScores.Length && dbStats.highScores.highScores[i] != null)
                 {
                     highScores[i].gameObject.SetActive(true);
                     highScores[i].sprite = rankBox.getRankAsSprite(dbStats.highScores.highScores[i].rank);
@@ -76,8 +75,7 @@ public class AdventureMenu : MonoBehaviour
             }
         }
 
-        Debug.Log("size is " + item.size);
-        wordsDiscovered.text = $"Words Discovered\n{item.wordsDiscovered.Count} / {item.size}";
+        wordsDiscovered.text = $"Words Discovered\n{dbStats.wordsDiscovered} / {item.size}";
         winRate.text = $"Win Rate\n{dbStats.wins} / {dbStats.attempts}";
     }
 

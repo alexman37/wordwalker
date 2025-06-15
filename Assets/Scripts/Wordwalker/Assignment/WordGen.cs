@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public static class WordGen
 {
     public static bool greenlight = false;
+    public static string resetCycleOnThisWord = "";
 
     public class Word
     {
@@ -51,6 +53,19 @@ public static class WordGen
             definition = d;
         }
 
+        public Word(string w, WordClue[] c, string d)
+        {
+            word = w;
+            definition = d;
+            clues = c;
+        }
+
+        [JsonConstructor]
+        public Word(string word)
+        {
+            this.word = word;
+        }
+
         /// <summary>
         /// Get a random clue for this word, as there can be multiple clues associated with each
         /// </summary>
@@ -81,24 +96,11 @@ public static class WordGen
     public class WordClue
     {
         public string clue; // if given alongside an image clue, it will be a caption
-        public Sprite sprite; // only used for image clues
 
-        public WordClue(string textClue)
+        [JsonConstructor]
+        public WordClue(string clue)
         {
-            clue = textClue;
-            sprite = null;
-        }
-
-        public WordClue(string caption, Sprite image)
-        {
-            sprite = image;
-            clue = caption;
-        }
-
-        public WordClue(Sprite image)
-        {
-            sprite = image;
-            clue = "???";
+            this.clue = clue;
         }
     }
 
@@ -191,7 +193,12 @@ public static class WordGen
     // Return a list of unique words, excluding all words in the given set
     public static Word[] getTailoredList(int length, List<Word> excludeThese)
     {
+        resetCycleOnThisWord = "";
         List<Word> workingCopy = new List<Word>(activeDatabase.getEntireList());
+
+        // If there simply aren't enough words in the DB to handle this sized game, throw an error. That shouldn't happen.
+        if (length > workingCopy.Count) throw new System.Exception("FATAL ERROR - not enough words in DB!");
+
         foreach (Word wx in excludeThese){
             workingCopy.Remove(wx);
         }
@@ -199,20 +206,50 @@ public static class WordGen
         HashSet<Word> currentChosen = new HashSet<Word>();
         Word[] returned = new Word[length];
 
-        //TODO should handle this better
-        if (length > workingCopy.Count) throw new System.Exception("FATAL ERROR - not enough words in DB!");
-
-        for (int i = 0; i < length; i++)
+        // If there aren't enough words in the cycle to last the whole game, we'll have to reset the words cycle and go again.
+        if (length > workingCopy.Count)
         {
-            int randIdx;
-            do
+            // First get all remaining unused words.
+            for(int i = 0; i < workingCopy.Count; i++)
             {
-                randIdx = Random.Range(0, workingCopy.Count);
-            } while (currentChosen.Contains(workingCopy[randIdx]));
+                returned[i] = workingCopy[i];
+            }
+            resetCycleOnThisWord = workingCopy[workingCopy.Count-1].word;
+            // Now get a random list of words from the leftovers
+            List<Word> secondSubset = new List<Word>(activeDatabase.getEntireList());
+            foreach (Word wx in returned)
+            {
+                secondSubset.Remove(wx);
+            }
+            for (int i = workingCopy.Count; i < length; i++)
+            {
+                int randIdx;
+                do
+                {
+                    randIdx = Random.Range(0, secondSubset.Count);
+                } while (currentChosen.Contains(secondSubset[randIdx]));
 
-            Word chosen = workingCopy[randIdx];
-            workingCopy.RemoveAt(randIdx);
-            returned[i] = chosen;
+                Word chosen = secondSubset[randIdx];
+                secondSubset.RemoveAt(randIdx);
+                returned[i] = chosen;
+            }
+            // Now get a random subset of all future words - excluding ones we just used.
+        }
+        // If there are enough words to last us the whole game, we're fine.
+        else
+        {
+            for (int i = 0; i < length; i++)
+            {
+                int randIdx;
+                do
+                {
+                    randIdx = Random.Range(0, workingCopy.Count);
+                } while (currentChosen.Contains(workingCopy[randIdx]));
+
+                Word chosen = workingCopy[randIdx];
+                workingCopy.RemoveAt(randIdx);
+                returned[i] = chosen;
+            }
         }
 
         return returned;
