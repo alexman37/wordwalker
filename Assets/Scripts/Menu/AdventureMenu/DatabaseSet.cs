@@ -61,7 +61,9 @@ public class DatabaseSet : MonoBehaviour
             nextEntry.GetComponent<RectTransform>().anchoredPosition = new Vector2(oldPos.x, oldPos.y - heightOfEntries * i);
 
             // Set image, high score and name of DB in entry
-            nextEntry.transform.GetChild(0).GetComponent<Image>().sprite = databases[i].image;
+            Debug.Log("First time draw of " + databases[i].databaseId + ": " + databases[i].loadedIcon.name);
+            databases[i].inLineImage = nextEntry.transform.GetChild(0).GetComponent<Image>();
+            nextEntry.transform.GetChild(0).GetComponent<Image>().sprite = databases[i].loadedIcon;
             nextEntry.transform.GetChild(1).GetComponent<Image>().sprite = rankBox.getRankAsSprite(persistent.highScores.highestRank);
             nextEntry.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = databases[i].displayName;
 
@@ -177,26 +179,40 @@ public class DatabaseSet : MonoBehaviour
 
 public class DatabaseItem
 {
+    public Image inLineImage; // used in actual display
+
     public string databaseId; // use this to actually load the database from BundledAssets or whatever
     public string displayName;
     public GameObject actualObject; // only property to be assigned (and unassigned) when expanded/unexpanded
-    public Sprite image;
+    public string iconPath; // load icon from this path.
+    public Sprite loadedIcon;
     public string description;
+    public int maxBacktracks;
 
     public string imageDB;
     public int size;  // how many words are in this list
     public HashSet<WordGen.Word> wordsDiscovered;
 
-    public DatabaseItem(string id, string name, Sprite pic, string desc, int sizeOf, string imagePath)
+    public DatabaseItem(string id, string name, string pic, string desc, int maxBack, int sizeOf, string imagePath)
     {
         databaseId = id;
         displayName = name;
-        image = pic;
+        iconPath = pic;
         description = desc;
+        maxBacktracks = maxBack;
         imageDB = imagePath;
 
         size = sizeOf;
         wordsDiscovered = new HashSet<WordGen.Word>();
+    }
+
+    public void RequestRedraw(Sprite icon)
+    {
+        loadedIcon = icon;
+        if(inLineImage != null)
+        {
+            inLineImage.sprite = loadedIcon;
+        }
     }
 }
 

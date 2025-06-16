@@ -1,39 +1,39 @@
-#Format:  inGroup|ID|name|imagefile*|description*|highscore1;highscore2;highscore3;highscore4;highscore5|size|imagePath*
+#Format:  inGroup|ID|name|imagefile*|description*|maxBacktracks|size|imagePath*
 #standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
 #standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
 #
-easy|test-set|TEST SET||DEBUGGING ONLY||7|
-easy|standard/simple-nouns|Simple Nouns||Nouns or whatever idk|||
-easy|standard/simple-verbs|Simple Verbs||Verbs, as in "wordwalk: to walk on words"|||
-easy|standard/simple-adjectives|Simple Adjectives||Adjective is a cool word|||
+easy|test-set|TEST SET||DEBUGGING ONLY|0|7|
+easy|standard/simple-nouns|Simple Nouns|nouns|Nouns or whatever idk|0||
+easy|standard/simple-verbs|Simple Verbs|verbs|Verbs, as in "wordwalk: to walk on words"|0||
+easy|standard/simple-adjectives|Simple Adjectives|adjectives|Adjective is a cool word|0||
 #
-medium|standard/med-places|Places||Locations you might find yourself in (no proper nouns)|||
-medium|standard/med-people|People||People you might meet|||
-medium|standard/med-things|Things||Stuff that someone made|||
-medium|standard/med-nature|Nature||I didn't do that|||
-medium|standard/med-actions|Actions||Tougher verbs|||
-medium|standard/med-adjectives|Adjectives||Tougher adjectives|||
-medium|standard/med-cool|Cool||Words that I personally think sound cool|||
+medium|standard/med-places|Places|places|Locations you might find yourself in (no proper nouns)|1||
+medium|standard/med-people|People|people|Jobs, roles, and occupations. Tag yourself!|1|113|
+medium|standard/med-things|Things|things|Stuff that someone made|1||
+medium|standard/med-nature|Nature|nature|I didn't do that|1||
+medium|standard/med-actions|Actions|actions|Tougher verbs|1||
+medium|standard/med-adjectives|Adjectives|descriptors|Tougher adjectives|1||
+medium|standard/med-cool|Cool|cool|Words that I personally think sound cool|1||
 #
-hard|standard/marathon-1|Marathon I||These words are 10 letters or longer|||
-hard|standard/marathon-2|Marathon II||These words are 10 letters or longer|||
-hard|standard/marathon-3|Marathon III||These words are 10 letters or longer|||
-hard|standard/spelling-bee|Spelling Bee||Words that are commonly misspelled|||
-hard|standard/tricky-6|Tricky 6||All these difficult words are exactly 6 letters long.|||
+hard|standard/marathon-1|Marathon I|marathon1|These words are 10 letters or longer|3||
+hard|standard/marathon-2|Marathon II|marathon2|These words are 10 letters or longer|3||
+hard|standard/marathon-3|Marathon III|marathon3|These words are 10 letters or longer|3||
+hard|standard/spelling-bee|Spelling Bee|spellingbee|Words that are commonly misspelled|1||
+hard|standard/tricky-6|Tricky 6|tricky6|All these difficult words are exactly 6 letters long.|1||
 #
-very-hard|standard/very-hard-1|Very Hard I||These obscure words are all long and very difficult to guess|||
-very-hard|standard/very-hard-2|Very Hard II||These obscure words are all long and very difficult to guess|||
-very-hard|standard/very-hard-3|Very Hard III||These obscure words are all long and very difficult to guess|||
-very-hard|standard/nightmare|Nightmare||Good luck...|||
+very-hard|standard/very-hard-1|Very Hard I|veryhard1|These obscure words are all long and very difficult to guess|2||
+very-hard|standard/very-hard-2|Very Hard II|veryhard2|These obscure words are all long and very difficult to guess|2||
+very-hard|standard/very-hard-3|Very Hard III|veryhard3|These obscure words are all long and very difficult to guess|2||
+very-hard|standard/nightmare|Nightmare|nightmare|Good luck...|2||
 #
-letters|letters/a|A||"A" words, like Aardvark, Avocado, Arbiter and Axle|||
-letters|letters/b|B||"B"" words, like Barking, Battle, Bounded and Buttons|||
-letters|letters/c|C||"C" words, like Camper, Centerpiece, Cryogenics and Competition|||
+letters|letters/a|A|letter-a|"A" words, like Aardvark, Avocado, Arbiter and Axle|2||
+letters|letters/b|B|letter-b|"B"" words, like Barking, Battle, Bounded and Buttons|2||
+letters|letters/c|C|letter-c|"C" words, like Camper, Centerpiece, Cryogenics and Competition|2||
 #
-trivia|trivia/101-cities|Around the world||101 cities identified by various interesting facts about them.|||
-trivia|trivia/flags|Flags||Flags of various countries and territories around the world|||base/flags
-trivia|trivia/capitals|Country Capitals||Capital cities of world countries|||
-trivia|trivia/state-capitals|State Capitals||Capital cities of US states|||
-trivia|trivia/phobias|Phobias||It always ends in "phobia".|||
-trivia|trivia/celebs|Fresh Tomatoes||Famous actors, directors and movie stars.|||base/celebs
-trivia|trivia/pokemon|Pokemon (Gen 1)||Gotta spell 'em all.|||base/pokemon
+trivia|trivia/phobias|Phobias|phobias|It always ends in "phobia".|1||
+trivia|trivia/101-cities|Around the world|around-the-world|101 cities identified by various interesting facts about them.|1||
+trivia|trivia/flags|Flags|flags|Flags of various countries and territories around the world|1||base/flags
+trivia|trivia/capitals|Country Capitals|capitals|Capital cities of world countries|1||
+trivia|trivia/state-capitals|State Capitals|state-capitals|Capital cities of US states|1||
+trivia|trivia/celebs|Fresh Tomatoes|celebs|Famous actors, directors and movie stars.|1||base/celebs
+trivia|trivia/pokemon|Pokemon (Gen 1)|pokemon|Gotta spell 'em all.|1||base/pokemon

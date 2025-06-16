@@ -40,7 +40,7 @@ public class AdventureMenu : MonoBehaviour
         DatabasePersistentStats dbStats = DatabaseTracker.loadDatabaseTracker(item.databaseId);
 
         //Update title stuff
-        dbImage.sprite = item.image;
+        dbImage.sprite = item.loadedIcon; // TODO icon load
         dbHighRank.sprite = rankBox.getRankAsSprite(dbStats.highScores.highestRank);
         dbName.text = item.displayName;
         dbDesc.text = item.description;

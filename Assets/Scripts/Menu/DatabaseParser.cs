@@ -16,6 +16,8 @@ public class DatabaseParser : MonoBehaviour
 
     public void parseDatabasesAtStart()
     {
+        HashSet<DatabaseItem> dbItemFullSet = new HashSet<DatabaseItem>();
+
         string[] raw = dbFile.text.Split('\n');
 
         for (int i = 0; i < raw.Length; i++)
@@ -28,9 +30,17 @@ public class DatabaseParser : MonoBehaviour
             {
                 // Create a new database item from the data we have been given
                 string[] vars = currLine.Split('|');
-                // TODO: How to load these images in the first place? Should probably asset bundle...yup, i hate it too
-                Sprite pic = vars[3] != null && File.Exists(vars[1]) ? null : defaultImg;
-                string desc = vars[4]; // TODO better error handling
+                // Load database icon from the 'dbicon' asset bundle.
+
+                string pic = null;
+                if(vars[3] != null && vars[3] != "") {
+                    pic = vars[3];
+                }
+                string desc = vars[4]; // TODO better error handling if we're doing custom databases.
+
+                // Max backtracks allowed in generation (generally, smaller words get less)
+                int maxBacktracks = 0;
+                if (vars.Length > 5 && vars[5] != null && vars[5] != "") maxBacktracks = Convert.ToInt32(vars[5]);
 
                 // We hard-code size to avoid having to actually iterate through these databases before using them.
                 int dbSize = -1;
@@ -47,7 +57,9 @@ public class DatabaseParser : MonoBehaviour
                 }
 
                 // Add the item to the correct database.
-                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, dbSize, imageDB);
+                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, maxBacktracks, dbSize, imageDB);
+                item.loadedIcon = defaultImg;
+                dbItemFullSet.Add(item);
                 foreach(DatabaseSet dbSet in databaseSet)
                 {
                     if(dbSet.dbName == vars[0])
@@ -59,11 +71,14 @@ public class DatabaseParser : MonoBehaviour
 
                 DatabaseTracker.initializeDatabaseTracker(item.databaseId);
             }
-
         }
 
         for(int i = 0; i < databaseSet.Length; i++)
+        {
             databaseSet[i].build(i);
+        }
+
+        StartCoroutine(LoadIconAsset(dbItemFullSet));
 
         // Automatically queue up the first in the list for viewing
         adventureMenu.displayDatabase(databaseSet[0].getFirst());
@@ -76,9 +91,38 @@ public class DatabaseParser : MonoBehaviour
         parseDatabasesAtStart();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    // Try to get the icon for a database, if one is specified.
+    // TODO, some error handling would be nice, we just use defaultImg if something goes wrong
+    // Apparently can't use try/catch with yields...what i get for trying to be proactive...
+    private IEnumerator LoadIconAsset(HashSet<DatabaseItem> dbitems)
     {
-        
+        string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+        filePath = System.IO.Path.Combine(filePath, "dbicon");
+
+        //Load designated AssetBundle (word group)
+        var assetBundleCreateRequest = AssetBundle.LoadFromFileAsync(filePath);
+        yield return assetBundleCreateRequest;
+
+        AssetBundle assetBundle = assetBundleCreateRequest.assetBundle;
+
+        //Load the text file proper
+        foreach (DatabaseItem dbitem in dbitems)
+        {
+            if(dbitem.iconPath != null)
+            {
+                AssetBundleRequest asset = assetBundle.LoadAssetAsync<Sprite>(dbitem.iconPath);
+                yield return asset;
+
+                //Retrieve the object
+                Sprite raw = asset.asset as Sprite;
+
+                dbitem.RequestRedraw(raw);
+
+                Debug.Log("Completed loading " + dbitem.iconPath);
+            }
+        }
+
+        assetBundle.Unload(false);
     }
 }

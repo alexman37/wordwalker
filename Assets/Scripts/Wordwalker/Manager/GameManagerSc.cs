@@ -184,7 +184,7 @@ public class GameManagerSc : MonoBehaviour
                 // TODO a little more with this...should be the "treasure room"
             }
             uiManager.SetNewRoom(currLevel);
-            Tilemap.regenerateTileMap(wordList[currLevel - 1]);
+            Tilemap.regenerateTileMap(wordList[currLevel - 1], localDBcopy.maxBacktracks);
             DatabaseTracker.addToCycle(localDBcopy.databaseId, wordList[currLevel - 1]);
             // Checks exactly when to reset the word cycle
             if(wordList[currLevel-1].word == WordGen.resetCycleOnThisWord)

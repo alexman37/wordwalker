@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FatSnake : GenMethod
 {
-    public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word)
+    public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
         throw new System.NotImplementedException();
     }

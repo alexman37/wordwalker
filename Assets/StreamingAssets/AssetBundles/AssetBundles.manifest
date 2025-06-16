@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3134201741
+CRC: 1693498949
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -103,4 +103,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_33:
       Name: worddbs/test-set
+      Dependencies: {}
+    Info_34:
+      Name: dbicon
       Dependencies: {}

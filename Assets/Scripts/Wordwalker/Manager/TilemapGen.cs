@@ -24,7 +24,7 @@ public class TilemapGen : MonoBehaviour
     /// <summary>
     /// Generate tile map, depending on if retryGeneration is on we will try multiple times on failure
     /// </summary>
-    public void regenerateTileMap(WordGen.Word word)
+    public void regenerateTileMap(WordGen.Word word, int maxBacktracks)
     {
         if(retryGeneration)
         {
@@ -32,7 +32,7 @@ public class TilemapGen : MonoBehaviour
             {
                 try
                 {
-                    fineTuning(word);
+                    fineTuning(word, maxBacktracks);
                     break;
                 }
                 catch
@@ -44,14 +44,14 @@ public class TilemapGen : MonoBehaviour
         
         else
         {
-            fineTuning(word);
+            fineTuning(word, maxBacktracks);
         }
     }
 
     /// <summary>
     /// Perfect inputs
     /// </summary>
-    private void fineTuning(WordGen.Word word)
+    private void fineTuning(WordGen.Word word, int maxBacktracks)
     {
         // TODO we take action here to figure out the inputs of the level, they get harder as they go...
         // Maybe we can transform one or a few inputs across all the various inputs across methods?
@@ -68,7 +68,7 @@ public class TilemapGen : MonoBehaviour
 
         float diff = (float)GameManagerSc.getCurrentLevel() / (float)GameManagerSc.getNumLevels() / difficultyHandicap;
         Debug.Log("Using difficulty " + diff);
-        tileMap = currentGenMethod.regenerateTileMap(diff, word);
+        tileMap = currentGenMethod.regenerateTileMap(diff, word, maxBacktracks);
     }
 
     // Start is called before the first frame update

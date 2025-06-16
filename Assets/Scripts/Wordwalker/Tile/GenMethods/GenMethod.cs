@@ -56,7 +56,7 @@ public abstract class GenMethod : MonoBehaviour
     /// <summary>
     /// Generates the complete shape from start to finish. Generally this is the only method of the class you would call externally.
     /// </summary>
-    public abstract Dictionary<(int, int), Tile> generateShape(float difficulty, string word);
+    public abstract Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks);
 
     protected virtual void findAdjacencies(int subInterval)
     {
@@ -253,10 +253,13 @@ public abstract class GenMethod : MonoBehaviour
     protected virtual int generateNumBacktracks(int wordLen, float chancePer, int maxAllowed)
     {
         int currBacktracks = 0;
-        while (UnityEngine.Random.value < chancePer)
+        if(maxAllowed > 0)
         {
-            currBacktracks++;
-            if (currBacktracks >= maxAllowed) break;
+            while (UnityEngine.Random.value < chancePer)
+            {
+                currBacktracks++;
+                if (currBacktracks >= maxAllowed) break;
+            }
         }
         return currBacktracks;
     }
@@ -423,14 +426,14 @@ public abstract class GenMethod : MonoBehaviour
     /// Try regenerating the entire tileMap from scratch.
     /// Only useful in a debugging context for now - but maybe we use it to redo generation on faulty attempts.
     /// </summary>
-    public Dictionary<(int, int), Tile> regenerateTileMap(float difficulty, WordGen.Word word)
+    public Dictionary<(int, int), Tile> regenerateTileMap(float difficulty, WordGen.Word word, int maxBacks)
     {
         tileMap.Clear();
         allTiles.Clear();
 
         //TODO: definitions currently aren't defined.
         regenerate.Invoke(word.word, word.getClue());
-        tileMap = generateShape(difficulty, word.word);
+        tileMap = generateShape(difficulty, word.word, maxBacks);
         setCorrects.Invoke(corrects);
 
         return tileMap;

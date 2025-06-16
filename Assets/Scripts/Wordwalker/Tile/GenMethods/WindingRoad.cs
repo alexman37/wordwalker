@@ -17,7 +17,7 @@ public class WindingRoad : GenMethod
     // Same logic here
     public GameObject endSide;
 
-    public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word)
+    public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
         this.difficulty = difficulty;
         minSubs = getRandomInput(difficulty, 1, 3, true);
@@ -35,11 +35,11 @@ public class WindingRoad : GenMethod
         float maxZ = -1000;
 
         //TODO configure
-        int backTracks = generateNumBacktracks(word.Length, 0.4f, 3);
+        int backTracks = generateNumBacktracks(word.Length, 0.4f, maxBacks);
         int numBlanks = 0;
         if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
         {
-            numBlanks = generateNumBacktracks(word.Length, 0.25f, 2);
+            numBlanks = generateNumBacktracks(word.Length, 0.25f, maxBacks+1);
         }
         settledRows = word.Length - backTracks + numBlanks;
 
