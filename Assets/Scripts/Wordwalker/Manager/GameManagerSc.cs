@@ -10,6 +10,8 @@ using System.Linq;
 /// </summary>
 public class GameManagerSc : MonoBehaviour
 {
+    private static bool IN_TESTING = false;
+
     private static int numLevels = 2; //TODO: Increase default
     private static int currLevel = 0;
     private static int totems = 0;
@@ -66,8 +68,9 @@ public class GameManagerSc : MonoBehaviour
         // INFLECTION POINT!
         // UNCOMMENT THIS IF YOU WANT TO BE ABLE TO START FROM THE WORDWALK SCENE.
         // COMMENT OUT IF YOU WANT TO BE ABLE TO SELECT A DATABASE OF YOUR LIKING FROM THE MENU
-        // firstTimeWordsLoad = "letters/c";
-        // localDBcopy = new DatabaseItem("letters/c", "C", null, null, 100, null);
+         firstTimeWordsLoad = "letters/c";
+         localDBcopy = new DatabaseItem("letters/c", "C", null, null, 1, 100, null);
+         IN_TESTING = true;
     }
 
     private void OnEnable()
@@ -139,8 +142,14 @@ public class GameManagerSc : MonoBehaviour
             }
             else { clueBookUI.gameObject.SetActive(false);}
 
-            //TODO: eventually we want to "track" which words the player has already seen
-            wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
+            // Oftentimes in debugging we like to start the game from the wordwalk scene, so this check is necessary for that
+            if(IN_TESTING)
+            {
+                wordList = WordGen.getTailoredList(numLevels);
+            } else
+            {
+                wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
+            }
 
             Debug.Log("Starting the game");
             checkingManagerGreenlights = false;
