@@ -9,7 +9,7 @@ public static class DatabaseTracker
 {
     // TODO might need to load in a smarter way
     public static DatabasePersistentStorage databaseTracker = new DatabasePersistentStorage();
-    private static string dataTrackerFilePath = Path.Combine(Application.persistentDataPath, "wordwalker/databaseTracker/");
+    private static string dataTrackerFilePath = Path.Combine(Application.persistentDataPath, "wordwalker", "databaseTracker");
 
     // Reset after each game
     private static bool DEBUG_RESET = false;
@@ -68,6 +68,7 @@ public static class DatabaseTracker
                 }
 
                 loadedData = JsonConvert.DeserializeObject<DatabasePersistentStats>(dataToLoad);
+                Debug.Log("Loaded " + jsonPath);
             }
             catch (Exception e)
             {
