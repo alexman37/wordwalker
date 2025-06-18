@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Newtonsoft.Json.Utilities;
 
 public class Startup : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class Startup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Gonna try putting this here and see what happens...?
+        AotHelper.EnsureList<int>();
+        AotHelper.EnsureType<HashSet<WordGen.Word>>();
+        AotHelper.EnsureType<HighScoresList>();
+
         thisAndAllChildren = new List<GameObject>();
         thisAndAllChildren.Add(this.gameObject);
 
