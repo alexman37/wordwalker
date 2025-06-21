@@ -29,6 +29,15 @@ public abstract class GenMethod : MonoBehaviour
     /// To actually apply it...that's up to each method.
     public float difficulty;
 
+    /// Physical aids with generation
+    private static TileDivot startingDivot;
+    private static TileDivot endingDivot;
+    private static GameObject divotsContainer;
+    private static GameObject endSide;
+
+    // If one day we wish to use different shaped tiles, change this...
+    protected static GameObject baseTile;
+
     /// These managers needed at several stages
     protected TilemapGen tilemapGen;
     protected GameManagerSc gameManager;
@@ -50,6 +59,19 @@ public abstract class GenMethod : MonoBehaviour
         finishedGeneration += (_) => { };
         regenerate += (_,__) => { };
         setCorrects += (_) => { };
+
+        // There should only be 2
+        TileDivot[] divots = FindObjectsOfType<TileDivot>();
+        foreach(TileDivot d in divots)
+        {
+            if (d.starting) startingDivot = d;
+            else endingDivot = d;
+        }
+        divotsContainer = new GameObject();
+        divotsContainer.name = "Divots container";
+
+        baseTile = GameObject.FindGameObjectWithTag("BaseTile");
+        endSide = GameObject.FindGameObjectWithTag("EndSide");
     }
 
 
@@ -95,6 +117,77 @@ public abstract class GenMethod : MonoBehaviour
                     //Debug.LogError("Error in tile generation - there should be a tile at " + (row, sub));
                 }
             }
+        }
+    }
+
+    protected virtual void generateStartAndEndDivots(List<Tile> startingTiles, List<Tile> endingTiles)
+    {
+        if(startingDivot != null && endingDivot != null)
+        {
+            startingDivot.GetComponent<MeshRenderer>().enabled = true;
+            Destroy(divotsContainer);
+            divotsContainer = new GameObject();
+            divotsContainer.name = "Divots container";
+
+            // STARTING DIVOTS
+            float allZ = -4.5f;
+
+            // generate a divot "above" and "below" every tile, unless we already have one there
+            HashSet<(float, float)> divotsTaken = new HashSet<(float, float)>();
+            for (int i = 0; i < startingTiles.Count; i++)
+            {
+                (float x, float y) to = startingTiles[i].absolutePosition;
+                if(!divotsTaken.Contains((to.x - xSpacing / 2f, allZ)))
+                {
+                    GameObject anotherDivot = GameObject.Instantiate(startingDivot.gameObject);
+                    anotherDivot.gameObject.transform.position = new Vector3(to.x - xSpacing / 2f, startingDivot.transform.position.y, allZ);
+                    anotherDivot.transform.SetParent(divotsContainer.transform);
+                    anotherDivot.name = "Divot at " + anotherDivot.gameObject.transform.position;
+                    divotsTaken.Add((to.x - xSpacing / 2f, allZ));
+                }
+                if (!divotsTaken.Contains((to.x + xSpacing / 2f, allZ)))
+                {
+                    GameObject anotherDivot = GameObject.Instantiate(startingDivot.gameObject);
+                    anotherDivot.gameObject.transform.position = new Vector3(to.x + xSpacing / 2f, startingDivot.transform.position.y, allZ);
+                    anotherDivot.transform.SetParent(divotsContainer.transform);
+                    anotherDivot.name = "Divot at " + anotherDivot.gameObject.transform.position;
+                    divotsTaken.Add((to.x + xSpacing / 2f, allZ));
+                }
+            }
+            startingDivot.GetComponent<MeshRenderer>().enabled = false;
+            endingDivot.GetComponent<MeshRenderer>().enabled = true;
+
+            endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 8f + 3.2f * settledRows);
+
+            // ENDING DIVOTS
+            allZ = endingTiles[0].absolutePosition.Item2 + 4.5f;
+
+            // generate a divot "above" and "below" every tile, unless we already have one there
+            divotsTaken.Clear();
+            for (int i = 0; i < endingTiles.Count; i++)
+            {
+                (float x, float y) to = endingTiles[i].absolutePosition;
+                if (!divotsTaken.Contains((to.x - xSpacing / 2f, allZ)))
+                {
+                    GameObject anotherDivot = GameObject.Instantiate(endingDivot.gameObject);
+                    anotherDivot.gameObject.transform.position = new Vector3(to.x - xSpacing / 2f, endingDivot.transform.position.y, allZ);
+                    anotherDivot.transform.SetParent(divotsContainer.transform);
+                    anotherDivot.name = "Divot at " + anotherDivot.gameObject.transform.position;
+                    divotsTaken.Add((to.x - xSpacing / 2f, allZ));
+                }
+                if (!divotsTaken.Contains((to.x + xSpacing / 2f, allZ)))
+                {
+                    GameObject anotherDivot = GameObject.Instantiate(endingDivot.gameObject);
+                    anotherDivot.gameObject.transform.position = new Vector3(to.x + xSpacing / 2f, endingDivot.transform.position.y, allZ);
+                    anotherDivot.transform.SetParent(divotsContainer.transform);
+                    anotherDivot.name = "Divot at " + anotherDivot.gameObject.transform.position;
+                    divotsTaken.Add((to.x + xSpacing / 2f, allZ));
+                }
+            }
+            endingDivot.GetComponent<MeshRenderer>().enabled = false;
+        } else
+        {
+            Debug.LogWarning("Couldn't set divots! (Failed to find them)");
         }
     }
 

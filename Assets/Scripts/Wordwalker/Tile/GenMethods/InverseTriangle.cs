@@ -9,12 +9,6 @@ public class InverseTriangle : GenMethod
     private int maxSubs;
     private int minSubs; // also serves as subs on ending row
 
-    // Maybe base tile will be different for different gen methods? Maybe not...whatever
-    public GameObject baseTile;
-
-    // Same logic here
-    public GameObject endSide;
-
 
     public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
@@ -41,8 +35,6 @@ public class InverseTriangle : GenMethod
             numBlanks = generateNumBacktracks(word.Length, 0.25f, maxBacks+1);
         }
         settledRows = word.Length - backTracks + numBlanks;
-
-        endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 13f + 3f * settledRows);
 
         //First loop - generate decreasing rows
         List<Tile> starters = new List<Tile>();
@@ -135,6 +127,8 @@ public class InverseTriangle : GenMethod
 
         //Second loop - set adjacencies
         findAdjacencies(maxSubs);
+
+        generateStartAndEndDivots(starters, enders);
 
         corrects = generateWordPath(enders, word, backTracks, numBlanks);
         fillInOtherTiles(maxSubs);

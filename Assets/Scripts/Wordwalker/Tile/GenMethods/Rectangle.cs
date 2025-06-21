@@ -11,12 +11,6 @@ public class Rectangle : GenMethod
     // IN-USE
     private int settledSubs;
 
-    // Maybe base tile will be different for different gen methods? Maybe not...whatever
-    public GameObject baseTile;
-
-    // Same logic here
-    public GameObject endSide;
-
     public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
         this.difficulty = difficulty;
@@ -43,12 +37,11 @@ public class Rectangle : GenMethod
         }
         settledRows = word.Length - backTracks + numBlanks;
 
-        endSide.transform.position = new Vector3(endSide.transform.position.x, endSide.transform.position.y, 13f + 3f * settledRows);
-
         settledSubs = Random.Range(minSubs, maxSubs + 1);
 
         //First loop - generate constant number of subs in each row
         List<Tile> starters = new List<Tile>();
+        List<Tile> enders = new List<Tile>();
         for (int row = 0; row < settledRows; row++)
         {
             float oddRowOffset = row % 2 == 1 ? xSpacing / 2.0f : 0;
@@ -82,6 +75,7 @@ public class Rectangle : GenMethod
                 //Once done modifying the new tile, put it in the tileMap
                 tileMap[(t.coords.r, t.coords.s)] = t;
                 if (row == 0) starters.Add(t);
+                if (row == settledRows - 1) enders.Add(t);
 
                 allTiles.Add(t);
             }
@@ -91,6 +85,8 @@ public class Rectangle : GenMethod
 
         //Second loop - set adjacencies
         findAdjacencies(settledSubs);
+
+        generateStartAndEndDivots(starters, enders);
 
         corrects = generateWordPath(starters, word, backTracks, numBlanks);
         fillInOtherTiles(settledSubs);
