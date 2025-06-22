@@ -104,15 +104,25 @@ public class Tile : MonoBehaviour
     //Will either push down for a correct guess, or fall off for an incorrect one
     public void pressAnimation()
     {
-        if (correct) correctPress();
-        else incorrectPress();
+        if (correct) { 
+            correctPress();
+            SfxManager.instance.playSFXbyName("correct-step", this.transform, 1f);
+        }
+        else { 
+            incorrectPress();
+            SfxManager.instance.playSFXbyName("incorrect-step", this.transform, 1f);
+        }
     }
 
     // Will only reveal the tile as opposed to above
     public void revealAnimation()
     {
         // Maybe we do cam movement stuff here
-        if (correct) correctPress();
+        if (correct)
+        {
+            correctPress();
+            // TODO reveal sound effect
+        }
         else
         {
             textComponent.text = letter.ToString();

@@ -26,6 +26,10 @@ public class AnimationManager : MonoBehaviour
 
     private Coroutine activeMovingCoroutine;  // Constantly updated - there should only be one going at a time.
 
+    [SerializeField] private AudioClip realizationClip;
+    [SerializeField] private AudioClip collapseClip;
+    [SerializeField] private AudioClip footstepsClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +83,7 @@ public class AnimationManager : MonoBehaviour
     {
         playerAnimator.SetBool("Moving", true);
         playerAnimator.SetInteger("Direction", 0); // TODO direction
+        SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
         float steps = 50;
         float timeSec = 1.5f;
@@ -88,6 +93,8 @@ public class AnimationManager : MonoBehaviour
             playerCharacter.transform.position = Vector3.Lerp(startingPlayerPos, ledgeStartingPlayerPos, i / steps);
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
+
+        SfxManager.instance.endSFXLoop("footsteps");
 
         playerAnimator.SetBool("Moving", false);
         playerAnimator.SetTrigger("Idle");
@@ -121,6 +128,7 @@ public class AnimationManager : MonoBehaviour
 
         this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
         this.playerAnimator.SetBool("Moving", true);
+        SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
         for (float i = 0; i <= steps; i++)
         {
@@ -133,6 +141,7 @@ public class AnimationManager : MonoBehaviour
         //If no moves coming up afterwards, stop walking
         if (walkManager.queuedMoves.Count == 0)
         {
+            SfxManager.instance.endSFXLoop("footsteps");
             this.playerAnimator.SetBool("Moving", false);
             this.playerAnimator.SetTrigger("Idle");
         }
@@ -142,6 +151,7 @@ public class AnimationManager : MonoBehaviour
 
     public void realization()
     {
+        SfxManager.instance.playSFX(realizationClip, this.playerCharacter.transform, 1f);
         this.playerAnimator.SetTrigger("Realization");
     }
 
@@ -188,11 +198,15 @@ public class AnimationManager : MonoBehaviour
         this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
         this.playerAnimator.SetBool("Moving", true);
 
+        SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
+
         for (float i = 0; i <= steps; i++)
         {
             playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
+
+        SfxManager.instance.endSFXLoop("footsteps");
 
         // Will stop movement immediately
         this.playerAnimator.SetBool("Moving", false);
@@ -264,6 +278,8 @@ public class AnimationManager : MonoBehaviour
         playerAnimator.SetBool("Moving", true);
         playerAnimator.SetInteger("Direction", direction);
 
+        SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
+
         float steps = 50;
         float timeSec = 1f;
 
@@ -276,6 +292,8 @@ public class AnimationManager : MonoBehaviour
             playerCharacter.transform.position = Vector3.Lerp(lastKnownPlayerPos, ledgeEndingPlayerPos, i / steps);
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
+
+        SfxManager.instance.endSFXLoop("footsteps");
 
         playerAnimator.SetTrigger("WinRound");
         playerAnimator.SetBool("Moving", false);
@@ -291,6 +309,8 @@ public class AnimationManager : MonoBehaviour
         playerAnimator.SetBool("Moving", true);
         playerAnimator.SetInteger("Direction", direction);
 
+        SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
+
         float steps = 50;
         float timeSec = 1f;
 
@@ -299,6 +319,8 @@ public class AnimationManager : MonoBehaviour
             playerCharacter.transform.position = Vector3.Lerp(ledgeEndingPlayerPos, endingPlayerPos, i / steps);
             yield return new WaitForSeconds(1 / steps * timeSec);
         }
+
+        SfxManager.instance.endSFXLoop("footsteps");
 
         playerAnimator.SetInteger("Direction", 1);
         playerAnimator.SetTrigger("Idle");
@@ -312,5 +334,6 @@ public class AnimationManager : MonoBehaviour
         playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         playerAnimator.SetTrigger("Falling");
         playerManager.walterWhitePan();
+        SfxManager.instance.playSFX(collapseClip, this.playerCharacter.transform, 1f);
     }
 }

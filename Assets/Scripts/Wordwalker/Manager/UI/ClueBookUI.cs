@@ -11,6 +11,7 @@ using TMPro;
 public class ClueBookUI : MonoBehaviour
 {
     public Image clueBookPicture;
+    public Image imageInWaiting; // we will put this image on the "next" page of the book.
     public TextMeshProUGUI caption;
     public Animator clueBoxAnimator;      // Animation component
 
@@ -18,6 +19,8 @@ public class ClueBookUI : MonoBehaviour
     public float maxHeight;
 
     private string currImageAssetBundlePath;
+
+    [SerializeField] private AudioClip pageTurnClip;
 
     // Start is called before the first frame update
     void Start()
@@ -68,12 +71,15 @@ public class ClueBookUI : MonoBehaviour
 
     public void setPage(string imageName)
     {
-        StartCoroutine(WordGen.LoadImageAsset("imagedbs/" + currImageAssetBundlePath, imageName, clueBookPicture, (maxWidth, maxHeight)));
+        StartCoroutine(WordGen.LoadImageAsset("imagedbs/" + currImageAssetBundlePath, imageName, imageInWaiting, (maxWidth, maxHeight)));
     }
 
     private void turnClueBookPage()
     {
+        SfxManager.instance.playSFX(pageTurnClip, null, 1f);
         clueBoxAnimator.SetTrigger("gotoNextPage");
+        clueBookPicture.rectTransform.sizeDelta = imageInWaiting.rectTransform.sizeDelta;
+        clueBookPicture.sprite = imageInWaiting.sprite;
     }
 
     // TODO not sure what this was used for

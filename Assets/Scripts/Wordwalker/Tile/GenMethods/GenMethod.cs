@@ -125,7 +125,7 @@ public abstract class GenMethod : MonoBehaviour
         if(startingDivot != null && endingDivot != null)
         {
             startingDivot.GetComponent<MeshRenderer>().enabled = true;
-            Destroy(divotsContainer);
+            GameObject.Destroy(divotsContainer);
             divotsContainer = new GameObject();
             divotsContainer.name = "Divots container";
 

@@ -47,7 +47,6 @@ public class WalkManager : MonoBehaviour
     private List<Tile> whitelist; // correct tiles not yet stepped on- used by green item
     private List<Tile> allTiles; // every tile out there - used by red item
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -113,9 +112,10 @@ public class WalkManager : MonoBehaviour
     {
         if(queuedMoves.Count != 0)
         {
-            if(!isActivelyMoving)
+            if (!isActivelyMoving)
             {
                 isActivelyMoving = true;
+                
                 Tile pos = queuedMoves.Dequeue();
                 animationManager.moveAnim(pos);
 

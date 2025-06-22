@@ -14,6 +14,10 @@ public class ItemsScript : MonoBehaviour
     // Jump as many as 3 tiles away
     public static event Action blueItemUsed;
 
+    [SerializeField] private AudioClip greenItemClip;
+    [SerializeField] private AudioClip redItemClip;
+    [SerializeField] private AudioClip blueItemClip;
+
 
     public void useAnyItem(ItemType item)
     {
@@ -34,6 +38,9 @@ public class ItemsScript : MonoBehaviour
     public void useGreenItem()
     {
         greenItemUsed.Invoke();
+
+        // TODO move it to after the animation plays
+        SfxManager.instance.playSFX(greenItemClip, null, 1f);
     }
 
     public void useRedItem()

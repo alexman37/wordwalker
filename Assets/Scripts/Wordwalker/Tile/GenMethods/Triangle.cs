@@ -20,7 +20,7 @@ public class Triangle : GenMethod
 
         this.word = word;
 
-        Destroy(container);
+        GameObject.Destroy(container);
         container = new GameObject();
 
         // We'll have to keep track of the mins and maxes

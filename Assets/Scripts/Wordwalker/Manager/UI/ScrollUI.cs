@@ -18,6 +18,8 @@ public class ScrollUI : MonoBehaviour
     RectTransform scrollRect;
     Image img;
 
+    [SerializeField] private AudioClip unfurlClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,6 +94,8 @@ public class ScrollUI : MonoBehaviour
         // "Unfade" the scroll immediately, making it visible again
         Color col = img.color;
         img.color = new Color(col.r, col.g, col.b, 1);
+
+        SfxManager.instance.playSFX(unfurlClip, null, 1f);
 
         // Movement animation: Move up
         float steps = 30;

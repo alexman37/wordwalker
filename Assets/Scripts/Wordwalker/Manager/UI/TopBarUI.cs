@@ -137,13 +137,13 @@ public class TopBarUI : MonoBehaviour
         progressBar.rectTransform.sizeDelta = new Vector2(0, 1);
         foreach (GameObject tile in currProgressVis)
         {
-            Destroy(tile);
+            GameObject.Destroy(tile);
         }
         currProgressVis.Clear();
 
         foreach (GameObject tile in answerVis)
         {
-            Destroy(tile);
+            GameObject.Destroy(tile);
         }
         answerVis.Clear();
 
