@@ -129,7 +129,8 @@ public class SfxManager : MonoBehaviour
                 activeSequences[nameOfSequence][index].Play();
                 if(deleteOnPlay)
                 {
-                    GameObject.Destroy(activeSequences[nameOfSequence][index]);
+                    float clipLength = activeSequences[nameOfSequence][index].clip.length;
+                    GameObject.Destroy(activeSequences[nameOfSequence][index].gameObject, clipLength);
                     activeSequences[nameOfSequence][index] = null;
                 }
             }
@@ -147,7 +148,7 @@ public class SfxManager : MonoBehaviour
             {
                 if(audioSource != null)
                 {
-                    GameObject.Destroy(audioSource);
+                    GameObject.Destroy(audioSource.gameObject);
                 }
             }
             activeSequences.Remove(nameOfSequence);

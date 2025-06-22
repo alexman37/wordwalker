@@ -12,7 +12,7 @@ public class GameManagerSc : MonoBehaviour
 {
     private static bool IN_TESTING = false;
 
-    private static int numLevels = 2; //TODO: Increase default
+    private static int numLevels = 10; //TODO: Increase default
     private static int currLevel = 0;
     private static int totems = 0;
     private static int score = 0;
@@ -68,9 +68,9 @@ public class GameManagerSc : MonoBehaviour
         // INFLECTION POINT!
         // UNCOMMENT THIS IF YOU WANT TO BE ABLE TO START FROM THE WORDWALK SCENE.
         // COMMENT OUT IF YOU WANT TO BE ABLE TO SELECT A DATABASE OF YOUR LIKING FROM THE MENU
-         //firstTimeWordsLoad = "trivia/flags";
-         //localDBcopy = new DatabaseItem("trivia/flags", "Flags", null, null, 1, 100, "base/flags");
-         //IN_TESTING = true;
+         firstTimeWordsLoad = "trivia/flags";
+         localDBcopy = new DatabaseItem("trivia/flags", "Flags", null, null, 1, 100, "base/flags");
+         IN_TESTING = true;
     }
 
     private void OnEnable()
