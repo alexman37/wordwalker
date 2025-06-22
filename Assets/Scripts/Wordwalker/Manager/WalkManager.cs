@@ -47,6 +47,8 @@ public class WalkManager : MonoBehaviour
     private List<Tile> whitelist; // correct tiles not yet stepped on- used by green item
     private List<Tile> allTiles; // every tile out there - used by red item
 
+    [SerializeField] private List<AudioClip> correctNotes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -297,6 +299,7 @@ public class WalkManager : MonoBehaviour
         fogSheet.transform.position = new Vector3(fogSheet.transform.position.x, fogSheet.transform.position.y, GameManagerSc.foggyVision * GenMethod.ySpacing + 48);
         allTiles = null;
         whitelist = null;
+        SfxManager.instance.destroySFXSequence("correct-notes");
     }
 
     // (generation) set local copy of which tiles can be stepped on
@@ -304,6 +307,15 @@ public class WalkManager : MonoBehaviour
     {
         correctTiles.Clear();
         correctTiles = corrects;
+
+        AudioClip[] audioClips = new AudioClip[correctNotes.Count];
+        for(int i = 0; i < corrects.Count; i++)
+        {
+            corrects[i].order = i;
+            float appx = (float)i / (float)corrects.Count * (correctNotes.Count - 1);
+            audioClips[i] = correctNotes[Mathf.RoundToInt(Mathf.Clamp(appx, 0f, (float)(correctNotes.Count - 1f)))];
+        }
+        SfxManager.instance.setupSFXSequence("correct-notes", audioClips, 1f);
     }
 
     // (generation) set local copy of which tiles you can start the level by stepping on

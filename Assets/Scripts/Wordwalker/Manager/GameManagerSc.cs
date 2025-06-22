@@ -68,9 +68,9 @@ public class GameManagerSc : MonoBehaviour
         // INFLECTION POINT!
         // UNCOMMENT THIS IF YOU WANT TO BE ABLE TO START FROM THE WORDWALK SCENE.
         // COMMENT OUT IF YOU WANT TO BE ABLE TO SELECT A DATABASE OF YOUR LIKING FROM THE MENU
-         firstTimeWordsLoad = "trivia/flags";
-         localDBcopy = new DatabaseItem("trivia/flags", "Flags", null, null, 1, 100, "base/flags");
-         IN_TESTING = true;
+         //firstTimeWordsLoad = "trivia/flags";
+         //localDBcopy = new DatabaseItem("trivia/flags", "Flags", null, null, 1, 100, "base/flags");
+         //IN_TESTING = true;
     }
 
     private void OnEnable()

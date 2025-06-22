@@ -8349,6 +8349,7 @@ MonoBehaviour:
   revealed: 0
   marked: 0
   correct: 0
+  order: 0
   isBackRow: 0
   specType: 0
   physicalObject: {fileID: 0}
@@ -19060,6 +19061,20 @@ MonoBehaviour:
   scrollUI: {fileID: 219530963}
   clueBookUI: {fileID: 775207875}
   fogSheet: {fileID: 1579612826}
+  correctNotes:
+  - {fileID: 8300000, guid: 214bd4cf79813c042af83649e518ab51, type: 3}
+  - {fileID: 8300000, guid: b69c5846e82f84b48af7feda4f913451, type: 3}
+  - {fileID: 8300000, guid: f9ad6a194ddaf9248851d72b28c1bb3b, type: 3}
+  - {fileID: 8300000, guid: e8eac5765e375a24f84a8daebefe1c1d, type: 3}
+  - {fileID: 8300000, guid: 143c1466f0c1e224a87410dd663951e8, type: 3}
+  - {fileID: 8300000, guid: 0176edd39c7e47846bb0b95ba47a5087, type: 3}
+  - {fileID: 8300000, guid: 11e42dafedc6ef141b86749f5122f78c, type: 3}
+  - {fileID: 8300000, guid: 68d67f245fb4d0349bb7017077941682, type: 3}
+  - {fileID: 8300000, guid: 0adc2469639abc04982a6f977621332d, type: 3}
+  - {fileID: 8300000, guid: aa6112aa1d04f884d9f779f53e328630, type: 3}
+  - {fileID: 8300000, guid: 6712d2c3bf7ff2e47a1f8f82f918278b, type: 3}
+  - {fileID: 8300000, guid: 0681ee4d5452ac2428cad19eafc5eed7, type: 3}
+  - {fileID: 8300000, guid: 87dbf6168473f7c488c4a241737c8f3b, type: 3}
 --- !u!1001 &1575919926
 PrefabInstance:
   m_ObjectHideFlags: 0

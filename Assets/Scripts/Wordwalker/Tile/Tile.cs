@@ -24,6 +24,7 @@ public class Tile : MonoBehaviour
     public bool revealed;    // You know if the tile is correct or not.
     public bool marked;      // When marked as dangerous this tile cannot be stepped on until unmarked
     public bool correct;     // Is this tile part of the correct word path?
+    public int order;        // If correct, this tile is set to its position in the word
     public bool isBackRow;   // Is this tile in the back row? (If correct, you win.)
 
     public SpecialTile specType = SpecialTile.NONE; // If special then some of its behavior is changed
@@ -106,7 +107,7 @@ public class Tile : MonoBehaviour
     {
         if (correct) { 
             correctPress();
-            SfxManager.instance.playSFXbyName("correct-step", this.transform, 1f);
+            SfxManager.instance.useSFXSequence("correct-notes", order, false);
         }
         else { 
             incorrectPress();

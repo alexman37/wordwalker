@@ -98,7 +98,7 @@ public class SfxManager : MonoBehaviour
     }
 
     // Set up a sequence of sounds to be played
-    public void setupSFXSequence(string nameOfSequence, List<AudioClip> audioClips, float volumeLevel)
+    public void setupSFXSequence(string nameOfSequence, AudioClip[] audioClips, float volumeLevel)
     {
         List<AudioSource> audioSources = new List<AudioSource>();
 
@@ -117,7 +117,7 @@ public class SfxManager : MonoBehaviour
     {
         if(activeSequences.ContainsKey(nameOfSequence))
         {
-            if (activeSequences[nameOfSequence].Count >= index)
+            if (activeSequences[nameOfSequence].Count <= index)
             {
                 Debug.LogWarning($"Couldn't play audio sequence {nameOfSequence}, index {index}: Out of range");
             }
