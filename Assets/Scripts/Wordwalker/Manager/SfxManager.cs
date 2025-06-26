@@ -19,6 +19,8 @@ public class SfxManager : MonoBehaviour
     // Sequences are lists of sounds
     private Dictionary<string, List<AudioSource>> activeSequences;
 
+    private static float globalSFXVolume = 1f; // 0 - 1
+
     private void Awake()
     {
         if(instance == null)
@@ -27,6 +29,22 @@ public class SfxManager : MonoBehaviour
         }
         activeLoops = new Dictionary<string, AudioSource>();
         activeSequences = new Dictionary<string, List<AudioSource>>();
+    }
+
+    private void OnEnable()
+    {
+        SettingsMenu.toggledSfxVol += adjustGlobalSFXVolume;
+    }
+
+    private void OnDisable()
+    {
+        SettingsMenu.toggledSfxVol -= adjustGlobalSFXVolume;
+    }
+
+    public void adjustGlobalSFXVolume(float newPct)
+    {
+        globalSFXVolume = newPct;
+        // TODO Play a sound effect
     }
 
     // Play typical audio clip
@@ -39,7 +57,7 @@ public class SfxManager : MonoBehaviour
             audioSource = Instantiate(soundFXObject);
 
         audioSource.clip = audioClip;
-        audioSource.volume = volumeLevel;
+        audioSource.volume = volumeLevel * globalSFXVolume;
         audioSource.Play();
         float clipLength = audioSource.clip.length;
 
@@ -56,7 +74,7 @@ public class SfxManager : MonoBehaviour
             audioSource = Instantiate(soundFXObject);
 
         audioSource.clip = clipsInOrder[clipNames.IndexOf(clipName)];
-        audioSource.volume = volumeLevel;
+        audioSource.volume = volumeLevel * globalSFXVolume;
         audioSource.Play();
         float clipLength = audioSource.clip.length;
 
@@ -78,7 +96,7 @@ public class SfxManager : MonoBehaviour
 
             audioSource.loop = true;
             audioSource.clip = audioClip;
-            audioSource.volume = volumeLevel;
+            audioSource.volume = volumeLevel * globalSFXVolume;
             audioSource.Play();
         }
         else
@@ -126,6 +144,7 @@ public class SfxManager : MonoBehaviour
                 Debug.Log($"The audio sequence {nameOfSequence} index {index} was already used and deleted!");
             }
             else {
+                activeSequences[nameOfSequence][index].volume *= globalSFXVolume;
                 activeSequences[nameOfSequence][index].Play();
                 if(deleteOnPlay)
                 {

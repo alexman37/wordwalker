@@ -33,15 +33,8 @@ public class GameLengthMod : MonoBehaviour
         lengthText.text = "Length: " + lengthName;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void openLengthMod()
     {
-        Debug.Log("open length");
         StopCoroutine(movingCoroutineOut);
         movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, 0));
         StartCoroutine(movingCoroutineIn);

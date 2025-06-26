@@ -7,8 +7,8 @@ using Newtonsoft.Json;
 
 public static class GlobalStatMap
 {
-    public static StatMap statMap;
-    private static string globalStatsFilePath = Path.Combine(Application.persistentDataPath, "wordwalker/globalStats.json");
+    public static StatMap statMap = new StatMap();
+    private static string globalStatsFilePath = Path.Combine(Application.persistentDataPath, "wordwalker", "globalStats.json");
 
     public static void saveGlobalStatMap()
     {
@@ -53,6 +53,9 @@ public static class GlobalStatMap
             {
                 Debug.LogError("FAILED to load global stats: " + e);
             }
+        } else
+        {
+            Debug.LogWarning("Could not load global stat map.");
         }
         return loadedData;
     }
@@ -119,11 +122,30 @@ public static class GlobalStatMap
         statMap.flags.Remove(flagName);
         saveGlobalStatMap();
     }
+
+    public static void ModifySettings(SettingsValues settingsValues)
+    {
+        statMap.settingsValues = settingsValues;
+        saveGlobalStatMap();
+    }
+
+    public static void resetAllData()
+    {
+        // Delete everything but your preferences
+        SettingsValues settings = statMap.settingsValues;
+        File.Delete(globalStatsFilePath);
+        statMap = new StatMap();
+        statMap.settingsValues = settings;
+    }
 }
 
 [System.Serializable]
 public class StatMap
 {
+    ///  Settings
+    public SettingsValues settingsValues;
+
+    ///  Other stats
     public Dictionary<string, int> intMap;
     public Dictionary<string, float> floatMap;
     public Dictionary<string, string> textMap;
@@ -132,6 +154,11 @@ public class StatMap
 
     public StatMap()
     {
-
+        settingsValues = new SettingsValues();
+        intMap = new Dictionary<string, int>();
+        floatMap = new Dictionary<string, float>();
+        textMap = new Dictionary<string, string>();
+        boolMap = new Dictionary<string, bool>();
+        flags = new HashSet<string>();
     }
 }

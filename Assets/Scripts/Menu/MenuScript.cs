@@ -52,6 +52,7 @@ public class MenuScript : MonoBehaviour
     public void startNewGame()
     {
         Debug.Log("Setting up new game with DB " + dbItem.databaseId);
+        MusicManager.inGameMusicFade(true);
         GameManagerSc.setParametersOnStart(numLevels, dbItem, selectedChallenges);
         SceneManager.LoadScene(1);
     }

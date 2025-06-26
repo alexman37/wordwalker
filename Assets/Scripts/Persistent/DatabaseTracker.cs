@@ -145,6 +145,14 @@ public static class DatabaseTracker
             saveDatabaseTracker(id);
         }
     }
+
+    // Clear all data
+    public static void resetAllData()
+    {
+        // No worries - it'll rebuild itself as needed
+        Directory.Delete(dataTrackerFilePath, true);
+        databaseTracker = new DatabasePersistentStorage();
+    }
 }
 
 /*
