@@ -7,8 +7,8 @@ using Newtonsoft.Json;
 
 public static class GlobalStatMap
 {
-    public static StatMap statMap = new StatMap();
     private static string globalStatsFilePath = Path.Combine(Application.persistentDataPath, "wordwalker", "globalStats.json");
+    public static StatMap statMap = loadGlobalStatMap();
 
     public static void saveGlobalStatMap()
     {
@@ -68,6 +68,20 @@ public static class GlobalStatMap
         } else
         {
             statMap.intMap.Add(varName, val);
+        }
+        saveGlobalStatMap();
+    }
+
+    // Increment an integer value if it exists
+    public static void IncrementInt(string varName, int inc)
+    {
+        if (statMap.intMap.ContainsKey(varName))
+        {
+            statMap.intMap[varName] += inc;
+        }
+        else
+        {
+            Debug.LogWarning("Tried to increment " + varName + " but it does not exist");
         }
         saveGlobalStatMap();
     }

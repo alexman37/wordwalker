@@ -255,6 +255,13 @@ public static class WordGen
         return returned;
     }
 
+    // You can skip WordGen completely in the case of Daily word.
+    public static void Skip()
+    {
+        Debug.Log("Word Gen READY (skipped)");
+        greenlight = true;
+    }
+
     private static WordDatabase setupDatabase(TextAsset raw)
     {
         WordDatabase newDB;

@@ -35,11 +35,13 @@ public class MusicManager : MonoBehaviour
     private void OnEnable()
     {
         SettingsMenu.toggledMusicVol += adjustGlobalMusicVolume;
+        PauseMenu.toggledMusicVol += adjustGlobalMusicVolume;
     }
 
     private void OnDisable()
     {
         SettingsMenu.toggledMusicVol -= adjustGlobalMusicVolume;
+        PauseMenu.toggledMusicVol -= adjustGlobalMusicVolume;
     }
 
     // In-game music handler

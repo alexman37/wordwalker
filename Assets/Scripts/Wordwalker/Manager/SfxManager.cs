@@ -34,11 +34,13 @@ public class SfxManager : MonoBehaviour
     private void OnEnable()
     {
         SettingsMenu.toggledSfxVol += adjustGlobalSFXVolume;
+        PauseMenu.toggledSfxVol += adjustGlobalSFXVolume;
     }
 
     private void OnDisable()
     {
         SettingsMenu.toggledSfxVol -= adjustGlobalSFXVolume;
+        PauseMenu.toggledSfxVol -= adjustGlobalSFXVolume;
     }
 
     public void adjustGlobalSFXVolume(float newPct)

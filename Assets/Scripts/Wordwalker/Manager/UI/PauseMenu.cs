@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
-public class SettingsMenu : WidgetPopup
+// The pause menu functions similarly to the settings menu
+public class PauseMenu : WidgetPopup
 {
     // appearance
     public Sprite checkboxChecked;
     public Sprite checkboxUnchecked;
     public Image checkbox;
-    public Image[] buttonGroupImgs;
-    public Button[] buttonGroup;
     public Slider musicVolSlider;
     public TextMeshProUGUI musicVolText;
     public Slider sfxVolSlider;
     public TextMeshProUGUI sfxVolText;
-    public GameObject clearData;
-    public GameObject resetConfirmation;
+    public GameObject returnToMM;
+    public GameObject returnConfirm;
 
     // stat
     public SettingsValues settingsValues = new SettingsValues();
@@ -43,9 +42,6 @@ public class SettingsMenu : WidgetPopup
 
         musicVolSlider.onValueChanged.AddListener(adjustMusicVolSlider);
         sfxVolSlider.onValueChanged.AddListener(adjustSfxVolSlider);
-        buttonGroup[0].onClick.AddListener(() => selectScreenOrientation(ScreenOrientationSetting.LEFT));
-        buttonGroup[1].onClick.AddListener(() => selectScreenOrientation(ScreenOrientationSetting.TOP));
-        buttonGroup[2].onClick.AddListener(() => selectScreenOrientation(ScreenOrientationSetting.BOTTOM));
     }
 
     void initializeValuesVisually()
@@ -53,7 +49,6 @@ public class SettingsMenu : WidgetPopup
         adjustMusicVolSlider(settingsValues.musicVolume);
         adjustSfxVolSlider(settingsValues.sfxVolume);
         setInGameMusic(settingsValues.inGameMusic);
-        selectScreenOrientation(settingsValues.screenOrientationSetting);
     }
 
     public void toggleInGameMusic()
@@ -82,7 +77,6 @@ public class SettingsMenu : WidgetPopup
         musicVolText.text = (newVal * 100f).ToString().Split('.')[0];
         musicVolSlider.value = newVal;
 
-
         toggledMusicVol.Invoke(newVal);
     }
 
@@ -92,51 +86,24 @@ public class SettingsMenu : WidgetPopup
         sfxVolText.text = (newVal * 100f).ToString().Split('.')[0];
         sfxVolSlider.value = newVal;
 
-
         toggledSfxVol.Invoke(newVal);
     }
 
-    public void selectScreenOrientation(ScreenOrientationSetting screenOr)
+    public void attemptReturn()
     {
-        settingsValues.screenOrientationSetting = screenOr;
-        foreach(Image button in buttonGroupImgs)
-        {
-            button.color = new Color(0.3f, 0.3f, 0.3f, 1);
-        }
-        switch(screenOr)
-        {
-            case ScreenOrientationSetting.LEFT:
-                buttonGroupImgs[0].color = new Color(0.55f, 0.5f, 0.2f, 1);
-                break;
-            case ScreenOrientationSetting.TOP:
-                buttonGroupImgs[1].color = new Color(0.55f, 0.5f, 0.2f, 1);
-                break;
-            case ScreenOrientationSetting.BOTTOM:
-                buttonGroupImgs[2].color = new Color(0.55f, 0.5f, 0.2f, 1);
-                break;
-        }
-
-        toggledScreenOr.Invoke(screenOr);
+        returnToMM.SetActive(false);
+        returnConfirm.SetActive(true);
     }
 
-    public void attemptReset()
+    public void backoffReturn()
     {
-        clearData.SetActive(false);
-        resetConfirmation.SetActive(true);
+        returnToMM.SetActive(true);
+        returnConfirm.SetActive(false);
     }
 
-    public void backoffReset()
+    public void exitToMainMenu()
     {
-        clearData.SetActive(true);
-        resetConfirmation.SetActive(false);
-    }
-
-    public void resetAllData()
-    {
-        DatabaseTracker.resetAllData();
-        GlobalStatMap.resetAllData();
-        clearData.SetActive(true);
-        resetConfirmation.SetActive(false);
+        GameManagerSc.returnToMainMenu();
     }
 
     public void loadSettings()
@@ -146,12 +113,13 @@ public class SettingsMenu : WidgetPopup
         {
             StatMap stats = GlobalStatMap.loadGlobalStatMap();
             settings = stats.settingsValues;
-        } catch(Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogWarning("Failed to load settings, using defaults");
             settings = new SettingsValues();
         }
-        
+
         settingsValues = settings;
     }
 
@@ -159,37 +127,4 @@ public class SettingsMenu : WidgetPopup
     {
         GlobalStatMap.ModifySettings(settingsValues);
     }
-
-}
-
-[System.Serializable]
-public class SettingsValues
-{
-    public float musicVolume;  // 0 - 1
-    public float sfxVolume;  // 0 - 1
-    public bool inGameMusic; // 0 - 1
-    public ScreenOrientationSetting screenOrientationSetting;
-
-    public SettingsValues(float m, float s, bool i, ScreenOrientationSetting so)
-    {
-        musicVolume = m;
-        sfxVolume = s;
-        inGameMusic = i;
-        screenOrientationSetting = so;
-    }
-
-    public SettingsValues()
-    {
-        musicVolume = 0.5f;
-        sfxVolume = 0.5f;
-        inGameMusic = false;
-        screenOrientationSetting = ScreenOrientationSetting.LEFT;
-    }
-}
-
-public enum ScreenOrientationSetting
-{
-    LEFT,
-    TOP,
-    BOTTOM
 }

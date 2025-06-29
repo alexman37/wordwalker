@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class MenuScript : MonoBehaviour
 {
@@ -17,21 +18,12 @@ public class MenuScript : MonoBehaviour
 
     public GameObject titleCard;
     public GameObject playButtons;
-    public GameObject adventureMenu;
-
-    private float mult = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         newGame += (_,__) => { };
         selectedChallenges = new HashSet<Challenge>();
-    }
-
-
-    public void toggleAdventureMenu(bool onOrOff)
-    {
-        adventureMenu.gameObject.SetActive(onOrOff);
     }
 
 
@@ -44,11 +36,16 @@ public class MenuScript : MonoBehaviour
         this.dbItem = database;
     }
 
-    private void updateMult(float newMult)
+    // Play the daily word
+    public void startDailyWordGame(string word, string defn)
     {
-        mult = newMult;
+        Debug.Log("Starting Daily word game");
+        MusicManager.inGameMusicFade(true);
+        GameManagerSc.setDailyWordParams(word, defn, selectedChallenges);
+        SceneManager.LoadScene(1);
     }
 
+    // Start new adventure / free play game
     public void startNewGame()
     {
         Debug.Log("Setting up new game with DB " + dbItem.databaseId);

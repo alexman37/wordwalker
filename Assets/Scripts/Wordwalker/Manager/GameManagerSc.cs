@@ -19,6 +19,7 @@ public class GameManagerSc : MonoBehaviour
 
     public static int foggyVision = 3;   // How far ahead can you see when fog is enabled?
 
+    public static bool dailyWord = false;  // Daily word mode has some key differences from adventure / free play
     public static HashSet<MenuScript.Challenge> selectedChallenges = new HashSet<MenuScript.Challenge>(); // Mostly used by tile generation
 
     private static string firstTimeWordsLoad = null;
@@ -100,8 +101,29 @@ public class GameManagerSc : MonoBehaviour
         }
     }
 
+    public static void setDailyWordParams(string word, string defn, HashSet<MenuScript.Challenge> challenges)
+    {
+        dailyWord = true;
+        WordGen.Skip();
+
+        GlobalStatMap.AddFlag("dailyWordPlayedToday");
+
+        // Reset in-game variables to defaults
+        score = 0;
+        totems = 0;
+        currLevel = 0;
+
+        wordList[0] = new WordGen.Word(word, defn);
+
+        Debug.Log("Setting daily parameters");
+        numLevels = 1;
+        selectedChallenges = challenges;
+    }
+
     public static void setParametersOnStart(int numLvl, DatabaseItem dbItem, HashSet<MenuScript.Challenge> challenges)
     {
+        dailyWord = false;
+
         // Reset in-game variables to defaults
         score = 0;
         totems = 3;
@@ -135,20 +157,37 @@ public class GameManagerSc : MonoBehaviour
             PlayerManager.greenlight &&
             WordGen.greenlight)
         {
-            // Depending on if it's a text or image DB we will enable either the scroll or clueBook
-            if (localDBcopy.imageDB != null) {
-                clueBookUI.setImageAssetBundlePath(localDBcopy.imageDB);
-                scrollUI.gameObject.SetActive(false);
-            }
-            else { clueBookUI.gameObject.SetActive(false);}
+            /// DAILY WORD
+            if(dailyWord)
+            {
+                clueBookUI.gameObject.SetActive(false);
 
-            // Oftentimes in debugging we like to start the game from the wordwalk scene, so this check is necessary for that
-            if(IN_TESTING)
+                // TODO Keep track of streak? maybe?
+                // DatabaseTracker.startNewGame(localDBcopy.databaseId);
+            }
+
+            /// FREE PLAY
+            else
             {
-                wordList = WordGen.getTailoredList(numLevels);
-            } else
-            {
-                wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
+                // Depending on if it's a text or image DB we will enable either the scroll or clueBook
+                if (localDBcopy.imageDB != null)
+                {
+                    clueBookUI.setImageAssetBundlePath(localDBcopy.imageDB);
+                    scrollUI.gameObject.SetActive(false);
+                }
+                else { clueBookUI.gameObject.SetActive(false); }
+
+                // Oftentimes in debugging we like to start the game from the wordwalk scene, so this check is necessary for that
+                if (IN_TESTING)
+                {
+                    wordList = WordGen.getTailoredList(numLevels);
+                }
+                else
+                {
+                    wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
+                }
+
+                DatabaseTracker.startNewGame(localDBcopy.databaseId);
             }
 
             Debug.Log("Starting the game");
@@ -162,7 +201,6 @@ public class GameManagerSc : MonoBehaviour
             WordGen.greenlight = false;
 
             newGame.Invoke();
-            DatabaseTracker.startNewGame(localDBcopy.databaseId);
             goToNextLevel();
         }
     }
@@ -193,13 +231,26 @@ public class GameManagerSc : MonoBehaviour
                 // TODO a little more with this...should be the "treasure room"
             }
             uiManager.SetNewRoom(currLevel);
-            Tilemap.regenerateTileMap(wordList[currLevel - 1], localDBcopy.maxBacktracks);
-            DatabaseTracker.addToCycle(localDBcopy.databaseId, wordList[currLevel - 1]);
-            // Checks exactly when to reset the word cycle
-            if(wordList[currLevel-1].word == WordGen.resetCycleOnThisWord)
+
+            /// DAILY WORD
+            if(dailyWord)
             {
-                DatabaseTracker.resetCycle(localDBcopy.databaseId);
+                string onlyWord = wordList[currLevel - 1].word;
+                Tilemap.regenerateTileMap(wordList[currLevel - 1], Mathf.FloorToInt(onlyWord.Length / 7) + Mathf.FloorToInt(onlyWord.Length / 10));
             }
+
+            /// FREE PLAY
+            else
+            {
+                Tilemap.regenerateTileMap(wordList[currLevel - 1], localDBcopy.maxBacktracks);
+                DatabaseTracker.addToCycle(localDBcopy.databaseId, wordList[currLevel - 1]);
+                // Checks exactly when to reset the word cycle
+                if (wordList[currLevel - 1].word == WordGen.resetCycleOnThisWord)
+                {
+                    DatabaseTracker.resetCycle(localDBcopy.databaseId);
+                }
+            }
+            
             levelReady.Invoke();
         }
     }
@@ -249,10 +300,15 @@ public class GameManagerSc : MonoBehaviour
         updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, score);
 
         levelWon.Invoke();
-        // Update persistent storage stats to reflect your win the moment it happens!
-        // TODO
+
         if(currLevel == numLevels) {
-            DatabaseTracker.winGame(localDBcopy.databaseId, getOfficialScore());
+            if(dailyWord)
+            {
+                GlobalStatMap.IncrementInt("dailyWordStreak", 1);
+            } else
+            {
+                DatabaseTracker.winGame(localDBcopy.databaseId, getOfficialScore());
+            }
         }
     }
 
@@ -264,6 +320,10 @@ public class GameManagerSc : MonoBehaviour
     public static void signifyGameOver(LossReason lr)
     {
         gameOver.Invoke(lr);
+        if(dailyWord)
+        {
+            GlobalStatMap.AddOrModifyInt("dailyWordStreak", 0);
+        }
     }
 
     public static void returnToMainMenu()

@@ -1,0 +1,424 @@
+REPLETE|(adjective) Fully stocked or filled.
+DEMURE|(adjective) Modest or reserved.
+INGENUOUS|(adjective) Innocent and naive.
+SANGUINE|(adjective) Optimistic or hopeful, especially in a bad situation.
+MODICUM|(noun) A small amount.
+BOMBASTIC|(adjective) High-sounding but meaningless language.
+AUSTERE|(adjective) Strict or plain in style or manner.
+INCESSANT|(adjective) Continuing without pause.
+MAGNATE|(noun) A powerful or influential person.
+LOQUACIOUS|(adjective) Very talkative.
+DISCREET|(adjective) Careful to avoid causing offense or attention.
+MALEVOLENT|(adjective) Wishing harm to others.
+KINETIC|(adjective) Relating to motion.
+CANNY|(adjective) Clever and cautious, especially in business.
+NEMESIS|(noun) A long-standing rival or source of downfall.
+DESPOT|(noun) A tyrannical ruler.
+OVERT|(adjective) Open and observable.
+MERCURIAL|(adjective) Changeable or unpredictable in mood.
+CONCUR|(verb) To agree or happen simultaneously.
+DEBACLE|(noun) A sudden and complete failure.
+FERVENT|(adjective) Passionate and intense.
+ESOTERIC|(adjective) Understood by a select few.
+EBULLIENCE|(noun) High energy or enthusiasm.
+IDYLLIC|(adjective) Extremely peaceful and picturesque.
+EXPEDITE|(verb) To speed up a process.
+HYPOCRISY|(noun) Pretending to have moral standards one doesn’t follow.
+JUXTAPOSITION|(noun) Placing two things side by side for contrast.
+VEHEMENT|(adjective) Forceful and intense.
+PROLIFIC|(adjective) Highly productive or fruitful.
+DEBILITATE|(verb) To weaken or drain strength.
+TEMERITY|(noun) Reckless boldness.
+UNCANNY|(adjective) Strange or mysterious, especially in an unsettling way.
+ENMITY|(noun) Hatred or hostility.
+FLIPPANT|(adjective) Not showing a serious attitude.
+TACITURN|(adjective) Quiet or reserved in speech.
+CAPRICIOUS|(adjective) Impulsive or unpredictable.
+GARRULOUS|(adjective) Excessively talkative.
+SUPERCILIOUS|(adjective) Arrogantly superior or condescending.
+COMMENSURATE|(adjective) Equal or proportionate.
+SOLACE|(noun) Comfort in sorrow or distress.
+VAPID|(adjective) Dull or lacking interest.
+INIMICAL|(adjective) Harmful or hostile.
+LAMENT|(verb) To express sorrow or regret.
+SYNERGY|(noun) Combined power greater than individual efforts.
+INCORRIGIBLE|(adjective) Not able to be corrected or reformed.
+DOCILE|(adjective) Submissive and easy to control.
+RESOLUTE|(adjective) Determined and unwavering.
+DOGMATIC|(adjective) Stubbornly opinionated.
+ECLECTIC|(adjective) Choosing from a wide variety.
+ABDICATE|(verb) To give up a position of power or responsibility.
+FALLACY|(noun) A mistaken belief or error in reasoning.
+PRESCIENT|(adjective) Having foresight or knowledge of the future.
+DISCONCERTING|(adjective) Causing confusion or unease.
+INEXORABLE|(adjective) Unstoppable or relentless.
+EQUANIMITY|(noun) Calmness and composure.
+NEBULOUS|(adjective) Vague or unclear.
+BERATE|(verb) To scold harshly.
+BASTION|(noun) A stronghold or defender of principles.
+FOIBLE|(noun) A minor weakness or flaw.
+CLANDESTINE|(adjective) Secret or hidden.
+IRASCIBLE|(adjective) Easily angered or irritable.
+PEJORATIVE|(adjective) Expressing disapproval.
+REBUKE|(verb) To criticize sharply.
+BREVITY|(noun) Shortness or conciseness.
+LURID|(adjective) Shocking or sensational.
+NOXIOUS|(adjective) Harmful or toxic.
+DISPARAGE|(verb) To belittle or criticize.
+PRETENTIOUS|(adjective) Attempting to impress with exaggerated importance.
+OPULENT|(adjective) Rich and luxurious.
+EXACERBATE|(verb) To make worse or more severe.
+SECULAR|(adjective) Non-religious or worldly.
+SCRUTINIZE|(verb) To examine closely.
+NEOPHYTE|(noun) A beginner or novice.
+PATHOS|(noun) An appeal to emotion.
+JUXTAPOSE|(verb) To place side by side for contrast.
+TIRADE|(noun) A long, angry speech.
+POLEMIC|(noun) A strong written or verbal attack.
+INDIGNANT|(adjective) Angry at something unjust.
+CAUSTIC|(adjective) Biting in wit; capable of burning.
+TORPID|(adjective) Inactive or sluggish.
+STOIC|(adjective) Unaffected by emotion or pain.
+ABSOLVE|(verb) To clear of guilt or blame.
+FOMENT|(verb) To stir up or incite.
+QUAGMIRE|(noun) A difficult or precarious situation.
+ODIOUS|(adjective) Extremely unpleasant or repulsive.
+EGREGIOUS|(adjective) Outstandingly bad or shocking.
+SARDONIC|(adjective) Grimly mocking or cynical.
+EDIFY|(verb) To instruct morally or intellectually.
+AFFABLE|(adjective) Friendly and easy to talk to.
+SERVILE|(adjective) Overly submissive or eager to serve.
+HARANGUE|(noun) A lengthy, aggressive speech.
+COMPLACENT|(adjective) Self-satisfied and unconcerned.
+QUIXOTIC|(adjective) Idealistic but impractical.
+PROCLIVITY|(noun) A natural tendency or inclination.
+LEVITY|(noun) Lightness or humor, especially in a serious situation.
+ABJECT|(adjective) Extremely bad or degrading; hopeless.
+GRATUITOUS|(adjective) Unnecessary or uncalled for.
+OMINOUS|(adjective) Threatening or foreboding.
+MISCONSTRUE|(verb) To misunderstand.
+PROVOCATIVE|(adjective) Causing a strong reaction, especially deliberately.
+PRECARIOUS|(adjective) Dangerous or unstable.
+RETICENT|(adjective) Reserved or reluctant to speak.
+COERCE|(verb) To force someone by pressure or threats.
+CALLOUS|(adjective) Emotionally insensitive or unfeeling.
+TACTFUL|(adjective) Diplomatic and considerate.
+INEFFABLE|(adjective) Too great to be expressed in words.
+PROPENSITY|(noun) A natural tendency or behavior.
+VILIFY|(verb) To speak badly of someone publicly.
+EBULLIENT|(adjective) Cheerful and full of energy.
+PENCHANT|(noun) A strong liking or tendency.
+GREGARIOUS|(adjective) Sociable and outgoing.
+SPURIOUS|(adjective) False or not genuine.
+REDOLENT|(adjective) Strongly reminiscent or suggestive of something.
+PARIAH|(noun) An outcast.
+HARROWING|(adjective) Extremely distressing or painful.
+PROSAIC|(adjective) Dull or unimaginative.
+CASTIGATE|(verb) To criticize severely.
+OBSTINATE|(adjective) Stubbornly refusing to change.
+JOCULAR|(adjective) Humorous or playful.
+OSTENSIBLE|(adjective) Stated or appearing to be true, but not necessarily so.
+ZENITH|(noun) The highest point or peak.
+FLOURISH|(verb) To thrive or prosper.
+RANCOROUS|(adjective) Full of resentment or bitterness.
+INSATIABLE|(adjective) Impossible to satisfy.
+HEINOUS|(adjective) Shockingly wicked.
+REPUDIATE|(verb) To reject or disown.
+IMPLACABLE|(adjective) Unable to be calmed or satisfied.
+ERUDITE|(adjective) Learned or scholarly.
+QUELL|(verb) To suppress or put an end to.
+COPIOUS|(adjective) Abundant or plentiful.
+AMICABLE|(adjective) Peaceable and friendly.
+OFFICIOUS|(adjective) Meddlesome or overly eager to offer help.
+MANIFEST|(adjective) Clear and obvious to the eye or mind.
+ENUMERATE|(verb) To count or list.
+TRUCULENT|(adjective) Fierce and aggressive.
+INANE|(adjective) Silly or lacking meaning.
+VERACITY|(noun) Truthfulness.
+VOCIFEROUS|(adjective) Loud and forceful.
+SURREPTITIOUS|(adjective) Done secretly or stealthily.
+STRATAGEM|(noun) A clever scheme for achieving a goal.
+TERSE|(adjective) Sparing in words; abrupt.
+PRAGMATIC|(adjective) Practical and realistic.
+INSULAR|(adjective) Narrow-minded or isolated.
+PERSPICACIOUS|(adjective) Having a sharp insight or understanding.
+MELANCHOLY|(noun) Deep sadness.
+UNEQUIVOCAL|(adjective) Clear and unambiguous.
+CONGENIAL|(adjective) Pleasant or compatible.
+FACETIOUS|(adjective) Joking or humorous, often inappropriately.
+INVECTIVE|(noun) Insulting or abusive language.
+MITIGATE|(verb) To lessen the severity.
+IMMACULATE|(adjective) Perfectly clean or free from flaws.
+FRIVOLOUS|(adjective) Not serious or important.
+DESOLATE|(adjective) Empty, bleak, or abandoned.
+PERTINENT|(adjective) Relevant or applicable.
+REFUTE|(verb) To prove false or incorrect.
+MUNIFICENT|(adjective) Very generous.
+DEFERENCE|(noun) Respect or courteous regard.
+EMPIRICAL|(adjective) Based on observation or experience.
+SALUBRIOUS|(adjective) Healthful or promoting well-being.
+SKEPTICAL|(adjective) Doubtful or questioning.
+CRAVEN|(adjective) Cowardly.
+CHICANERY|(noun) Trickery or deceit.
+SAGACITY|(noun) Wisdom and good judgment.
+GRAVITAS|(noun) Seriousness or dignity.
+MOROSE|(adjective) Gloomy or sullen.
+VOLATILE|(adjective) Likely to change suddenly and unpredictably.
+EPHEMERAL|(adjective) Lasting a very short time.
+INSIPID|(adjective) Lacking flavor or interest.
+PLACATE|(verb) To calm or appease.
+ANOMALY|(noun) Something unusual or irregular.
+DEBUNK|(verb) To expose as false or exaggerated.
+COLLOQUIAL|(adjective) Informal or conversational.
+AUSPICIOUS|(adjective) Favorable or promising.
+RELEGATE|(verb) To assign to a lower position.
+SOPORIFIC|(adjective) Causing sleepiness.
+GAINSAY|(verb) To deny or contradict.
+PRUDENT|(adjective) Wise and careful in action.
+INNATE|(adjective) Inborn or natural.
+INCISIVE|(adjective) Clear, sharp, and direct.
+MALADROIT|(adjective) Clumsy or unskillful.
+UBIQUITY|(noun) The state of being everywhere at once.
+BENIGN|(adjective) Gentle; not harmful.
+MAVERICK|(noun) An independent thinker who refuses conformity.
+SALIENT|(adjective) Most noticeable or important.
+MAXIM|(noun) A short statement expressing a general truth.
+LISTLESS|(adjective) Lacking energy or interest.
+SAGACIOUS|(adjective) Wise and insightful.
+INTONATION|(noun) The rise and fall of the voice in speaking.
+EXONERATE|(verb) To officially clear of wrongdoing.
+CACOPHONY|(noun) A harsh, discordant mixture of sounds.
+FURTIVE|(adjective) Secretive or sneaky.
+CRYPTIC|(adjective) Mysterious or obscure.
+MYOPIC|(adjective) Shortsighted or lacking foresight.
+SUCCINCT|(adjective) Brief and clearly expressed.
+FRACTIOUS|(adjective) Irritable and quarrelsome.
+ACCOST|(verb) To approach and speak aggressively or boldly.
+ADULATION|(noun) Excessive praise or flattery.
+MISANTHROPE|(noun) A person who dislikes others.
+QUINTESSENTIAL|(adjective) Representing the perfect example.
+QUIZZICAL|(adjective) Expressing puzzlement or curiosity.
+DESULTORY|(adjective) Lacking purpose or consistency.
+SCATHING|(adjective) Harshly critical.
+EMULATE|(verb) To imitate or match.
+RUDIMENTARY|(adjective) Basic or elementary.
+FORTUITOUS|(adjective) Happening by chance, often lucky.
+INUNDATE|(verb) To flood or overwhelm.
+PARAGON|(noun) A perfect example of something.
+APATHY|(noun) Lack of interest or emotion.
+VORACIOUS|(adjective) Very hungry or eager.
+SERENE|(adjective) Calm and peaceful.
+MALLEABLE|(adjective) Easily shaped or influenced.
+EXACERBATION|(noun) A worsening or aggravation.
+DISREPUTE|(noun) Loss of reputation or respect.
+PUERILE|(adjective) Childishly silly or immature.
+UBIQUITOUS|(adjective) Present everywhere at once.
+SLANDER|(verb) To defame by spreading rumors or lies.
+UNCTUOUS|(adjective) Excessively flattering or insincere.
+OBLIVIOUS|(adjective) Unaware or unconscious.
+TURPITUDE|(noun) Wickedness or moral corruption.
+PARADIGM|(noun) A model or pattern.
+DILATORY|(adjective) Slow to act or procrastinating.
+POIGNANT|(adjective) Deeply touching or emotionally moving.
+INTRINSIC|(adjective) Belonging naturally; inherent.
+SOLVENT|(adjective) Financially able to pay debts.
+REVERENT|(adjective) Deeply respectful.
+HAUGHTY|(adjective) Arrogantly superior.
+MAUDLIN|(adjective) Overly sentimental.
+TREPIDATION|(noun) Fear or anxiety about something that may happen.
+STALWART|(adjective) Loyal, reliable, and hardworking.
+INDELIBLE|(adjective) Permanent or unforgettable.
+MUNDANE|(adjective) Ordinary or dull.
+REPROACH|(verb) To criticize or express disappointment.
+VERDANT|(adjective) Green and lush.
+STRINGENT|(adjective) Strict or precise.
+ASTUTE|(adjective) Clever or perceptive.
+SCINTILLATING|(adjective) Sparkling or brilliantly clever.
+GERMANE|(adjective) Relevant or appropriate.
+FRUGAL|(adjective) Economical and careful with money.
+OMNISCIENT|(adjective) All-knowing.
+RHAPSODIZE|(verb) To speak or write with great enthusiasm.
+HIATUS|(noun) A break or gap in continuity.
+DELUGE|(noun) A flood or overwhelming amount.
+DELIBERATE|(adjective) Intentional or careful.
+COPACETIC|(adjective) Very satisfactory or fine.
+AXIOM|(noun) A universally accepted truth or principle.
+INNOCUOUS|(adjective) Harmless or inoffensive.
+INCONGRUOUS|(adjective) Out of place or inconsistent.
+PARSIMONIOUS|(adjective) Extremely frugal or stingy.
+BOISTEROUS|(adjective) Noisy and lively.
+CONSPICUOUS|(adjective) Easily noticed or obvious.
+APATHETIC|(adjective) Lacking interest or concern.
+PETULANT|(adjective) Irritable or moody.
+NEGLIGIBLE|(adjective) So small as to be unimportant.
+AGGRANDIZE|(verb) To increase in power or wealth; to exaggerate.
+RESCIND|(verb) To revoke or cancel.
+STRIDENT|(adjective) Loud and harsh.
+MARTINET|(noun) A strict disciplinarian.
+OPAQUE|(adjective) Not transparent or hard to understand.
+TRITE|(adjective) Overused and lacking originality.
+LANGUID|(adjective) Slow or lacking energy.
+ORATOR|(noun) A skilled public speaker.
+CLEMENCY|(noun) Mercy or leniency.
+PROTEAN|(adjective) Able to change frequently or easily.
+SERENDIPITY|(noun) Finding something good without looking for it.
+PROFLIGATE|(adjective) Wasteful or recklessly extravagant.
+AVARICE|(noun) Extreme greed for wealth.
+CONVOLUTED|(adjective) Complicated or twisted.
+PARTISAN|(noun) Strong supporter of a cause.
+DETRIMENT|(noun) Harm or damage.
+PLATITUDE|(noun) A cliché or overused statement.
+COGENT|(adjective) Clear and convincing.
+PRECOCIOUS|(adjective) Showing early maturity or ability.
+LARGESSE|(noun) Generosity in giving.
+OBSEQUIOUS|(adjective) Excessively obedient or servile.
+INTROSPECTIVE|(adjective) Thoughtful and inward-looking.
+ELOQUENT|(adjective) Fluent and persuasive in speech.
+LITANY|(noun) A repetitive series or list.
+MAGNANIMOUS|(adjective) Generous or forgiving.
+OSTENTATIOUS|(adjective) Showy or pretentious.
+PLETHORA|(noun) An overabundance.
+INTREPID|(adjective) Fearless and adventurous.
+DUBIOUS|(adjective) Doubtful or questionable.
+UMBRAGE|(noun) Offense or annoyance.
+STAGNANT|(adjective) Not moving or progressing.
+PHLEGMATIC|(adjective) Calm, unemotional, and composed.
+CONCISE|(adjective) Brief but complete in expression.
+FATHOM|(verb) To understand deeply.
+PREDICAMENT|(noun) A difficult or unpleasant situation.
+TENET|(noun) A core belief or principle.
+ABERRANT|(adjective) Deviating from the norm.
+IMPUNITY|(noun) Exemption from punishment.
+RECALCITRANT|(adjective) Stubbornly disobedient or resistant.
+CIRCUMSPECT|(adjective) Cautious and prudent.
+SUPERFLUOUS|(adjective) Unnecessary or excessive.
+BUCOLIC|(adjective) Relating to the countryside or rural life.
+PSEUDONYM|(noun) A fictitious name used by an author.
+ACRIMONIOUS|(adjective) Angry or bitter in speech or manner.
+CONTRITE|(adjective) Genuinely sorry or remorseful.
+IMMUTABLE|(adjective) Unchangeable over time.
+STYMIE|(verb) To block or hinder progress.
+LACKADAISICAL|(adjective) Lacking enthusiasm or care.
+DEVIOUS|(adjective) Dishonest or sneaky.
+PRECLUDE|(verb) To prevent or make impossible.
+DISDAIN|(noun) Contempt or scorn.
+TRANSIENT|(adjective) Lasting only a short time.
+LUCID|(adjective) Clear and easy to understand.
+IMPETUS|(noun) A force or stimulus for action.
+CAJOLE|(verb) To persuade with flattery.
+VERBOSE|(adjective) Using too many words.
+DAUNTLESS|(adjective) Fearless and determined.
+DUBIETY|(noun) Doubtfulness or uncertainty.
+OBFUSCATE|(verb) To confuse or make unclear.
+INTRANSIGENT|(adjective) Unwilling to change views or agree.
+PERNICIOUS|(adjective) Harmful in a subtle way.
+LETHARGY|(noun) A lack of energy or enthusiasm.
+IMPECCABLE|(adjective) Flawless or perfect.
+TENACIOUS|(adjective) Persistent or determined.
+ALTRUISTIC|(adjective) Selflessly concerned for others.
+BENEVOLENT|(adjective) Kind and generous.
+PUGNACIOUS|(adjective) Eager to fight or argue.
+TANTAMOUNT|(adjective) Equivalent in value or meaning.
+NEFARIOUS|(adjective) Wicked or criminal.
+GLUTTONOUS|(adjective) Excessively greedy.
+SCRUPULOUS|(adjective) Very careful and moral.
+MALEVOLENCE|(noun) Evil intent or hatred.
+ABERRATION|(noun) A departure from what is normal or expected.
+MELLIFLUOUS|(adjective) Smooth and sweet-sounding.
+DIATRIBE|(noun) A bitter verbal attack.
+CLAIRVOYANT|(noun) Someone who can see the future.
+INEPT|(adjective) Clumsy or incompetent.
+PROFOUND|(adjective) Deep in meaning or intensity.
+DIDACTIC|(adjective) Intended to teach or instruct.
+REPREHENSIBLE|(adjective) Deserving blame or punishment.
+CANDOR|(noun) Honesty or directness.
+TRACTABLE|(adjective) Easily managed or controlled.
+PITHY|(adjective) Concise and meaningful.
+NONCHALANT|(adjective) Calm and unconcerned.
+CATHARTIC|(adjective) Emotionally cleansing or releasing.
+SUBVERSIVE|(adjective) Intended to undermine or overthrow.
+VINDICATE|(verb) To clear from blame or suspicion.
+INSCRUTABLE|(adjective) Impossible to understand or interpret.
+CONUNDRUM|(noun) A difficult problem or puzzle.
+EMPHATIC|(adjective) Forceful and clear.
+VICISSITUDE|(noun) A change, typically unpleasant or unwelcome.
+DILAPIDATED|(adjective) In a state of disrepair or ruin.
+HERESY|(noun) Belief contrary to orthodox doctrine.
+ANACHRONISM|(noun) Something out of its correct historical time.
+EXCULPATE|(verb) To clear from blame or guilt.
+DISPARATE|(adjective) Essentially different or distinct.
+IMPETUOUS|(adjective) Acting quickly without thought.
+PROFUSE|(adjective) Plentiful or abundant.
+BOORISH|(adjective) Rude or insensitive.
+BEREFT|(adjective) Deprived of something.
+JUDICIOUS|(adjective) Having good judgment.
+RESILIENT|(adjective) Able to recover quickly.
+EQUIVOCATE|(verb) To speak ambiguously or misleadingly.
+OBDURATE|(adjective) Stubborn and unyielding.
+INSIDIOUS|(adjective) Subtly harmful or deceitful.
+SURMISE|(verb) To guess or infer without strong evidence.
+EXHORT|(verb) To strongly urge.
+LETHARGIC|(adjective) Sluggish or apathetic.
+PRESUMPTUOUS|(adjective) Overconfident or taking liberties.
+CENSURE|(verb) To express strong disapproval.
+PUGNACITY|(noun) A tendency to fight or argue.
+ZEALOUS|(adjective) Passionately devoted or enthusiastic.
+UNTENABLE|(adjective) Indefensible or unsustainable.
+RECAPITULATE|(verb) To summarize or restate briefly.
+GUILE|(noun) Sly or cunning intelligence.
+PHILANTHROPY|(noun) Charitable giving or goodwill toward others.
+INCHOATE|(adjective) Just beginning; not fully formed.
+DECOROUS|(adjective) Proper and tasteful in behavior.
+LICENTIOUS|(adjective) Morally unrestrained.
+ARDUOUS|(adjective) Difficult and tiring.
+ERODE|(verb) To gradually wear away.
+VIRULENT|(adjective) Extremely harmful or hostile.
+HUBRIS|(noun) Excessive pride or arrogance.
+DERIDE|(verb) To mock or ridicule.
+SPECIOUS|(adjective) Misleading in appearance; seemingly plausible but false.
+ELUSIVE|(adjective) Difficult to find or grasp.
+ALACRITY|(noun) Eagerness or cheerful readiness.
+ANTIPATHY|(noun) Strong dislike or aversion.
+RANCOR|(noun) Bitter resentment or ill-will.
+PEDANTIC|(adjective) Overly concerned with rules or details.
+PERFUNCTORY|(adjective) Done with minimal effort or care.
+DISSIDENT|(noun) A person who opposes official policy.
+OSTRACIZE|(verb) To exclude or banish.
+PANACEA|(noun) A universal remedy.
+SYCOPHANT|(noun) A flattering person who seeks personal gain.
+VACILLATE|(verb) To waver between choices or opinions.
+WANTON|(adjective) Reckless or malicious without justification.
+ENTREAT|(verb) To beg or plead sincerely.
+DUPLICITY|(noun) Deceitfulness or double-dealing.
+FASTIDIOUS|(adjective) Very attentive to detail.
+ELICIT|(verb) To draw out a response or reaction.
+INDOLENT|(adjective) Lazy or idle.
+REMONSTRATE|(verb) To protest or object strongly.
+BANAL|(adjective) Boringly predictable or unoriginal.
+PREDILECTION|(noun) A natural preference or liking.
+HAPLESS|(adjective) Unfortunate or unlucky.
+REPROVE|(verb) To scold or criticize gently.
+TACIT|(adjective) Understood without being spoken.
+HACKNEYED|(adjective) Overused and unoriginal.
+TENUOUS|(adjective) Weak or slight.
+TIMOROUS|(adjective) Fearful or timid.
+QUERULOUS|(adjective) Complaining or whining.
+WISTFUL|(adjective) Longing or nostalgic.
+EPIPHANY|(noun) A sudden realization.
+PALLIATE|(verb) To relieve symptoms without curing.
+REMISS|(adjective) Negligent or careless.
+RECLUSIVE|(adjective) Avoiding the company of others; solitary.
+PRODIGIOUS|(adjective) Enormous or extraordinary in size or extent.
+INVETERATE|(adjective) Deep-rooted or habitual.
+JEOPARDIZE|(verb) To put in danger.
+SUBSTANTIATE|(verb) To support with evidence.
+CURSORY|(adjective) Hasty and superficial.
+ENSUE|(verb) To follow as a result.
+INGRATIATE|(verb) To gain favor through flattery.
+ABHOR|(verb) To hate or detest intensely.
+REDUNDANT|(adjective) Unnecessarily repetitive.
+EUPHEMISM|(noun) A mild substitute for a harsh word.
+ENIGMATIC|(adjective) Mysterious or puzzling.
+ICONOCLAST|(noun) One who attacks cherished beliefs.
+BELABOR|(verb) To overemphasize or dwell on.
+AMELIORATE|(verb) To improve or make better.

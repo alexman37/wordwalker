@@ -8,7 +8,7 @@ using TMPro;
 /// Handles the menu for Adventure mode
 /// Everything to do with loading databases is handled with DatabaseParser
 /// </summary>
-public class AdventureMenu : MonoBehaviour
+public class AdventureMenu : WidgetPopup
 {
     // The databases available to choose from
     public DatabaseSet[] databaseSets;
@@ -33,6 +33,11 @@ public class AdventureMenu : MonoBehaviour
     public Image goButton;                  // Go
 
 
+
+    private void Start()
+    {
+        this.Setup();
+    }
 
     public void displayDatabase(DatabaseItem item)
     {
