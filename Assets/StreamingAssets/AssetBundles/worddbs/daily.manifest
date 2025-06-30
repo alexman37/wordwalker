@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1179431728
+CRC: 2922915569
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4d564f45f9e48a630b0ad9cbfbe7291d
+    Hash: 6bde15a3040f47ec68820e7cbe830dfb
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/trivia/pokemon.txt
+- Assets/wordDBs/daily.txt
 Dependencies: []

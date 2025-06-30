@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4034529036
+CRC: 2246474110
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 49312d9a91957bb9f62d62c8f3dbbbfc
+    Hash: 2dfc07576924cc4b5c2a277425b7a1d4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/letters/a.txt
+- Assets/wordDBs/letters/A.txt
 Dependencies: []
