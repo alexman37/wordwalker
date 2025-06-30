@@ -52,77 +52,84 @@ public class PlayerManager : MonoBehaviour
         if(freeCamera)
         {
             // MOUSE CONTROLS
-            if (Input.GetMouseButtonDown(0))
+            if(!(Application.platform == RuntimePlatform.IPhonePlayer) && !(Application.platform == RuntimePlatform.Android))
             {
-                pos = Input.mousePosition;
-            }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    pos = Input.mousePosition;
+                }
 
-            if (Input.GetMouseButton(0))
-            {
-                Vector2 res = (Input.mousePosition - pos);
-                Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.1f;
-                cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
+                if (Input.GetMouseButton(0))
+                {
+                    Vector2 res = (Input.mousePosition - pos);
+                    Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.1f;
+                    cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
 
-                pos = Input.mousePosition;
-            }
+                    pos = Input.mousePosition;
+                }
 
-            //Zoom in
-            if (Input.mouseScrollDelta.y == 1)
-            {
-                cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, -1, 0));
-            }
+                //Zoom in
+                if (Input.mouseScrollDelta.y == 1)
+                {
+                    cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, -1, 0));
+                }
 
-            //Zoom out
-            if (Input.mouseScrollDelta.y == -1)
-            {
-                cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, 1, 0));
+                //Zoom out
+                if (Input.mouseScrollDelta.y == -1)
+                {
+                    cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, 1, 0));
+                }
             }
 
 
             // TOUCH CONTROLS
-            if (Input.touchCount == 2)
-            {
-                Touch first = Input.touches[0];
-                Touch second = Input.touches[1];
-
-                if (second.phase == TouchPhase.Began)
+            else {
+                if (Input.touchCount == 2)
                 {
-                    sumDistance = Vector2.Distance(first.position, second.position);
-                }
+                    Touch first = Input.touches[0];
+                    Touch second = Input.touches[1];
 
-                if (first.phase == TouchPhase.Moved || second.phase == TouchPhase.Moved)
-                {
-                    float deltaDistance = sumDistance - Vector2.Distance(first.position, second.position);
-
-                    // If they're getting closer, zoom out
-                    if (deltaDistance < 0)
+                    if (second.phase == TouchPhase.Began)
                     {
-                        cam.transform.position = cam.transform.position - new Vector3(0, 0.4f, 0);
+                        sumDistance = Vector2.Distance(first.position, second.position);
                     }
 
-
-                    // If they're getting further, zoom in
-                    if (deltaDistance > 0)
+                    if (first.phase == TouchPhase.Moved || second.phase == TouchPhase.Moved)
                     {
-                        cam.transform.position = cam.transform.position + new Vector3(0, 0.4f, 0);
+                        float deltaDistance = sumDistance - Vector2.Distance(first.position, second.position);
+
+                        // If they're getting closer, zoom out
+                        if (deltaDistance < 0)
+                        {
+                            cam.transform.position = cam.transform.position - new Vector3(0, 0.4f, 0);
+                        }
+
+
+                        // If they're getting further, zoom in
+                        if (deltaDistance > 0)
+                        {
+                            cam.transform.position = cam.transform.position + new Vector3(0, 0.4f, 0);
+                        }
+
+                        sumDistance = Vector2.Distance(first.position, second.position);
                     }
 
-                    sumDistance = Vector2.Distance(first.position, second.position);
+                    // TODO - If one of the touch phases ends here, track the other one, and do something
+                    // To indicate to below clause that this is the new position that should be tracked
+                    // We can't only track the position of touch[0] any longer
                 }
-            }
 
-            else if (Input.touchCount == 1)
-            {
-                Touch touch = Input.touches[0];
-
-                if (touch.phase == TouchPhase.Moved)
+                else if (Input.touchCount == 1)
                 {
-                    // let's not overcomplicate it
-                    Vector2 res = touch.deltaPosition;
-                    Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.005f;
-                    cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
+                    Touch touch = Input.touches[0];
 
-                    pos = Input.mousePosition;
+                    if (touch.phase == TouchPhase.Moved)
+                    {
+                        // let's not overcomplicate it
+                        Vector2 res = touch.deltaPosition;
+                        Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.0037f;
+                        cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
+                    }
                 }
             }
         }

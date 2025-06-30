@@ -81,10 +81,10 @@ public class DailyWordManager : MonoBehaviour
         else
         {
             Debug.Log("FIRST TIME SETUP");
+            if (!globalStats.intMap.ContainsKey("dailyWordStreak")) globalStats.intMap["dailyWordStreak"] = 0;
             dailyWordStreakStar.SetActive(true);
             dailyWordStreakStarText.text = globalStats.intMap["dailyWordStreak"].ToString();
 
-            string previousPlay = globalStats.textMap["lastKnownDailyWord"];
             GlobalStatMap.AddOrModifyText("lastKnownDailyWord", today);
 
             // If you failed to play the last daily word, reset the streak. So in other words check for:

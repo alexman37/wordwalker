@@ -11,11 +11,19 @@ public class WidgetPopup : MonoBehaviour
     IEnumerator movingCoroutineIn;
     IEnumerator movingCoroutineOut;
 
+    
+
     public void Setup()
     {
         rectTransform = GetComponent<RectTransform>();
         movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, 0));
         movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, -Screen.safeArea.height));
+    }
+
+    // kind of inefficient to run this for every widget so...just call it when you need to
+    public static void resetWidgets()
+    {
+        activeWidget = null;
     }
 
     public void openWidgetPopup()

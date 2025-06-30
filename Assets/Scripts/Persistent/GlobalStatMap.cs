@@ -56,6 +56,7 @@ public static class GlobalStatMap
         } else
         {
             Debug.LogWarning("Could not load global stat map.");
+            return new StatMap();
         }
         return loadedData;
     }

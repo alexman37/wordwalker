@@ -7474,7 +7474,7 @@ MonoBehaviour:
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 1, y: 1}
   maintainAspectRatioX: 0
-  maintainAspectRatioY: 0
+  maintainAspectRatioY: 1
   constantSize: 0
 --- !u!114 &583640684
 MonoBehaviour:
@@ -8327,8 +8327,8 @@ MonoBehaviour:
   focalPoint: 6
   percentPosition: {x: 0.49, y: 1}
   percentScale: {x: 0.8, y: 0.2}
-  maintainAspectRatioX: 1
-  maintainAspectRatioY: 0
+  maintainAspectRatioX: 0
+  maintainAspectRatioY: 1
   constantSize: 0
 --- !u!1 &691872196
 GameObject:
@@ -14342,7 +14342,7 @@ MonoBehaviour:
   DONE: 0
   focalPoint: 6
   percentPosition: {x: 0.49, y: 0.8}
-  percentScale: {x: 0.5, y: 0.5}
+  percentScale: {x: 0.5, y: 0.3}
   maintainAspectRatioX: 1
   maintainAspectRatioY: 0
   constantSize: 0
@@ -16584,8 +16584,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 0.8, y: 0.7}
-  maintainAspectRatioX: 1
-  maintainAspectRatioY: 0
+  maintainAspectRatioX: 0
+  maintainAspectRatioY: 1
   constantSize: 0
 --- !u!114 &1391794900
 MonoBehaviour:
@@ -19317,8 +19317,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 0.8, y: 0.8}
-  maintainAspectRatioX: 1
-  maintainAspectRatioY: 0
+  maintainAspectRatioX: 0
+  maintainAspectRatioY: 1
   constantSize: 0
 --- !u!1 &1625174402
 GameObject:
@@ -26276,8 +26276,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 0.8, y: 0.8}
-  maintainAspectRatioX: 1
-  maintainAspectRatioY: 0
+  maintainAspectRatioX: 0
+  maintainAspectRatioY: 1
   constantSize: 0
 --- !u!114 &2141211060
 MonoBehaviour:

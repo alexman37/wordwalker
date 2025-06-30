@@ -328,6 +328,7 @@ public class GameManagerSc : MonoBehaviour
 
     public static void returnToMainMenu()
     {
+        WidgetPopup.resetWidgets();
         MusicManager.inGameMusicFade(false);
         SceneManager.LoadScene(0);
     }
