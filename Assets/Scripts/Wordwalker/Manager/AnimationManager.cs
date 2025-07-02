@@ -89,7 +89,7 @@ public class AnimationManager : MonoBehaviour
 
         for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(startingPlayerPos, ledgeStartingPlayerPos, i / timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(startingPlayerPos, ledgeStartingPlayerPos, Mathf.Clamp(i / timeSec, 0, 1));
             yield return null;
         }
 
@@ -130,7 +130,7 @@ public class AnimationManager : MonoBehaviour
 
         for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(start, target, i / timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(start, target, Mathf.Clamp(i / timeSec, 0, 1));
             yield return null;
         }
 
@@ -199,7 +199,7 @@ public class AnimationManager : MonoBehaviour
 
         for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(start, target, i / timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(start, target, Mathf.Clamp(i / timeSec, 0, 1));
             yield return null;
         }
 
@@ -240,9 +240,9 @@ public class AnimationManager : MonoBehaviour
 
         for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            Vector3 xAndz = Vector3.Lerp(start, target, i / timeSec);
+            Vector3 xAndz = Vector3.Lerp(start, target, Mathf.Clamp(i / timeSec, 0, 1));
             // Y should follow an exponential path, peaking at the midway point
-            xAndz.y = -(maxHeightOfJump * 4) * Mathf.Pow((i / timeSec) - 0.5f, 2) + maxHeightOfJump + 0.5f;
+            xAndz.y = -(maxHeightOfJump * 4) * Mathf.Pow((Mathf.Clamp(i / timeSec, 0, 1)) - 0.5f, 2) + maxHeightOfJump + 0.5f;
             Debug.Log(xAndz.y);
             playerCharacter.transform.position = xAndz;
             yield return null;
@@ -284,7 +284,7 @@ public class AnimationManager : MonoBehaviour
 
         for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(lastKnownPlayerPos, ledgeEndingPlayerPos, i / timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(lastKnownPlayerPos, ledgeEndingPlayerPos, Mathf.Clamp(i / timeSec, 0, 1));
             yield return null;
         }
 
@@ -310,7 +310,7 @@ public class AnimationManager : MonoBehaviour
 
         for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(ledgeEndingPlayerPos, endingPlayerPos, i / timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(ledgeEndingPlayerPos, endingPlayerPos, Mathf.Clamp(i / timeSec, 0, 1));
             yield return null;
         }
 

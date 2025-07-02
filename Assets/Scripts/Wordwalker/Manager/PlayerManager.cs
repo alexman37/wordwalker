@@ -162,12 +162,10 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator xerpCameraCoroutine(Vector3 start, Vector3 end, float time)
     {
-        float steps = 30;
-
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= time; i += Time.deltaTime)
         {
-            cam.transform.position = UIUtils.XerpStandard(start, end, i / steps);
-            yield return new WaitForSeconds(1 / steps * time);
+            cam.transform.position = UIUtils.XerpStandard(start, end, Mathf.Clamp(i / time, 0, 1));
+            yield return null;
         }
 
         yield return null;
@@ -175,12 +173,10 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator lerpCameraCoroutine(Vector3 start, Vector3 end, float time)
     {
-        float steps = 30;
-
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= time; i += Time.deltaTime)
         {
-            cam.transform.position = Vector3.Lerp(start, end, i / steps);
-            yield return new WaitForSeconds(1 / steps * time);
+            cam.transform.position = Vector3.Lerp(start, end, Mathf.Clamp(i / time, 0, 1));
+            yield return null;
         }
 
         yield return null;
