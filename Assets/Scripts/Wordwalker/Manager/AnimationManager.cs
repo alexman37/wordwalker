@@ -85,13 +85,12 @@ public class AnimationManager : MonoBehaviour
         playerAnimator.SetInteger("Direction", 0); // TODO direction
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
-        float steps = 50;
         float timeSec = 1.5f;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(startingPlayerPos, ledgeStartingPlayerPos, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(startingPlayerPos, ledgeStartingPlayerPos, i / timeSec);
+            yield return null;
         }
 
         SfxManager.instance.endSFXLoop("footsteps");
@@ -116,8 +115,7 @@ public class AnimationManager : MonoBehaviour
     /// </summary>
     private IEnumerator moveCharacter(Tile toTile)
     {
-        float steps = 20;
-        float timeSec = 0.4f;
+        float timeSec = 0.5f;
 
         Vector3 start = playerCharacter.transform.position;
         Vector3 target = new Vector3(toTile.absolutePosition.Item1, 0.5f, toTile.absolutePosition.Item2);
@@ -130,10 +128,10 @@ public class AnimationManager : MonoBehaviour
         this.playerAnimator.SetBool("Moving", true);
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(start, target, i / timeSec);
+            yield return null;
         }
 
         yield return walkManager.manageStep(toTile, false);
@@ -173,7 +171,6 @@ public class AnimationManager : MonoBehaviour
     /// </summary>
     private IEnumerator drawbackCharacter(Tile backToTile)
     {
-        float steps = 20;
         float timeSec = 0.4f;
 
         Vector3 start;
@@ -200,10 +197,10 @@ public class AnimationManager : MonoBehaviour
 
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(start, target, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(start, target, i / timeSec);
+            yield return null;
         }
 
         SfxManager.instance.endSFXLoop("footsteps");
@@ -232,7 +229,6 @@ public class AnimationManager : MonoBehaviour
     {
         this.playerAnimator.SetTrigger("JumpLaunch");
 
-        float steps = 20;
         float timeSec = 1f;
         float maxHeightOfJump = 5;
 
@@ -242,14 +238,14 @@ public class AnimationManager : MonoBehaviour
         // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
         yield return walkManager.prepareNextMovement(toTile);
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            Vector3 xAndz = Vector3.Lerp(start, target, i / steps);
+            Vector3 xAndz = Vector3.Lerp(start, target, i / timeSec);
             // Y should follow an exponential path, peaking at the midway point
-            xAndz.y = -(maxHeightOfJump * 4) * Mathf.Pow((i / steps) - 0.5f, 2) + maxHeightOfJump + 0.5f;
+            xAndz.y = -(maxHeightOfJump * 4) * Mathf.Pow((i / timeSec) - 0.5f, 2) + maxHeightOfJump + 0.5f;
             Debug.Log(xAndz.y);
             playerCharacter.transform.position = xAndz;
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
 
         yield return walkManager.manageStep(toTile, true);
@@ -280,17 +276,16 @@ public class AnimationManager : MonoBehaviour
 
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
-        float steps = 50;
         float timeSec = 1f;
 
         Vector3 lastKnownPlayerPos = playerCharacter.transform.position;
         this.ledgeEndingPlayerPos = new Vector3(lastKnownPlayerPos.x, lastKnownPlayerPos.y, lastKnownPlayerPos.z + 7f);
         this.endingPlayerPos = new Vector3(0, lastKnownPlayerPos.y, lastKnownPlayerPos.z + 17f);
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(lastKnownPlayerPos, ledgeEndingPlayerPos, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(lastKnownPlayerPos, ledgeEndingPlayerPos, i / timeSec);
+            yield return null;
         }
 
         SfxManager.instance.endSFXLoop("footsteps");
@@ -311,13 +306,12 @@ public class AnimationManager : MonoBehaviour
 
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
-        float steps = 50;
         float timeSec = 1f;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            playerCharacter.transform.position = Vector3.Lerp(ledgeEndingPlayerPos, endingPlayerPos, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            playerCharacter.transform.position = Vector3.Lerp(ledgeEndingPlayerPos, endingPlayerPos, i / timeSec);
+            yield return null;
         }
 
         SfxManager.instance.endSFXLoop("footsteps");

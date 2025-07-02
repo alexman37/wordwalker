@@ -127,7 +127,7 @@ public class PlayerManager : MonoBehaviour
                     {
                         // let's not overcomplicate it
                         Vector2 res = touch.deltaPosition;
-                        Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.0037f;
+                        Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.0044f;
                         cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
                     }
                 }
