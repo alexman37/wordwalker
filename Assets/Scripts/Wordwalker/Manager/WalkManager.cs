@@ -560,7 +560,6 @@ public class WalkManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !fogIsMoving);
         fogIsMoving = true;
-        float steps = 10;
         float takeTime = 0.5f;
 
         Vector3 start = fogSheet.transform.position;
@@ -570,11 +569,11 @@ public class WalkManager : MonoBehaviour
             dest += new Vector3(0, 0, 25);
         }
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= takeTime; i += Time.deltaTime)
         {
-            fogSheet.transform.position = Vector3.Lerp(start, dest, i / steps);
+            fogSheet.transform.position = Vector3.Lerp(start, dest, Mathf.Clamp(i / takeTime, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * takeTime);
+            yield return null;
         }
         fogSheet.transform.position = dest;
 

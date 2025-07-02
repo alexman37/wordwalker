@@ -206,14 +206,14 @@ public class TopBarUI : MonoBehaviour
     /// </summary>
     IEnumerator rotateReveal()
     {
-        float steps = 30;
         float timeSec = 0.5f;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            this.transform.rotation = Quaternion.Euler(-90 * (i / steps), 0, 0);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            this.transform.rotation = Quaternion.Euler(-90f * Mathf.Clamp(i / timeSec, 0f, 1f), 0, 0);
+            yield return null;
         }
+        this.transform.rotation = Quaternion.Euler(-90, 0, 0);
 
         yield return new WaitForSeconds(1);
     }
@@ -235,18 +235,17 @@ public class TopBarUI : MonoBehaviour
     /// <returns></returns>
     IEnumerator initializeAnimation()
     {
-        float steps = 30;
         float timeSec = 0.5f;
 
         RectTransform rectTransform = container.GetComponent<RectTransform>();
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(topBarAnimationOffsite,
                     topBarAnimationStart,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
     }
 
@@ -258,18 +257,17 @@ public class TopBarUI : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        float steps = 30;
         float timeSec = 0.5f;
 
         RectTransform rectTransform = container.GetComponent<RectTransform>();
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(topBarAnimationStart,
                     topBarAnimationDestWin,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
 
         yield return new WaitForSeconds(1);
@@ -283,18 +281,17 @@ public class TopBarUI : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        float steps = 30;
         float timeSec = 0.5f;
 
         RectTransform rectTransform = container.GetComponent<RectTransform>();
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(topBarAnimationStart,
                     topBarAnimationDestLose,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
 
         yield return new WaitForSeconds(1);

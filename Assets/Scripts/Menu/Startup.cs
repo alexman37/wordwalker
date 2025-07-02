@@ -50,10 +50,9 @@ public class Startup : MonoBehaviour
 
     IEnumerator fadeOut()
     {
-        float steps = 5;
         float timeSec = 1f;
         
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             foreach (GameObject obj in thisAndAllChildren)
             {
@@ -63,17 +62,17 @@ public class Startup : MonoBehaviour
                 if(possibleImg != null)
                 {
                     Color col = possibleImg.color;
-                    possibleImg.color = new Color(col.r, col.g, col.b, 1 - i / steps);
+                    possibleImg.color = new Color(col.r, col.g, col.b, 1 - Mathf.Clamp(i / timeSec, 0, 1));
                 }
 
                 if(possibleText != null)
                 {
                     Color col = possibleText.color;
-                    possibleText.color = new Color(col.r, col.g, col.b, 1 - i / steps);
+                    possibleText.color = new Color(col.r, col.g, col.b, 1 - Mathf.Clamp(i / timeSec, 0, 1));
                 }
                 
             }
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
         
         this.gameObject.SetActive(false);

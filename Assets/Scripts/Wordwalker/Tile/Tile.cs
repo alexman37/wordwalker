@@ -190,7 +190,6 @@ public class Tile : MonoBehaviour
         // This weird check basically checks for tiles that are: Incorrect, or blanks that were NOT part of the path.
         if(coords != null && (!correct || (specType == Tile.SpecialTile.BLANK && letter != '_')))
         {
-            float steps = 50;
             float timeSec = 1.2f;
 
             Quaternion start = Quaternion.Euler(-90, 0, 0);
@@ -198,10 +197,10 @@ public class Tile : MonoBehaviour
 
             yield return new WaitForSeconds(coords.r * 0.2f);
 
-            for (float i = 0; i <= steps; i++)
+            for (float i = 0; i <= timeSec; i += Time.deltaTime)
             {
-                this.gameObject.transform.rotation = Quaternion.Lerp(start, end, i / steps);
-                yield return new WaitForSeconds(1 / steps * timeSec);
+                this.gameObject.transform.rotation = Quaternion.Lerp(start, end, Mathf.Clamp(i / timeSec, 0, 1));
+                yield return null;
             }
         }
 
@@ -218,14 +217,13 @@ public class Tile : MonoBehaviour
         // Only do this animation if in the next row
         if(coords != null && row + 1 == coords.r)
         {
-            float steps = 50;
             float timeSec = TimeManager.timeInterval;
             Color col = this.timeFader.color;
 
-            for (float i = 0; i <= steps; i++)
+            for (float i = 0; i <= timeSec; i += Time.deltaTime)
             {
-                this.timeFader.color = new Color(col.r, col.g, col.b, i / steps);
-                yield return new WaitForSeconds(1 / steps * timeSec);
+                this.timeFader.color = new Color(col.r, col.g, col.b, Mathf.Clamp(i / timeSec, 0, 1));
+                yield return null;
             }
         }
     }
@@ -235,16 +233,15 @@ public class Tile : MonoBehaviour
     /// </summary>
     private IEnumerator pushDownTile()
     {
-        float steps = 50;
         float timeSec = 2f;
 
         float pushDownDistance = 0.5f;
 
         Vector3 currPos = this.gameObject.transform.position;
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            this.gameObject.transform.position = new Vector3(currPos.x, currPos.y - (1 / steps) * pushDownDistance, currPos.z);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            this.gameObject.transform.position = new Vector3(currPos.x, currPos.y - Mathf.Clamp(i / timeSec, 0, 1) * pushDownDistance, currPos.z);
+            yield return null;
         }
 
         yield return null;

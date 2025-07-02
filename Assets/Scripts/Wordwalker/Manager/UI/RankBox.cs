@@ -84,13 +84,12 @@ public class RankBox : MonoBehaviour
 
         // Begin rotation animation - either up or down
         float targetAngle = 90.01f * (up ? -1 : 1);
-        float steps = 30;
         float timeSec = 0.5f;
 
-        for(float i = 0; i <= steps; i++)
+        for(float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            theBox.transform.rotation = Quaternion.Euler(targetAngle * (i / steps), 0, 0);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            theBox.transform.rotation = Quaternion.Euler(targetAngle * Mathf.Clamp(i / timeSec, 0, 1), 0, 0);
+            yield return null;
         }
 
         if (up) current.sprite = upper.sprite;
@@ -113,13 +112,12 @@ public class RankBox : MonoBehaviour
         lower.sprite = deathSprite;
 
         // Begin rotation animation - either up or down
-        float steps = 30;
         float timeSec = 0.5f;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            theBox.transform.rotation = Quaternion.Euler(90 * (i / steps), 0, 0);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            theBox.transform.rotation = Quaternion.Euler(90 * Mathf.Clamp(i / timeSec, 0, 1), 0, 0);
+            yield return null;
         }
 
         current.sprite = lower.sprite;

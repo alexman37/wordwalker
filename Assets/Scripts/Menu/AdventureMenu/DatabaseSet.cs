@@ -155,14 +155,13 @@ public class DatabaseSet : MonoBehaviour
 
     IEnumerator rotateExpandedSprite(float newDeg)
     {
-        float steps = 5;
         float timeSec = 0.1f;
 
         Quaternion old = expandedSprite.rectTransform.rotation;
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            expandedSprite.rectTransform.rotation = Quaternion.Lerp(old, Quaternion.Euler(0, 0, newDeg), i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            expandedSprite.rectTransform.rotation = Quaternion.Lerp(old, Quaternion.Euler(0, 0, newDeg), Mathf.Clamp(i / timeSec, 0, 1));
+            yield return null;
         }
         expandedSprite.rectTransform.rotation = Quaternion.Euler(0, 0, newDeg);
         yield return null;

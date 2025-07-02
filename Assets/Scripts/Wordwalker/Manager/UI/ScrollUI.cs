@@ -98,21 +98,20 @@ public class ScrollUI : MonoBehaviour
         SfxManager.instance.playSFX(unfurlClip, null, 1f);
 
         // Movement animation: Move up
-        float steps = 30;
         float timeSec = 1f;
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            scrollRect.anchoredPosition = UIUtils.XerpStandard(scrollStart, scrollDest, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            scrollRect.anchoredPosition = UIUtils.XerpStandard(scrollStart, scrollDest, Mathf.Clamp(i / timeSec, 0, 1));
+            yield return null;
         }
 
         // Sprite animation: Open scroll, see what's inside
         scrollAnimator.SetTrigger("BeginUnfurl");
         col = clueText.color;
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i++)
         {
-            clueText.color = new Color(col.r, col.g, col.b, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            clueText.color = new Color(col.r, col.g, col.b, Mathf.Clamp(i / timeSec, 0, 1));
+            yield return null;
         }
 
         yield return null;
@@ -124,12 +123,11 @@ public class ScrollUI : MonoBehaviour
     IEnumerator moveScrollOutOfView()
     {
         // Movement animation: Move scroll below bottom of screen
-        float steps = 30;
         float timeSec = 1f;
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            scrollRect.anchoredPosition = UIUtils.XerpStandard(scrollDest, scrollStart, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            scrollRect.anchoredPosition = UIUtils.XerpStandard(scrollDest, scrollStart, Mathf.Clamp(i / timeSec, 0, 1));
+            yield return null;
         }
 
         // Make scroll's text invisible (as scroll itself is fading) and close it so the opening animation plays again
@@ -148,14 +146,14 @@ public class ScrollUI : MonoBehaviour
     IEnumerator fadeClueScroll()
     {
         yield return null;
-        float frameTime = 30;
+        float timeSec = 1f;
 
         Color col = img.color;
 
-        for (float i = 0; i <= frameTime; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            img.color = new Color(col.r, col.g, col.b, (frameTime - i) / frameTime);
-            yield return new WaitForSeconds(0.05f);
+            img.color = new Color(col.r, col.g, col.b, 1f - Mathf.Clamp(i / timeSec, 0, 1));
+            yield return null;
         }
     }
 }

@@ -30,13 +30,13 @@ public static class UIUtils
     {
         Vector2 pos = rectTransform.anchoredPosition;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = XerpStandard(pos,
                     destination,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
     }
 
@@ -53,13 +53,13 @@ public static class UIUtils
     {
         Vector2 pos = rectTransform.anchoredPosition;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = Vector2.Lerp(pos,
                     destination,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
     }
 }

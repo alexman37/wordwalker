@@ -114,13 +114,13 @@ public class WordwalkerUIScript : MonoBehaviour
     // Number go up
     IEnumerator steadyNumberIncrease(float takeTime, float delay, int oldAmnt, int delta)
     {
-        float steps = 10;
+        yield return new WaitForSeconds(delay);
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= takeTime; i += Time.deltaTime)
         {
-            displayScore.text = ((int)(oldAmnt + (delta * (i / steps)))).ToString();
+            displayScore.text = ((int)(oldAmnt + (delta * Mathf.Clamp(i / takeTime, 0f, 1f)))).ToString();
 
-            yield return new WaitForSeconds(1 / steps * takeTime);
+            yield return null;
         }
         displayScore.text = (oldAmnt + delta).ToString();
     }
@@ -137,7 +137,6 @@ public class WordwalkerUIScript : MonoBehaviour
 
     IEnumerator shiftTimerCo(bool ontoScreen)
     {
-        float steps = 50;
         float timeSec = 1f;
 
         Vector2 onScreen = new Vector2(0, 0);
@@ -146,10 +145,10 @@ public class WordwalkerUIScript : MonoBehaviour
         Vector2 to = ontoScreen ? onScreen : offScreen;
         Vector2 fro = ontoScreen ? offScreen : onScreen;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
-            timer.GetComponent<RectTransform>().anchoredPosition = UIUtils.XerpStandard(fro, to, i / steps);
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            timer.GetComponent<RectTransform>().anchoredPosition = UIUtils.XerpStandard(fro, to, Mathf.Clamp(i / timeSec, 0f, 1f));
+            yield return null;
         }
 
         yield return null;
@@ -174,20 +173,19 @@ public class WordwalkerUIScript : MonoBehaviour
 
     IEnumerator openPopupCo()
     {
-        float steps = 30;
         float timeSec = 0.5f;
 
         RectTransform rectTransform = specialGuidePopup.GetComponent<RectTransform>();
 
         Vector2 pos = rectTransform.anchoredPosition;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(pos,
                     specAnimationStart,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0f, 1f));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
     }
 
@@ -199,20 +197,19 @@ public class WordwalkerUIScript : MonoBehaviour
 
     IEnumerator closePopupCo()
     {
-        float steps = 30;
         float timeSec = 0.5f;
 
         RectTransform rectTransform = specialGuidePopup.GetComponent<RectTransform>();
 
         Vector2 pos = rectTransform.anchoredPosition;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(pos,
                     specAnimationOffsite,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0f, 1f));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
     }
 }

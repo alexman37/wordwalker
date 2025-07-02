@@ -114,20 +114,19 @@ public class ChallengePopup : MonoBehaviour
 
     IEnumerator openPopupCo()
     {
-        float steps = 30;
-        float timeSec = 0.5f;
+        float timeSec = 0.6f;
 
         RectTransform rectTransform = GetComponent<RectTransform>();
 
         Vector2 pos = rectTransform.anchoredPosition;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(pos,
                     animationStart,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
     }
 
@@ -139,20 +138,19 @@ public class ChallengePopup : MonoBehaviour
 
     IEnumerator closePopupCo()
     {
-        float steps = 30;
-        float timeSec = 0.5f;
+        float timeSec = 0.6f;
 
         RectTransform rectTransform = GetComponent<RectTransform>();
 
         Vector2 pos = rectTransform.anchoredPosition;
 
-        for (float i = 0; i <= steps; i++)
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
         {
             rectTransform.anchoredPosition = UIUtils.XerpStandard(pos,
                     animationOffsite,
-                    i / steps);
+                    Mathf.Clamp(i / timeSec, 0, 1));
 
-            yield return new WaitForSeconds(1 / steps * timeSec);
+            yield return null;
         }
     }
 
