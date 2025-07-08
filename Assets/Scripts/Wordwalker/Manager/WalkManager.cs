@@ -388,15 +388,16 @@ public class WalkManager : MonoBehaviour
         {
             timerStarted = true;
             TimeManager.startNamedTimer("walk_time");
+
+            // Challenge timer also begins on first step, if applicable
+            if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+            {
+                timeManager.startIntervalTimer();
+            }
         }
 
         if (t.correct)
         {
-            if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER) && t.coords.r == 0)
-            {
-                timeManager.startIntervalTimer();
-            }
-
             currTile = t;
             t.pressAnimation();
 

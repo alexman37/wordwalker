@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance;
+
     public static bool greenlight = false;
 
     private float maxXBound = 1000;
@@ -17,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     private const float minZoom = 12; // I don't see this changing
 
     Vector3 pos;
+    public float distanceDelta = 0f;
     float sumDistance = 0;
     public GameObject cam;
     bool freeCamera = true;
@@ -28,6 +31,10 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
         Debug.Log("Player Manager READY");
         greenlight = true;
     }
@@ -57,6 +64,7 @@ public class PlayerManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     pos = Input.mousePosition;
+                    distanceDelta = 0;
                 }
 
                 if (Input.GetMouseButton(0))
@@ -65,6 +73,7 @@ public class PlayerManager : MonoBehaviour
                     Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.1f;
                     cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
 
+                    distanceDelta += Vector3.Distance(pos, Input.mousePosition);
                     pos = Input.mousePosition;
                 }
 
@@ -92,6 +101,7 @@ public class PlayerManager : MonoBehaviour
                     if (second.phase == TouchPhase.Began)
                     {
                         sumDistance = Vector2.Distance(first.position, second.position);
+                        distanceDelta = 999; // Never allow tile movement when zooming.
                     }
 
                     if (first.phase == TouchPhase.Moved || second.phase == TouchPhase.Moved)
@@ -123,12 +133,20 @@ public class PlayerManager : MonoBehaviour
                 {
                     Touch touch = Input.touches[0];
 
+                    if(touch.phase == TouchPhase.Began)
+                    {
+                        distanceDelta = 0;
+                    }
+
                     if (touch.phase == TouchPhase.Moved)
                     {
                         // let's not overcomplicate it
                         Vector2 res = touch.deltaPosition;
                         Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.0037f;
                         cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
+
+                        distanceDelta += Vector3.Distance(pos, Input.mousePosition);
+                        pos = Input.mousePosition;
                     }
                 }
             }
