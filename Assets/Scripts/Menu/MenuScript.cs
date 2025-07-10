@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System;
 using TMPro;
 
 public class MenuScript : MonoBehaviour
 {
+    public static bool transitioning; // if true, the transition splash will be on-screen at the start
+
     // Signifies start of a new game (should enter loading phase)
     public static event Action<int, string> newGame;
+
+    public static event Action<bool> transition;
 
     // The challenges you currently have selected
     public HashSet<Challenge> selectedChallenges;
@@ -26,7 +29,14 @@ public class MenuScript : MonoBehaviour
         selectedChallenges = new HashSet<Challenge>();
     }
 
-
+    private void Awake()
+    {
+        if(transitioning)
+        {
+            // transitioning = false???
+            transition.Invoke(false);
+        }
+    }
 
 
 
@@ -42,7 +52,9 @@ public class MenuScript : MonoBehaviour
         Debug.Log("Starting Daily word game");
         MusicManager.inGameMusicFade(true);
         GameManagerSc.setDailyWordParams(word, defn, selectedChallenges);
-        SceneManager.LoadScene(1);
+
+        GameManagerSc.transitioning = true;
+        transition.Invoke(true);
     }
 
     // Start new adventure / free play game
@@ -52,7 +64,9 @@ public class MenuScript : MonoBehaviour
         MusicManager.inGameMusicFade(true);
         GameManagerSc.setParametersOnStart(numLevels, dbItem, selectedChallenges);
         WidgetPopup.resetWidgets();
-        SceneManager.LoadScene(1);
+
+        GameManagerSc.transitioning = true;
+        transition.Invoke(true);
     }
 
     private void OnEnable()

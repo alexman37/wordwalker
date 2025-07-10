@@ -10,6 +10,8 @@ using System.Linq;
 /// </summary>
 public class GameManagerSc : MonoBehaviour
 {
+    public static bool transitioning; // if true, the transition splash will be on-screen at the start
+
     private static bool IN_TESTING = false;
 
     private static int numLevels = 10; //TODO: Increase default
@@ -43,6 +45,7 @@ public class GameManagerSc : MonoBehaviour
     public static event Action levelReset;
     public static event Action onLastLevel;
     public static event Action<int, int, int, int> updatePostgameScoreSheet;
+    public static event Action<bool> transition;
 
     private void Start()
     {
@@ -200,6 +203,8 @@ public class GameManagerSc : MonoBehaviour
             PlayerManager.greenlight = false;
             WordGen.greenlight = false;
 
+            transitioning = false;
+            transition.Invoke(false);
             newGame.Invoke();
             goToNextLevel();
         }
@@ -330,7 +335,9 @@ public class GameManagerSc : MonoBehaviour
     {
         WidgetPopup.resetWidgets();
         MusicManager.inGameMusicFade(false);
-        SceneManager.LoadScene(0);
+
+        MenuScript.transitioning = true;
+        transition.Invoke(true);
     }
 
     public enum LossReason

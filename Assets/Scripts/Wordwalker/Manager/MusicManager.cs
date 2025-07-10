@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager instance;
+
     public AudioClip[] musicTracks;
     static AudioSource audioSource;
     int index = 0;
@@ -19,10 +21,24 @@ public class MusicManager : MonoBehaviour
     private static float globalMusicVolume = 1f;
     private static float storedVolume = 1f;
 
+    private void Start()
+    {
+        
+    }
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        audioSource = GetComponent<AudioSource>();
+        if (instance == null)
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+            audioSource = GetComponent<AudioSource>();
+        }
+        else
+        {
+            Destroy(this);
+        }
 
         if (!inLoop)
         {
