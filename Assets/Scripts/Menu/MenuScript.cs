@@ -33,11 +33,16 @@ public class MenuScript : MonoBehaviour
     {
         if(transitioning)
         {
-            // transitioning = false???
-            transition.Invoke(false);
+            StartCoroutine(AwaitTitleHexCreation());
         }
     }
 
+    // Just need to wait for all transition tiles to be created before we can play it
+    IEnumerator AwaitTitleHexCreation()
+    {
+        yield return new WaitUntil(() => TitleHex.tilesReady >= TitleHex.tilesRequired);
+        transition.Invoke(false);
+    }
 
 
 

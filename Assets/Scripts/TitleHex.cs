@@ -16,10 +16,15 @@ public class TitleHex : MonoBehaviour
 
     private static (int, int) maxCoords = (6, 4);
     private static float maxDistance = 2f * Mathf.Sqrt(13);
+    public static int tilesReady = 0;
+    public static int tilesRequired = (maxCoords.Item1 + 1) * (maxCoords.Item2 + 1);
+    private static readonly object _locker = new object();
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
+        MenuScript.transition += gotoWW;
+        GameManagerSc.transition += gotoMenu;
+
         img = GetComponent<Image>();
         if (SceneManager.GetActiveScene().buildIndex == 0) // menu
         {
@@ -28,7 +33,8 @@ public class TitleHex : MonoBehaviour
             {
                 transform.GetChild(0).GetComponent<TextMeshProUGUI>().enabled = MenuScript.transitioning;
             }
-        } else if (SceneManager.GetActiveScene().buildIndex == 1) // wordwalker
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 1) // wordwalker
         {
             img.enabled = GameManagerSc.transitioning;
             if (transform.childCount > 0)
@@ -36,17 +42,13 @@ public class TitleHex : MonoBehaviour
                 transform.GetChild(0).GetComponent<TextMeshProUGUI>().enabled = GameManagerSc.transitioning;
             }
         }
-    }
 
-    private void Awake()
-    {
-        img = GetComponent<Image>();
-    }
+        lock(_locker)
+        {
+            tilesReady += 1;
+        }
 
-    private void OnEnable()
-    {
-        MenuScript.transition += gotoWW;
-        GameManagerSc.transition += gotoMenu;
+        Debug.Log("Completed setup for " + "(" + xCoord + "," + yCoord + ")");
     }
 
     private void OnDisable()
@@ -62,11 +64,15 @@ public class TitleHex : MonoBehaviour
 
     void gotoWW(bool into)
     {
+        Debug.Log("ENDING " + " OF " + "(" + xCoord + "," + yCoord + ")");
         StartCoroutine(rotation(into, 1));
     }
 
     IEnumerator rotation(bool into, int sceneId)
     {
+        yield return new WaitUntil(() => tilesReady >= tilesRequired);
+        Debug.Log("r1 " + tilesReady + " r2 " + tilesRequired);
+        //Debug.Log("STAGE " + " OF " + "(" + xCoord + "," + yCoord + ")");
         float totalGradTime = 0.75f;
         float gradDelay = totalGradTime * (Vector2.Distance(Vector2.zero, new Vector2(xCoord, yCoord)) / maxDistance);
 
@@ -98,15 +104,22 @@ public class TitleHex : MonoBehaviour
 
         this.transform.localRotation = Quaternion.Euler(0, into ? 0 : 90, 0);
 
-        if(into)
+        // Unfortunately if we're leaving/finished entering the menu scene we have to end the transition flag here
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            MenuScript.transitioning = false;
+        }
+
+        if (into)
         {
             // awful way of triggering this. but you know what? it's july 9th, 20 or so days from when i want this thing done.
             // screw you and your "code smell". i dont care to dispatch some stupid action, or have a static variable blah blah WHATEVER.
             // just change the scene once when we're done the animation. that's all.
             if(xCoord == maxCoords.Item1 && yCoord == maxCoords.Item2)
             {
-                Debug.Log("Changing to scene " + sceneId);
+                tilesReady = 0;
                 SceneManager.LoadScene(sceneId);
+                Debug.Log("SCREAMING INTO THE VOID");
             }
         }
         else {
@@ -116,8 +129,6 @@ public class TitleHex : MonoBehaviour
                 transform.GetChild(0).GetComponent<TextMeshProUGUI>().enabled = false;
             }
         }
-
-        //MenuScript.transitioning = false;
 
         yield return null;
     }
