@@ -138,6 +138,7 @@ public class AnimationManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         playerAnimator.SetTrigger("StopReading");
 
+        yield return new WaitForSeconds(1.5f);
         setPreventPlayerMovement.Invoke(false);
     }
 

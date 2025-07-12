@@ -54,8 +54,9 @@ public class GameOverUI : MonoBehaviour
         //TODO maybe we have one of many messages?
         switch (lr)
         {
-            case GameManagerSc.LossReason.TOTEMS: title.text = "GAME OVER"; break;
-            case GameManagerSc.LossReason.TIME: title.text = "TIME'S UP!"; break;
+            case GameManagerSc.LossReason.TOTEMS: title.text = "Your last word was"; break;
+            case GameManagerSc.LossReason.TIME: title.text = "You ran out of time spelling"; break;
+            case GameManagerSc.LossReason.JUMP: title.text = "You went a bridge too far on"; break;
         }
         StartCoroutine(gameOverAnimation(1.5f));
     }
