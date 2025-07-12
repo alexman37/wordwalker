@@ -12,6 +12,8 @@ public class PauseMenu : WidgetPopup
     public Sprite checkboxChecked;
     public Sprite checkboxUnchecked;
     public Image checkbox;
+    public Image[] buttonGroupImgs;
+    public Button[] buttonGroup;
     public Slider musicVolSlider;
     public TextMeshProUGUI musicVolText;
     public Slider sfxVolSlider;
@@ -42,6 +44,9 @@ public class PauseMenu : WidgetPopup
 
         musicVolSlider.onValueChanged.AddListener(adjustMusicVolSlider);
         sfxVolSlider.onValueChanged.AddListener(adjustSfxVolSlider);
+        buttonGroup[0].onClick.AddListener(() => selectScreenOrientation(ScreenOrientationSetting.LEFT));
+        buttonGroup[1].onClick.AddListener(() => selectScreenOrientation(ScreenOrientationSetting.TOP));
+        buttonGroup[2].onClick.AddListener(() => selectScreenOrientation(ScreenOrientationSetting.BOTTOM));
     }
 
     void initializeValuesVisually()
@@ -49,11 +54,13 @@ public class PauseMenu : WidgetPopup
         adjustMusicVolSlider(settingsValues.musicVolume);
         adjustSfxVolSlider(settingsValues.sfxVolume);
         setInGameMusic(settingsValues.inGameMusic);
+        selectScreenOrientation(settingsValues.screenOrientationSetting);
     }
 
     public void toggleInGameMusic()
     {
         settingsValues.inGameMusic = !settingsValues.inGameMusic;
+        GlobalStatMap.ModifySettings(settingsValues);
         setInGameMusic(settingsValues.inGameMusic);
     }
 
@@ -69,6 +76,7 @@ public class PauseMenu : WidgetPopup
             checkbox.sprite = checkboxUnchecked;
         }
         toggledInGameMusic.Invoke(settingsValues.inGameMusic);
+        GlobalStatMap.ModifySettings(settingsValues);
     }
 
     public void adjustMusicVolSlider(float newVal)
@@ -87,6 +95,30 @@ public class PauseMenu : WidgetPopup
         sfxVolSlider.value = newVal;
 
         toggledSfxVol.Invoke(newVal);
+    }
+
+    public void selectScreenOrientation(ScreenOrientationSetting screenOr)
+    {
+        settingsValues.screenOrientationSetting = screenOr;
+        foreach (Image button in buttonGroupImgs)
+        {
+            button.color = new Color(0.3f, 0.3f, 0.3f, 1);
+        }
+        switch (screenOr)
+        {
+            case ScreenOrientationSetting.LEFT:
+                buttonGroupImgs[0].color = new Color(0.55f, 0.5f, 0.2f, 1);
+                break;
+            case ScreenOrientationSetting.TOP:
+                buttonGroupImgs[1].color = new Color(0.55f, 0.5f, 0.2f, 1);
+                break;
+            case ScreenOrientationSetting.BOTTOM:
+                buttonGroupImgs[2].color = new Color(0.55f, 0.5f, 0.2f, 1);
+                break;
+        }
+
+        GlobalStatMap.ModifySettings(settingsValues);
+        toggledScreenOr.Invoke(screenOr);
     }
 
     public void attemptReturn()

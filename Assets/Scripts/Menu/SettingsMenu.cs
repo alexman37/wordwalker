@@ -59,6 +59,7 @@ public class SettingsMenu : WidgetPopup
     public void toggleInGameMusic()
     {
         settingsValues.inGameMusic = !settingsValues.inGameMusic;
+        GlobalStatMap.ModifySettings(settingsValues);
         setInGameMusic(settingsValues.inGameMusic);
     }
 
@@ -73,6 +74,7 @@ public class SettingsMenu : WidgetPopup
         {
             checkbox.sprite = checkboxUnchecked;
         }
+        GlobalStatMap.ModifySettings(settingsValues);
         toggledInGameMusic.Invoke(settingsValues.inGameMusic);
     }
 
@@ -82,7 +84,6 @@ public class SettingsMenu : WidgetPopup
         musicVolText.text = (newVal * 100f).ToString().Split('.')[0];
         musicVolSlider.value = newVal;
 
-
         toggledMusicVol.Invoke(newVal);
     }
 
@@ -91,7 +92,6 @@ public class SettingsMenu : WidgetPopup
         settingsValues.sfxVolume = newVal;
         sfxVolText.text = (newVal * 100f).ToString().Split('.')[0];
         sfxVolSlider.value = newVal;
-
 
         toggledSfxVol.Invoke(newVal);
     }
@@ -116,6 +116,7 @@ public class SettingsMenu : WidgetPopup
                 break;
         }
 
+        GlobalStatMap.ModifySettings(settingsValues);
         toggledScreenOr.Invoke(screenOr);
     }
 

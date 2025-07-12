@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance;
+
     public static bool greenlight = false;
 
     private float maxXBound = 1000;
@@ -16,7 +18,11 @@ public class PlayerManager : MonoBehaviour
     private float maxZoom = -30;
     private const float minZoom = 12; // I don't see this changing
 
+    private ScreenOrientationSetting screenOrientation;
+    private Vector3 eulerOrientationOffset = Vector3.zero;
+
     Vector3 pos;
+    public float distanceDelta = 0f;
     float sumDistance = 0;
     public GameObject cam;
     bool freeCamera = true;
@@ -28,6 +34,13 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        screenOrientation = GlobalStatMap.loadGlobalStatMap().settingsValues.screenOrientationSetting;
+        setScreenOrientation(screenOrientation);
+
         Debug.Log("Player Manager READY");
         greenlight = true;
     }
@@ -37,6 +50,8 @@ public class PlayerManager : MonoBehaviour
         ModeToolUI.inViewMode += inViewer;
         ModeToolUI.inStepperMode += exitViewer;
         ModeToolUI.inMarkerMode += exitViewer;
+        SettingsMenu.toggledScreenOr += setScreenOrientation;
+        PauseMenu.toggledScreenOr += setScreenOrientation;
     }
 
     private void OnDisable()
@@ -44,37 +59,45 @@ public class PlayerManager : MonoBehaviour
         ModeToolUI.inViewMode -= inViewer;
         ModeToolUI.inStepperMode -= exitViewer;
         ModeToolUI.inMarkerMode -= exitViewer;
+        SettingsMenu.toggledScreenOr -= setScreenOrientation;
+        PauseMenu.toggledScreenOr -= setScreenOrientation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(freeCamera)
+        if (freeCamera)
         {
             // MOUSE CONTROLS
             if(!(Application.platform == RuntimePlatform.IPhonePlayer) && !(Application.platform == RuntimePlatform.Android))
             {
+                /// initial click
                 if (Input.GetMouseButtonDown(0))
                 {
                     pos = Input.mousePosition;
+                    distanceDelta = 0;
                 }
 
+                /// dragging
                 if (Input.GetMouseButton(0))
                 {
                     Vector2 res = (Input.mousePosition - pos);
                     Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.1f;
+                    transformation = Quaternion.Euler(eulerOrientationOffset) * transformation;
+
                     cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
 
+                    distanceDelta += Vector3.Distance(pos, Input.mousePosition);
                     pos = Input.mousePosition;
                 }
 
-                //Zoom in
+                /// Zoom in
                 if (Input.mouseScrollDelta.y == 1)
                 {
                     cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, -1, 0));
                 }
 
-                //Zoom out
+                /// Zoom out
                 if (Input.mouseScrollDelta.y == -1)
                 {
                     cam.transform.position = boundZoomView(cam.transform.position + new Vector3(0, 1, 0));
@@ -92,6 +115,7 @@ public class PlayerManager : MonoBehaviour
                     if (second.phase == TouchPhase.Began)
                     {
                         sumDistance = Vector2.Distance(first.position, second.position);
+                        distanceDelta = 999; // Never allow tile movement when zooming.
                     }
 
                     if (first.phase == TouchPhase.Moved || second.phase == TouchPhase.Moved)
@@ -123,12 +147,20 @@ public class PlayerManager : MonoBehaviour
                 {
                     Touch touch = Input.touches[0];
 
+                    if(touch.phase == TouchPhase.Began)
+                    {
+                        distanceDelta = 0;
+                    }
+
                     if (touch.phase == TouchPhase.Moved)
                     {
                         // let's not overcomplicate it
                         Vector2 res = touch.deltaPosition;
                         Vector3 transformation = new Vector3(res.y, 0, -res.x) * 0.0044f;
                         cam.transform.position = boundCameraPosition(cam.transform.position + transformation);
+
+                        distanceDelta += Vector3.Distance(pos, Input.mousePosition);
+                        pos = Input.mousePosition;
                     }
                 }
             }
@@ -238,6 +270,28 @@ public class PlayerManager : MonoBehaviour
         this.maxZBound = maxZBounds;
         this.maxZoom = 3 * numRows + 8;
         walterWhitePos = new Vector3((maxXBounds + minXBounds) / 2, maxZoom, (maxZBounds + minZBounds) / 2);
+    }
+
+    void setScreenOrientation(ScreenOrientationSetting sor)
+    {
+        screenOrientation = sor;
+
+        // Change camera angle
+        switch(sor)
+        {
+            case ScreenOrientationSetting.LEFT:
+                cam.transform.rotation = Quaternion.Euler(90, -90, 0);
+                eulerOrientationOffset = Vector3.zero;
+                break;
+            case ScreenOrientationSetting.TOP:
+                cam.transform.rotation = Quaternion.Euler(90, 0, 0);
+                eulerOrientationOffset = new Vector3(0, 90, 0);
+                break;
+            case ScreenOrientationSetting.BOTTOM:
+                cam.transform.rotation = Quaternion.Euler(90, 180, 0);
+                eulerOrientationOffset = new Vector3(0, -90, 0);
+                break;
+        }
     }
 
 

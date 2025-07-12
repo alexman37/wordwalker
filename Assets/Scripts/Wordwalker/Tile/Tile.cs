@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Attach to a physical tile object in the world. tracks all its stats.
@@ -17,6 +18,8 @@ public class Tile : MonoBehaviour
     public Coordinate coords;               // Coordinate system works in (row, space)
 
     private static bool acceptingClicks = true;
+    private static Tile lastMouseDown;                 // To keep track of which tiles have been completely, fully clicked
+    private static float movedForClickThreshold = 3f;  // Allowed distance the camera can move for this to be considered a click
 
     bool finalized;          // (used solely in generation)
     public bool banned;      // You cannot interact with this tile no matter what (only special use cases)
@@ -52,6 +55,8 @@ public class Tile : MonoBehaviour
             timeFader = this.transform.GetChild(0).GetChild(0).GetComponent<Image>();
             timeFader.gameObject.SetActive(true);
         }
+
+        rotateOrientation(GlobalStatMap.loadGlobalStatMap().settingsValues.screenOrientationSetting);
     }
 
     // Sub / unsub to actions
@@ -65,6 +70,8 @@ public class Tile : MonoBehaviour
         {
             WalkManager.atCurrentRow += determineFogginess;
         }
+        SettingsMenu.toggledScreenOr += rotateOrientation;
+        PauseMenu.toggledScreenOr += rotateOrientation;
     }
 
     private void OnDisable()
@@ -74,18 +81,24 @@ public class Tile : MonoBehaviour
         TimeManager.timerExpired -= fallIfInRow;
         TimeManager.timerExpired -= fadeWarning;
         WalkManager.atCurrentRow -= determineFogginess;
+        SettingsMenu.toggledScreenOr -= rotateOrientation;
+        PauseMenu.toggledScreenOr -= rotateOrientation;
     }
 
 
     // When you click on a tile one of a number of things can happen.
     // The only scenario things DON'T actually happen is if the tile is outright banned from use -
     // Which can happen if it falls out of the game, for example.
-    public void OnMouseDown()
+    public void OnMouseUpAsButton()
     {
-        if(acceptingClicks && !banned)
+        Debug.Log("Distance observed: " + PlayerManager.instance.distanceDelta);
+        if(!EventSystem.current.IsPointerOverGameObject() && PlayerManager.instance.distanceDelta <= movedForClickThreshold)
         {
-            Debug.Log("Clicked on " + this.ToString());
-            tileClicked.Invoke(this);
+            if (acceptingClicks && !banned)
+            {
+                Debug.Log("Clicked on " + this.ToString());
+                tileClicked.Invoke(this);
+            }
         }
     }
 
@@ -97,6 +110,22 @@ public class Tile : MonoBehaviour
             Destroy(this.gameObject);
         }
     }*/
+
+    private void rotateOrientation(ScreenOrientationSetting sor)
+    {
+        switch(sor)
+        {
+            case ScreenOrientationSetting.LEFT:
+                textComponent.rectTransform.localRotation = Quaternion.Euler(90, 180, 0);
+                break;
+            case ScreenOrientationSetting.TOP:
+                textComponent.rectTransform.localRotation = Quaternion.Euler(90, -90, 0);
+                break;
+            case ScreenOrientationSetting.BOTTOM:
+                textComponent.rectTransform.localRotation = Quaternion.Euler(90, 90, 0);
+                break;
+        }
+    }
 
     public static void toggleCanClickTiles(bool canClick) { acceptingClicks = canClick; }
     public static void triggerFallAllTiles() { fallAllTiles.Invoke(false, true); }

@@ -103,7 +103,7 @@ public class SfxManager : MonoBehaviour
         }
         else
         {
-            GameObject.Destroy(audioSource);
+            GameObject.Destroy(audioSource.gameObject);
             Debug.LogWarning($"Couldn't create looping SFX {nameOfLoop}: That loop is already running?");
         }
     }
@@ -139,7 +139,8 @@ public class SfxManager : MonoBehaviour
         {
             if (activeSequences[nameOfSequence].Count <= index)
             {
-                Debug.LogWarning($"Couldn't play audio sequence {nameOfSequence}, index {index}: Out of range");
+                Debug.LogWarning($"Adjusted audio sequence {nameOfSequence}, index {index} (Out of range)");
+                index %= activeSequences[nameOfSequence].Count;
             }
             else if (activeSequences[nameOfSequence][index] == null)
             {
