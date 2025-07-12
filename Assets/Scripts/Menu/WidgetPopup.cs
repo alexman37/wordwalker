@@ -38,7 +38,8 @@ public class WidgetPopup : MonoBehaviour
         }
 
         // Player cannot move the map around when a widget is open...thems the rules
-        PlayerManager.instance.setFreeCamera(false);
+        if(PlayerManager.instance != null)
+            PlayerManager.instance.setFreeCamera(false);
     }
 
     public void closeWidgetPopup()
@@ -49,6 +50,7 @@ public class WidgetPopup : MonoBehaviour
         activeWidget = null;
 
         // Player can open widgets again
-        PlayerManager.instance.setFreeCamera(true);
+        if (PlayerManager.instance != null)
+            PlayerManager.instance.setFreeCamera(true);
     }
 }
