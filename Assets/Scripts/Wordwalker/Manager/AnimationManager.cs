@@ -19,6 +19,10 @@ public class AnimationManager : MonoBehaviour
     public Vector3 ledgeEndingPlayerPos;
     public Vector3 endingPlayerPos;
 
+    // depending on screen orientation this tells your character what "direction" to face
+    private DirectionSuite LeftSuite, TopSuite, BottomSuite;
+    private DirectionSuite activeSuite;
+
     public static event Action<bool> setPreventPlayerMovement;
     public static event Action<bool> setActivelyMoving;
     public static event Action openedScroll;         // Only when the scroll is opened can we start moving (TODO: should it be when animation done instead?)
@@ -38,18 +42,49 @@ public class AnimationManager : MonoBehaviour
         readyForNextLevelGen += () => { };
         setPreventPlayerMovement += (_) => { };
         setActivelyMoving += (_) => { };
+
+        // Direction suites.
+        LeftSuite = new DirectionSuite(0, 2, 3, 1);
+        TopSuite = new DirectionSuite(3, 1, 2, 0);
+        BottomSuite = new DirectionSuite(1, 3, 0, 2);
+        changeDirectionSuite(GlobalStatMap.loadGlobalStatMap().settingsValues.screenOrientationSetting);
     }
 
     private void OnEnable()
     {
         GameManagerSc.levelReady += playStartingAnimation;
         Tile.fallAllTiles += playFallingAnimation;
+
+        SettingsMenu.toggledScreenOr += changeDirectionSuite;
+        PauseMenu.toggledScreenOr += changeDirectionSuite;
     }
 
     private void OnDisable()
     {
         GameManagerSc.levelReady -= playStartingAnimation;
         Tile.fallAllTiles -= playFallingAnimation;
+
+        SettingsMenu.toggledScreenOr -= changeDirectionSuite;
+        PauseMenu.toggledScreenOr -= changeDirectionSuite;
+    }
+
+    void changeDirectionSuite(ScreenOrientationSetting sor)
+    {
+        switch (sor)
+        {
+            case ScreenOrientationSetting.LEFT:
+                activeSuite = LeftSuite;
+                playerCharacter.transform.GetChild(0).transform.localRotation = Quaternion.Euler(180, 0, 180);
+                break;
+            case ScreenOrientationSetting.TOP:
+                activeSuite = TopSuite;
+                playerCharacter.transform.GetChild(0).transform.localRotation = Quaternion.Euler(180, 0, 90);
+                break;
+            case ScreenOrientationSetting.BOTTOM:
+                activeSuite = BottomSuite;
+                playerCharacter.transform.GetChild(0).transform.localRotation = Quaternion.Euler(180, 0, -90);
+                break;
+        }
     }
 
     /// <summary>
@@ -67,13 +102,13 @@ public class AnimationManager : MonoBehaviour
     public void playEndingAnimation()
     {
         setPreventPlayerMovement.Invoke(true);
-        activeMovingCoroutine = StartCoroutine(clearLevel(0)); //TODO direction
+        activeMovingCoroutine = StartCoroutine(clearLevel(activeSuite.forward));
     }
 
     // TODO: When this compiles set "Next" in postgame to call this method
     public void startWalkingToNextLevel()
     {
-        activeMovingCoroutine = StartCoroutine(walkIntoNextLevel(0));
+        activeMovingCoroutine = StartCoroutine(walkIntoNextLevel(activeSuite.forward));
     }
 
     /// <summary>
@@ -82,7 +117,7 @@ public class AnimationManager : MonoBehaviour
     IEnumerator startingAnimation()
     {
         playerAnimator.SetBool("Moving", true);
-        playerAnimator.SetInteger("Direction", 0); // TODO direction
+        playerAnimator.SetInteger("Direction", activeSuite.forward);
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
         float steps = 50;
@@ -106,15 +141,15 @@ public class AnimationManager : MonoBehaviour
         setPreventPlayerMovement.Invoke(false);
     }
 
-    public void moveAnim(Tile toTile)
+    public void moveAnim(Tile toTile, Adjacency.Direction dir)
     {
-        activeMovingCoroutine = StartCoroutine(moveCharacter(toTile));
+        activeMovingCoroutine = StartCoroutine(moveCharacter(toTile, dir));
     }
 
     /// <summary>
     /// Walk character to this tile
     /// </summary>
-    private IEnumerator moveCharacter(Tile toTile)
+    private IEnumerator moveCharacter(Tile toTile, Adjacency.Direction dir)
     {
         float steps = 20;
         float timeSec = 0.4f;
@@ -125,8 +160,8 @@ public class AnimationManager : MonoBehaviour
         // Once we decide to move to a tile we IMMEDIATELY set highlights and lay groundwork for moving to others.
         yield return walkManager.prepareNextMovement(toTile);
 
-
-        this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
+        Debug.Log("MOVING with direction " + activeSuite.dirToNumber(dir));
+        this.playerAnimator.SetInteger("Direction", activeSuite.dirToNumber(dir));
         this.playerAnimator.SetBool("Moving", true);
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
@@ -163,15 +198,15 @@ public class AnimationManager : MonoBehaviour
         playFallingAnimation(false,false);
     }
 
-    public void drawbackAnim(Tile backToTile)
+    public void drawbackAnim(Tile backToTile, Adjacency.Direction dir)
     {
-        activeMovingCoroutine = StartCoroutine(drawbackCharacter(backToTile));
+        activeMovingCoroutine = StartCoroutine(drawbackCharacter(backToTile, dir));
     }
 
     /// <summary>
     /// Character returns to original tile when they step on a wrong one
     /// </summary>
-    private IEnumerator drawbackCharacter(Tile backToTile)
+    private IEnumerator drawbackCharacter(Tile backToTile, Adjacency.Direction dir)
     {
         float steps = 20;
         float timeSec = 0.4f;
@@ -195,7 +230,7 @@ public class AnimationManager : MonoBehaviour
             yield return walkManager.prepareNextMovement(backToTile);
         }
 
-        this.playerAnimator.SetInteger("Direction", 0); //TODO: other directions
+        this.playerAnimator.SetInteger("Direction", activeSuite.dirToNumber(dir));
         this.playerAnimator.SetBool("Moving", true);
 
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
@@ -335,5 +370,37 @@ public class AnimationManager : MonoBehaviour
         playerAnimator.SetTrigger("Falling");
         playerManager.walterWhitePan();
         SfxManager.instance.playSFX(collapseClip, this.playerCharacter.transform, 1f);
+    }
+
+
+
+    protected class DirectionSuite
+    {
+        public int forward;
+        public int backward;
+        public int left;
+        public int right;
+
+        public DirectionSuite(int f, int b, int l, int r)
+        {
+            forward = f; // forward as in "closer to the goal" (NE or SE in adj. list)
+            backward = b; // backward as in "further from the goal" (NW or SW in adj. list)
+            left = l;
+            right = r;
+        }
+
+        public int dirToNumber(Adjacency.Direction dir)
+        {
+            switch(dir)
+            {
+                case Adjacency.Direction.NE: case Adjacency.Direction.NW:
+                    return forward;
+                case Adjacency.Direction.E: return left;
+                case Adjacency.Direction.W: return right;
+                case Adjacency.Direction.SE: case Adjacency.Direction.SW:
+                    return backward;
+                default: return 0;
+            }
+        }
     }
 }

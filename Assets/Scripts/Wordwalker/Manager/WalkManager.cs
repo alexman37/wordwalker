@@ -119,7 +119,9 @@ public class WalkManager : MonoBehaviour
                 isActivelyMoving = true;
                 
                 Tile pos = queuedMoves.Dequeue();
-                animationManager.moveAnim(pos);
+                // get direction of adjacency, with NE as the default
+                Adjacency.Direction dir = currTile == null ? Adjacency.Direction.NE : currTile.adjacencies.Find(adj => adj.tile == pos).direction;
+                animationManager.moveAnim(pos, dir);
 
                 // Will have to update Y-coord for camera in PlayerManager (according to zoom)
                 playerManager.LerpCameraTo(new Vector3(pos.absolutePosition.Item1, 0, pos.absolutePosition.Item2), 0.5f);
@@ -308,7 +310,7 @@ public class WalkManager : MonoBehaviour
         correctTiles.Clear();
         correctTiles = corrects;
 
-        AudioClip[] audioClips = new AudioClip[correctNotes.Count];
+        AudioClip[] audioClips = new AudioClip[corrects.Count];
         for(int i = 0; i < corrects.Count; i++)
         {
             corrects[i].order = i;
@@ -453,7 +455,9 @@ public class WalkManager : MonoBehaviour
                 if (onIncorrectChoice())
                 {
                     GameManagerSc.signifyWrongStep();
-                    animationManager.drawbackAnim(currTile);
+                    // get direction of adjacency, with NE as the default
+                    Adjacency.Direction dir = currTile == null ? Adjacency.Direction.NE : currTile.adjacencies.Find(adj => adj.tile == t).direction;
+                    animationManager.drawbackAnim(currTile, dir);
                     queuedMoves.Clear();
                     highlightAllInPossibleNext();
                 }

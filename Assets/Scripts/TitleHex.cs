@@ -47,8 +47,6 @@ public class TitleHex : MonoBehaviour
         {
             tilesReady += 1;
         }
-
-        Debug.Log("Completed setup for " + "(" + xCoord + "," + yCoord + ")");
     }
 
     private void OnDisable()
@@ -64,15 +62,12 @@ public class TitleHex : MonoBehaviour
 
     void gotoWW(bool into)
     {
-        Debug.Log("ENDING " + " OF " + "(" + xCoord + "," + yCoord + ")");
         StartCoroutine(rotation(into, 1));
     }
 
     IEnumerator rotation(bool into, int sceneId)
     {
         yield return new WaitUntil(() => tilesReady >= tilesRequired);
-        Debug.Log("r1 " + tilesReady + " r2 " + tilesRequired);
-        //Debug.Log("STAGE " + " OF " + "(" + xCoord + "," + yCoord + ")");
         float totalGradTime = 0.75f;
         float gradDelay = totalGradTime * (Vector2.Distance(Vector2.zero, new Vector2(xCoord, yCoord)) / maxDistance);
 
@@ -119,7 +114,6 @@ public class TitleHex : MonoBehaviour
             {
                 tilesReady = 0;
                 SceneManager.LoadScene(sceneId);
-                Debug.Log("SCREAMING INTO THE VOID");
             }
         }
         else {

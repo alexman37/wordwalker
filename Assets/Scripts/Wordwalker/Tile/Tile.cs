@@ -55,6 +55,8 @@ public class Tile : MonoBehaviour
             timeFader = this.transform.GetChild(0).GetChild(0).GetComponent<Image>();
             timeFader.gameObject.SetActive(true);
         }
+
+        rotateOrientation(GlobalStatMap.loadGlobalStatMap().settingsValues.screenOrientationSetting);
     }
 
     // Sub / unsub to actions
@@ -68,6 +70,8 @@ public class Tile : MonoBehaviour
         {
             WalkManager.atCurrentRow += determineFogginess;
         }
+        SettingsMenu.toggledScreenOr += rotateOrientation;
+        PauseMenu.toggledScreenOr += rotateOrientation;
     }
 
     private void OnDisable()
@@ -77,6 +81,8 @@ public class Tile : MonoBehaviour
         TimeManager.timerExpired -= fallIfInRow;
         TimeManager.timerExpired -= fadeWarning;
         WalkManager.atCurrentRow -= determineFogginess;
+        SettingsMenu.toggledScreenOr -= rotateOrientation;
+        PauseMenu.toggledScreenOr -= rotateOrientation;
     }
 
 
@@ -104,6 +110,22 @@ public class Tile : MonoBehaviour
             Destroy(this.gameObject);
         }
     }*/
+
+    private void rotateOrientation(ScreenOrientationSetting sor)
+    {
+        switch(sor)
+        {
+            case ScreenOrientationSetting.LEFT:
+                textComponent.rectTransform.localRotation = Quaternion.Euler(90, 180, 0);
+                break;
+            case ScreenOrientationSetting.TOP:
+                textComponent.rectTransform.localRotation = Quaternion.Euler(90, -90, 0);
+                break;
+            case ScreenOrientationSetting.BOTTOM:
+                textComponent.rectTransform.localRotation = Quaternion.Euler(90, 90, 0);
+                break;
+        }
+    }
 
     public static void toggleCanClickTiles(bool canClick) { acceptingClicks = canClick; }
     public static void triggerFallAllTiles() { fallAllTiles.Invoke(false, true); }
