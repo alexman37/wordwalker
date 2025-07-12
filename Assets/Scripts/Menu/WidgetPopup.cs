@@ -36,6 +36,9 @@ public class WidgetPopup : MonoBehaviour
             movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, 0));
             StartCoroutine(movingCoroutineIn);
         }
+
+        // Player cannot move the map around when a widget is open...thems the rules
+        PlayerManager.instance.setFreeCamera(false);
     }
 
     public void closeWidgetPopup()
@@ -44,5 +47,8 @@ public class WidgetPopup : MonoBehaviour
         movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, -Screen.safeArea.height));
         StartCoroutine(movingCoroutineOut);
         activeWidget = null;
+
+        // Player can open widgets again
+        PlayerManager.instance.setFreeCamera(true);
     }
 }

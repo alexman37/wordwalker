@@ -54,11 +54,13 @@ public class PauseMenu : WidgetPopup
         adjustMusicVolSlider(settingsValues.musicVolume);
         adjustSfxVolSlider(settingsValues.sfxVolume);
         setInGameMusic(settingsValues.inGameMusic);
+        selectScreenOrientation(settingsValues.screenOrientationSetting);
     }
 
     public void toggleInGameMusic()
     {
         settingsValues.inGameMusic = !settingsValues.inGameMusic;
+        GlobalStatMap.ModifySettings(settingsValues);
         setInGameMusic(settingsValues.inGameMusic);
     }
 
@@ -74,6 +76,7 @@ public class PauseMenu : WidgetPopup
             checkbox.sprite = checkboxUnchecked;
         }
         toggledInGameMusic.Invoke(settingsValues.inGameMusic);
+        GlobalStatMap.ModifySettings(settingsValues);
     }
 
     public void adjustMusicVolSlider(float newVal)
@@ -114,6 +117,7 @@ public class PauseMenu : WidgetPopup
                 break;
         }
 
+        GlobalStatMap.ModifySettings(settingsValues);
         toggledScreenOr.Invoke(screenOr);
     }
 
