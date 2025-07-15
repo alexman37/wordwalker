@@ -1,0 +1,285 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: slib-monk
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Idle Down
+    m_Hash: -1996588842
+    m_CategoryList:
+    - m_Name: idle-down
+      m_Hash: 1387106810
+      m_Sprite: {fileID: 7949188049111449880, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: down-blink-1
+      m_Hash: 1750612291
+      m_Sprite: {fileID: 3150444920470327751, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: down-blink-2
+      m_Hash: -246322951
+      m_Sprite: {fileID: 9028540858614451800, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Idle Right
+    m_Hash: 1793452601
+    m_CategoryList:
+    - m_Name: idle-right
+      m_Hash: 1491588403
+      m_Sprite: {fileID: 3593326438826049250, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: right-blink-1
+      m_Hash: 225870400
+      m_Sprite: {fileID: 7735092087362776042, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: right-blink-2
+      m_Hash: -1803561990
+      m_Sprite: {fileID: 3901698128470755520, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Idle Left
+    m_Hash: -295301243
+    m_CategoryList:
+    - m_Name: idle-left
+      m_Hash: 875947689
+      m_Sprite: {fileID: -5892024074596537556, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: left-blink-1
+      m_Hash: 2105095424
+      m_Sprite: {fileID: -3868395431225851973, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: left-blink-2
+      m_Hash: -462396230
+      m_Sprite: {fileID: 1148326528505251282, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Idle Up
+    m_Hash: 539271464
+    m_CategoryList:
+    - m_Name: idle-up
+      m_Hash: 1925525317
+      m_Sprite: {fileID: -2359630181006663422, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Falling
+    m_Hash: 998495048
+    m_CategoryList:
+    - m_Name: falling
+      m_Hash: -197203244
+      m_Sprite: {fileID: -2581927274786303784, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: falling-sway-1
+      m_Hash: -1555380901
+      m_Sprite: {fileID: -1511716182924601243, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: falling-sway-2
+      m_Hash: 977507553
+      m_Sprite: {fileID: -9189208333594801454, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Jump Fly Right
+    m_Hash: 97867077
+    m_CategoryList:
+    - m_Name: max-wind
+      m_Hash: -580730199
+      m_Sprite: {fileID: 5968980874760689476, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: norm-right
+      m_Hash: 1655717353
+      m_Sprite: {fileID: 7735092087362776042, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: jump-1
+      m_Hash: -975765637
+      m_Sprite: {fileID: 6876625452699422586, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: jump-2
+      m_Hash: 1558163137
+      m_Sprite: {fileID: 3782511755609871810, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Jump Flying Right
+    m_Hash: -1537077797
+    m_CategoryList:
+    - m_Name: flying
+      m_Hash: 1244953283
+      m_Sprite: {fileID: 3782511755609871810, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Jump Land Right
+    m_Hash: 1046572074
+    m_CategoryList:
+    - m_Name: jump-2
+      m_Hash: 1558163137
+      m_Sprite: {fileID: 3782511755609871810, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: jump-1
+      m_Hash: -975765637
+      m_Sprite: {fileID: 6876625452699422586, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: idle-right
+      m_Hash: 1491588403
+      m_Sprite: {fileID: 3593326438826049250, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Jump Set Right
+    m_Hash: -1659230064
+    m_CategoryList:
+    - m_Name: max-winded
+      m_Hash: 421744898
+      m_Sprite: {fileID: 5968980874760689476, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Jump Wind Right
+    m_Hash: 1526182957
+    m_CategoryList:
+    - m_Name: idle-right
+      m_Hash: 1491588403
+      m_Sprite: {fileID: 3593326438826049250, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: wind-1
+      m_Hash: -703319809
+      m_Sprite: {fileID: 2948130718143054795, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: wind-2
+      m_Hash: 1327325509
+      m_Sprite: {fileID: 5541381745576475323, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: wind-3
+      m_Hash: 941248979
+      m_Sprite: {fileID: 5968980874760689476, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Reading
+    m_Hash: 245876189
+    m_CategoryList:
+    - m_Name: unfurled
+      m_Hash: 1730843693
+      m_Sprite: {fileID: -1929747826593781095, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Realization
+    m_Hash: 1261879057
+    m_CategoryList:
+    - m_Name: idle-down
+      m_Hash: 1387106810
+      m_Sprite: {fileID: 7949188049111449880, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: realization-1
+      m_Hash: -1957378588
+      m_Sprite: {fileID: 8406330998970514193, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: realization-2
+      m_Hash: 308122718
+      m_Sprite: {fileID: -8530245599394652343, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: realization-3
+      m_Hash: 1700439240
+      m_Sprite: {fileID: 5338206491703209696, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: realization-4
+      m_Hash: -79810197
+      m_Sprite: {fileID: 584443527572942947, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Start Read
+    m_Hash: 855897941
+    m_CategoryList:
+    - m_Name: idle-down
+      m_Hash: 1387106810
+      m_Sprite: {fileID: 7949188049111449880, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: grab-1
+      m_Hash: -1642268653
+      m_Sprite: {fileID: 6285753242533727773, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: grab-2
+      m_Hash: 118860201
+      m_Sprite: {fileID: -8604499441818667150, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: grab-3
+      m_Hash: 1880267071
+      m_Sprite: {fileID: 2351200131707344198, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: grab-4
+      m_Hash: -294253412
+      m_Sprite: {fileID: -7421590339881873844, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-0
+      m_Hash: 440629717
+      m_Sprite: {fileID: 7747620930003844062, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-1
+      m_Hash: 1833191747
+      m_Sprite: {fileID: 2007142290917839361, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-2
+      m_Hash: -196273927
+      m_Sprite: {fileID: 5385232813823149328, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-3
+      m_Hash: -2092291985
+      m_Sprite: {fileID: 3445101146873862978, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-4
+      m_Hash: 489602508
+      m_Sprite: {fileID: -5404608959308607942, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-5
+      m_Hash: 1781108058
+      m_Sprite: {fileID: -1929747826593781095, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Stop Read
+    m_Hash: 737204731
+    m_CategoryList:
+    - m_Name: reading-5
+      m_Hash: 1781108058
+      m_Sprite: {fileID: -1929747826593781095, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-4
+      m_Hash: 489602508
+      m_Sprite: {fileID: -5404608959308607942, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-3
+      m_Hash: -2092291985
+      m_Sprite: {fileID: 3445101146873862978, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-2
+      m_Hash: -196273927
+      m_Sprite: {fileID: 5385232813823149328, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-1
+      m_Hash: 1833191747
+      m_Sprite: {fileID: 2007142290917839361, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: reading-0
+      m_Hash: 440629717
+      m_Sprite: {fileID: 7747620930003844062, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: grab-4
+      m_Hash: -294253412
+      m_Sprite: {fileID: -7421590339881873844, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: grab-3
+      m_Hash: 1880267071
+      m_Sprite: {fileID: 2351200131707344198, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: idle-down
+      m_Hash: 1387106810
+      m_Sprite: {fileID: 7949188049111449880, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Uh Oh
+    m_Hash: -997813238
+    m_CategoryList:
+    - m_Name: realization
+      m_Hash: -844484410
+      m_Sprite: {fileID: 584443527572942947, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Walking Down
+    m_Hash: -367674556
+    m_CategoryList:
+    - m_Name: idle-down
+      m_Hash: 1387106810
+      m_Sprite: {fileID: 7949188049111449880, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-down-1
+      m_Hash: 1402232340
+      m_Sprite: {fileID: 2670920340580542669, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-down-2
+      m_Hash: -895676498
+      m_Sprite: {fileID: 2890189157575903398, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Walking Left
+    m_Hash: -1936864233
+    m_CategoryList:
+    - m_Name: idle-left
+      m_Hash: 875947689
+      m_Sprite: {fileID: -5892024074596537556, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-left-1
+      m_Hash: 207868548
+      m_Sprite: {fileID: 3093984002822867350, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-left-2
+      m_Hash: -1788181698
+      m_Sprite: {fileID: -7057344318941038358, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Walking Right
+    m_Hash: 1955001234
+    m_CategoryList:
+    - m_Name: idle-right
+      m_Hash: 1491588403
+      m_Sprite: {fileID: 3593326438826049250, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-right-1
+      m_Hash: -1953274559
+      m_Sprite: {fileID: -1719420854223627333, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-right-2
+      m_Hash: 312095995
+      m_Sprite: {fileID: -2340686519235494763, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Walking Up
+    m_Hash: -48034942
+    m_CategoryList:
+    - m_Name: idle-up
+      m_Hash: 1925525317
+      m_Sprite: {fileID: -2359630181006663422, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-up-1
+      m_Hash: -287758785
+      m_Sprite: {fileID: 4923943767283302975, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: walking-up-2
+      m_Hash: 2010150789
+      m_Sprite: {fileID: -9115657848700202673, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Win Round
+    m_Hash: 565609250
+    m_CategoryList:
+    - m_Name: idle-down
+      m_Hash: 1387106810
+      m_Sprite: {fileID: 7949188049111449880, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: victory-pose-1
+      m_Hash: -290907789
+      m_Sprite: {fileID: -1153021052263653814, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+    - m_Name: victory-pose-2
+      m_Hash: 2006993097
+      m_Sprite: {fileID: -3070004827217077315, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
+  - m_Name: Won Round
+    m_Hash: -405173595
+    m_CategoryList:
+    - m_Name: victory-pose
+      m_Hash: 2056925350
+      m_Sprite: {fileID: -3070004827217077315, guid: e2174175760357444abd0ea67b41d1f1, type: 3}
