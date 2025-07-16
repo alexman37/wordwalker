@@ -104,7 +104,8 @@ public class GameManagerSc : MonoBehaviour
         }
     }
 
-    public static void setDailyWordParams(string word, string defn, HashSet<MenuScript.Challenge> challenges)
+    // TODO something with intensity once we improve tile gen a lil bit
+    public static void setDailyWordParams(string word, string defn, HashSet<MenuScript.Challenge> challenges, int intensity)
     {
         dailyWord = true;
         WordGen.Skip();

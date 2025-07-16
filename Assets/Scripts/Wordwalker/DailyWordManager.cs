@@ -24,6 +24,8 @@ public class DailyWordManager : MonoBehaviour
     const string DAILY_START_DATE = "06/29/2025";
     DateTime dateOrigin = DateTime.Parse(DAILY_START_DATE);
 
+    DateTime todaysDate = DateTime.Now.Add(TimeSpan.FromDays(0)); // TODO remove when we are finished testing
+
     // let's not screw around with asset bundle loading this time...just do it locally
     [SerializeField] private TextAsset dailyWordList;
 
@@ -33,7 +35,6 @@ public class DailyWordManager : MonoBehaviour
     void Awake()
     {
         StatMap globalStats = GlobalStatMap.loadGlobalStatMap();
-        DateTime todaysDate = DateTime.Now.Add(TimeSpan.FromDays(0)); // TODO remove when we are finished testing
         string today = todaysDate.ToString("d");
 
         dailyWordDate.text = today;
@@ -80,28 +81,42 @@ public class DailyWordManager : MonoBehaviour
         // First time setup needed
         else
         {
-            Debug.Log("FIRST TIME SETUP");
+            Debug.Log("Resetting the Daily word...");
+            // Define for first time if needed
             if (!globalStats.intMap.ContainsKey("dailyWordStreak")) globalStats.intMap["dailyWordStreak"] = 0;
-            dailyWordStreakStar.SetActive(true);
-            dailyWordStreakStarText.text = globalStats.intMap["dailyWordStreak"].ToString();
-
-            GlobalStatMap.AddOrModifyText("lastKnownDailyWord", today);
+            // Only show star if there is a streak to speak of
+            if (globalStats.intMap["dailyWordStreak"] > 0)
+            {
+                dailyWordStreakStar.SetActive(true);
+                dailyWordStreakStarText.text = globalStats.intMap["dailyWordStreak"].ToString();
+            }
 
             // If you failed to play the last daily word, reset the streak. So in other words check for:
             // 1. Is last known daily word == yesterday?
-            // 2. Did you beat it? (dailyWordPlayedToday == true; the streak will be set to 0 regardless if you lost.)
+            // 2. Did you beat it?
+            // If both of these are not true, either the streak will be 0, or the 'dailyWordPlayedToday' flag won't be set.
+            // In either case, skill issue, reset the streak
             if (!globalStats.flags.Contains("dailyWordPlayedToday") ||
                 !globalStats.textMap.ContainsKey("lastKnownDailyWord") ||
-                !DateTime.Parse(globalStats.textMap["lastKnownDailyWord"]).Add(TimeSpan.FromDays(1)).Equals(todaysDate))
+                !SameDay(DateTime.Parse(globalStats.textMap["lastKnownDailyWord"]).Add(TimeSpan.FromDays(1)), todaysDate))
             {
+                Debug.Log("I think the last day you played the daily was " + DateTime.Parse(globalStats.textMap["lastKnownDailyWord"]));
+                Debug.Log("I think today is " + todaysDate);
                 GlobalStatMap.AddOrModifyInt("dailyWordStreak", 0);
                 dailyWordStreakStar.SetActive(false);
                 dailyWordStreakStarText.text = "0";
             }
+
+            GlobalStatMap.AddOrModifyText("lastKnownDailyWord", today);
             GlobalStatMap.RemoveFlag("dailyWordPlayedToday");
 
             enableButton();
         }
+    }
+
+    private bool SameDay(DateTime d1, DateTime d2)
+    {
+        return d1.Day == d2.Day;
     }
 
     private void disableButton(bool won)
@@ -120,6 +135,18 @@ public class DailyWordManager : MonoBehaviour
     public void playDailyWord()
     {
         string[] wordAndDef = todaysWordLine.Split('|');
-        menuScript.startDailyWordGame(wordAndDef[0], wordAndDef[1]);
+        menuScript.startDailyWordGame(wordAndDef[0], wordAndDef[1], seedifyTodaysDate(todaysDate.ToString("d")), getDayOfWeek());
+    }
+
+    private int getDayOfWeek()
+    {
+        // Monday = 0...Sunday = 6
+        return Math.Abs((int)(todaysDate.DayOfWeek) + 6) % 7;
+    }
+
+    // Return DDMMYYYY as an integer with a 1 in front
+    private int seedifyTodaysDate(string date)
+    {
+        return int.Parse("1" + date.Replace("/", ""));
     }
 }

@@ -51,15 +51,36 @@ public class MenuScript : MonoBehaviour
         this.dbItem = database;
     }
 
-    // Play the daily word
-    public void startDailyWordGame(string word, string defn)
+    // Play the daily word.
+    // The seed is just the date format of today with a 1 at the front- for example, 07/16/2025  -> 107162025
+    // "Intensity" determines the difficulty. We also thought about using it to enable some challenges but...it's looking like we won't.
+    public void startDailyWordGame(string word, string defn, int seed, int intensity)
     {
         Debug.Log("Starting Daily word game");
         MusicManager.inGameMusicFade(true);
-        GameManagerSc.setDailyWordParams(word, defn, selectedChallenges);
+
+        UnityEngine.Random.InitState(seed);
+
+        GameManagerSc.setDailyWordParams(word, defn, selectedChallenges, intensity);
 
         GameManagerSc.transitioning = true;
         transition.Invoke(true);
+    }
+
+    //TODO - possibly implement if we want challenges to be in the daily word.
+    private HashSet<Challenge> getRandomChallengeList(int intensity)
+    {
+        HashSet<Challenge> toChooseFrom = new HashSet<Challenge>(new Challenge[] { 
+            Challenge.FOG, Challenge.IRON_MAN, Challenge.SPECIAL_TILES, Challenge.TIMER, Challenge.GEN_PLUS });
+
+        if (intensity > 5) return toChooseFrom;
+
+        for(int i = 0; i < intensity; i++)
+        {
+
+        }
+
+        return null;
     }
 
     // Start new adventure / free play game
@@ -69,6 +90,9 @@ public class MenuScript : MonoBehaviour
         MusicManager.inGameMusicFade(true);
         GameManagerSc.setParametersOnStart(numLevels, dbItem, selectedChallenges);
         WidgetPopup.resetWidgets();
+
+        Debug.Log("Reset random seed to " + DateTime.Now.Millisecond);
+        UnityEngine.Random.InitState(DateTime.Now.Millisecond);
 
         GameManagerSc.transitioning = true;
         transition.Invoke(true);
