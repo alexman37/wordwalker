@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Experimental.U2D.Animation;
 
 /// <summary>
 /// Manages animations for your character.
@@ -9,6 +10,8 @@ using System;
 /// </summary>
 public class AnimationManager : MonoBehaviour
 {
+    public static bool greenlight = false;
+
     public WalkManager walkManager;
     public PlayerManager playerManager;
 
@@ -30,6 +33,8 @@ public class AnimationManager : MonoBehaviour
 
     private Coroutine activeMovingCoroutine;  // Constantly updated - there should only be one going at a time.
 
+    [SerializeField] private SpriteLibraryAsset[] spriteLibAssets;
+
     [SerializeField] private AudioClip realizationClip;
     [SerializeField] private AudioClip collapseClip;
     [SerializeField] private AudioClip footstepsClip;
@@ -48,6 +53,11 @@ public class AnimationManager : MonoBehaviour
         TopSuite = new DirectionSuite(3, 1, 2, 0);
         BottomSuite = new DirectionSuite(1, 3, 0, 2);
         changeDirectionSuite(GlobalStatMap.loadGlobalStatMap().settingsValues.screenOrientationSetting);
+
+        // Set the sprite to whichever character you are playing as.
+        playerAnimator.GetComponent<SpriteLibrary>().spriteLibraryAsset = spriteLibAssets[(int) CharSelectPopup.activeCharSprite];
+
+        greenlight = true;
     }
 
     private void OnEnable()

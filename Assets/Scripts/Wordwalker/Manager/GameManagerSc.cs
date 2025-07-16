@@ -155,6 +155,7 @@ public class GameManagerSc : MonoBehaviour
     {
         // If all managers are ready, begin the game
         if (WalkManager.greenlight &&
+            AnimationManager.greenlight &&
             WordwalkerUIScript.greenlight &&
             TilemapGen.greenlight &&
             PlayerManager.greenlight &&
@@ -202,6 +203,7 @@ public class GameManagerSc : MonoBehaviour
             TilemapGen.greenlight = false;
             PlayerManager.greenlight = false;
             WordGen.greenlight = false;
+            AnimationManager.greenlight = false;
 
             transitioning = false;
             transition.Invoke(false);

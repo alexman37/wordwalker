@@ -15493,6 +15493,16 @@ MonoBehaviour:
   ledgeStartingPlayerPos: {x: 0, y: 0.5, z: -6}
   ledgeEndingPlayerPos: {x: 0, y: 0, z: 0}
   endingPlayerPos: {x: 0, y: 0, z: 0}
+  spriteLibAssets:
+  - {fileID: 11400000, guid: 6e10961194021b641841af6626a51c5c, type: 2}
+  - {fileID: 11400000, guid: ccf9826aabd115d4bad02d80a4946763, type: 2}
+  - {fileID: 11400000, guid: fc6984142ec20524eba64b8ce55c530c, type: 2}
+  - {fileID: 11400000, guid: be4b1770ab87e2d4caabb9b3f8dff1f6, type: 2}
+  - {fileID: 11400000, guid: bbf2f971c80120e4e9fd45e751358893, type: 2}
+  - {fileID: 11400000, guid: 41f028a55ac6dc94ca45be664cf47893, type: 2}
+  - {fileID: 11400000, guid: 4f1ad685ed2110349b1609eea36d5049, type: 2}
+  - {fileID: 11400000, guid: fd067508a3203584b98bc3d81e2e705c, type: 2}
+  - {fileID: 11400000, guid: 5560b53cbb8f12c4eaa20eb9bf0d60e4, type: 2}
   realizationClip: {fileID: 8300000, guid: 35a42ede9044dbc4289f97af04f16074, type: 3}
   collapseClip: {fileID: 8300000, guid: 025356e5633cfc34b9ee9ecee3ea43f5, type: 3}
   footstepsClip: {fileID: 8300000, guid: 9389857ae1767ff4abde397e9ed0f6a6, type: 3}
@@ -26108,7 +26118,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3676410944294925718, guid: 30663db466160d5439579c5ae1081f53, type: 3}
+  m_Sprite: {fileID: 7596865632669368472, guid: 30663db466160d5439579c5ae1081f53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
