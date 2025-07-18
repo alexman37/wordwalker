@@ -146,6 +146,14 @@ public static class DatabaseTracker
         }
     }
 
+    public static void goldStar(string id)
+    {
+        if (databaseTracker.databaseStorages.ContainsKey(id))
+        {
+            databaseTracker.databaseStorages[id].goldStarred = true;
+        }
+    }
+
     // Clear all data
     public static void resetAllData()
     {
@@ -178,6 +186,7 @@ public class DatabasePersistentStats
     public int attempts;
     public int wordsDiscovered;
     public bool allWordsSeen;
+    public bool goldStarred;
 
     public HighScoresList highScores;
 

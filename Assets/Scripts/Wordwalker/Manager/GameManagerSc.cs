@@ -301,11 +301,11 @@ public class GameManagerSc : MonoBehaviour
         if(selectedChallenges.Count == 5 && numMistakes == 0)
         {
             uiManager.AwardGoldStar();
-            // TODO update db state
+            DatabaseTracker.goldStar(localDBcopy.databaseId);
+
             return new HighScore(score, 14, formattedDate, 5);
         } else
         {
-            Debug.Log("Score " + score + " rank " + RankBox.getFinalRank(numMistakes));
             return new HighScore(score, RankBox.getFinalRank(numMistakes), formattedDate, selectedChallenges.Count);
         }
     }

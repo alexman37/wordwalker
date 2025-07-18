@@ -32,7 +32,13 @@ public class DBClick : MonoBehaviour
         backgroundCol = this.GetComponent<Image>();
 
         persistentStats = DatabaseTracker.loadDatabaseTracker(databaseData.databaseId);
-        challengeStarBackground.sprite = challengeStarBackgrounds[persistentStats.highScores.highestNumStars];
+        if(persistentStats.goldStarred)
+        {
+            challengeStarBackground.sprite = challengeStarBackgrounds[6];
+        } else
+        {
+            challengeStarBackground.sprite = challengeStarBackgrounds[persistentStats.highScores.highestNumStars];
+        }
     }
 
     private void OnEnable()
