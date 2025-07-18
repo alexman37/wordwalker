@@ -26,6 +26,8 @@ public class AdventureMenu : WidgetPopup
     public Image[] highScores;
     public GameObject neverWon;
 
+    public GameObject selectInfographic; // this tells you to select a database when it's your first time playing
+
     public Sprite[] challengeStarDisplays;
 
     // TODO challenges...
@@ -83,18 +85,11 @@ public class AdventureMenu : WidgetPopup
             }
         }
 
+        selectInfographic.SetActive(false);
+        GlobalStatMap.AddOrModifyText("selectedDB", item.databaseId);
+
         wordsDiscovered.text = $"Words Discovered\n{dbStats.wordsDiscovered} / {item.size}";
         winRate.text = $"Win Rate\n{dbStats.wins} / {dbStats.attempts}";
-    }
-
-    private void OnEnable()
-    {
-        //ChallengeClick.enable += updateChallengeInfo;
-    }
-
-    private void OnDisable()
-    {
-        //ChallengeClick.enable -= updateChallengeInfo;
     }
 
 

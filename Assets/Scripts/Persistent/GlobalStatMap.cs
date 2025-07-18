@@ -61,6 +61,9 @@ public static class GlobalStatMap
         return loadedData;
     }
 
+
+    /// SETTERS
+
     public static void AddOrModifyInt(string varName, int val)
     {
         if(statMap.intMap.ContainsKey(varName))
@@ -113,6 +116,21 @@ public static class GlobalStatMap
         saveGlobalStatMap();
     }
 
+    public static bool AddNewBool(string varName, bool bs)
+    {
+        if (statMap.boolMap.ContainsKey(varName))
+        {
+            // This entry already exists - skip
+            return false;
+        }
+        else
+        {
+            statMap.boolMap.Add(varName, bs);
+            saveGlobalStatMap();
+            return true;
+        }
+    }
+
     public static void AddOrModifyBool(string varName, bool bs)
     {
         if (statMap.boolMap.ContainsKey(varName))
@@ -142,6 +160,31 @@ public static class GlobalStatMap
     {
         statMap.settingsValues = settingsValues;
         saveGlobalStatMap();
+    }
+
+    /// GETTERS
+    public static OptionType<int> GetIntMaybe(string intName)
+    {
+        if (statMap.intMap.ContainsKey(intName)) return new OptionType<int>(true, statMap.intMap[intName]);
+        else return new OptionType<int>(false, -1);
+    }
+
+    public static OptionType<float> GetFloatMaybe(string floatName)
+    {
+        if (statMap.floatMap.ContainsKey(floatName)) return new OptionType<float>(true, statMap.floatMap[floatName]);
+        else return new OptionType<float>(false, -1);
+    }
+
+    public static OptionType<string> GetTextMaybe(string textName)
+    {
+        if (statMap.textMap.ContainsKey(textName)) return new OptionType<string>(true, statMap.textMap[textName]);
+        else return new OptionType<string>(false, "");
+    }
+
+    public static OptionType<bool> GetBoolMaybe(string boolName)
+    {
+        if (statMap.boolMap.ContainsKey(boolName)) return new OptionType<bool>(true, statMap.boolMap[boolName]);
+        else return new OptionType<bool>(false, false);
     }
 
     public static void resetAllData()
@@ -175,5 +218,42 @@ public class StatMap
         textMap = new Dictionary<string, string>();
         boolMap = new Dictionary<string, bool>();
         flags = new HashSet<string>();
+    }
+
+    /// GETTERS
+    public OptionType<int> GetIntMaybe(string intName)
+    {
+        if (intMap.ContainsKey(intName)) return new OptionType<int>(true, intMap[intName]);
+        else return new OptionType<int>(false, -1);
+    }
+
+    public OptionType<float> GetFloatMaybe(string floatName)
+    {
+        if (floatMap.ContainsKey(floatName)) return new OptionType<float>(true, floatMap[floatName]);
+        else return new OptionType<float>(false, -1);
+    }
+
+    public OptionType<string> GetTextMaybe(string textName)
+    {
+        if (textMap.ContainsKey(textName)) return new OptionType<string>(true, textMap[textName]);
+        else return new OptionType<string>(false, "");
+    }
+
+    public OptionType<bool> GetBoolMaybe(string boolName)
+    {
+        if (boolMap.ContainsKey(boolName)) return new OptionType<bool>(true, boolMap[boolName]);
+        else return new OptionType<bool>(false, false);
+    }
+}
+
+public class OptionType<T>
+{
+    public bool exists;
+    public T value;
+
+    public OptionType(bool e, T v)
+    {
+        exists = e;
+        value = v;
     }
 }

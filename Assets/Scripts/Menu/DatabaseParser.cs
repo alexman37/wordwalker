@@ -14,8 +14,14 @@ public class DatabaseParser : MonoBehaviour
 
     private AdventureMenu adventureMenu;
 
+    // Several places need to use this - let's not reload it over and over. Just load it once, here.
+    public static StatMap lastLoadedGlobalStatsMap;
+
     public void parseDatabasesAtStart()
     {
+        OptionType<string> selectedDB = lastLoadedGlobalStatsMap.GetTextMaybe("selectedDB");
+        DatabaseItem selectedItem = null;
+
         HashSet<DatabaseItem> dbItemFullSet = new HashSet<DatabaseItem>();
 
         string[] raw = dbFile.text.Split('\n');
@@ -69,24 +75,40 @@ public class DatabaseParser : MonoBehaviour
                     }
                 }
 
+                // Select (TODO: also expand?)
+                if (selectedDB.exists && vars[1] == selectedDB.value)
+                {
+                    // select it
+                    selectedItem = item;
+                }
+
                 DatabaseTracker.initializeDatabaseTracker(item.databaseId);
             }
         }
 
-        for(int i = 0; i < databaseSet.Length; i++)
+        float moveNextDownBy = 0;
+        for (int i = 0; i < databaseSet.Length; i++)
         {
-            databaseSet[i].build(i);
+            Debug.Log("Moving down " + moveNextDownBy);
+            moveNextDownBy += databaseSet[i].build(i, moveNextDownBy);
         }
 
         StartCoroutine(LoadIconAsset(dbItemFullSet));
 
-        // Automatically queue up the first in the list for viewing
-        adventureMenu.displayDatabase(databaseSet[0].getFirst());
+        // TODO REMOVE Automatically queue up the first in the list for viewing
+        if(selectedItem != null)
+        {
+            adventureMenu.displayDatabase(selectedItem);
+        } else
+        {
+            // literally your first time playing the game - so show the "select a database!" screen instead
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        lastLoadedGlobalStatsMap = GlobalStatMap.loadGlobalStatMap();
         adventureMenu = FindObjectOfType<AdventureMenu>();
         parseDatabasesAtStart();
     }

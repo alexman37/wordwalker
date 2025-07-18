@@ -26,26 +26,9 @@ public class Startup : MonoBehaviour
             thisAndAllChildren.Add(this.transform.GetChild(i).gameObject);
         }
 
-        initializeDatabaseList();
-
 
         // When we're done everything, remove the startup "barrier"
         StartCoroutine(fadeOut());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    /// <summary>
-    /// Create all databases
-    /// According to some file, bc we need to store scores and which custom ones we're actually using
-    /// </summary>
-    void initializeDatabaseList()
-    {
-        
     }
 
     IEnumerator fadeOut()

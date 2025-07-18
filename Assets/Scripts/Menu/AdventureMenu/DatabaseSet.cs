@@ -26,6 +26,13 @@ public class DatabaseSet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Add selected tracker for this database if not exists yet. Otherwise, get it from storage.
+        if(!GlobalStatMap.AddNewBool("selectedSet_" + dbName, false))
+        {
+            expanded = DatabaseParser.lastLoadedGlobalStatsMap.boolMap["selectedSet_" + dbName];
+        }
+        
+
         heightOfEntries = itemsList.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
     }
 
@@ -39,13 +46,9 @@ public class DatabaseSet : MonoBehaviour
         usedCollapser -= moveElementsBelow;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void build(int slot)
+    // Actually draws the database object onto the screen
+    // If the sprite is expanded, return the additional amount to move down the next database set by
+    public float build(int slot, float moveDownby)
     {
         heightOfEntries = itemsList.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
 
@@ -72,33 +75,40 @@ public class DatabaseSet : MonoBehaviour
         }
 
         // Size of container for this particular set
-        itemsList.GetComponent<RectTransform>().sizeDelta = new Vector2(oldRect.rect.width, oldRect.rect.height + heightOfEntries * (databases.Count - 1));
+        itemsList.GetComponent<RectTransform>().sizeDelta = new Vector2(oldRect.rect.width, oldRect.rect.height + heightOfEntries * (databases.Count - 1) + DB_OFFSET);
 
         // Size of scroll window - just increase it by the height of this new "top tab" element
         RectTransform broadScroll = transform.parent.GetComponent<RectTransform>();
 
         float heightOfTopTab = this.GetComponent<RectTransform>().rect.height;
-        broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfTopTab);
+        float estimatedHeight = broadScroll.rect.height + heightOfTopTab + DB_OFFSET;
+        broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, estimatedHeight);
 
         dbNameField.text = dbName;
 
         // Now we have to move this to the right Y position according to its slot
         RectTransform currentPos = this.GetComponent<RectTransform>();
-        currentPos.anchoredPosition = new Vector2(currentPos.anchoredPosition.x, currentPos.anchoredPosition.y - heightOfEntries * slot);
+        currentPos.anchoredPosition = new Vector2(currentPos.anchoredPosition.x, currentPos.anchoredPosition.y - moveDownby - heightOfEntries * slot);
         this.slot = slot;
 
         // Sometimes it'll be expanded on startup
         // TODO - not moving down others on startup, probably because others don't exist yet...
-        /*if (expanded)
+        if (expanded)
         {
             expandedSprite.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
             itemsList.SetActive(true);
 
-            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfEntries * databases.Count);
+            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, estimatedHeight + heightOfEntries * databases.Count + DB_OFFSET);
 
             // Position of future elements modified
             usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, false);
-        }*/
+            return heightOfEntries * databases.Count;
+        } else
+        {
+            return 0;
+        }
+
+        
     }
 
     public void AddDatabase(DatabaseItem database)
@@ -125,7 +135,7 @@ public class DatabaseSet : MonoBehaviour
             // Size of 'broadScroller' - affects scrolling for all elements.
             RectTransform broadScroll = transform.parent.GetComponent<RectTransform>();
 
-            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfEntries * databases.Count);
+            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfEntries * databases.Count + DB_OFFSET);
 
             // Position of future elements modified
             usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, false);
@@ -137,7 +147,7 @@ public class DatabaseSet : MonoBehaviour
             // Size of 'broadScroller' - affects scrolling for all elements.
             RectTransform broadScroll = transform.parent.GetComponent<RectTransform>();
 
-            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height - heightOfEntries * databases.Count);
+            broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height - heightOfEntries * databases.Count - DB_OFFSET);
 
             // Position of future elements modified
             usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, true);
