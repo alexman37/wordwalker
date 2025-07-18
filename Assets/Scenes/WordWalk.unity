@@ -14628,9 +14628,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6a5d87ce0859aa74ca8211cebff1d83c, type: 3}
   - {fileID: 21300000, guid: f9010909f12fc1e46bc379b798bbfc42, type: 3}
   - {fileID: 21300000, guid: 61f588e3bdf5299458475dcdac55b9b0, type: 3}
-  - {fileID: 21300000, guid: 54a6fc56182ef1a41b07f4d1c1dae666, type: 3}
   deathSprite: {fileID: 21300000, guid: 6d3b470eeeebb7347a1d7eaa846dc8bc, type: 3}
-  neverBeaten: {fileID: 0}
+  goldStarSprite: {fileID: 21300000, guid: 54a6fc56182ef1a41b07f4d1c1dae666, type: 3}
+  neverBeaten: {fileID: 21300000, guid: 4e37fbb715d4a0d4bb16fab7a1556f3b, type: 3}
 --- !u!114 &981953206
 MonoBehaviour:
   m_ObjectHideFlags: 0

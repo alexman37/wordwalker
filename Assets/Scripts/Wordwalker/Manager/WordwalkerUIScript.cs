@@ -92,6 +92,9 @@ public class WordwalkerUIScript : MonoBehaviour
     {
         displayRoom.text = "0 / " + amnt.ToString();
         numLevels = amnt;
+
+        // Also set up the ranking system based on this
+        rankBox.setupRankingSystem(amnt);
     }
 
     // When we enter a new room update the level counter
@@ -104,11 +107,21 @@ public class WordwalkerUIScript : MonoBehaviour
         }
     }
 
-    // Update score (TODO: nicer animation?)
+    // Update score
     public void ChangeScore(int oldAmnt, int delta, bool adding)
     {
         StartCoroutine(steadyNumberIncrease(1f, 0.5f, oldAmnt, delta));
-        rankBox.determineNewRank(oldAmnt + delta);
+    }
+
+    // Update rank box
+    public void GetNewRank(int numMistakes, int levelsToGo)
+    {
+        rankBox.determineNewRank(numMistakes, levelsToGo);
+    }
+
+    public void AwardGoldStar()
+    {
+        rankBox.awardGoldStar();
     }
 
     // Number go up

@@ -33,6 +33,7 @@ public class GameWonUI : MonoBehaviour
     public void enableComp() { usingComp = true; }
     public void disableComp() { usingComp = false; }
 
+    // When you win the game you share the victory stats
     public void openGameWon()
     {
         if(usingComp)

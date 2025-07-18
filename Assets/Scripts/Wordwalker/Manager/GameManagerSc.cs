@@ -18,6 +18,7 @@ public class GameManagerSc : MonoBehaviour
     private static int currLevel = 0;
     private static int totems = 0;
     private static int score = 0;
+    private static int numMistakes = 0;
 
     public static int foggyVision = 3;   // How far ahead can you see when fog is enabled?
 
@@ -278,6 +279,7 @@ public class GameManagerSc : MonoBehaviour
         int prior = score;
         score = score + (add ? amount : -amount);
         uiManager.ChangeScore(prior, amount, add);
+        uiManager.GetNewRank(numMistakes, numLevels - currLevel);
     }
 
     public static void changeTotems(int amount, bool add)
@@ -294,7 +296,18 @@ public class GameManagerSc : MonoBehaviour
     public static HighScore getOfficialScore()
     {
         string formattedDate = DateTime.Today.ToString("d");
-        return new HighScore(score, RankBox.getRank(score), formattedDate, selectedChallenges.Count);
+
+        // Award "gold star" if you win with all 5 challenges enabled and make no mistakes during entire run.
+        if(selectedChallenges.Count == 5 && numMistakes == 0)
+        {
+            uiManager.AwardGoldStar();
+            // TODO update db state
+            return new HighScore(score, 14, formattedDate, 5);
+        } else
+        {
+            Debug.Log("Score " + score + " rank " + RankBox.getFinalRank(numMistakes));
+            return new HighScore(score, RankBox.getFinalRank(numMistakes), formattedDate, selectedChallenges.Count);
+        }
     }
 
     public static int getNumTotems()
@@ -304,20 +317,26 @@ public class GameManagerSc : MonoBehaviour
 
     public static void signifyLevelWon(int numTimeSeconds, int numMistakes)
     {
-        changeScore(100 - (25 * numMistakes), true);
-        updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, score);
-
-        levelWon.Invoke();
+        GameManagerSc.numMistakes += numMistakes;
 
         if(currLevel == numLevels) {
             if(dailyWord)
             {
+                changeScore(100 - (25 * numMistakes), true);
                 GlobalStatMap.IncrementInt("dailyWordStreak", 1);
             } else
             {
+                changeScore(100 - (25 * numMistakes), true);
+
                 DatabaseTracker.winGame(localDBcopy.databaseId, getOfficialScore());
             }
+        } else
+        {
+            changeScore(100 - (25 * numMistakes), true);
         }
+
+        updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, score);
+        levelWon.Invoke();
     }
 
     public static void signifyWrongStep()

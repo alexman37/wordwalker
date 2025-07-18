@@ -6132,7 +6132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3202705389146153608, guid: 9b37c5e56a9b4c9459c74f5afd48d8e6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3202705389146153609, guid: 9b37c5e56a9b4c9459c74f5afd48d8e6, type: 3}
       propertyPath: m_Pivot.x
@@ -7400,7 +7400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dbName: hard
-  expanded: 1
+  expanded: 0
   expandedSprite: {fileID: 1364870603}
   itemsList: {fileID: 1847640818}
   rankBox: {fileID: 1390559541}
@@ -11356,7 +11356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b884bd33dd2134c8c0a7d51755ba31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLevels: 3
+  numLevels: 2
   lengthName: Debug
 --- !u!1 &743206789
 GameObject:
@@ -13530,7 +13530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dbName: medium
-  expanded: 1
+  expanded: 0
   expandedSprite: {fileID: 853224069}
   itemsList: {fileID: 1094824705}
   rankBox: {fileID: 1390559541}
@@ -20065,6 +20065,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 61f588e3bdf5299458475dcdac55b9b0, type: 3}
   - {fileID: 21300000, guid: 54a6fc56182ef1a41b07f4d1c1dae666, type: 3}
   deathSprite: {fileID: 21300000, guid: 6d3b470eeeebb7347a1d7eaa846dc8bc, type: 3}
+  goldStarSprite: {fileID: 0}
   neverBeaten: {fileID: 21300000, guid: 4e37fbb715d4a0d4bb16fab7a1556f3b, type: 3}
 --- !u!65 &1390559542
 BoxCollider:
@@ -21010,7 +21011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dbName: easy
-  expanded: 1
+  expanded: 0
   expandedSprite: {fileID: 2126588505}
   itemsList: {fileID: 1422113974}
   rankBox: {fileID: 1390559541}

@@ -103,8 +103,6 @@ public class DailyWordManager : MonoBehaviour
                 !globalStats.textMap.ContainsKey("lastKnownDailyWord") ||
                 !SameDay(DateTime.Parse(globalStats.textMap["lastKnownDailyWord"]).Add(TimeSpan.FromDays(1)), todaysDate))
             {
-                Debug.Log("I think the last day you played the daily was " + DateTime.Parse(globalStats.textMap["lastKnownDailyWord"]));
-                Debug.Log("I think today is " + todaysDate);
                 GlobalStatMap.AddOrModifyInt("dailyWordStreak", 0);
                 dailyWordStreakStar.SetActive(false);
                 dailyWordStreakStarText.text = "0";

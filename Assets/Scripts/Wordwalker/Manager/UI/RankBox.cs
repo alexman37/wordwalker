@@ -11,54 +11,63 @@ public class RankBox : MonoBehaviour
     private Image lower;
     public Sprite[] spriteCycle;
     public Sprite deathSprite;
-    private int currentRank = 1; // D-
+    public Sprite goldStarSprite;
+    private int currentRank = 5; // C
 
     public Sprite neverBeaten; //only used in showing scores - not included in sprite cycle
 
-    public static int[] scoreThresholds = new int[] { 
-        -10000,
-        0,
-        100,
-        150,
-        200,
-        250,
-        300,
-        350,
-        400,
-        500,
-        600,
-        700,
-        800,
-        900,
-        1000
-    };
+    public static int[] scoreThresholds = new int[14];
 
     /// <summary>
-    /// Figure out which new rank you have with this score
+    /// Setup (for this new game) how many mistakes correspond to each rank
     /// </summary>
-    public void determineNewRank(int newScore)
+    public void setupRankingSystem(float numLevels)
     {
-        // Above a certain level it's just always the highest score
-        // Otherwise, use the highest available score
-        int newRank = getRank(newScore);
+        // By default (short, 10 levels) each mistake costs you one rank.
+        // We set ranks up where the lowest rank (0) is the worst score and the 
+        for (int i = scoreThresholds.Length - 1; i >= 0; i--)
+        {
+            // rank 0 = 14 mistakes, rank 1 = 13 mistakes, etc... rank 14 = 0 mistakes
+            scoreThresholds[scoreThresholds.Length - 1 - i] = (int)(i * ((float)numLevels / 14f));
+        }
+    }
+
+    /// <summary>
+    /// Figure out which new rank you have with this many mistakes
+    /// Use the "illusion of success" - assuming the user will make 1 mistake per level from here on out, what would their rank be?
+    /// This makes it appear it's increasing, rather than starting from the top and just going down.
+    /// </summary>
+    public void determineNewRank(int numMistakes, int levelsToGo)
+    {
+        // Perfect play - the user will have no levels left to play and no mistakes, thus, they get rank "0" or the highest rank.
+        int newRank = getRank(levelsToGo + numMistakes);
 
         StartCoroutine(rotateRank(newRank));
     }
 
-    public static int getRank(int score)
+    public static int getFinalRank(int numMistakes)
+    {
+        return getRank(numMistakes);
+    }
+
+    public static int getRank(int expectedMistakes)
     {
         int newRank = 0;
-        // Above a certain level it's just always the highest score
-        // Otherwise, use the highest available score
-        for (int i = 0; i < scoreThresholds.Length; i++)
+        // You must qualify at or above a certain threshold to get that rank
+        // ex: A+ = 2 mistakes or less and you get 1 mistake...
+        // You qualify for A+, but not for S, which needs 0 mistakes.
+        for (int i = 1; i < scoreThresholds.Length; i++)
         {
+            // highest possible rank achieved. good job
             if (i == scoreThresholds.Length - 1)
             {
                 newRank = scoreThresholds.Length - 1;
                 break;
             }
-            if (scoreThresholds[i] > score)
+            // you don't qualify for this rank so settle for the previous one
+            else if (scoreThresholds[i] < expectedMistakes)
             {
+                Debug.Log("Found rank: " + scoreThresholds[i] + " was less than " + expectedMistakes + " expected (rank " + i + ")");
                 newRank = i - 1;
                 break;
             }
@@ -126,6 +135,33 @@ public class RankBox : MonoBehaviour
         currentRank = -1;
     }
 
+    /// <summary>
+    /// On Gold star, do the same idea
+    /// </summary>
+    public void awardGoldStar()
+    {
+        StartCoroutine(rotateToGoldStar());
+    }
+
+    IEnumerator rotateToGoldStar()
+    {
+        upper.sprite = goldStarSprite;
+
+        // Begin rotation animation - either up or down
+        float timeSec = 0.5f;
+
+        for (float i = 0; i <= timeSec; i += Time.deltaTime)
+        {
+            theBox.transform.rotation = Quaternion.Euler(-90 * Mathf.Clamp(i / timeSec, 0, 1), 0, 0);
+            yield return null;
+        }
+
+        current.sprite = upper.sprite;
+
+        theBox.transform.rotation = Quaternion.Euler(0, 0, 0);
+        currentRank = 14;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -143,15 +179,5 @@ public class RankBox : MonoBehaviour
     private void OnDisable()
     {
         GameManagerSc.gameOver -= onDeath;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            StartCoroutine(rotateRank(currentRank + 1));
-            currentRank++;
-        }
     }
 }

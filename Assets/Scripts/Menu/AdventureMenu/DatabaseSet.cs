@@ -26,13 +26,6 @@ public class DatabaseSet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Add selected tracker for this database if not exists yet. Otherwise, get it from storage.
-        if(!GlobalStatMap.AddNewBool("selectedSet_" + dbName, false))
-        {
-            expanded = DatabaseParser.lastLoadedGlobalStatsMap.boolMap["selectedSet_" + dbName];
-        }
-        
-
         heightOfEntries = itemsList.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
     }
 
@@ -50,6 +43,12 @@ public class DatabaseSet : MonoBehaviour
     // If the sprite is expanded, return the additional amount to move down the next database set by
     public float build(int slot, float moveDownby)
     {
+        // Add selected tracker for this database if not exists yet. Otherwise, get it from storage.
+        if (!GlobalStatMap.AddNewBool("selectedSet_" + dbName, false))
+        {
+            expanded = DatabaseParser.lastLoadedGlobalStatsMap.boolMap["selectedSet_" + dbName];
+        }
+
         heightOfEntries = itemsList.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
 
         RectTransform oldRect = itemsList.GetComponent<RectTransform>();
@@ -137,6 +136,8 @@ public class DatabaseSet : MonoBehaviour
 
             broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height + heightOfEntries * databases.Count + DB_OFFSET);
 
+            GlobalStatMap.AddOrModifyBool("selectedSet_" + dbName, true);
+
             // Position of future elements modified
             usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, false);
         } else
@@ -148,6 +149,8 @@ public class DatabaseSet : MonoBehaviour
             RectTransform broadScroll = transform.parent.GetComponent<RectTransform>();
 
             broadScroll.sizeDelta = new Vector2(broadScroll.rect.width, broadScroll.rect.height - heightOfEntries * databases.Count - DB_OFFSET);
+
+            GlobalStatMap.AddOrModifyBool("selectedSet_" + dbName, false);
 
             // Position of future elements modified
             usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, true);
