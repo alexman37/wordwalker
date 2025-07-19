@@ -16,6 +16,7 @@ public class ScrollUI : MonoBehaviour
     //components
     public TextMeshProUGUI clueText;
     RectTransform scrollRect;
+    Vector2 defaultScrollDims;
     Image img;
 
     [SerializeField] private AudioClip unfurlClip;
@@ -31,13 +32,17 @@ public class ScrollUI : MonoBehaviour
         ScalingUIComponent scalingComp = GetComponent<ScalingUIComponent>();
         scalingComp.completedScaling += () =>
         {
-            scrollStart = scrollClue.GetComponent<RectTransform>().anchoredPosition;
+            RectTransform rt = scrollClue.GetComponent<RectTransform>();
+            scrollStart = rt.anchoredPosition;
             scrollDest = new Vector2(0, 0); //relative to bottom of screen
+            defaultScrollDims = new Vector2(rt.rect.width, rt.rect.height);
         };
         if (scalingComp.DONE)
         {
-            scrollStart = scrollClue.GetComponent<RectTransform>().anchoredPosition;
+            RectTransform rt = scrollClue.GetComponent<RectTransform>();
+            scrollStart = rt.anchoredPosition;
             scrollDest = new Vector2(0, 0); //relative to bottom of screen
+            defaultScrollDims = new Vector2(rt.rect.width, rt.rect.height);
         }
     }
 
@@ -62,6 +67,20 @@ public class ScrollUI : MonoBehaviour
     public void setClue(string clue)
     {
         clueText.text = clue;
+        scrollRect.sizeDelta = defaultScrollDims;
+        clueText.rectTransform.sizeDelta = scrollRect.sizeDelta * new Vector2(7f / 8f, 0.7f);
+
+        // Sometimes the clue is very long. We will have to increase the scroll's width and height as such
+        if (clueText.preferredHeight > clueText.rectTransform.rect.height)
+        {
+            // the clue is (7/8ths, 7/10ths) of the scroll box's size
+            // Expand the scroll up to 2 times (can easily modify)
+            for(int i = 0; clueText.preferredHeight > clueText.rectTransform.rect.height && i < 2; i++)
+            {
+                scrollRect.sizeDelta = scrollRect.sizeDelta * new Vector2(1.25f, 1.25f);
+                clueText.rectTransform.sizeDelta = scrollRect.sizeDelta * new Vector2(7f / 8f, 0.7f);
+            }
+        }
     }
 
     /// <summary>
