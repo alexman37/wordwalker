@@ -24,7 +24,6 @@ EBULLIENCE|(noun) High energy or enthusiasm.
 IDYLLIC|(adjective) Extremely peaceful and picturesque.
 EXPEDITE|(verb) To speed up a process.
 HYPOCRISY|(noun) Pretending to have moral standards one doesn’t follow.
-JUXTAPOSITION|(noun) Placing two things side by side for contrast.
 VEHEMENT|(adjective) Forceful and intense.
 PROLIFIC|(adjective) Highly productive or fruitful.
 DEBILITATE|(verb) To weaken or drain strength.
@@ -35,7 +34,7 @@ FLIPPANT|(adjective) Not showing a serious attitude.
 TACITURN|(adjective) Quiet or reserved in speech.
 CAPRICIOUS|(adjective) Impulsive or unpredictable.
 GARRULOUS|(adjective) Excessively talkative.
-SUPERCILIOUS|(adjective) Arrogantly superior or condescending.
+SUPERCILIOUS|(adjective) Arrogantly pompous or condescending.
 COMMENSURATE|(adjective) Equal or proportionate.
 SOLACE|(noun) Comfort in sorrow or distress.
 VAPID|(adjective) Dull or lacking interest.
@@ -106,7 +105,6 @@ TACTFUL|(adjective) Diplomatic and considerate.
 INEFFABLE|(adjective) Too great to be expressed in words.
 PROPENSITY|(noun) A natural tendency or behavior.
 VILIFY|(verb) To speak badly of someone publicly.
-EBULLIENT|(adjective) Cheerful and full of energy.
 PENCHANT|(noun) A strong liking or tendency.
 GREGARIOUS|(adjective) Sociable and outgoing.
 SPURIOUS|(adjective) False or not genuine.
@@ -120,7 +118,6 @@ JOCULAR|(adjective) Humorous or playful.
 OSTENSIBLE|(adjective) Stated or appearing to be true, but not necessarily so.
 ZENITH|(noun) The highest point or peak.
 FLOURISH|(verb) To thrive or prosper.
-RANCOROUS|(adjective) Full of resentment or bitterness.
 INSATIABLE|(adjective) Impossible to satisfy.
 HEINOUS|(adjective) Shockingly wicked.
 REPUDIATE|(verb) To reject or disown.
@@ -160,7 +157,6 @@ SALUBRIOUS|(adjective) Healthful or promoting well-being.
 SKEPTICAL|(adjective) Doubtful or questioning.
 CRAVEN|(adjective) Cowardly.
 CHICANERY|(noun) Trickery or deceit.
-SAGACITY|(noun) Wisdom and good judgment.
 GRAVITAS|(noun) Seriousness or dignity.
 MOROSE|(adjective) Gloomy or sullen.
 VOLATILE|(adjective) Likely to change suddenly and unpredictably.
@@ -178,7 +174,6 @@ PRUDENT|(adjective) Wise and careful in action.
 INNATE|(adjective) Inborn or natural.
 INCISIVE|(adjective) Clear, sharp, and direct.
 MALADROIT|(adjective) Clumsy or unskillful.
-UBIQUITY|(noun) The state of being everywhere at once.
 BENIGN|(adjective) Gentle; not harmful.
 MAVERICK|(noun) An independent thinker who refuses conformity.
 SALIENT|(adjective) Most noticeable or important.
@@ -205,11 +200,9 @@ RUDIMENTARY|(adjective) Basic or elementary.
 FORTUITOUS|(adjective) Happening by chance, often lucky.
 INUNDATE|(verb) To flood or overwhelm.
 PARAGON|(noun) A perfect example of something.
-APATHY|(noun) Lack of interest or emotion.
 VORACIOUS|(adjective) Very hungry or eager.
 SERENE|(adjective) Calm and peaceful.
 MALLEABLE|(adjective) Easily shaped or influenced.
-EXACERBATION|(noun) A worsening or aggravation.
 DISREPUTE|(noun) Loss of reputation or respect.
 PUERILE|(adjective) Childishly silly or immature.
 UBIQUITOUS|(adjective) Present everywhere at once.
@@ -244,7 +237,7 @@ DELIBERATE|(adjective) Intentional or careful.
 COPACETIC|(adjective) Very satisfactory or fine.
 AXIOM|(noun) A universally accepted truth or principle.
 INNOCUOUS|(adjective) Harmless or inoffensive.
-INCONGRUOUS|(adjective) Out of place or inconsistent.
+INCONGRUOUS|(adjective) Not consistent or in harmony with its surroundings.
 PARSIMONIOUS|(adjective) Extremely frugal or stingy.
 BOISTEROUS|(adjective) Noisy and lively.
 CONSPICUOUS|(adjective) Easily noticed or obvious.
@@ -287,7 +280,6 @@ CONCISE|(adjective) Brief but complete in expression.
 FATHOM|(verb) To understand deeply.
 PREDICAMENT|(noun) A difficult or unpleasant situation.
 TENET|(noun) A core belief or principle.
-ABERRANT|(adjective) Deviating from the norm.
 IMPUNITY|(noun) Exemption from punishment.
 RECALCITRANT|(adjective) Stubbornly disobedient or resistant.
 CIRCUMSPECT|(adjective) Cautious and prudent.
@@ -312,7 +304,6 @@ DUBIETY|(noun) Doubtfulness or uncertainty.
 OBFUSCATE|(verb) To confuse or make unclear.
 INTRANSIGENT|(adjective) Unwilling to change views or agree.
 PERNICIOUS|(adjective) Harmful in a subtle way.
-LETHARGY|(noun) A lack of energy or enthusiasm.
 IMPECCABLE|(adjective) Flawless or perfect.
 TENACIOUS|(adjective) Persistent or determined.
 ALTRUISTIC|(adjective) Selflessly concerned for others.
@@ -322,7 +313,6 @@ TANTAMOUNT|(adjective) Equivalent in value or meaning.
 NEFARIOUS|(adjective) Wicked or criminal.
 GLUTTONOUS|(adjective) Excessively greedy.
 SCRUPULOUS|(adjective) Very careful and moral.
-MALEVOLENCE|(noun) Evil intent or hatred.
 ABERRATION|(noun) A departure from what is normal or expected.
 MELLIFLUOUS|(adjective) Smooth and sweet-sounding.
 DIATRIBE|(noun) A bitter verbal attack.
@@ -361,7 +351,6 @@ EXHORT|(verb) To strongly urge.
 LETHARGIC|(adjective) Sluggish or apathetic.
 PRESUMPTUOUS|(adjective) Overconfident or taking liberties.
 CENSURE|(verb) To express strong disapproval.
-PUGNACITY|(noun) A tendency to fight or argue.
 ZEALOUS|(adjective) Passionately devoted or enthusiastic.
 UNTENABLE|(adjective) Indefensible or unsustainable.
 RECAPITULATE|(verb) To summarize or restate briefly.

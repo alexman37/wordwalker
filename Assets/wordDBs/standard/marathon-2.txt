@@ -47,7 +47,7 @@ IDENTIFICATION|(noun) The process of recognizing or establishing identity.
 LINGUISTICS|(noun) The scientific study of language.
 MANIPULATE|(verb) To control or influence cleverly.
 SCHOLARSHIP|(noun) Academic study or achievement; a grant for education.
-DESPERATION|(noun) A state of despair.
+DESPERATION|(noun) A state of anguish, seeming hopelessness.
 UNDERTAKING|(noun) A task or project.
 IMPROVEMENT|(noun) The process of making something better.
 APPRENTICE|(noun) A person learning a trade from a skilled employer.
@@ -113,17 +113,15 @@ PUNISHMENT|(noun) The infliction of a penalty for wrongdoing.
 JUSTIFICATION|(noun) The action of showing something to be right or reasonable.
 INVITATION|(noun) A request to participate or attend.
 ANTAGONIST|(noun) A person who opposes or competes with another.
-GENERATIVITY|(noun) Concern for establishing and guiding the next generation.
 SUBVERSION|(noun) The act of overthrowing authority.
 INDISTINCT|(adjective) Not clear or sharply defined.
-XENOPHOBIA|(noun) Dislike or fear of strangers or foreigners.
-NIGHTMARISH|(adjective) Resembling a nightmare; very frightening.
+NIGHTMARISH|(adjective) Cery frightening, resembling a bad dream.
 ASSIMILATE|(verb) To absorb or integrate information or people.
 CORPORATION|(noun) A large company or group authorized to act as a single entity.
 DEVELOPMENT|(noun) The process of growth or progress.
 PREVALENCE|(noun) The fact of being widespread.
 RESILIENCE|(noun) The capacity to recover quickly from difficulties.
-PERSEVERANCE|(noun) Persistent determination.
+PERSEVERANCE|(noun) Consistent determination.
 UNIMAGINABLE|(adjective) Difficult or impossible to imagine.
 SUPERINTENDENT|(noun) A person who manages or oversees.
 FIGURATIVE|(adjective) Departing from literal meaning to use metaphor.

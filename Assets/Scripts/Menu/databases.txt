@@ -1,39 +1,38 @@
-#Format:  inGroup|ID|name|imagefile*|description*|maxBacktracks|size|imagePath*
+#Format:  inGroup|ID|name|iconfile*|description*|maxBacktracks|size|imagePath*
 #standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
 #standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
 #
-easy|test-set|TEST SET||DEBUGGING ONLY|0|7|
-easy|standard/simple-nouns|Simple Nouns|nouns|Nouns or whatever idk|0||
-easy|standard/simple-verbs|Simple Verbs|verbs|Verbs, as in "wordwalk: to walk on words"|0||
-easy|standard/simple-adjectives|Simple Adjectives|adjectives|Adjective is a cool word|0||
+easy|standard/simple-nouns|Simple Nouns|nouns|Nouns are people, places, things, and other objects. These ones are a piece of <i>cake</i>!|0|128|
+easy|standard/simple-verbs|Simple Verbs|verbs|Verbs are actions - things that nouns "do". See if you can <i>spell</i> them.|0|110|
+easy|standard/simple-adjectives|Simple Adjectives|adjectives|Adjectives are descriptions of nouns. Don't worry, they're <i>easy</i>...for now.|0|108|
 #
-medium|standard/med-places|Places|places|Locations you might find yourself in (no proper nouns)|1||
-medium|standard/med-people|People|people|Jobs, roles, and occupations. Tag yourself!|1|113|
-medium|standard/med-things|Things|things|Stuff that someone made|1||
-medium|standard/med-nature|Nature|nature|I didn't do that|1||
-medium|standard/med-actions|Actions|actions|Tougher verbs|1||
-medium|standard/med-adjectives|Adjectives|descriptors|Tougher adjectives|1||
-medium|standard/med-cool|Cool|cool|Words that I personally think sound cool|1||
+medium|standard/med-places|Places|places|General words for places and locations. This <i>temple</i> is light work for a seasoned traveler.|1|143|
+medium|standard/med-people|People|people|Jobs, roles, and occupations. How many does the <i>explorer</i> know?|1|111|
+# medium|standard/med-things|Things|things|Stuff that someone made|1||
+medium|standard/med-nature|Nature|nature|Animals, plants, and other things to do with nature. The <i>canyon</i> is a long way down...|1|127|
+medium|standard/med-actions|Actions|actions|These verbs are a little tougher. Think you can <i>withstand</i> it?|1|145|
+medium|standard/med-adjectives|Adjectives|descriptors|These adjectives are longer and rarer. Stay <i>diligent</i> and you'll make it through!|1|216|
+medium|standard/med-cool|Cool|cool|I think these words just sound cool. Win or lose, you'll learn something <i>riveting.</i>|1|172|
 #
-hard|standard/marathon-1|Marathon I|marathon1|These words are 10 letters or longer|3||
-hard|standard/marathon-2|Marathon II|marathon2|These words are 10 letters or longer|3||
-hard|standard/marathon-3|Marathon III|marathon3|These words are 10 letters or longer|3||
-hard|standard/spelling-bee|Spelling Bee|spellingbee|Words that are commonly misspelled|1||
-hard|standard/tricky-6|Tricky 6|tricky6|All these difficult words are exactly 6 letters long.|1||
+hard|standard/marathon-1|Marathon I|marathon1|These words are 10 letters or longer. That's a <i>substantial</i> amount of steps.|3|129|
+hard|standard/marathon-2|Marathon II|marathon2|These words are 10 letters or longer. <i>Persistence</i> is needed!|3|129|
+hard|standard/marathon-3|Marathon III|marathon3|These words are 10 letters or longer. You're a <i>mastermind</i> if you can beat all of these!|3|130|
+hard|standard/spelling-bee|Spelling Bee|spellingbee|These words are <i>occasionally</i> mispelled. Misspelled? Mispeled? Wait...|0|90|
+hard|standard/tricky-6|Tricky 6|tricky6|All these difficult words are exactly 6 letters long. Everything's on the table, from A to <i>izzard</i>.|0|75|
 #
-very-hard|standard/very-hard-1|Very Hard I|veryhard1|These obscure words are all long and very difficult to guess|2||
-very-hard|standard/very-hard-2|Very Hard II|veryhard2|These obscure words are all long and very difficult to guess|2||
-very-hard|standard/very-hard-3|Very Hard III|veryhard3|These obscure words are all long and very difficult to guess|2||
-very-hard|standard/nightmare|Nightmare|nightmare|Good luck...|2||
+very-hard|standard/very-hard-1|Very Hard I|veryhard1|These words are really tough. You'll have a <i>plethora</i> of obscure words by the end...|2|80|
+very-hard|standard/very-hard-2|Very Hard II|veryhard2|These words are really tough. And some are just <i>egregious</i>!|2|80|
+very-hard|standard/very-hard-3|Very Hard III|veryhard3|These words are really tough. But items can <i>ameliorate</i> it a bit!|2|80|
+very-hard|standard/nightmare|Nightmare|nightmare|The most <i>sesquipedelian</i> words I could find.<br><b>Good luck...</b>|2|112|
 #
-letters|letters/a|A|letter-a|"A" words, like Aardvark, Avocado, Arbiter and Axle|2||
-letters|letters/b|B|letter-b|"B"" words, like Barking, Battle, Bounded and Buttons|2||
-letters|letters/c|C|letter-c|"C" words, like Camper, Centerpiece, Cryogenics and Competition|2||
+letters|letters/a|A|letter-a|"A" words, like Aardvark, Avocado, Arbiter and Axle|2|394|
+letters|letters/b|B|letter-b|"B"" words, like Barking, Battle, Bounded and Buttons|2|238|
+letters|letters/c|C|letter-c|"C" words, like Camper, Centerpiece, Cryogenics and Competition|2|597|
 #
-trivia|trivia/phobias|Phobias|phobias|It always ends in "phobia".|1||
-trivia|trivia/101-cities|Around the world|around-the-world|101 cities identified by various interesting facts about them.|1||
-trivia|trivia/flags|Flags|flags|Flags of various countries and territories around the world|1||base/flags
-trivia|trivia/capitals|Country Capitals|capitals|Capital cities of world countries|1||
-trivia|trivia/state-capitals|State Capitals|state-capitals|Capital cities of US states|1||
-trivia|trivia/celebs|Fresh Tomatoes|celebs|Famous actors, directors and movie stars.|1||base/celebs
-trivia|trivia/pokemon|Pokemon (Gen 1)|pokemon|Gotta spell 'em all.|1||base/pokemon
+trivia|trivia/phobias|Phobias|phobias|It was so tempting to add <i>hippopotomonstrosesquippedaliophobia</i>. (Look it up. If you dare.)|1|103|
+trivia|trivia/101-cities|Around the world|around-the-world|101 cities all over the world, identified by various interesting facts about them.|1|101|
+trivia|trivia/flags|Flags|flags|Flags of various countries and territories around the world.|1|184|base/flags
+trivia|trivia/capitals|Country Capitals|capitals|Capital cities of world countries.|1|173|
+trivia|trivia/state-capitals|State Capitals|state-capitals|It's never the one you expect. Can you name the capital cities of US states?|1|50|
+trivia|trivia/celebs|Fresh Tomatoes|celebs|Famous actors, directors and movie stars.|1|100|base/celebs
+trivia|trivia/pokemon|Pokemon (Gen 1)|pokemon|Gotta spell 'em all.|1|148|base/pokemon

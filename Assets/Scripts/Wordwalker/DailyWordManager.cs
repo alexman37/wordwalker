@@ -24,7 +24,7 @@ public class DailyWordManager : MonoBehaviour
     const string DAILY_START_DATE = "06/29/2025";
     DateTime dateOrigin = DateTime.Parse(DAILY_START_DATE);
 
-    DateTime todaysDate = DateTime.Now.Add(TimeSpan.FromDays(2)); // TODO remove when we are finished testing
+    DateTime todaysDate = DateTime.Now.Add(TimeSpan.FromDays(0)); // TODO remove when we are finished testing
 
     // let's not screw around with asset bundle loading this time...just do it locally
     [SerializeField] private TextAsset dailyWordList;

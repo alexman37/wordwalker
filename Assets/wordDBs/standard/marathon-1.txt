@@ -5,21 +5,17 @@ UNEMPLOYED|(adjective) Without a job.
 DISCIPLINE|(noun) Training to improve behavior.
 WATERPROOF|(adjective) Impervious to water.
 DELIBERATION|(noun) Long and careful consideration.
-STABILIZATION|(noun) The process of making something stable.
 CORRESPONDENCE|(noun) Communication by letters.
 MAGNANIMOUS|(adjective) Generous and forgiving.
 PSYCHOLOGY|(noun) The scientific study of the mind and behavior.
 PRESERVATION|(noun) The act of keeping something safe.
 AERODYNAMICS|(noun) The study of air flow around objects.
 STIPULATION|(noun) A condition or requirement in an agreement.
-PRIESTHOOD|(noun) The office or position of a priest.
-TECHNOLOGY|(noun) The application of scientific knowledge for practical purposes.
 PROTECTION|(noun) The act of keeping safe from harm.
 MONUMENTAL|(adjective) Great in importance or size.
 CHOREOGRAPH|(verb) To plan or create dance movements.
 THERMOMETER|(noun) An instrument for measuring temperature.
 YEARNINGLY|(adverb) With a feeling of intense longing.
-MINISTERIAL|(adjective) Relating to a minister of government.
 MUTABILITY|(noun) The quality of being changeable.
 EXCLUSIVELY|(adverb) Only; solely.
 EXASPERATE|(verb) To irritate or annoy intensely.
@@ -37,11 +33,10 @@ UNDISPUTED|(adjective) Not challenged or questioned.
 ORCHESTRATION|(noun) The arrangement or coordination of elements.
 ONOMATOPOEIA|(noun) A word that imitates a sound.
 MISFORTUNE|(noun) Bad luck.
-ENCAPSULATION|(noun) The process of enclosing something in or as if in a capsule.
 SUBSTANTIAL|(adjective) Of considerable importance or size.
 INDISPENSABLE|(adjective) Absolutely necessary.
 CONSTITUTION|(noun) A body of fundamental principles.
-PICTURESQUE|(adjective) Visually attractive, like a picture.
+PICTURESQUE|(adjective) Visually attractive, photo-worthy.
 VERSATILITY|(noun) Ability to adapt or be adapted to many different functions.
 CARNIVOROUS|(adjective) Feeding on meat.
 CONFISCATE|(verb) To take something away as a penalty.
@@ -55,15 +50,14 @@ EQUANIMITY|(noun) Mental calmness and composure, especially in difficult situati
 INGRATITUDE|(noun) Lack of thankfulness.
 DOMINATION|(noun) The exercise of control or influence.
 INTERCEPTION|(noun) The act of stopping or interrupting.
-CALCULATIVE|(adjective) Acting with careful planning or calculation.
+CALCULATIVE|(adjective) Acting with careful planning and prediction.
 SIGNIFICANCE|(noun) The quality of being important or meaningful.
 PROSPECTIVE|(adjective) Expected or likely to happen.
 NEGOTIATION|(noun) Discussion aimed at reaching an agreement.
-FRAGMENTATION|(noun) The process of breaking or being broken into fragments.
 ANOMALOUSLY|(adverb) In a way that deviates from what is standard.
 RESOLUTION|(noun) A firm decision or solution.
 EQUIVOCATE|(verb) To use ambiguous language to avoid committing oneself.
-METAPHORICAL|(adjective) Using metaphors; symbolic.
+METAPHORICAL|(adjective) Used in a symbolic or figurative way.
 ELECTRICITY|(noun) A form of energy resulting from charged particles.
 MARGINALIZE|(verb) To treat a person or group as insignificant.
 REMEMBRANCE|(noun) The act of remembering or honoring someone.
@@ -104,7 +98,7 @@ INAUGURATION|(noun) The formal admission of someone to office.
 GRATIFICATION|(noun) Pleasure obtained from satisfying a desire.
 SAGITTARIUS|(noun) The ninth astrological sign of the zodiac.
 DISCRETIONARY|(adjective) Available to be used at one's own discretion.
-CLASSIFICATION|(noun) The arrangement of things into classes.
+CLASSIFICATION|(noun) The arrangement of things into categories.
 CONTROVERSIAL|(adjective) Giving rise to disagreement.
 JEOPARDIZE|(verb) To put at risk or in danger.
 RECONCILIATION|(noun) Restoration of friendly relations.
@@ -116,7 +110,6 @@ INNOVATION|(noun) The introduction of new ideas or methods.
 ADOLESCENCE|(noun) The transitional period from childhood to adulthood.
 INFRASTRUCTURE|(noun) Basic physical and organizational structures needed for operation.
 PLAGIARISM|(noun) Using someone else’s work without credit.
-PROTESTANT|(noun) A member of a Christian church separated from the Catholic Church.
 PRACTICALITY|(noun) The quality of being practical.
 HOSPITALITY|(noun) The friendly reception of guests or strangers.
 DISPLACEMENT|(noun) The moving of something from its place.

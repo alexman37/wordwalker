@@ -1,6 +1,6 @@
 PROPHECY|(noun) A prediction of the future.
 DEVIANCE|(noun) Departure from norms or standards.
-TURBINES|(noun) Machines for generating power from fluid movement.
+TURBINE|(noun) Machine that generates power from fluid movement.
 PERILOUS|(adjective) Full of danger or risk.
 BONANZA|(noun) A situation that creates a sudden increase in wealth.
 MONSOON|(noun) A seasonal prevailing wind or heavy rainfall.
@@ -8,12 +8,12 @@ JOCUNDLY|(adverb) In a cheerful or lighthearted way.
 TURBULENT|(adjective) Characterized by conflict or disorder.
 IRIDESCE|(verb) To show shifting rainbow-like colors.
 BRAVADO|(noun) A bold manner intended to impress.
-FUTURISM|(noun) An artistic movement focused on the future.
+FUTURISM|(noun) An artistic movement focused on rejecting tradition.
 STALWART|(adjective) Loyal, reliable, and strong.
 ASYLUM|(noun) Protection granted to political refugees; also a mental institution.
 ORACULAR|(adjective) Prophetic or mysterious.
 PORCELAIN|(noun) A fine white ceramic.
-OXIDIZED|(verb) Combined with oxygen, often leading to rust.
+OXIDIZE|(verb) To combine with oxygen, often leading to rust.
 OBSIDIAN|(noun) A dark, glassy volcanic rock.
 ANOMALY|(noun) Something that deviates from the norm.
 MIRAGE|(noun) An optical illusion caused by atmospheric conditions.
@@ -29,7 +29,7 @@ QUAGMIRE|(noun) A difficult or awkward situation; also a bog.
 TENACITY|(noun) The quality of being determined or persistent.
 ABSINTHE|(noun) A green, bitter alcoholic drink with a high alcohol content.
 DILIGENT|(adjective) Careful and hardworking.
-HIATUSES|(noun) Pauses or gaps in continuity.
+HIATUS|(noun) Pause or gap in continuity.
 NUMINOUS|(adjective) Suggesting the presence of a divine power; spiritually elevated.
 MILITANT|(adjective) Aggressively active in support of a cause.
 DEBONAIR|(adjective) Suave, charming, and confident.
@@ -48,7 +48,6 @@ BLIZZARD|(noun) A severe snowstorm with strong winds.
 SOLSTICE|(noun) Either of the two times a year when the sun is at its greatest distance from the equator.
 FORSAKE|(verb) To abandon or give up.
 CYNOSURE|(noun) The focal point of admiration.
-MELODIST|(noun) A composer or writer of melodies.
 CLEMENCY|(noun) Mercy or lenience.
 RHAPSODY|(noun) An emotional or enthusiastic expression or piece of music.
 GRANDEUR|(noun) Splendor and impressiveness.
@@ -56,17 +55,14 @@ OPULENT|(adjective) Lavishly rich and luxurious.
 ACCOLADE|(noun) A mark of recognition or honor.
 JUDGMENT|(noun) The ability to make considered decisions.
 OCCLUDED|(verb) Blocked or closed up.
-CAMPHOR|(noun) A white, crystalline substance with a strong odor.
 UPTIGHT|(adjective) Anxious, tense, or overly strict.
 ELEGANCE|(noun) Graceful and stylish appearance or manner.
 CONCLAVE|(noun) A private meeting or assembly.
-ELITISTS|(noun) Advocates of a select group’s superiority.
 OMINOUS|(adjective) Giving the impression that something bad is going to happen.
 DOLDRUMS|(noun) A state of inactivity or depression.
-HYPNOTIC|(adjective) Causing sleep or trance.
 PACIFISM|(noun) The belief in peaceful resolution without violence.
 LUSTROUS|(adjective) Shiny and radiant.
-LACQUERS|(noun) Varnishes for wood or metal.
+LACQUER|(noun) Varnish for wood or metal.
 BIBLIOMANIA|(noun) An extreme obsession with books.
 PRODIGAL|(adjective) Wastefully extravagant.
 AMBITION|(noun) A strong desire to achieve something.
@@ -74,10 +70,9 @@ ICONOCLAST|(noun) One who attacks established beliefs.
 HYPNOSIS|(noun) A trance-like mental state.
 VERDANCY|(noun) Greenness, especially of vegetation.
 RAPTURE|(noun) Intense joy or delight.
-QUANTIFY|(verb) To measure or express the quantity of something.
-INDIGOES|(noun) Deep blue colors or dyes.
+QUANTIFY|(verb) To measure or express the amount of something.
 CAPRICE|(noun) A sudden and unaccountable change of mood.
-AURELIA|(noun) A golden-colored jellyfish stage.
+AURORA|(noun) Fancy word for 'dawn'. Also describes a natural phenomena, ____ Borealis.
 SERENADE|(noun) A musical performance given to express love.
 APHELION|(noun) The point in a planet’s orbit farthest from the sun.
 PSEUDONYM|(noun) A fictitious name used by an author.
@@ -101,8 +96,6 @@ EGREGIOUS|(adjective) Outstandingly bad or shocking.
 DAZZLED|(verb) To amaze or blind with brightness.
 INTREPID|(adjective) Fearless and adventurous.
 BEHOOVE|(verb) To be necessary or proper for.
-FATHOMS|(noun) Units of depth in water, equal to six feet.
-OPERATIC|(adjective) Dramatic and grand, like an opera.
 BALUSTER|(noun) A short pillar or column in a railing.
 MENAGERIE|(noun) A collection of wild animals kept for exhibition.
 COCOONED|(verb) Enveloped protectively.
@@ -145,7 +138,7 @@ BROCCOLI|(noun) A green vegetable from the cabbage family.
 GAMBITS|(noun) Opening moves in strategy, especially chess.
 OBLIVION|(noun) The state of being unaware or forgotten.
 SINISTER|(adjective) Suggesting evil or harm.
-GALAXIES|(noun) Systems of stars and cosmic material.
+GALAXY|(noun) System of stars and cosmic material.
 HIBERNATE|(verb) To sleep or become inactive for a season.
 CHATEAU|(noun) A large French country house or castle.
 SCHEMATIC|(noun) A diagram representing a system.
@@ -154,10 +147,9 @@ ARSENIDE|(noun) A compound of arsenic with a metal.
 DIPLOMAT|(noun) A representative managing international relations.
 CIPHERED|(verb) Written in code.
 CHIVALRY|(noun) Courteous behavior, especially from men toward women.
-AQUARIUM|(noun) A container or building for aquatic life.
+AQUARIUM|(noun) A container or building for marine life.
 MACHISMO|(noun) Strong or aggressive masculine pride.
 PALLIATIVE|(adjective) Relieving pain without curing the cause.
-FLAMBOY|(noun) A tropical tree with flame-red flowers.
 FLORIST|(noun) A person who sells and arranges flowers.
 MORBIDLY|(adverb) In an unhealthy or gruesome way.
 ONSLAUGHT|(noun) A fierce or destructive attack.
@@ -174,8 +166,7 @@ TRAPEZE|(noun) A swinging bar used by acrobats.
 MASQUERADE|(noun) A false show or disguise.
 TRICKERY|(noun) The use of deception to achieve something.
 LYCEUM|(noun) A hall for public lectures or discussions.
-SYNAPTIC|(adjective) Related to the junctions between nerve cells.
+RIVETING|(adjective) Very interesting, compelling.
 MYSTICAL|(adjective) Relating to the spiritual or supernatural.
-DRUIDISM|(noun) The religion or practices of ancient Celtic priests.
 RAMBLING|(adjective) Lengthy and confused or wandering.
 MESMERIC|(adjective) Captivating or hypnotic.

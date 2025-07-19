@@ -107,3 +107,4 @@ CLIMB|To Go up
 THINK|To Use your brain
 BLINK|To Close your eyes fast
 PAINT|To Use color on something
+SPELL|To Write the letters of a word in order

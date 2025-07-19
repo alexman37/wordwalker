@@ -1,31 +1,31 @@
 BARNACLE|Shellfish that clings to rocks
 SHRUBBERY|Cluster of bushes
 CUMULUS|Puffy clouds
-ICICLES|Hanging frozen water
+ICICLE|Hanging frozen water
 PRIMROSE|Early spring flower
 HUMMING|Sound of bees or birds
 ARCHIPELAGO|Group of islands
-OTTERS|Playful aquatic mammals
+OTTER|Playful aquatic mammal
 HORIZON|Where earth meets sky
 DOLPHIN|Intelligent marine mammal
-CHEETAH|Fast African predator
-BEAVERS|Dam-building rodents
+CHEETAH|Fastest land animal
+BEAVER|Dam-building rodent
 MEADOW|Grass and flowers
 KELPBED|Seaweed forest
 PORCUPINE|Spiny rodent
 JAGUAR|Big spotted cat
 VULTURE|Scavenging bird
 AQUIFER|Underground water source
-HILLOCK|Small hill
+HILLOCK|Small mound
 JUNGLE|Dense tropical forest
 GRASSLAND|Open plains
 OUTCROP|Rock surface exposure
 HAWKSBILL|Sea turtle species
-TADPOLES|Baby frogs
+TADPOLE|Baby frog
 BAMBOO|Fast-growing grass
 EVEREST|Earth’s highest peak
-SUNBEAM|Ray of sunlight
-CAVERNS|Large natural caves
+SUNBEAM|Ray of light
+CAVERN|Large underground formations
 BRAMBLES|Thorny bushes
 NECTAR|Sweet flower juice
 AVALANCHE|Snow slide down a slope
@@ -39,71 +39,61 @@ FIREFLY|Glowing night insect
 ZEPHYR|Gentle breeze
 MESQUITE|Desert tree
 NARWHAL|Unicorn of the sea
-RAINFOREST|Dense tropical forest
-CICADAS|Loud summer insects
+RAINFOREST|Dense tropical foliage
+CICADA|Loud summer insect
 STALACTITE|Cave ceiling dripstone
 FOLIAGE|Plant leaves
-ALPINES|Mountain plants
 HEDGEHOG|Spiny insectivore
 LEOPARD|Spotted jungle cat
 BOGLANDS|Wet, spongy ground
 STARFISH|Ocean star-shaped creature
-DAISIES|White-petaled flowers
+DAISY|White-petaled flowers
 VOLCANO|Lava-spewing mountain
 PINEAPPLE|Tropical fruit
-PEBBLES|Small smooth stones
-BOULDERS|Large rocks
+PEBBLE|Small smooth stone
+BOULDER|Large rock
 KANGAROO|Australian marsupial
 COCOON|Protective insect casing
-RATTLESNAKE|Sounding venomous snake
-DESERTS|Dry sandy regions
-OREGANO|Culinary herb
-ORCHIDS|Exotic flowers
+RATTLESNAKE|Noisy venomous snake
+DESERT|Dry sandy region
+ORCHID|Exotic flower
 LAVENDER|Purple fragrant herb
 OCELOT|Small wild cat
-SHALLOWS|Low water areas
+SHALLOW|Low water area
 PANTHER|Black big cat
-SEQUOIAS|Giant redwoods
 STARLING|Noisy black bird
 HICKORY|Nut-producing tree
-TORNADO|Violent rotating wind
+TORNADO|Violent swirling wind formation
 TAMARIND|Tropical fruit tree
 PIRANHA|Sharp-toothed fish
-TUNDRAS|Cold, treeless regions
-MUSTANGS|Wild horses
-OCELOTS|Spotted wild cats
+TUNDRA|Cold, treeless region
+MUSTANG|Wild horse
 REPTILE|Cold-blooded animal
-GEYSERS|Hot water fountains
-MANGROVES|Saltwater swamp trees
+GEYSER|Hot water fountain
 LAGOON|Coastal water pool
-LIZARDS|Scaly reptiles
+LIZARD|Scaly reptile
 MANGROVE|Coastal swamp tree
 PEACOCK|Bird with colorful tail
 WOODLAND|Forested area
 FIRWOOD|Pine family tree
 HURRICANE|Tropical storm
-RIVERBED|Bottom of a river
 TOUCAN|Colorful beaked bird
 SNOWDROP|Early spring flower
-DELTAS|River mouth lands
-WINDMILL|Wind-powered structure
+DELTA|Land near a river mouth
 EROSION|Soil wearing away
-BADLANDS|Eroded barren land
+BADLANDS|Eroded, barren canyons
 ANTELOPE|Swift grassland animal
 CACTUS|Spiny desert plant
 MONSOON|Seasonal rains
-CRICKETS|Chirping insects
-SEABIRD|Ocean-dwelling bird
+CRICKET|Nighttime chirping insect
+SEAGULL|Ocean-dwelling bird
 HAILSTORM|Frozen rain shower
-KINGFISHER|Bright fishing bird
 FLOODS|Overflowing water
 PRAIRIE|Wide grassy plain
-CHIMERA|Mythical nature beast
 KESTREL|Small falcon
 DRAGONFLY|Agile flying insect
 OYSTER|Shellfish pearl producer
-CANYONS|Deep valleys
-DOLPHINS|Intelligent sea mammals
+CANYON|Deep valley carved by a river
 STREAM|Small flowing water
 QUAKING|Aspen tree nickname
 GRASSHOPPER|Jumping insect
@@ -121,22 +111,17 @@ MARIGOLD|Orange flower
 RIPTIDE|Strong ocean current
 FOXGLOVE|Spotted bell flower
 RAINFALL|Water from clouds
-TUNDRIC|Relating to tundra areas
 ISLAND|Land surrounded by water
-MIMOSA|Sensitive plant
-CREEKS|Small streams
 LICHEN|Mossy rock growth
-FOSSILS|Preserved ancient remains
+FOSSIL|Preserved ancient remains
 WILDFIRE|Uncontrolled burning forest
 SEQUOIA|Tallest tree species
-PYRAMID|Sand dune shape
 PREDATOR|Hunting animal
-CLIFFS|Steep rock faces
 MUSHROOM|Fungi with cap
-WATERFALL|Falling river water
+WATERFALL|Vertical river
 CLIFFSIDE|Edge of a steep slope
-CASCADES|Small waterfalls
+CASCADE|Small waterfall
 GLACIER|Slow-moving ice mass
 ROSEMARY|Fragrant herb
-IGUANAS|Large lizards
+CHAMELEON|Color-changing lizard
 BLIZZARD|Severe snowstorm

@@ -15,7 +15,7 @@ HAPPY|Feeling good
 DARK|No light
 CLEAR|Easy to see through
 CLOSE|Near something
-COOL|Slightly cold
+COOL|In fashion
 SWEET|Like candy
 SOUR|Like a lemon
 SMART|Good at thinking
@@ -81,16 +81,11 @@ EARLY|Before expected
 LATE|After expected
 AWAKE|Not asleep
 BLAND|No strong flavor
-DUSTY|Has dust
 LUCKY|Has good fortune
-RAINY|Has rain
-SUNNY|Lots of sunshine
-SNOWY|Covered in snow
-WINDY|Lots of wind
 FUNNY|Makes you laugh
-NOISY|Makes lots of sound
+NOISY|Not quiet
 READY|Prepared
-ALIVE|Living
+ALIVE|Not dead
 DEAD|No longer living
 GREAT|Very good
 GRAND|Big and impressive
@@ -101,7 +96,7 @@ CRISP|Firm and fresh
 EVIL|Very bad
 GOOD|Not bad
 SPICY|Hot flavor
-LOYAL|Always supports
+LOYAL|Always supportive
 BRAVE|Not afraid
 EAGER|Really wants to do something
 FIRM|Solid, not soft
@@ -110,3 +105,4 @@ GRIM|Serious or dark
 CRAZY|Very silly or wild
 ANGRY|Feeling mad
 HARSH|Very strong or rough
+EASY|Not very difficult

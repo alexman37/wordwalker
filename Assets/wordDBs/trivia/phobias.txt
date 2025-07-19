@@ -1,11 +1,8 @@
-DEMONOPHOBIA|Fear of demons or evil spirits
 GEPHYROPHOBIA|Fear of crossing bridges
 GYNOPHOBIA|Fear of women
 CACOPHOBIA|Fear of ugliness
-TECHNOPHOBIA|Fear of advanced technology
 AVIOPHOBIA|Fear of flying
 AICHMOPHOBIA|Fear of sharp objects
-GERMOPHOBIA|Fear of germs or dirt
 FELINOPHOBIA|Fear of cats
 NOMOPHOBIA|Fear of being without a mobile phone
 SPECTROPHOBIA|Fear of mirrors or reflections
@@ -16,7 +13,6 @@ ACROPHOBIA|Fear of heights
 BOTANOPHOBIA|Fear of plants
 GLOSSOPHOBIA|Fear of public speaking
 HELIOPHOBIA|Fear of sunlight
-PEDOPHOBIA|Fear of children
 OMBROPHOBIA|Fear of rain
 ENOCHLOPHOBIA|Fear of crowds
 THEOPHOBIA|Fear of gods or religion
@@ -44,8 +40,7 @@ ATYCHIPHOBIA|Fear of failure
 ATAXOPHOBIA|Fear of disorder or untidiness
 NYCTOPHOBIA|Fear of the dark
 EMETOPHOBIA|Fear of vomiting
-APHENPHOSMPHOBIA|Fear of being touched
-DECIDOPHOBIA|Fear of making decisions
+APHENPHOSMPHOBIA|Fear of touching others
 CIBOPHOBIA|Fear of food
 EQUINOPHOBIA|Fear of horses
 SPHEKSOPHOBIA|Fear of wasps
@@ -62,7 +57,6 @@ CLAUSTROPHOBIA|Fear of confined spaces
 ECOPHOBIA|Fear of home
 ORNITHOPHOBIA|Fear of birds
 HYPOCHONDRIASIS|Fear of illness
-INSECTOPHOBIA|Fear of insects
 ONEIROPHOBIA|Fear of dreams
 GLOBOPHOBIA|Fear of balloons
 HAPHEPHOBIA|Fear of being touched
@@ -83,7 +77,6 @@ ANTHOPHOBIA|Fear of flowers
 SOMNIPHOBIA|Fear of sleep
 PHASMOPHOBIA|Fear of ghosts
 ANTHROPOPHOBIA|Fear of people or society
-BANANAPHOBIA|Fear of bananas
 PYROPHOBIA|Fear of fire
 OPHIDIOPHOBIA|Fear of snakes
 HIPPOPHOBIA|Fear of horses
@@ -99,14 +92,12 @@ CATOPTROPHOBIA|Fear of mirrors
 ASTRAPHOBIA|Fear of thunder and lightning
 CYNOPHOBIA|Fear of dogs
 RANIDAPHOBIA|Fear of frogs
-ELECTROPHOBIA|Fear of electricity
 PHOBOPHOBIA|Fear of fear itself
-DENTOPHOBIA|Fear of dentists
 BACILLOPHOBIA|Fear of germs
 GAMOPHOBIA|Fear of marriage or commitment
 HODOPHOBIA|Fear of travel
 TACHOPHOBIA|Fear of speed
 IATROPHOBIA|Fear of doctors
 NOSOCOMEPHOBIA|Fear of hospitals
-ISOLOPHOBIA|Fear of being alone or isolated
+ISOLOPHOBIA|Fear of being alone
 CHROMOPHOBIA|Fear of colors

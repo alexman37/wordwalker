@@ -1,5 +1,4 @@
 TAILORESS|Female garment maker
-OCCUPANT|Job title in use?
 MIDWIFE|Assists with childbirth
 BRICKLAYER|Lays mortar and stone
 TEACHER|Classroom instructor
@@ -32,7 +31,6 @@ DIRECTOR|Film or company leader
 ATHLETE|Sports competitor
 ENGINEER|Designer of structures or systems
 INVESTOR|Puts money into ventures
-MACHINIST|Operates machine tools
 OPERATOR|Controls machinery or systems
 COUNSELOR|Offers guidance or therapy
 PSYCHOLOGIST|Studies human behavior
