@@ -15,7 +15,7 @@ public class Triangle : GenMethod
     public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
         this.difficulty = difficulty;
-        subsOnStartingRow = getRandomInput(difficulty, 1, 3, true);
+        subsOnStartingRow = getRandomInput(difficulty, 1, 5, true);
         maxSubs = getRandomInput(difficulty, 4, 8, true);
 
         this.word = word;

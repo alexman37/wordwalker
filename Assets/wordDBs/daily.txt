@@ -68,7 +68,7 @@ PRETENTIOUS|(adjective) Attempting to impress with exaggerated importance.
 OPULENT|(adjective) Rich and luxurious.
 EXACERBATE|(verb) To make worse or more severe.
 SECULAR|(adjective) Non-religious or worldly.
-SCRUTINIZE|(verb) To examine closely.
+SCRUTINIZE|(verb) To examine closely.||SCRUTINISE
 NEOPHYTE|(noun) A beginner or novice.
 PATHOS|(noun) An appeal to emotion.
 JUXTAPOSE|(verb) To place side by side for contrast.
@@ -154,7 +154,7 @@ MUNIFICENT|(adjective) Very generous.
 DEFERENCE|(noun) Respect or courteous regard.
 EMPIRICAL|(adjective) Based on observation or experience.
 SALUBRIOUS|(adjective) Healthful or promoting well-being.
-SKEPTICAL|(adjective) Doubtful or questioning.
+SKEPTICAL|(adjective) Doubtful or questioning.||SCEPTICAL
 CRAVEN|(adjective) Cowardly.
 CHICANERY|(noun) Trickery or deceit.
 GRAVITAS|(noun) Seriousness or dignity.
@@ -230,7 +230,7 @@ SCINTILLATING|(adjective) Sparkling or brilliantly clever.
 GERMANE|(adjective) Relevant or appropriate.
 FRUGAL|(adjective) Economical and careful with money.
 OMNISCIENT|(adjective) All-knowing.
-RHAPSODIZE|(verb) To speak or write with great enthusiasm.
+RHAPSODIZE|(verb) To speak or write with great enthusiasm.||RHAPSODISE
 HIATUS|(noun) A break or gap in continuity.
 DELUGE|(noun) A flood or overwhelming amount.
 DELIBERATE|(adjective) Intentional or careful.
@@ -244,7 +244,7 @@ CONSPICUOUS|(adjective) Easily noticed or obvious.
 APATHETIC|(adjective) Lacking interest or concern.
 PETULANT|(adjective) Irritable or moody.
 NEGLIGIBLE|(adjective) So small as to be unimportant.
-AGGRANDIZE|(verb) To increase in power or wealth; to exaggerate.
+AGGRANDIZE|(verb) To increase in power or wealth; to exaggerate.||AGGRANDISE
 RESCIND|(verb) To revoke or cancel.
 STRIDENT|(adjective) Loud and harsh.
 MARTINET|(noun) A strict disciplinarian.
@@ -289,7 +289,7 @@ PSEUDONYM|(noun) A fictitious name used by an author.
 ACRIMONIOUS|(adjective) Angry or bitter in speech or manner.
 CONTRITE|(adjective) Genuinely sorry or remorseful.
 IMMUTABLE|(adjective) Unchangeable over time.
-STYMIE|(verb) To block or hinder progress.
+STYMIE|(verb) To block or hinder progress.||STYMY
 LACKADAISICAL|(adjective) Lacking enthusiasm or care.
 DEVIOUS|(adjective) Dishonest or sneaky.
 PRECLUDE|(verb) To prevent or make impossible.
@@ -321,7 +321,7 @@ INEPT|(adjective) Clumsy or incompetent.
 PROFOUND|(adjective) Deep in meaning or intensity.
 DIDACTIC|(adjective) Intended to teach or instruct.
 REPREHENSIBLE|(adjective) Deserving blame or punishment.
-CANDOR|(noun) Honesty or directness.
+CANDOR|(noun) Honesty or directness.||CANDOUR
 TRACTABLE|(adjective) Easily managed or controlled.
 PITHY|(adjective) Concise and meaningful.
 NONCHALANT|(adjective) Calm and unconcerned.
@@ -368,11 +368,11 @@ SPECIOUS|(adjective) Misleading in appearance; seemingly plausible but false.
 ELUSIVE|(adjective) Difficult to find or grasp.
 ALACRITY|(noun) Eagerness or cheerful readiness.
 ANTIPATHY|(noun) Strong dislike or aversion.
-RANCOR|(noun) Bitter resentment or ill-will.
+RANCOR|(noun) Bitter resentment or ill-will.||RANCOUR
 PEDANTIC|(adjective) Overly concerned with rules or details.
 PERFUNCTORY|(adjective) Done with minimal effort or care.
 DISSIDENT|(noun) A person who opposes official policy.
-OSTRACIZE|(verb) To exclude or banish.
+OSTRACIZE|(verb) To exclude or banish.||OSTRACISE
 PANACEA|(noun) A universal remedy.
 SYCOPHANT|(noun) A flattering person who seeks personal gain.
 VACILLATE|(verb) To waver between choices or opinions.
@@ -399,7 +399,7 @@ REMISS|(adjective) Negligent or careless.
 RECLUSIVE|(adjective) Avoiding the company of others; solitary.
 PRODIGIOUS|(adjective) Enormous or extraordinary in size or extent.
 INVETERATE|(adjective) Deep-rooted or habitual.
-JEOPARDIZE|(verb) To put in danger.
+JEOPARDIZE|(verb) To put in danger.||JEOPARDISE
 SUBSTANTIATE|(verb) To support with evidence.
 CURSORY|(adjective) Hasty and superficial.
 ENSUE|(verb) To follow as a result.
@@ -409,5 +409,5 @@ REDUNDANT|(adjective) Unnecessarily repetitive.
 EUPHEMISM|(noun) A mild substitute for a harsh word.
 ENIGMATIC|(adjective) Mysterious or puzzling.
 ICONOCLAST|(noun) One who attacks cherished beliefs.
-BELABOR|(verb) To overemphasize or dwell on.
+BELABOR|(verb) To overemphasize or dwell on.||BELABOUR
 AMELIORATE|(verb) To improve or make better.

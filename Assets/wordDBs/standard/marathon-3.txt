@@ -1,12 +1,12 @@
 MISCONSTRUE|(verb) To interpret wrongly.
-UNFAVORABLE|(adjective) Not beneficial or positive.
+UNFAVORABLE|(adjective) Not beneficial or positive.||UNFAVOURABLE
 FLUCTUATION|(noun) An irregular rising and falling in number or amount.
 RECOGNITION|(noun) The act of identifying or acknowledging something.
 VERIFICATION|(noun) The process of establishing the truth or accuracy of something.
 RENOVATION|(noun) The process of improving by repairing.
 OBSOLESCENCE|(noun) The process of becoming outdated.
 REVOLUTION|(noun) A forcible overthrow of a government or social order.
-UTILIZATION|(noun) The act of using something effectively.
+UTILIZATION|(noun) The act of using something effectively.||UTILISATION
 SEASONALITY|(noun) The characteristic of varying according to the season.
 ABSTENTION|(noun) The act of deliberately not voting or participating.
 OUTLANDISH|(adjective) Strange or bizarre.
@@ -16,7 +16,7 @@ ILLUMINATION|(noun) Lighting or light.
 PROCRASTINATE|(verb) To delay or postpone action.
 TURPENTINE|(noun) A volatile oil used as a solvent and for thinning paint.
 AMBASSADOR|(noun) An official representative of a country.
-STANDARDIZE|(verb) To make consistent or uniform.
+STANDARDIZE|(verb) To make consistent or uniform.||STANDARDISE
 ADVANCEMENT|(noun) The process of promoting or moving forward.
 SOLUBILITY|(noun) The ability to dissolve in a solvent.
 UNDENIABLE|(adjective) Impossible to deny or dispute.
@@ -77,9 +77,9 @@ APPRECIABLE|(adjective) Large or significant enough to be noticed.
 REGENERATION|(noun) The process of renewal or growth.
 TOLERATION|(noun) The practice of allowing differences.
 DESCRIPTION|(noun) A spoken or written account.
-NEUTRALIZE|(verb) To counteract or cancel the effect.
+NEUTRALIZE|(verb) To counteract or cancel the effect.||NEUTRALISE
 SUPPLEMENT|(noun) Something added to complete or enhance.
-AUTHORIZATION|(noun) Official permission.
+AUTHORIZATION|(noun) Official permission.||AUTHORISATION
 RESTRICTION|(noun) A limiting condition or regulation.
 RESURRECTION|(noun) The act of rising from the dead.
 COMPASSIONATE|(adjective) Feeling or showing sympathy and concern.
@@ -87,7 +87,7 @@ SPIRITUALITY|(noun) The quality of being concerned with the soul or spirit.
 MANUFACTURE|(verb) To make something on a large scale using machinery.
 ACCELERATION|(noun) The increase in speed or rate.
 EXCELLENCE|(noun) The quality of being outstanding or extremely good.
-REMODELING|(noun) The process of changing the structure or form.
+REMODELING|(noun) The process of changing the structure or form.||REMODELLING
 DISTINCTION|(noun) A difference or contrast.
 IMAGINATION|(noun) The faculty of forming mental images or concepts.
 REFORMULATE|(verb) To devise or express in a new way.
@@ -128,6 +128,3 @@ PRETENTIOUS|(adjective) Attempting to impress by showing greater importance.
 FUTURISTIC|(adjective) Having or involving very modern technology or design.
 DETERMINATION|(noun) Firmness of purpose.
 ASSUMPTION|(noun) A thing accepted as true without proof.
-SOLICITATION|(noun) The act of asking for something formally.
-MEDITATION|(noun) The practice of focused thought for relaxation or spiritual purposes.
-INITIATIVE|(noun) The ability to assess and start things independently.

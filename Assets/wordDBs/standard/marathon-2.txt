@@ -25,16 +25,16 @@ ABSORPTION|(noun) The process of soaking up or taking in.
 SOPHISTICATED|(adjective) Developed to a high degree of complexity.
 ENTITLEMENT|(noun) The fact of having a right to something.
 COLLOQUIAL|(adjective) Used in ordinary or familiar conversation.
-ARCHAEOLOGY|(noun) The study of human history through excavation.
+ARCHAEOLOGY|(noun) The study of human history through excavation.||ARCHEOLOGY
 TABULATION|(noun) The arrangement of data in tables.
 EMBODIMENT|(noun) A tangible or visible form of an idea or quality.
-RATIONALIZE|(verb) To justify or explain with logical reasons.
+RATIONALIZE|(verb) To justify or explain with logical reasons.||RATIONALISE
 ALLEGIANCE|(noun) Loyalty or commitment to a group or cause.
 INEXORABLE|(adjective) Impossible to stop or prevent.
 INCARNATION|(noun) A person who embodies a quality or idea.
 MISLEADING|(adjective) Giving the wrong idea or impression.
 INSTRUCTION|(noun) Detailed information on how to do something.
-SCRUTINIZE|(verb) To examine carefully.
+SCRUTINIZE|(verb) To examine carefully.||SCRUTINISE
 IMPLEMENTATION|(noun) The process of putting a decision into effect.
 SURVEILLANCE|(noun) Close observation, especially for security.
 SIMPLISTIC|(adjective) Treating complex issues as simple.
@@ -87,7 +87,7 @@ PERSISTENCE|(noun) Continued existence or action despite difficulty.
 TUMULTUOUS|(adjective) Making a loud, confused noise; uproarious.
 BLASPHEMOUS|(adjective) Showing disrespect for God or sacred things.
 REFINEMENT|(noun) The process of improving something by making small changes.
-CATEGORIZE|(verb) To place into groups.
+CATEGORIZE|(verb) To place into groups.||CATEGORISE
 LONELINESS|(noun) Sadness caused by being alone.
 FACILITATE|(verb) To make an action or process easier.
 REPLICATION|(noun) The action of copying or reproducing.
@@ -127,8 +127,3 @@ SUPERINTENDENT|(noun) A person who manages or oversees.
 FIGURATIVE|(adjective) Departing from literal meaning to use metaphor.
 MOTIVATION|(noun) The reason one has for acting or behaving.
 OVERWHELMED|(adjective) Overcome by strong emotion or too much to handle.
-TERRITORIAL|(adjective) Relating to ownership of land.
-WILDERNESS|(noun) An uncultivated, uninhabited, and inhospitable region.
-OBFUSCATION|(noun) The act of making something unclear.
-AMPLIFICATION|(noun) The process of making something louder or stronger.
-ESTABLISHMENT|(noun) A business organization or a place of business.

@@ -17,7 +17,7 @@ FIREHOUSE|Station for firetrucks
 GALLERY|Where art is displayed
 RESORT|Vacation destination
 METROPLEX|Massive urban area
-PARLOR|Old-fashioned sitting room
+PARLOR|Old-fashioned sitting room||PARLOUR
 BAKERY|Bread seller’s shop
 FORTRESS|Stronghold for defense
 RESERVE|Protected natural area
@@ -42,14 +42,13 @@ ROOFTOP|Top of a building
 COLONY|Settled territory
 PLAYHOUSE|Children's small home
 VILLAGE|Small rural community
-BILLIARD|Pool-playing room
 COURTYARD|Open area inside walls
 FUNHOUSE|Wacky maze attraction
 RECEPTION|Event greeting area
 CIRCUS|Tent with acrobats
 RAILROAD|Train transport system
 MANSION|Grand estate home
-THEATER|Stage performance venue
+THEATER|Stage performance venue||THEATRE
 COTTAGE|Cozy rural home
 CAPITAL|Seat of government
 STORAGE|Space to keep things
@@ -96,7 +95,7 @@ CARRIAGE|Train or horse transport
 POSTHOUSE|Old postal inn
 TEMPLE|You're in one. Like, right now.
 PENTHOUSE|Luxurious top-floor flat
-HARBOR|Protected ship area
+HARBOR|Protected ship area||HARBOUR
 STUDIO|Art or recording space
 JAILHOUSE|Detention center
 SUBURBIA|Residential outskirts

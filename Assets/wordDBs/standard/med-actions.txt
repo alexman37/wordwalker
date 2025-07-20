@@ -1,7 +1,7 @@
 COORDINATE|To organize smoothly
 DERAIL|To cause to fail or deviate
 INTERCEDE|To intervene on behalf of
-STABILIZE|To make steady
+STABILIZE|To make steady||STABILISE
 FORTIFY|To strengthen
 EMANCIPATE|To free from restraint
 DELIBERATE|To consider carefully
@@ -9,7 +9,7 @@ LEGISLATE|To make laws
 RESUSCITATE|To revive
 INCINERATE|To burn completely
 INOCULATE|To vaccinate
-ENDEAVOR|To try hard
+ENDEAVOR|To try hard||ENDEAVOUR
 IMPLICATE|To show involvement
 INTERTWINE|To twist together
 TRANSLATE|To convert languages
@@ -18,12 +18,12 @@ VALIDATE|To confirm the truth
 REPLICATE|To copy exactly
 RECIPROCATE|To give in return
 DISPEL|To scatter or drive away
-VISUALIZE|To form a mental image
+VISUALIZE|To form a mental image||VISUALISE
 SPECULATE|To guess or theorize
 ALLOCATE|To distribute or assign
 REJUVENATE|To make young again
 CAPITULATE|To surrender
-ACCLIMATE|To adjust to a new environment
+ACCLIMATIZE|To adjust to a new environment||ACCLIMATISE
 PROLIFERATE|To increase rapidly
 EXACERBATE|To make worse
 ANTICIPATE|To expect beforehand
@@ -47,7 +47,7 @@ EXPEDITE|To speed up
 OVERESTIMATE|To assess too highly
 ARTICULATE|To express clearly
 ARBITRATE|To settle a dispute
-SCRUTINIZE|To examine closely
+SCRUTINIZE|To examine closely||SCRUTINISE
 ADHERE|To stick firmly
 SURROGATE|To substitute for someone
 DETONATE|To explode
@@ -67,13 +67,13 @@ ENUNCIATE|To pronounce clearly
 APPRAISE|To assess value
 ENLIGHTEN|To give knowledge
 MODULATE|To adjust or regulate
-DISTILL|To purify by heating
-CAUTERIZE|To burn tissue to stop bleeding
+DISTILL|To purify by heating||DISTIL
+CAUTERIZE|To burn tissue to stop bleeding||CAUTERISE
 DISGUISE|To conceal identity
 CORROBORATE|To confirm or support
 TRANSPORT|To carry from one place to another
 AMPLIFY|To increase in volume or intensity
-FRATERNIZE|To socialize with others
+FRATERNIZE|To socialize with others||FRATERNISE
 DOMINATE|To have control over
 REHABILITATE|To restore to health
 ILLUMINATE|To light up
@@ -90,7 +90,7 @@ CIRCUMVENT|To avoid by cleverness
 UNDERMINE|To weaken gradually
 DECIMATE|To destroy a large part
 DEFLECT|To turn aside
-PLAGIARIZE|To copy without credit
+PLAGIARIZE|To copy without credit||PLAGIARISE
 DELEGATE|To assign tasks
 IMPROVISE|To make up on the spot
 GENERATE|To produce
@@ -100,7 +100,7 @@ AUTOMATE|To make automatic
 ENGENDER|To cause or produce
 PREDOMINATE|To be the strongest
 PROMULGATE|To announce officially
-VAPORIZE|To turn into vapor
+VAPORIZE|To turn into vapor||VAPORISE
 COAGULATE|To thicken or clot
 SUPPLICATE|To ask earnestly
 ENCOMPASS|To include or surround
@@ -110,7 +110,7 @@ FASCINATE|To attract strongly
 WRANGLE|To argue or dispute
 MANIPULATE|To skillfully control
 DERIVATE|To derive from
-HYPNOTIZE|To put in a trance
+HYPNOTIZE|To put in a trance||HYPNOTISE
 CONSTRICT|To tighten
 DEMARCATE|To set boundaries
 MEDIATE|To resolve differences
@@ -118,21 +118,21 @@ SIMPLIFY|To make easier
 VINDICATE|To clear from blame
 INVESTIGATE|To examine carefully
 QUANTIFY|To measure
-THEORIZE|To form a theory
+THEORIZE|To form a theory||THEORISE
 SUBSTANTIATE|To prove with evidence
 SATURATE|To soak thoroughly
 DISSUADE|To persuade not to do something
 CONVALESCE|To recover health
-AUTHORIZE|To give official permission
-SUMMARIZE|To give a brief overview
+AUTHORIZE|To give official permission||AUTHORISE
+SUMMARIZE|To give a brief overview||SUMMARISE
 DEDICATE|To devote to a purpose
 EXASPERATE|To irritate intensely
 AGGRAVATE|To worsen or irritate
-GALVANIZE|To stimulate into action
-VOLATILIZE|To evaporate quickly
+GALVANIZE|To stimulate into action||GALVANISE
+VOLATILIZE|To evaporate quickly||VOLATILISE
 DISSEMINATE|To spread widely
 ACCUMULATE|To gather or collect over time
-MOBILIZE|To prepare for action
+MOBILIZE|To prepare for action||MOBILISE
 TESTIFY|To give evidence under oath
 COALESCE|To come together
 CAPTIVATE|To attract and hold attention
@@ -141,5 +141,5 @@ DEPRECATE|To express disapproval
 SUBJUGATE|To bring under control
 ABSORB|To soak up
 COMMENCE|To begin
-FERTILIZE|To supply nutrients
+FERTILIZE|To supply nutrients||FERTILISE
 CONFLATE|To combine ideas

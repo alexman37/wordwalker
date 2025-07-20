@@ -53,8 +53,8 @@ public class TilemapGen : MonoBehaviour
     /// </summary>
     private void fineTuning(WordGen.Word word, int maxBacktracks)
     {
-        // TODO we take action here to figure out the inputs of the level, they get harder as they go...
-        // Maybe we can transform one or a few inputs across all the various inputs across methods?
+        // We take action here to figure out the inputs of the level, they get harder as they go...
+        // Some algorithms are generally harder than others
         float difficultyHandicap = 1;
         if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.GEN_PLUS))
         {
@@ -63,12 +63,19 @@ public class TilemapGen : MonoBehaviour
         else
         {
             difficultyHandicap = 2;
-            currentGenMethod = generationMethods[UnityEngine.Random.Range(0, generationMethods.Length)];
+            // Without gen plus, you can still get the "tricky" algorithms but only if past the halfway point
+            if((float)GameManagerSc.getCurrentLevel() / (float)GameManagerSc.getNumLevels() >= 0.5f)
+            {
+                currentGenMethod = generationMethodsAdv[UnityEngine.Random.Range(0, generationMethodsAdv.Length)];
+            } else
+            {
+                currentGenMethod = generationMethods[UnityEngine.Random.Range(0, generationMethods.Length)];
+            }
         }
 
         float diff = (float)GameManagerSc.getCurrentLevel() / (float)GameManagerSc.getNumLevels() / difficultyHandicap;
         Debug.Log("Using difficulty " + diff);
-        tileMap = currentGenMethod.regenerateTileMap(diff, word, maxBacktracks);
+        tileMap = currentGenMethod.generateTileMap(diff, word, maxBacktracks);
     }
 
     // Start is called before the first frame update
@@ -76,6 +83,7 @@ public class TilemapGen : MonoBehaviour
     {
         // All methods up for grabs with Gen Plus turned on...
         generationMethodsAdv = GetComponents<GenMethod>();
+
         // You specify which ones you want for default
         generationMethods = new GenMethod[] { GetComponent<Triangle>() };
 
@@ -83,5 +91,14 @@ public class TilemapGen : MonoBehaviour
 
         Debug.Log("Tilemap gen READY");
         greenlight = true;
+    }
+
+    // TODO REMOVE
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            regenerateTileMap(new WordGen.Word("EEEEEEEEEEEE", "whatever"), 0);
+        }
     }
 }

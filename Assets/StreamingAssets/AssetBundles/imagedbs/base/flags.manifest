@@ -1,15 +1,17 @@
 ManifestFileVersion: 0
-CRC: 3364290801
+CRC: 2405721800
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 057eb35dd90f96c83c235d7c6b077f9b
+    Hash: d5f1a1bbc747050517d807b3689b2719
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4df8c69f2c8a6ad9e3cbf82bb83e4dc3
+    Hash: 9ecc2e8d717629781f019ff30323ba53
 HashAppended: 0
 ClassTypes:
 - Class: 28
+  Script: {instanceID: 0}
+- Class: 49
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -172,6 +174,7 @@ Assets:
 - Assets/wordDBs/image/flags/sanmarino.png
 - Assets/wordDBs/image/flags/newzealand.png
 - Assets/wordDBs/image/flags/egypt.png
+- Assets/wordDBs/trivia/flags.txt
 - Assets/wordDBs/image/flags/guineabissau.png
 - Assets/wordDBs/image/flags/afghanistan.png
 - Assets/wordDBs/image/flags/greenland.png

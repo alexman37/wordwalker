@@ -1,4 +1,4 @@
-PROPHECY|(noun) A prediction of the future.
+PROPHECY|(noun) A prediction of the future.||PROPHESY
 DEVIANCE|(noun) Departure from norms or standards.
 TURBINE|(noun) Machine that generates power from fluid movement.
 PERILOUS|(adjective) Full of danger or risk.
@@ -13,7 +13,7 @@ STALWART|(adjective) Loyal, reliable, and strong.
 ASYLUM|(noun) Protection granted to political refugees; also a mental institution.
 ORACULAR|(adjective) Prophetic or mysterious.
 PORCELAIN|(noun) A fine white ceramic.
-OXIDIZE|(verb) To combine with oxygen, often leading to rust.
+OXIDIZE|(verb) To combine with oxygen, often leading to rust.||OXIDISE
 OBSIDIAN|(noun) A dark, glassy volcanic rock.
 ANOMALY|(noun) Something that deviates from the norm.
 MIRAGE|(noun) An optical illusion caused by atmospheric conditions.
@@ -53,7 +53,7 @@ RHAPSODY|(noun) An emotional or enthusiastic expression or piece of music.
 GRANDEUR|(noun) Splendor and impressiveness.
 OPULENT|(adjective) Lavishly rich and luxurious.
 ACCOLADE|(noun) A mark of recognition or honor.
-JUDGMENT|(noun) The ability to make considered decisions.
+JUDGMENT|(noun) The ability to make considered decisions.||JUDGEMENT
 OCCLUDED|(verb) Blocked or closed up.
 UPTIGHT|(adjective) Anxious, tense, or overly strict.
 ELEGANCE|(noun) Graceful and stylish appearance or manner.
@@ -125,7 +125,7 @@ INFUSION|(noun) A slow introduction of a substance.
 MARINATE|(verb) To soak food in a seasoned liquid before cooking.
 RANSOMED|(verb) Released after payment.
 MANDOLIN|(noun) A stringed musical instrument with a pear-shaped body.
-FERALIZE|(verb) To make wild or untamed.
+FERALIZE|(verb) To make wild or untamed.||FERALISE
 EVOCATIVE|(adjective) Bringing strong images or feelings to mind.
 KNAPSACK|(noun) A backpack.
 PARALLAX|(noun) The apparent shift of an object due to different viewpoints.

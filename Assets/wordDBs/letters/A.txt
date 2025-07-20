@@ -5,31 +5,31 @@ ABDOMINAL|In the chest||
 ABDUCTION|Kidnapping||
 ABERRATION|Deviation from norm||
 ABILITY|Capacity, Talent||
-ABLUTION|Washing ritual|h|
+ABLUTION|Washing ritual||
 ABNORMALITY|Irregularity, Unusuality||
 ABOLISH|Put an end to/Do away with||
 ABOMINATION|Disgusting, Abhorrent||
-ABRASION|Scraped spot/Surface scrape|h|
+ABRASION|Scraped spot/Surface scrape||
 ABRIDGE|Shorten/Reduce in scope||
-ABROGATE|Repeal by law|h|
-ABSCESS|Infected swelling|h|
-ABSCOND|Leave in secret|h|
+ABROGATE|Repeal by law||
+ABSCESS|Infected swelling||
+ABSCOND|Leave in secret||
 ABSENCE|Being away||
 ABSOLUTE|Total/Complete||
 ABSOLVE|Exonerate/Pardon||
 ABSORBED|Deeply interested/Engaged||
 ABSTAIN|Refrain/Forgo||
-ABSTENTION|Withholding vote|h|
+ABSTENTION|Withholding vote||
 ABSTRACT|Theoretical/Unreal||
 ABSURDITY|Silliness/Senselessness||
 ABUNDANCE|Plenty/Numerous||
-ABUTMENT|Support structure|h|
+ABUTMENT|Support structure||
 ACADEMIC|Scholarly/Lost in books||
 ACADEMY|Learning Institution/University||
 ACCELERATE|Speed up/Go faster||
 ACCENTUATE|Emphasize/Highlight||
 ACCEPTANCE|Agreement/Welcoming||
-ACCESSION|Coming into power|h|
+ACCESSION|Coming into power||
 ACCESSORY|Additional item/Cosmetic||
 ACCIDENT|Unexpected event||
 ACCLAIM|Praise||
@@ -41,16 +41,16 @@ ACCOMPLICE|Partner in crime||
 ACCOMPLISH|Achieve/Reach goal||
 ACCORDION|Musical squeeze box||
 ACCOUNT|Record, Bank holding||
-ACCOUTREMENT|Soldier's Equipment|h|
+ACCOUTREMENT|Soldier's Equipment||ACCOUTERMENT
 ACCREDITED|Authorized/Officially Designated||
-ACCRUAL|Growth/Addition|h|
+ACCRUAL|Growth/Addition||
 ACCUMULATE|Gather/Collect||
 ACCUMULATION|Collection||
 ACCUSATION|Charge, Find fault||
-ACCUSTOMED|Habituated/Now used to|h|
+ACCUSTOMED|Habituated/Now used to||
 ACHIEVEMENT|Success||
 ACKNOWLEDGE|Recognize, Admit||
-ACOLYTE|Assistant|h|
+ACOLYTE|Assistant||
 ACOUSTIC|Sound related/Instrumental||
 ACQUAINTANCE|Familiar person||
 ACQUIESCE|Agree passively/Consent||
@@ -61,21 +61,21 @@ ACRONYM|Formed from initials||
 ACTIVIST|Political organizer||
 ACTIVITY|Something done/Event||
 ACTRESS|Female performer||
-ACTUALITY|State of being real or true|h|
+ACTUALITY|State of being real or true||
 ACTUARY|Risk calculator||
-ACTUATE|Incite/Cause to move into action|h|
-ADAPTATION|Improvement, Adjustment|h|
-ADAPTOR|Device connector|h|ADAPTER
+ACTUATE|Incite/Cause to move into action||
+ADAPTATION|Improvement, Adjustment||
+ADAPTOR|Device connector||ADAPTER
 ADDICTION|Compulsive dependence||
 ADDITION|Sum||
-ADDITIVE|Extra enhancer|h|
+ADDITIVE|Extra enhancer||
 ADDRESS|Location, Speech||
-ADHERENT|Follower, Supporter|h|
+ADHERENT|Follower, Supporter||
 ADHESIVE|Glue, Substance joiner||
 ADJECTIVE|Noun modifier||
 ADJOURN|Postpone hearing/Suspend proceeding||
 ADJUDICATION|Formal judgement||
-ADJUNCT|Extra attachment|h|
+ADJUNCT|Extra attachment||
 ADJUSTMENT|Small change/Alteration||
 ADMINISTER|Manage/Supervise||
 ADMINISTRATION|All the overseers/Governors||
@@ -85,84 +85,83 @@ ADMISSION|Confession||
 ADMONISH|Warn, Reprimand||
 ADOLESCENT|Young person||
 ADOPTION|Embracing something new||
-ADORNMENT|Decoration or embellishment|h|
+ADORNMENT|Decoration or embellishment||
 ADULTERATE|Make impure by adding inferior substances||
-ADULTERER|Owner of the 'Scarlet Letter'|h|
-ADUMBRATE|Indicate faintly or obscurely|h|
+ADULTERER|Owner of the 'Scarlet Letter'||
+ADUMBRATE|Indicate faintly or obscurely||
 ADVANCE|Move forward, Progress||
 ADVANTAGE|Benefit/Superiority||
 ADVENTURE|Exciting experience/Journey||
 ADVERSARY|Opponent or enemy||
 ADVERTISE|Promote/Publicize||
 ADVERTISEMENT|Public notice/Announcement||
-ADVISER|Person who gives advice||ADVISOR
+ADVISOR|Person who gives advice||ADVISER
 ADVOCATE|Publicly reccomend/Supporter||
-AERODROME|Big airport|h|
-AERODYNAMIC|Cutting through wind|h|
-AEROGRAMME|Lightweight airmail envelope|h|AEROGRAM
-AEROSOL|Liquid spray|h|
-AESTHETE|Person who appreciates beauty|h|
+AERODROME|Big airport||
+AERODYNAMIC|Cutting through wind||
+AEROGRAM|Lightweight airmail envelope||AEROGRAMME
+AEROSOL|Liquid spray||
 AFFECTION|Feeling of love, Fondness||
-AFFIANCE|Betrothal, Engagement|h|
-AFFIDAVIT|Written sworn statement|h|
+AFFIANCE|Betrothal, Engagement||
+AFFIDAVIT|Written sworn statement||
 AFFILIATE|Associate, Connect||
 AFFINITY|Natural liking or similarity||
 AFFIRMATION|Positive statement or declaration||
 AFFLICTION|Pain or suffering||
 AFFRONT|Insult or offend||
-AFICIONADO|Enthusiast or fan|h|
-AFORESAY|Mentioned earlier|h|
+AFICIONADO|Enthusiast or fan||
+AFORESAY|Mentioned earlier||
 AFTERNOON|Before evening||
 AFTERSHOCK|Following a bigger disaster||
-AFTERTHOUGHT|Subsequent idea|h|
-AGGLOMERATION|Jumbled mass of things|h|
-AGGLUTINATE|Stick together|h|
+AFTERTHOUGHT|Subsequent idea||
+AGGLOMERATION|Jumbled mass of things||
+AGGLUTINATE|Stick together||
 AGGRAVATE|Make worse||
 AGGREGATION|Sum of parts||
 AGGRESSION|Hostile or violent behavior||
-AGISTER|Person who cares for livestock|h|
+AGISTER|Person who cares for livestock||AGISTOR
 AGITATE|Stir up, Disturb||
 AGITATION|State of being agitated||
-AGNATHAN|Jawless fish|h|
+AGNATHAN|Jawless fish||
 AGNOSTIC|Not quite an Atheist||
 AGONISE|Suffer mental anguish||AGONIZE
 AGREEMENT|Arrangement or contract||
-AILERON|Control surface on an aircraft's wing|h|
+AILERON|Control surface on an aircraft's wing||
 AILMENT|Illness or disease||
 AIRDROP|Supplies from the sky||
-AIRLIFT|Sky transport|h|
+AIRLIFT|Sky transport||
 AIRLINER|Passenger plane||
 AIRLOCK|Spaceship door||
-AIRPLANE|Flight machine||
+AIRPLANE|Flight machine||AEROPLANE
 AIRPORT|Plane depot||AIRFIELD
 AIRSHIP|Blimp||
 AIRSTRIP|Short runway||
 AIRWAVE|Radio or television broadcast medium||
-ALBATROSS|Large seabird, Better than an Eagle|h|
-ALBICAN|White, or whitish|h|
+ALBATROSS|Large seabird, Better than an Eagle||
+ALBICAN|White, or whitish||
 ALCHEMIST|Medieval chemistry||
 ALCOHOL|Booze||
-ALDERMAN|Member of a municipal council|h|
-ALEHOUSE|Pub or tavern|h|
-ALGORITHM|Ordered set of computer instructions|h|
-ALIENATE|Estrange or isolate|h|
+ALDERMAN|Member of a municipal council||
+ALEHOUSE|Pub or tavern||
+ALGORITHM|Ordered set of computer instructions||
+ALIENATE|Estrange or isolate||
 ALIGNMENT|Linear arrangement, Political affiliation||
-ALIQUOT|In math, an exact divisor|h|
+ALIQUOT|In math, an exact divisor||
 ALLEGATION|Claim or assertion||
 ALLEGIANCE|Loyalty or devotion||
 ALLEGORY|Story with a symbolic meaning||
 ALLERGY|Hypersensitivity to a substance||
-ALLEVIATE|Relieve or lessen|h|
+ALLEVIATE|Relieve or lessen||
 ALLEYWAY|Narrow city road||
 ALLIANCE|Union or association||
 ALLIGATOR|Large swamp reptile||
 ALLOCATE|Distribute or assign||
-ALLOGRAFT|Transplant of tissue, from one to another|h|
-ALLOTMENT|Portion or share|h|
+ALLOGRAFT|Transplant of tissue, from one to another||
+ALLOTMENT|Portion or share||
 ALLOWANCE|Chore money||
-ALLUSION|Incidental mention|h|
-ALMANAC|Yearly encyclopedia|h|
-ALMSHOUSE|Charity home|h|
+ALLUSION|Incidental mention||
+ALMANAC|Yearly encyclopedia||
+ALMSHOUSE|Charity home||
 ALPHABET|Word building blocks||
 ALTERATION|Change, Modification||
 ALTERNATE|Occurring in turn||
@@ -171,50 +170,50 @@ ALTITUDE|Land height||
 AMALGAMATION|Union of substances||
 AMATEUR|Unprofessional competitor||
 AMBASSADOR|National representative||
-AMBIGUITY|Uncertainty or inexactness|h|
+AMBIGUITY|Uncertainty or inexactness||
 AMBITION|Strong desire to achieve||
-AMBIVALENCE|Mixed feelings|h|
+AMBIVALENCE|Mixed feelings||
 AMBULANCE|Medical transport||
-AMELIORATE|To make bearable|h|
+AMELIORATE|To make bearable||
 AMENDMENT|Constitutional correction||
 AMENITY|Pleasant feature or attraction||
-AMERCEMENT|Penalty by fine|h|
+AMERCEMENT|Penalty by fine||
 AMERICAN|One from the States||
-AMETHYST|Purple gemstone|h|
+AMETHYST|Purple gemstone||
 AMNESTY|Political forgiveness||
-AMORTISE|Slowly pay debt|h|AMORTIZE
+AMORTISE|Slowly pay debt||AMORTIZE
 AMPHIBIAN|Land and water dweller||
-AMPHITHEATRE|Oval-shaped performing center||AMPITHEATER
-AMPLIFIER|Signal strength booster|h|
+AMPHITHEATER|Oval-shaped performing center||AMPITHEATRE
+AMPLIFIER|Signal strength booster||
 AMPLIFY|Increase in volume or strength||
-AMPLITUDE|In complete abundance|h|
+AMPLITUDE|In complete abundance||
 AMPUTATION|Removal of limb||
 AMUSEMENT|Enjoyable entertainment||
-ANACHRONISM|Something out of its time period|h|
-ANAESTHESIA|Knockout gas|h|ANESTHESIA
-ANAGRAM|Letter swap|h|
-ANALGESIA|Absence of pain|h|
-ANALOGUE|Corresponding item|h|
+ANACHRONISM|Something out of its time period||
+ANESTHESIA|Knockout gas||ANAESTHESIA
+ANAGRAM|Letter swap||
+ANALGESIA|Absence of pain||
+ANALOG|Corresponding item||ANALOGUE
 ANALOGY|Comparison to another||
 ANALYSE|Examine in detail||ANALYZE
 ANALYSIS|Detailed examination||
 ANALYST|Statistics nerd||
 ANARCHY|The antigovernment||
-ANATHEMA|Something despised|h|
+ANATHEMA|Something despised||
 ANATOMY|Study of the body||
-ANCESTOR|Forefather|h|
-ANCHORAGE|Ship's resting place|h|
-ANCHOVY|Small, oily fish|h|ANCHOVIE
+ANCESTOR|Forefather||
+ANCHORAGE|Ship's resting place||
+ANCHOVY|Small, oily fish||ANCHOVIE
 ANCIENT|Very, very old||
-ANCILLARY|Additional support|h|
-ANDESITE|Gray volcanic rock|h|
-ANDROID|Humanoid robot|h|
-ANECDOTE|Personal account|h|
-ANEMONE|Buttercup flower|h|
-ANEURYSM|Artery swelling|h|
+ANCILLARY|Additional support||
+ANDESITE|Gray volcanic rock||
+ANDROID|Humanoid robot||
+ANECDOTE|Personal account||
+ANEMONE|Buttercup flower||
+ANEURISM|Artery swelling||ANEURYSM
 ANIMATE|Bring still to life||
 ANIMATION|Creation of moving images||
-ANIMOSITY|Hostility, Hatred|h|
+ANIMOSITY|Hostility, Hatred||
 ANNEXATION|Addition of territory||
 ANNIHILATE|Destroy completely||
 ANNIVERSARY|Date of an event||
@@ -227,39 +226,39 @@ ANNUITY|Regular payment||
 ANOMALY|Deviation from normality||
 ANTAGONISE|Provoke hostility||ANTAGONIZE
 ANTAGONIST|Story villain||
-ANTEATER|Bane of termites|h|
-ANTECEDENT|Preceding circumstance|h|
-ANTEDATE|Precede in time|h|
-ANTELOPE|African deer|h|
+ANTEATER|Bane of termites||
+ANTECEDENT|Preceding circumstance||
+ANTEDATE|Precede in time||
+ANTELOPE|African deer||
 ANTENNA|Signal receiving rod||
-ANTHOLOGY|Literary collection|h|
-ANTHROPOLOGY|Study of culture|h|
+ANTHOLOGY|Literary collection||
+ANTHROPOLOGY|Study of culture||
 ANTIBIOTIC|Kills bacteria||
-ANTIBODY|Made in the immune system|h|
+ANTIBODY|Made in the immune system||
 ANTICIPATE|Foresee, Predict||
 ANTICIPATION|Waiting in suspense||
 ANTIDOTE|Poison cure||
-ANTIMACASSAR|Ornamental furniture cloth|h|
-ANTIPATHY|Natural aversion|h|
+ANTIMACASSAR|Ornamental furniture cloth||
+ANTIPATHY|Natural aversion||
 ANTIQUE|Dated valuable||
-ANTITHESIS|Complete opposite|h|
+ANTITHESIS|Complete opposite||
 ANXIETY|Feeling of worry||
 APARTMENT|City housing||
-APERTURE|Opening, Hole|h|
-APHASIA|Inability to understand language|h|
-APHORISM|Saying of principle|h|
+APERTURE|Opening, Hole||
+APHASIA|Inability to understand language||
+APHORISM|Saying of principle||
 APOLOGIST|Defender of an unpopular cause||
 APOLOGY|Expression of remorse||
-APOSTROPHE|The punctuation shortcut|h|
-APOTHECARY|Old school pharmacist|h|
-APPARATUS|Particular combination of instruments|h|
+APOSTROPHE|The punctuation shortcut||
+APOTHECARY|Old school pharmacist||
+APPARATUS|Particular combination of instruments||
 APPARITION|Ghost, Phantom||
 APPEARANCE|Look, Style||
 APPEASE|Pacify, Soothe||
-APPELLATION|Title, Designation|h|
+APPELLATION|Title, Designation||
 APPENDAGE|Additional attached part||
 APPENDIX|At the end of a book/Extra intestine||
-APPERTAIN|Belong, Relate to|h|
+APPERTAIN|Belong, Relate to||
 APPETITE|Craving||
 APPLAUSE|Audience acclaim/Praise||
 APPLIANCE|Device/Machine/Household tool||
@@ -268,124 +267,124 @@ APPLICATION|Formal request/Software program||
 APPOINT|Assign, Choose/Designate as an official||
 APPOINTEE|Designated official||
 APPOINTMENT|Doctor's meeting/Scheduled meeting/Putting in charge||
-APPORTION|Divide, Allocate|h|
+APPORTION|Divide, Allocate||
 APPRAISAL|Evaluation of value/Value assessment||
-APPRAISER|The judge of worth|h|
+APPRAISER|The judge of worth||
 APPRECIATE|Recognize the value of/Give metaphorical flowers||
 APPREHEND|Arrest/Capture criminal||
-APPREHENSION|Nagging anxiety/Anticipation of misfortune|h|
-APPRENTICE|Trade novice/Understudy|h|
+APPREHENSION|Nagging anxiety/Anticipation of misfortune||
+APPRENTICE|Trade novice/Understudy||
 APPRISE|Inform, Tell||
 APPROACH|Get closer to/Angle of attack||
 APPROPRIATE|Suitable/Fitting, Pertaining/Set apart for use||
 APPROVAL|Consent, Agreement||
 APPROXIMATE|Nearly exact/Take a guess at value/Make an estimate||
-APPURTENANCE|Accessory belonging to something else|h|
-APRICOT|Pitted fruit|h|
-APTITUDE|Natural ability/Innate talent|h|
+APPURTENANCE|Accessory belonging to something else||
+APRICOT|Pitted fruit||
+APTITUDE|Natural ability/Innate talent||
 AQUARIUM|Fish zoo/Sea creature gallery||
-AQUEDUCT|Manmade water channel|h|
-AQUIFER|Home for groundwater|h|
-ARBITER|Judge/Settler of disputes/Resolver|h|
-ARBITRAGE|Exploitation of price differences|h|
-ARBITRATE|Formally settle dispute|h|
-ARCHEOLOGIST|Study of ancient history/Study of prehistory/Fossil finder||ARCHAEOLOGIST
-ARCHETYPE|Original model/Prototype|h|
+AQUEDUCT|Manmade water channel||
+AQUIFER|Home for groundwater||
+ARBITER|Judge/Settler of disputes/Resolver||
+ARBITRAGE|Exploitation of price differences||
+ARBITRATE|Formally settle dispute||
+ARCHAEOLOGIST|Study of ancient history/Study of prehistory/Fossil finder||ARCHEOLOGIST
+ARCHETYPE|Original model/Prototype||
 ARCHITECT|Building designer||
 ARCHITECTURE|Style of a building||
 ARCHIVE|Historical records keep/Ancient library||
-ARCHWAY|Curved structural opening|h|
+ARCHWAY|Curved structural opening||
 ARGUMENT|Debate/Heated discussion/Tense disagreement||
 ARISTOCRACY|Ruling class/Nobility||
 ARMAMENT|Military equipment||
-ARMCHAIR|Second guesser's furniture|h|
-ARMORER|Knight's fashion designer/Medeival tailor|h|ARMOURER
-AROMATIC|Having a pleasant smell|h|
-ARPEGGIO|Playing a chord one note at a time|h|
+ARMCHAIR|Second guesser's furniture||
+ARMORER|Knight's fashion designer/Medeival tailor||ARMOURER
+AROMATIC|Having a pleasant smell||
+ARPEGGIO|Playing a chord one note at a time||
 ARRANGEMENT|Plan, Settlement/Order of things||
 ARRIVAL|Reaching a destination/Entrance||
 ARROGANCE|Self importance/Overbearing pride||
-ARROGATE|Claim without justification|h|
-ARROWHEAD|Projectile point|h|
+ARROGATE|Claim without justification||
+ARROWHEAD|Projectile point||
 ARSENAL|Weapons storage||
 ARSONIST|Firestarter||
-ARTHROPOD|Invertebrate/Insect/Spider|h|
-ARTICHOKE|Edible plant with spiny leaves|h|
+ARTHROPOD|Invertebrate/Insect/Spider||
+ARTICHOKE|Edible plant with spiny leaves||
 ARTICLE|Newspaper section/Written piece/Individual member of a class||
 ARTICULATE|Express clearly/Able to communicate easily||
 ARTIFACT|Archeologist's treasure/Ancient object of significance||ARTEFACT
 ARTISAN|Craftsman||
 ARTWORK|Creative piece/Illustration/Gallery display/Museum piece||
-ASCENDANT|Position of power|h|
-ASCERTAIN|Deduce for sure/Learn with complete confidence|h|
-ASCETIC|One who lives in austerity/Self denialist|h|
-ASCRIBE|Attribute, Assign|h|
+ASCENDANT|Position of power||ASCENDENT
+ASCERTAIN|Deduce for sure/Learn with complete confidence||
+ASCETIC|One who lives in austerity/Self denialist||
+ASCRIBE|Attribute, Assign||
 ASHTRAY|Cigarette trashcan||
-ASPERSION|Slander, defamation|h|
-ASPHYXIATE|Suffocate|h|
-ASPIRANT|Seeker of a particular position|h|
+ASPERSION|Slander, defamation||
+ASPHYXIATE|Suffocate||
+ASPIRANT|Seeker of a particular position||
 ASPIRATION|Strong desire, ambition||
 ASPIRIN|Pain reliever||
-ASSAILANT|Attacker|h|
+ASSAILANT|Attacker||
 ASSASSINATION|Murder of a political figure||
 ASSAULT|Physical attack/Army attack||
 ASSEMBLY|Gathering of people/Steps for building||
 ASSERTION|Declaration or statement||
 ASSESSMENT|Evaluation, Test||
-ASSIGNATION|Secret rendezvous|h|
+ASSIGNATION|Secret rendezvous||
 ASSIGNMENT|Task, Duty||
 ASSIMILATE|Absorb, Integrate||
 ASSISTANT|Helper||
 ASSOCIATE|Connect, Link/Business partner||
-ASSUAGE|Ease, lessen|h|
+ASSUAGE|Ease, lessen||
 ASSUMPTION|Preheld belief/Goes without saying||
-ASSURANCE|Promise, Pledge/Declaration of confidence|h|
-ASTERISK|Star shaped symbol/Mark of censorship/Footnote indicator|h|
+ASSURANCE|Promise, Pledge/Declaration of confidence||
+ASTERISK|Star shaped symbol/Mark of censorship/Footnote indicator||
 ASTEROID|Small rock in space||
 ASTONISH|Surprise greatly||
 ASTOUND|Amaze, fill with wonder||
 ASTRONAUT|Space traveler||
 ASTRONOMER|Telescope enthusiast, Space scientist||
-ASYMMETRY|Imbalance, lack of order|h|
+ASYMMETRY|Imbalance, lack of order||
 ATHEIST|Aspiritual||
 ATHLETE|Sports professional||
-ATMOSPHERE|Planet coating/Air above|h|
+ATMOSPHERE|Planet coating/Air above||
 ATROCITY|Cruel, Shocking act||
-ATROPHY|Wasting away of body tissue|h|
+ATROPHY|Wasting away of body tissue||
 ATTACHMENT|Bond, Feeling of connection/Fastened on, Additional object||
 ATTACKER|Initiator of violence||
-ATTAINDER|Legal process forfeiting one's rights|h|
+ATTAINDER|Legal process forfeiting one's rights||
 ATTEMPT|Try||
 ATTENDANCE|Presence, Size of a crowd||
 ATTENTION|Focus, Concentration||
-ATTENUATE|Weaken, Reduce|h|
+ATTENUATE|Weaken, Reduce||
 ATTITUDE|Feeling, Opinion/Personality||
 ATTORNEY|Lawyer||
 ATTRACT|Draw, Pull/Sensually appealing||
 ATTRACTION|Appeal, charm/Site of interest||
 ATTRIBUTE|Quality, Characteristic/Assign to a cause||
-AUBERGINE|Eggplant|h|
+AUBERGINE|Eggplant||
 AUCTION|Public sale||
 AUDIENCE|Watchers and listeners/Crowd in attendance||
-AUDIOVISUAL|Relating to sound and sight|h|
+AUDIOVISUAL|Relating to sound and sight||
 AUDITION|Tryout, Qualifier||
-AUDITOR|Account examiner|h|
-AUGMENTATION|Increase, Enlargement in something|h|
-AUSTERITY|Severe economy measures|h|
-AUTARKY|Economic independence|h|
+AUDITOR|Account examiner||
+AUGMENTATION|Increase, Enlargement in something||
+AUSTERITY|Severe economy measures||
+AUTARKY|Economic independence||
 AUTHENTICATE|Verify digitally||
 AUTHORITY|Power, Control/Law enforcement||
 AUTHORIZE|Give permission||AUTHORISE
 AUTOBIOGRAPHY|First-person account/Author's life story||
-AUTOCATALYTIC|Cyclically reactive chemical|h|
-AUTOCLAVE|Strong sealed vessel for chemical reactions|h|
+AUTOCATALYTIC|Cyclically reactive chemical||
+AUTOCLAVE|Strong sealed vessel for chemical reactions||
 AUTOCRAT|Absolute ruler/Dictator||
 AUTOGRAPH|Valuable signature/Famous person's printed name||
 AUTOMATIC|Self-acting, Streamlined||
-AUTOMATON|Monotonous robot|h|
+AUTOMATON|Monotonous robot||
 AUTOMOBILE|Car/Ground vehicle||
 AUTOPSY|Post mortem examination||
-AUXILIARY|Helping, Additional|h|
+AUXILIARY|Helping, Additional||
 AVALANCHE|Snowslide/Rockslide/Mountain disturbance||AVALANCH
 AVERAGE|Mean/Completely typical/Standard||
 AVERSION|Strong feeling of dislike||

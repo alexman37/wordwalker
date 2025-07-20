@@ -10,10 +10,10 @@ RECEPTIONIST|Greets office visitors
 BOOKKEEPER|Maintains financial records
 RESEARCHER|Conducts investigations
 TREASURER|Manages funds
-LABORER|Manual worker
+LABORER|Manual worker||LABOURER
 BARTENDER|Drink-mixing professional
 LANDSCAPER|Designs outdoor spaces
-PEDIATRICIAN|Children's doctor
+PEDIATRICIAN|Children's doctor||PAEDIATRICIAN
 SONGWRITER|Composes lyrics and tunes
 FARMER|Cultivates crops or livestock
 PROGRAMMER|Codes software
@@ -32,7 +32,7 @@ ATHLETE|Sports competitor
 ENGINEER|Designer of structures or systems
 INVESTOR|Puts money into ventures
 OPERATOR|Controls machinery or systems
-COUNSELOR|Offers guidance or therapy
+COUNSELOR|Offers guidance or therapy||COUNSELLOR
 PSYCHOLOGIST|Studies human behavior
 NURSEMAID|Cares for young children
 VETERAN|Former military member
@@ -47,7 +47,7 @@ PLUMBER|Fixes pipes and drains
 PRODUCER|Oversees film or music
 MUSICIAN|Performs with instruments
 SHOEMAKER|Cobbler by trade
-JEWELLER|Sells or makes gems
+JEWELER|Sells or makes gems||JEWELLER
 GUNSMITH|Firearm maker or repairer
 JANITOR|Building cleaner and caretaker
 FIREFIGHTER|Emergency responder to flames
@@ -57,7 +57,7 @@ POLICEMAN|Law enforcement officer
 CASHIER|Works at the checkout
 PAINTER|Applies color to surfaces
 LOCKSMITH|Works with keys and locks
-MODELER|Builds small-scale replicas
+MODELER|Builds small-scale replicas||MODELLER
 DESIGNER|Creator of plans or looks
 PSYCHIATRIST|Mental health doctor
 CURATOR|Oversees a museum collection

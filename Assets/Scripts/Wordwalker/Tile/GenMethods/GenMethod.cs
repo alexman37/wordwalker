@@ -15,6 +15,7 @@ public abstract class GenMethod : MonoBehaviour
 
     public static int settledRows;  //Number of rows generated may be less than the length of the word.
     protected string word;
+    protected string[] alternates;
     protected List<Tile> allTiles; // We use this for challenges. We can free it if we don't need it
 
     /// Actions indicating various phases of the tile gen process.
@@ -259,7 +260,7 @@ public abstract class GenMethod : MonoBehaviour
                     }
                 }
             }
-            ///Debug.Log("[" + currLetter + "] middle of the road");
+
             currLetter++;
             if (currLetter < word.Length)
             {
@@ -272,8 +273,14 @@ public abstract class GenMethod : MonoBehaviour
                 }
                 curr = chosenAdj.tile;
             }
-            ///Debug.Log("[" + (currLetter-1) + "] end of the road");
         }
+
+        // Set the order here so we can use it in later steps
+        for(int i = 0; i < corrects.Count; i++)
+        {
+            corrects[i].order = i;
+        }
+
         return corrects;
     }
 
@@ -320,6 +327,74 @@ public abstract class GenMethod : MonoBehaviour
             }
         }
 
+        // If the word has alternate legal ways of being spelled, ensure those are not generated on the map.
+        // (We can also display something to show this after the fact.)
+        bool hasAlternates = alternates != null && alternates.Length > 0;
+        HashSet<char> banned = new HashSet<char>();
+        int finalStartBreak = -10;
+        int finalEndBreak = -10;
+        if (hasAlternates)
+        {
+            // First the "spelling comparer" - to find out how much of the words we can guarantee are the same.
+            // Start at the beginning of the string.
+            foreach(string alt in alternates)
+            {
+                int startBreak = -10;
+                int endBreak = -10;
+
+                for(int letter = 0; letter < Mathf.Min(word.Length, alt.Length); letter++)
+                {
+                    if(word[letter] != alt[letter])
+                    {
+                        startBreak = letter - 1;
+                        break;
+                    }
+                }
+
+                // Edge case where the word is identical to an alternate up to the alternate's entire length
+                if (startBreak == -10)
+                {
+                    startBreak = Mathf.Min(word.Length, alt.Length);
+                    endBreak = Mathf.Max(word.Length, alt.Length);
+                } else
+                {
+                    // Now go to the end of the word, and work backwards. How much on the end can we salvage?
+                    for(int letter = 0; letter < Mathf.Min(word.Length, alt.Length); letter++)
+                    {
+                        int i1 = word.Length - letter - 1;
+                        int i2 = alt.Length - letter - 1;
+                        if(word[i1] != alt[i2])
+                        {
+                            endBreak = i1 + 1;
+                            break;
+                        }
+                    }
+                    if(endBreak == -10)
+                    {
+                        startBreak = 0;
+                        endBreak = Mathf.Abs(word.Length - alt.Length);
+                    }
+                }
+
+                int diff = word.Length - alt.Length;
+                for(int i = startBreak - diff - 1; i < endBreak - diff + 1; i++)
+                {
+                    banned.Add(alt[Mathf.Clamp(i, 0, alt.Length - 1)]);
+                }
+
+                finalStartBreak = Mathf.Max(finalStartBreak, startBreak);
+                finalEndBreak = Mathf.Max(finalEndBreak, endBreak);
+            }
+            string tilesPrintout = "";
+            foreach(char b in banned)
+            {
+                tilesPrintout += (b + ",");
+            }
+            Debug.Log("For all neighbors of correct tiles " + finalStartBreak + "-" + finalEndBreak + " do not use the tiles: " + tilesPrintout);
+        }
+
+
+
         for (int row = 0; row < settledRows; row++)
         {
             for (int sub = 0; sub <= subInterval; sub++)
@@ -329,10 +404,18 @@ public abstract class GenMethod : MonoBehaviour
                 {
                     //Don't allow for the same letter to be adjacent to the same tile
                     char letter;
-                    do
+                    // TODO callback?
+
+                    // We cannot allow for alternate words to generate by accident
+                    if(curr.adjacencies.Exists(adj => adj.tile.order >= finalStartBreak && adj.tile.order <= finalEndBreak))
                     {
-                        letter = LetterGen.getCooperativeRandomLetter(curr, word);
-                    } while (curr.adjacencies.Exists((Adjacency adj) => adj.tile.letter == letter));
+                        Debug.Log("Using the restrictive list for " + curr);
+                        letter = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter, banned);
+                    } else
+                    {
+                        letter = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter);
+                    }
+                    
 
                     curr.setLetter(letter, false);
                 }
@@ -368,11 +451,11 @@ public abstract class GenMethod : MonoBehaviour
             int numRandomsChosen = UnityEngine.Random.Range(0, numRandoms + 1);
             for (int i = 0; i < numRandomsChosen; i++)
             {
-                Tile t = getRandomSpecialTile((1 / (float)numRandoms));
+                Tile t = getRandomSpecialTile(0.10f);
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
-                if(t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
+                if (t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
                     t.setAsSpecialTile(Tile.SpecialTile.RANDOM);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_random);
@@ -385,7 +468,7 @@ public abstract class GenMethod : MonoBehaviour
             int numFakesChosen = UnityEngine.Random.Range(0, numFakes + 1);
             for (int i = 0; i < numFakesChosen; i++)
             {
-                Tile t = getRandomSpecialTile((1 / (float)numFakes));
+                Tile t = getRandomSpecialTile(0.10f);
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
@@ -401,7 +484,7 @@ public abstract class GenMethod : MonoBehaviour
             int numSplitsChosen = UnityEngine.Random.Range(0, numSplits + 1);
             for (int i = 0; i < numSplitsChosen; i++)
             {
-                Tile t = getRandomSpecialTile((1 / (float)numSplits));
+                Tile t = getRandomSpecialTile(0.10f);
                 //Special rules:
                 //  - Cannot be in the last row
                 //  - Cannot directly border another random, fake, or split tile
@@ -417,7 +500,7 @@ public abstract class GenMethod : MonoBehaviour
             int numBlanksChosen = UnityEngine.Random.Range(0, numBlanks + 1);
             for (int i = 0; i < numBlanksChosen; i++)
             {
-                Tile t = getRandomSpecialTile((1 / (float)numBlanks));
+                Tile t = getRandomSpecialTile(0.10f);
                 //Special rules:
                 //  - Cannot overtake the path itself (that should have been done earlier.)
                 if (t != null && !t.correct && !t.isBackRow)
@@ -519,12 +602,13 @@ public abstract class GenMethod : MonoBehaviour
     /// Try regenerating the entire tileMap from scratch.
     /// Only useful in a debugging context for now - but maybe we use it to redo generation on faulty attempts.
     /// </summary>
-    public Dictionary<(int, int), Tile> regenerateTileMap(float difficulty, WordGen.Word word, int maxBacks)
+    public Dictionary<(int, int), Tile> generateTileMap(float difficulty, WordGen.Word word, int maxBacks)
     {
         tileMap.Clear();
         allTiles.Clear();
 
         //TODO: definitions currently aren't defined.
+        alternates = word.alternateSpellings;
         regenerate.Invoke(word.word, word.getClue());
         tileMap = generateShape(difficulty, word.word, maxBacks);
         setCorrects.Invoke(corrects);

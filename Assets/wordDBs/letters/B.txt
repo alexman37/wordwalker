@@ -1,49 +1,49 @@
 BABYSITTER|Childcare provider/Brat watcher||
 BACHELOR|Unmarried man/Four year degree||
-BACKBITE|Talk behind back/Slander in secret|h|
-BACKBONE|Spinal column/Foundational piece/Mainstay|h|
-BACKCOMB|Tease hair|h|
-BACKDROP|Scene periphery/Broader setting|h|
+BACKBITE|Talk behind back/Slander in secret||
+BACKBONE|Spinal column/Foundational piece/Mainstay||
+BACKCOMB|Tease hair||
+BACKDROP|Scene periphery/Broader setting||
 BACKFIRE|Get unintended results||
 BACKGROUND|History, Context/In the distance/Far away scenery||
 BACKHAND|Tennis stroke/Sarcastic compliment||
-BACKHANDER|Bribe|h|
+BACKHANDER|Bribe||
 BACKING|Support||
 BACKLOG|Accumulated work/To-do list||
 BACKPACK|Traveler's bag/Textbook transport||
-BACKPACKER|Cheap traveler|h|
+BACKPACKER|Cheap traveler||
 BACKTRACK|Retrace steps||
 BACKWATER|Stagnant place||
 BACKWOOD|Remote area||
 BACKYARD|Grass patio/Behind the house||
-BACTERIUM|Single-celled organism|h|
+BACTERIUM|Single-celled organism||
 BADLANDS|Eroded rocky hills||
-BAGPIPE|Scottish instrument|h|
-BAGUETTE|French bread|h|
+BAGPIPE|Scottish instrument||
+BAGUETTE|French bread||
 BAILIFF|Court officer||
-BALACLAVA|Knitted head covering|h|
+BALACLAVA|Knitted head covering||
 BALANCE|Equilibrium/Hold steady||
 BALCONY|Outdoor platform/Apartment backyard||
 BALLERINA|Female dancer||
 BALLOON|Inflatable sphere/Party decoration||
 BALLROOM|Formal dancing area/Mansion party room||
-BALUSTER|Vase-like pillar|h|
-BAMBOOZLE|Dupe, hoodwink/Deceive completely|h|
-BANALITY|Commonplace remark|h|
+BALUSTER|Vase-like pillar||
+BAMBOOZLE|Dupe, hoodwink/Deceive completely||
+BANALITY|Commonplace remark||
 BANDAGE|Wound covering/Minor fix||
 BANDING|Getting together||
 BANDWAGON|Popular trend||
-BANISTER|Handrail with posts|h|BANNISTER
+BANISTER|Handrail with posts||BANNISTER
 BANKNOTE|Paper money||
 BANKROLL|To finance/Supply money||
 BANKRUPT|Out of money||
-BANQUET|Formal dinner|h|
-BANSHEE|Wailing spirit|h|
+BANQUET|Formal dinner||
+BANSHEE|Wailing spirit||
 BARBARIAN|Brute/Uncivilized warrior||
 BARBECUE|Cookout/Outdoor grilling||BARBEQUE
-BARCHAN|Crescent-shaped dune|h|
+BARCHAN|Crescent-shaped dune||
 BARGAIN|Deal/Exchange||
-BARNACLE|Rock-clinging crustacean|h|
+BARNACLE|Rock-clinging crustacean||
 BAROMETER|Pressure gauge||
 BARRACKS|Military lodging||
 BARRAGE|Intense attack/Artillery seige||
@@ -51,75 +51,75 @@ BARRICADE|Obstacle/Board up||
 BARRIER|Hindrance/Wall||
 BASELINE|Starting point||
 BASEMENT|Below ground floor||
-BASSOON|Low-pitched woodwind instrument|h|
+BASSOON|Low-pitched woodwind instrument||
 BASTION|Stronghold/Fortress||
-BATHOLITH|Large igneous rock mass|h|
+BATHOLITH|Large igneous rock mass||
 BATHROOM|For toilet and shower/Water closet||
-BATTALION|Large military unit|h|
+BATTALION|Large military unit||
 BATTERY|Power source/Stores electric charge||
 BATTLEFIELD|Warzone||BATTLEGROUND
-BATTLEMENT|Castle tower|h|
+BATTLEMENT|Castle tower||
 BATTLESHIP|Large naval vessel||
 BAYONET|Knife-like weapon||
 BEARINGS|Sense of direction/Naval direction||BEARING
-BEATITUDE|Supreme happiness/Utmost bliss|h|
-BEAUTIFY|Make pretty|h|
-BECQUEREL|Unit of radioactivity|h|
-BEDCLOTH|Mattres liner||BEDCLOTHE,BEDLINER,BEDSHEET,BEDSPREAD
-BEDEVIL|Torment|h|
-BEDROOM|Place to rest|h|
+BEATITUDE|Supreme happiness/Utmost bliss||
+BEAUTIFY|Make pretty||
+BECQUEREL|Unit of radioactivity||
+BEDCLOTH|Mattres liner||BEDSHEET,BEDSPREAD
+BEDEVIL|Torment||
+BEDROOM|Place to rest||
 BEDTIME|Sleeping hour||
 BEEHIVE|Wasp's home/Honey factory||
 BEFRIEND|Make acquaintance||
 BEGINNER|Novice||
 BEGINNING|Start||
-BEGRUDGE|Reluctantly concede|h|
-BEGUILE|Deceive, hoodwink|h|
+BEGRUDGE|Reluctantly concede||
+BEGUILE|Deceive, hoodwink||
 BEHAVIOR|Conduct, Attitude/Manners||BEHAVIOUR
 BELIEVE|Consider to be true/Hold hope||
-BELITTLE|To make feel small/Criticize and downplay|h|
+BELITTLE|To make feel small/Criticize and downplay||
 BELLIGERENT|Hostile, combative||
 BENCHMARK|Standard of measure/Baseline goal||
 BENEFACTOR|Charitable donor||
 BENEFICIARY|Recipient of aid||
 BENEFIT|Advantage, bonus||
-BEQUEATH|Leave by will|h|BEQUETHE
-BEREAVE|Deprive of, Take by force|h|
-BESEECH|Beg for urgently|h|
-BESIEGE|Surround with armed forces|h|
-BESMIRCH|Damage the beauty of|h|
+BEQUEATH|Leave by will||BEQUETHE
+BEREAVE|Deprive of, Take by force||
+BESEECH|Beg for urgently||
+BESIEGE|Surround with armed forces||
+BESMIRCH|Damage the beauty of||
 BESTSELLER|Popular book||
 BETRAYAL|Treachery||
-BETROTH|Promise to marry|h|
+BETROTH|Promise to marry||
 BEVERAGE|A good drink||
 BEWILDER|Confuse||
-BEWITCH|Cast a spell on|h|
-BIBLIOGRAPHY|Reference list|h|
+BEWITCH|Cast a spell on||
+BIBLIOGRAPHY|Reference list||
 BICYCLE|Two wheeler||
-BIENNIAL|Occurring every two years|h|
-BIFURCATE|Divide into two branches|h|
-BILINGUAL|Speaking two tounges|h|
+BIENNIAL|Occurring every two years||
+BIFURCATE|Divide into two branches||
+BILINGUAL|Speaking two tounges||
 BILLBOARD|Large outdoor sign||
-BILLIARDS|Bar activity/Cue stick sport/Snooker|h|BILLIARD
+BILLIARDS|Bar activity/Cue stick sport/Snooker||BILLIARD
 BINDING|Book cover||
 BIOGRAPHY|Life story||
 BIOLOGIST|Scientist studying life||
 BIPLANE|Aircraft with two wings||
 BIRTHDAY|Your own personal holiday/Day of creation||
-BIRTHMARK|Lifelong skin feature|h|
+BIRTHMARK|Lifelong skin feature||
 BISCUIT|Cookie, Cracker||
 BITTERNESS|Resentful feelings||
-BIVOUAC|Temporary, unsheltered camp|h|
-BLACKBALL|Exclude socially|h|
+BIVOUAC|Temporary, unsheltered camp||
+BLACKBALL|Exclude socially||
 BLACKBERRY|Bramble fruit||
-BLACKBOARD|Old classroom display/Written on by chalk|h|
-BLACKLEG|Treacherous person, swindler|h|
+BLACKBOARD|Old classroom display/Written on by chalk||
+BLACKLEG|Treacherous person, swindler||
 BLACKLIST|List of banned people||
 BLACKMAIL|Extortion||
 BLACKOUT|Period of darkness||
 BLACKSMITH|Metalworker/Ironworker/Medeival forge worker||
 BLANKET|Bed covering||BLANKETE
-BLASPHEMY|Irreverent speech|h|BLASPHEME
+BLASPHEMY|Irreverent speech||BLASPHEME
 BLASTER|Explosive device||
 BLEACHERS|Stadium seat rows||
 BLEMISH|Imperfection, stain||
@@ -128,35 +128,35 @@ BLESSING|Divine favor||
 BLINDFOLD|Eye-covering cloth||
 BLINKER|Flashing car light/Turn signal||
 BLIZZARD|Severe snowstorm||
-BLOCKADE|Obstruction|h|BLOCKAGE
-BLOCKBUSTER|Highly successful product|h|
+BLOCKADE|Obstruction||BLOCKAGE
+BLOCKBUSTER|Highly successful product||
 BLOCKER|Obstacle||
 BLOODHOUND|Scent-following dog||
 BLOSSOM|Produce flower||
-BLUBBER|Whale fat|h|
+BLUBBER|Whale fat||
 BLUDGEON|Club, blunt force object||
 BLUEPRINT|Schematic, design||
 BLUNDER|Grave mistake||
-BLUSTER|Boast, brag|h|
+BLUSTER|Boast, brag||
 BOARDROOM|Business meetingplace||
 BODYGUARD|Personal protector||
-BOLLARD|Short post for blocking vehicles|h|
+BOLLARD|Short post for blocking vehicles||
 BOLSTER|Support, strengthen||
 BOMBARD|Attack with explosives||BOMBING, BOMBARDMENT
-BONDAGE|Bindings, chains|h|
+BONDAGE|Bindings, chains||
 BONFIRE|Outdoor fire||
-BOOBYTRAP|Hidden explosive device|h|
-BOOKING|Reservation/Scheduled performance|h|
-BOOKLET|Small pamphlet|h|
+BOOBYTRAP|Hidden explosive device||
+BOOKING|Reservation/Scheduled performance||
+BOOKLET|Small pamphlet||
 BOOKMARK|Page saver||
 BOOKSHELF|Library storage container/Where novels rest||
 BOOKSTORE|School shop||
 BOOKWORM|One who loves reading||
-BOOLEAN|True or false|h|
-BOOMBOX|Loud stereo|h|
+BOOLEAN|True or false||
+BOOMBOX|Loud stereo||
 BOOSTER|Stimulant||
 BOOTLEG|Illegal||
-BOOTSTRAP|To improve yourself|h|
+BOOTSTRAP|To improve yourself||
 BOROUGH|City district||
 BOTANIST|Plant scientist||
 BOTTLENECK|Point of congestion||
@@ -165,74 +165,74 @@ BOULEVARD|Wide street||
 BOUNCER|Doorman at bars||
 BOUNDARY|Limit, red line||
 BOUQUET|Bunch of flowers||
-BOUTIQUE|Small fashion shop|h|
-BOYCOTT|Refuse to deal with|h|
+BOUTIQUE|Small fashion shop||
+BOYCOTT|Refuse to deal with||
 BOYFRIEND|Male partner||
 BRACELET|Wrist ornament||
-BRACKET|Shelf support/Tournament structure|h|
+BRACKET|Shelf support/Tournament structure||
 BRAINWASH|Indoctrinate/Fill with propoganda||
-BRAMBLE|Prickly shrub/Thorny bush|h|
+BRAMBLE|Prickly shrub/Thorny bush||
 BRANDISH|Wave menacingly||
 BREADWINNER|Earns all the money||
 BREAKAWAY|Sudden departure||
 BREAKDOWN|Failure/Nervous collapse||
-BREAKER|Circuit opener/Foamy wave|h|
+BREAKER|Circuit opener/Foamy wave||
 BREAKFAST|Morning meal||
 BREAKTHROUGH|Huge discovery||
-BREAKWATER|Harbor protector|h|
+BREAKWATER|Harbor protector||
 BREATHE|Inhale, exhale||
 BRECCHIA|Rock with angular fragments||BRECCIA
 BREEDER|Offspring producer||
 BREWERY|Beer saloon||
-BRICKBAT|Fragment of hard material/Uncomplimentary remark|h|
-BRICKLAYER|Stone setter|h|
-BRIDESMAID|Female wedding guest|h|
-BRIDLEWAY|Path for horses|h|
+BRICKBAT|Fragment of hard material/Uncomplimentary remark||
+BRICKLAYER|Stone setter||
+BRIDESMAID|Female wedding guest||
+BRIDLEWAY|Path for horses||
 BRIEFCASE|Document luggage||
 BRIEFING|Information session||
 BRIGADE|Larger military unit||
-BRIGAND|Plunderer, raider|h|
+BRIGAND|Plunderer, raider||
 BRIGHTEN|Make lighter||
 BRILLIANT|Very clever||
-BRINDLED|Streaks of fur color|h|
-BRISTLE|Stiff hair/Make aggressive, angry|h|
+BRINDLED|Streaks of fur color||
+BRISTLE|Stiff hair/Make aggressive, angry||
 BROADCAST|Radio transmission||
 BROADCASTER|Sports announcer||
 BROADEN|Make wider||
-BROADSHEET|British newspaper|h|
-BROCADE|Richly ornamented fabric|h|
+BROADSHEET|British newspaper||
+BROCADE|Richly ornamented fabric||
 BROCHURE|Informative pamphlet||
-BRONCHIAL|Relating to the lungs|h|
-BROOMSTICK|Witch's aircraft|h|
+BRONCHIAL|Relating to the lungs||
+BROOMSTICK|Witch's aircraft||
 BROTHER|Male sibling||
 BROWSER|Internet explorer||
 BRUNETTE|Dark-haired woman||
 BRUTALISE|Treat cruelly||BRUTALIZE
 BRUTALITY|Cruelty||
-BRYOLOGY|Study of moss|h|
+BRYOLOGY|Study of moss||
 BUCCANEER|Pirate||
 BUFFALO|Bison||
 BUILDER|Construction worker||
 BUILDING|Structure||
-BULKHEAD|Partition wall|h|
+BULKHEAD|Partition wall||
 BULLDOZE|Demolish with machinery||
 BULLETIN|Short news report||
-BULWARK|Defensive wall|h|
-BUNGALOW|Single-story house|h|
-BUNTING|Fabric of flags|h|
-BUREAUCRACY|Unelected policymakers|h|
-BURGEON|Grow, like a plant|h|
+BULWARK|Defensive wall||
+BUNGALOW|Single-story house||
+BUNTING|Fabric of flags||
+BUREAUCRACY|Unelected policymakers||
+BURGEON|Grow, like a plant||
 BURGLARY|Theft of property||
-BURLESQUE|Mockery by caricature|h|
+BURLESQUE|Mockery by caricature||
 BURNING|Intense heat||
-BURSARY|College treasury|h|
+BURSARY|College treasury||
 BUSINESS|Commerce||
 BUSINESSMAN|Modern day merchant||BUSINESSWOMAN
-BUSYBODY|Active, inquisitive person|h|
+BUSYBODY|Active, inquisitive person||
 BUTCHER|Meat salesman||
-BUTTERCUP|Yellow flower|h|
+BUTTERCUP|Yellow flower||
 BUTTERFLY|Insect with colorful wings/Once a caterpillar||
-BUTTRESS|Stabilizing structure|h|
-BUZZARD|Large bird of prey|h|
-BYPRODUCT|Manufacturing offshoot|h|
+BUTTRESS|Stabilizing structure||
+BUZZARD|Large bird of prey||
+BYPRODUCT|Manufacturing offshoot||
 BYSTANDER|Observer||

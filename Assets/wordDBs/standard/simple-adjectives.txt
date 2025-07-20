@@ -38,7 +38,7 @@ GREEN|Color of grass
 PINK|Light red
 WHITE|Like snow
 BLACK|Opposite of white
-GRAY|Mix of black and white
+GRAY|Mix of black and white||GREY
 BROWN|Color of wood or dirt
 GOLD|Shiny yellow metal
 BEST|Better than all others

@@ -36,7 +36,7 @@ DISTORTED|Twisted out of shape
 SENTIMENTAL|Overly emotional
 TENACIOUS|Persistent and determined
 REPUTABLE|Having a good reputation
-AESTHETIC|Concerned with beauty
+AESTHETIC|Concerned with beauty||ESTHETIC
 PROVOCATIVE|Causing a strong reaction
 AMBITIOUS|Eager for success
 GARRULOUS|Excessively talkative
@@ -149,7 +149,7 @@ DESIRABLE|Worth wanting
 QUARRELSOME|Inclined to argue
 BLISSFUL|Full of joy
 MELODIOUS|Pleasing to the ear
-DISHEVELED|Messy or untidy
+DISHEVELED|Messy or untidy||DISHEVELLED
 VIVACIOUS|Lively and energetic
 COPIOUS|Abundant
 SUSPICIOUS|Distrustful

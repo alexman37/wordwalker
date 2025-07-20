@@ -2,6 +2,7 @@
 #standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
 #standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
 #
+easy|test-set|TESTING||Testing only (TODO remove)|0|7
 easy|standard/simple-nouns|Simple Nouns|nouns|Nouns are people, places, things, and other objects. These ones are a piece of <i>cake</i>!|0|128|
 easy|standard/simple-verbs|Simple Verbs|verbs|Verbs are actions - things that nouns "do". See if you can <i>spell</i> them.|0|110|
 easy|standard/simple-adjectives|Simple Adjectives|adjectives|Adjectives are descriptions of nouns. Don't worry, they're <i>easy</i>...for now.|0|108|

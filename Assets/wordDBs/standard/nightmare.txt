@@ -20,14 +20,14 @@ GOSSAMER|(noun) A fine, filmy substance consisting of cobwebs spun by small spid
 ABSQUATULATE|(verb) To leave abruptly; to decamp.
 TERGIVERSATE|(verb) To make conflicting or evasive statements; to equivocate.
 BOUSTROPHEDON|(noun) An ancient method of writing in which alternate lines are reversed.
-CATAWAMPUS|(adjective) Askew; awry.
+CATAWAMPUS|(adjective) Askew; awry.||CATTYWAMPUS
 BROUHAHA|(noun) An uproar or commotion.
 RECUMBENTIBUS|(noun) A knockout punch, either verbal or physical.
-HIFALUTIN|(adjective) Pompous or pretentious.
+HIFALUTIN|(adjective) Pompous or pretentious.||HIGHFALUTIN
 PULCHRITUDE|(noun) Physical beauty.
 BORBORYGMUS|(noun) The rumbling sound caused by the movement of gas in the intestines.
 ZUGZWANG|(noun) A situation in chess where any move worsens the player's position.
-LOGORRHEA|(noun) Excessive and often incoherent talkativeness.
+LOGORRHEA|(noun) Excessive and often incoherent talkativeness.||LOGORRHOEA
 QUAQUAVERSAL|(adjective) Directed outward in all directions from a common center.
 PALIMPSEST|(noun) A manuscript or piece of writing material on which later writing has been superimposed.
 PANJANDRUM|(noun) A person who has or claims to have a great deal of authority or influence.
@@ -48,7 +48,7 @@ OBDURATE|(adjective) Stubbornly refusing to change one’s opinion.
 ELEEMOSYNARY|(adjective) Relating to or dependent on charity.
 ONOMATOPOEIA|(noun) The formation of a word from a sound associated with what is named.
 ZOANTHROPY|(noun) A mental disorder in which a person believes they are an animal.
-UROBOROS|(noun) An ancient symbol depicting a serpent or dragon eating its own tail.
+UROBOROS|(noun) An ancient symbol depicting a serpent or dragon eating its own tail.||OUROBOROS
 AMARANTHINE|(adjective) Undying or unfading; eternally beautiful.
 SOMNAMBULIST|(noun) A sleepwalker.
 RODOMONTADE|(noun) Boastful or inflated talk or behavior.

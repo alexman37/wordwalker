@@ -8,7 +8,7 @@ SOLIPSISM|(noun) The philosophical idea that only one’s own mind is sure to ex
 EXSANGUINATE|(verb) To drain of blood.
 CADUCITY|(noun) Frailty or transience; tendency to fade or perish.
 RACONTEUR|(noun) A person who tells anecdotes in a skillful and amusing way.
-JARGONIZE|(verb) To use specialized language or terminology.
+JARGONIZE|(verb) To use specialized language or terminology.||JARGONISE
 ALFRESCO|(adjective) In the open air, outside.
 STULTIFY|(verb) To cause to lose enthusiasm and initiative, especially as a result of a tedious or restrictive routine.
 KALEIDOSCOPE|(noun) A tube containing mirrors and pieces of colored glass, whose reflections produce changing patterns.

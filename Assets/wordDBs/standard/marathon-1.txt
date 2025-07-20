@@ -25,9 +25,9 @@ OBSTRUCTION|(noun) Something that blocks a path.
 ESSENTIALLY|(adverb) Basically or fundamentally.
 RECTIFICATION|(noun) The action of correcting something.
 MODERATION|(noun) The avoidance of excess or extremes.
-SKEPTICISM|(noun) Doubt as to the truth of something.
+SKEPTICISM|(noun) Doubt as to the truth of something.||SCEPTICISM
 AUDITORIUM|(noun) A large room for an audience.
-CHARACTERIZE|(verb) To describe the qualities of something.
+CHARACTERIZE|(verb) To describe the qualities of something.||CHARACTERISE
 CONVERSATION|(noun) Informal talk between people.
 UNDISPUTED|(adjective) Not challenged or questioned.
 ORCHESTRATION|(noun) The arrangement or coordination of elements.
@@ -59,19 +59,19 @@ RESOLUTION|(noun) A firm decision or solution.
 EQUIVOCATE|(verb) To use ambiguous language to avoid committing oneself.
 METAPHORICAL|(adjective) Used in a symbolic or figurative way.
 ELECTRICITY|(noun) A form of energy resulting from charged particles.
-MARGINALIZE|(verb) To treat a person or group as insignificant.
+MARGINALIZE|(verb) To treat a person or group as insignificant.||MARGINALISE
 REMEMBRANCE|(noun) The act of remembering or honoring someone.
 QUESTIONNAIRE|(noun) A set of printed questions for gathering information.
 PERSONALITY|(noun) The combination of characteristics that form an individual’s character.
 SIMULTANEOUS|(adjective) Occurring at the same time.
 PARTICIPATION|(noun) The act of taking part.
 TRANSPORTATION|(noun) The movement of people or goods.
-ACCLIMATIZE|(verb) To adapt to a new environment or climate.
+ACCLIMATIZE|(verb) To adapt to a new environment or climate.||ACCLIMATISE
 ZOOPLANKTON|(noun) Small floating aquatic animals that drift in water.
 PUBLICATION|(noun) The act of making information public.
 PLANETARIUM|(noun) A theater with a dome for showing astronomical presentations.
 THOROUGHNESS|(noun) The quality of being complete and careful.
-FULFILLMENT|(noun) The achievement of something desired or promised.
+FULFILLMENT|(noun) The achievement of something desired or promised.||FULFILMENT
 EXTRAVAGANT|(adjective) Excessive or wasteful in spending.
 DESTITUTION|(noun) Extreme poverty.
 MODIFICATION|(noun) The act of changing something.
@@ -92,7 +92,7 @@ FUNDAMENTAL|(adjective) Forming a necessary base or core.
 LEGISLATION|(noun) Laws considered collectively.
 INCONCEIVABLE|(adjective) Not capable of being imagined or grasped.
 INEVITABILITY|(noun) The quality of being certain to happen.
-SYNCHRONIZATION|(noun) The process of coordinating events.
+SYNCHRONIZATION|(noun) The process of coordinating events.||SYNCHRONISATION
 VULNERABILITY|(noun) The quality of being open to harm or attack.
 INAUGURATION|(noun) The formal admission of someone to office.
 GRATIFICATION|(noun) Pleasure obtained from satisfying a desire.
@@ -100,7 +100,7 @@ SAGITTARIUS|(noun) The ninth astrological sign of the zodiac.
 DISCRETIONARY|(adjective) Available to be used at one's own discretion.
 CLASSIFICATION|(noun) The arrangement of things into categories.
 CONTROVERSIAL|(adjective) Giving rise to disagreement.
-JEOPARDIZE|(verb) To put at risk or in danger.
+JEOPARDIZE|(verb) To put at risk or in danger.|JEOPARDISE
 RECONCILIATION|(noun) Restoration of friendly relations.
 YIELDINGLY|(adverb) In a manner that gives way under pressure.
 OBSERVATION|(noun) The action of closely monitoring something.
@@ -119,3 +119,11 @@ PECULIARITY|(noun) An odd or unusual characteristic.
 INSTITUTION|(noun) An established organization or foundation.
 POPULATION|(noun) All inhabitants of a particular place.
 VIVACIOUSLY|(adverb) In a lively and animated manner.
+TERRITORIAL|(adjective) Relating to ownership of land.
+WILDERNESS|(noun) An uncultivated, uninhabited, and inhospitable region.
+OBFUSCATION|(noun) The act of making something unclear.
+AMPLIFICATION|(noun) The process of making something louder or stronger.
+ESTABLISHMENT|(noun) A business organization or a place of business.
+SOLICITATION|(noun) The act of asking for something formally.
+MEDITATION|(noun) The practice of focused thought for relaxation or spiritual purposes.
+INITIATIVE|(noun) The ability to assess and start things independently.

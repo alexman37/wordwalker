@@ -313,7 +313,6 @@ public class WalkManager : MonoBehaviour
         AudioClip[] audioClips = new AudioClip[corrects.Count];
         for(int i = 0; i < corrects.Count; i++)
         {
-            corrects[i].order = i;
             float appx = (float)i / (float)(corrects.Count - 1) * (correctNotes.Count - 1);
             audioClips[i] = correctNotes[Mathf.RoundToInt(Mathf.Clamp(appx, 0f, (float)(correctNotes.Count - 1f)))];
         }

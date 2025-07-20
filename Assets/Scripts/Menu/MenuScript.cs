@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour
     // The challenges you currently have selected
     public HashSet<Challenge> selectedChallenges;
 
-    public int numLevels = 5;
+    public int numLevels = 10;
     public DatabaseItem dbItem;
 
     public GameObject titleCard;

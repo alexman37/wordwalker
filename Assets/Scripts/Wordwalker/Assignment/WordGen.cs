@@ -14,7 +14,8 @@ public static class WordGen
     {
         public string word;
         public WordClue[] clues;
-        public string definition; //TODO: could also be a picture
+        public string definition; // This isn't the clue, its just extra information that appears in postgame
+        public string[] alternateSpellings; // Other grammatically correct ways of spelling the word. Try to avoid generating them
 
         // Specified with only one clue
         public Word(string w, string c)
@@ -39,6 +40,26 @@ public static class WordGen
             {
                 clues[i] = new WordClue(c[i]);
             }
+        }
+
+        //Specified with multiple clues and alternative spellings
+        public Word(string w, string[] c, string[] a)
+        {
+            word = w;
+            clues = new WordClue[c.Length];
+            for (int i = 0; i < c.Length; i++)
+            {
+                clues[i] = new WordClue(c[i]);
+            }
+            alternateSpellings = a;
+        }
+
+        // Specified with alternate spellings
+        public Word(string w, string c, string[] a)
+        {
+            word = w;
+            clues = new WordClue[] { new WordClue(c) };
+            alternateSpellings = a;
         }
 
         public Word(string w, string[] c, string d)
@@ -137,9 +158,13 @@ public static class WordGen
                 //Element 0: The word itself (in preferred spelling)
                 //Element 1: All descriptions of the word separated by a slash (pick one)
                 //Element 2*: Hard bool
-                //Element 3*: Alternative spellings (accept these)
+                //Element 3*: Alternative spellings (try to avoid generating these)
                 string[] allDescriptions = val[1].Trim().Split('/');
                 words[i] = new Word(val[0].Trim().ToUpper(), allDescriptions);
+                if (val.Length >= 4 && val[3] != "") {
+                    string[] allAlternates = val[3].Trim().Split(',');
+                    words[i] = new Word(val[0].Trim().ToUpper(), allDescriptions, allAlternates);
+                }
             }
         }
 

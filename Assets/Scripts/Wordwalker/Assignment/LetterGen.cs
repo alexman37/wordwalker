@@ -4,6 +4,9 @@ using UnityEngine;
 
 public static class LetterGen
 {
+    public delegate char LetterGenMethod();
+    public delegate char LetterGenSetMethod(char[] whitelist);
+
     private static int numLetters = 26;
 
     /// <summary>
@@ -12,6 +15,26 @@ public static class LetterGen
     public static char getTotallyRandomLetter()
     {
         int randVal = Random.Range(0, numLetters);
+        return letterBase[randVal];
+    }
+
+    /// <summary>
+    /// Return any letter except the ones supplied in the argument.
+    /// </summary>
+    public static char getLetterBlacklist(HashSet<char> blacklist)
+    {
+        char[] restrictedList = new char[numLetters];
+        int index = 0;
+
+        for(int letter = 0; letter < letterBase.Length; letter++)
+        {
+            if(!blacklist.Contains(letterBase[letter]))
+            {
+                restrictedList[index] = letterBase[letter];
+                index++;
+            }
+        }
+        int randVal = Random.Range(0, index);
         return letterBase[randVal];
     }
 
@@ -36,24 +59,27 @@ public static class LetterGen
     }
 
     /// <summary>
-    /// Return a random letter which agrees with the chosen word
+    /// Return a random letter which agrees with the chosen word.
     /// </summary>
-    public static char getCooperativeRandomLetter(Tile curr, string word)
+    public static char getCooperativeRandomLetter(Tile curr, string word, LetterGenMethod letterGenCallback)
     {
-        //Just keep looking for a letter until you find one
-        while (true)
+        //Just keep looking for a letter until you find one.
+        //This method is set up a little awkwardly but the runtime complexity shouldn't be too bad.
+        //Can't be straightforward with traversal / the blacklist because we'd have to reconfigure proportional letters and i dont feel like it
+        int attempt = 0;
+        while (attempt < 20)
         {
-            char letterChosen = getProportionallyRandomLetter();
+            char letterChosen = letterGenCallback();
 
             //first, does this letter appear in the given word?
             if (word.Contains(letterChosen.ToString()))
             {
                 //find every occurrence of the letter
                 //if there's a connection to the prior and next letter in the word, assume it's bad news, just pick another letter
+                bool formerMatches = false;
+                bool latterMatches = false;
                 for (int i = word.IndexOf(letterChosen); i > -1; i = word.IndexOf(letterChosen, i + 1))
                 {
-                    bool formerMatches = false;
-                    bool latterMatches = false;
                     foreach (Adjacency adj in curr.adjacencies)
                     {
                         if (i == 0) formerMatches = true;
@@ -61,10 +87,10 @@ public static class LetterGen
                         if (i == word.Length - 1) latterMatches = true;
                         else if (i < word.Length - 1 && word[i + 1] == adj.tile.letter) latterMatches = true;
                     }
-                    if (!(formerMatches && latterMatches))
-                    {
-                        return letterChosen;
-                    }
+                }
+                if (!(formerMatches || latterMatches))
+                {
+                    return letterChosen;
                 }
             }
             //if the letter never appears in the word then we're totally fine.
@@ -72,11 +98,64 @@ public static class LetterGen
             {
                 return letterChosen;
             }
-        }
+            attempt++;
 
+        }
+        Debug.LogWarning("Couldn't find ANY suitable letters for " + curr.ToString() + ", so we will make it a *");
+        return '*';
     }
 
-    static char[] letterBase = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+    /// <summary>
+    /// Same as above but you can also pass a "blacklist" of letters NOT to use. Good for alternate spellings.
+    /// </summary>
+    public static char getCooperativeRandomLetter(Tile curr, string word, LetterGenMethod letterGenCallback, HashSet<char> blacklist)
+    {
+        //Just keep looking for a letter until you find one.
+        //This method is set up a little awkwardly but the runtime complexity shouldn't be too bad.
+        //Can't be straightforward with traversal / the blacklist because we'd have to reconfigure proportional letters and i dont feel like it
+        int attempt = 0;
+        while (attempt < 20)
+        {
+            char letterChosen = letterGenCallback();
+
+            //first, does this letter appear in the given word?
+            if (!blacklist.Contains(letterChosen))
+            {
+                if (word.Contains(letterChosen.ToString()))
+                {
+                    //find every occurrence of the letter
+                    //if there's a connection to the prior and next letter in the word, assume it's bad news, just pick another letter
+                    bool formerMatches = false;
+                    bool latterMatches = false;
+                    for (int i = word.IndexOf(letterChosen); i > -1; i = word.IndexOf(letterChosen, i + 1))
+                    {
+                        foreach (Adjacency adj in curr.adjacencies)
+                        {
+                            if (i == 0) formerMatches = true;
+                            else if (i > 0 && word[i - 1] == adj.tile.letter) formerMatches = true;
+                            if (i == word.Length - 1) latterMatches = true;
+                            else if (i < word.Length - 1 && word[i + 1] == adj.tile.letter) latterMatches = true;
+                        }
+                    }
+                    if (!(formerMatches || latterMatches))
+                    {
+                        return letterChosen;
+                    }
+                }
+                //if the letter never appears in the word then we're totally fine.
+                else
+                {
+                    return letterChosen;
+                }
+            }
+            attempt++;
+
+        }
+        Debug.LogWarning("Couldn't find ANY suitable letters for " + curr.ToString() + ", so we will make it a *");
+        return '*';
+    }
+
+    public static char[] letterBase = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                                         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     //see https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html

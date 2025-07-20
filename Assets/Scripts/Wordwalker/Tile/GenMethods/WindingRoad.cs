@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class WindingRoad : GenMethod
 {
-    // BEFORE RUN
-    private int minSubs;
-    private int maxSubs;
-
     // IN-USE
     private int settledSubs;
 
     public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
         this.difficulty = difficulty;
-        minSubs = getRandomInput(difficulty, 1, 3, true);
-        maxSubs = getRandomInput(difficulty, 3, 6, true);
+        settledSubs = getRandomInput(difficulty, 4, 7, true);
 
         this.word = word;
 
@@ -37,11 +32,8 @@ public class WindingRoad : GenMethod
         }
         settledRows = word.Length - backTracks + numBlanks;
 
-        //TODO maybe we end up changing this? Or maybe we do that in fat snake instead.
-        settledSubs = Random.Range(minSubs, maxSubs + 1);
-
         // To allow for maneuverability of the winding road we need to have a bigger grid
-        float gridSubs = maxSubs * 2;
+        float gridSubs = settledSubs * 2;
         int windingOffset = 0;
 
         //First loop - generate constant number of subs in each row

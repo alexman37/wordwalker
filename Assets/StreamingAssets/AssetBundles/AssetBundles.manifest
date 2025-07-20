@@ -1,112 +1,91 @@
 ManifestFileVersion: 0
-CRC: 3218032931
+CRC: 3765613280
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: worddbs/crossword
       Dependencies: {}
     Info_1:
-      Name: worddbs/letters/a
-      Dependencies: {}
-    Info_2:
-      Name: worddbs/letters/b
-      Dependencies: {}
-    Info_3:
-      Name: worddbs/letters/c
-      Dependencies: {}
-    Info_4:
-      Name: imagedbs/base/celebs
-      Dependencies: {}
-    Info_5:
-      Name: imagedbs/base/pokemon
-      Dependencies: {}
-    Info_6:
-      Name: imagedbs/base/flags
-      Dependencies: {}
-    Info_7:
-      Name: dbicon
-      Dependencies: {}
-    Info_8:
-      Name: worddbs/standard/spelling-bee
-      Dependencies: {}
-    Info_9:
-      Name: worddbs/trivia/pokemon
-      Dependencies: {}
-    Info_10:
-      Name: worddbs/standard/med-people
-      Dependencies: {}
-    Info_11:
-      Name: worddbs/test-set
-      Dependencies: {}
-    Info_12:
-      Name: worddbs/standard/marathon-1
-      Dependencies: {}
-    Info_13:
       Name: worddbs/standard/simple-nouns
       Dependencies: {}
-    Info_14:
-      Name: worddbs/trivia/flags
+    Info_2:
+      Name: worddbs/standard/marathon-1
       Dependencies: {}
-    Info_15:
-      Name: worddbs/standard/med-cool
-      Dependencies: {}
-    Info_16:
-      Name: worddbs/standard/very-hard-2
-      Dependencies: {}
-    Info_17:
-      Name: worddbs/standard/nightmare
-      Dependencies: {}
-    Info_18:
-      Name: worddbs/trivia/capitals
-      Dependencies: {}
-    Info_19:
-      Name: worddbs/standard/med-actions
-      Dependencies: {}
-    Info_20:
-      Name: worddbs/standard/tricky-6
-      Dependencies: {}
-    Info_21:
-      Name: worddbs/trivia/state-capitals
-      Dependencies: {}
-    Info_22:
-      Name: worddbs/standard/med-places
-      Dependencies: {}
-    Info_23:
+    Info_3:
       Name: worddbs/standard/marathon-2
       Dependencies: {}
-    Info_24:
-      Name: worddbs/standard/simple-verbs
-      Dependencies: {}
-    Info_25:
-      Name: worddbs/trivia/phobias
-      Dependencies: {}
-    Info_26:
-      Name: worddbs/standard/med-nature
-      Dependencies: {}
-    Info_27:
-      Name: worddbs/standard/very-hard-3
-      Dependencies: {}
-    Info_28:
-      Name: worddbs/standard/simple-adjectives
-      Dependencies: {}
-    Info_29:
-      Name: worddbs/trivia/celebs
-      Dependencies: {}
-    Info_30:
-      Name: worddbs/standard/med-adjectives
-      Dependencies: {}
-    Info_31:
-      Name: worddbs/standard/very-hard-1
-      Dependencies: {}
-    Info_32:
-      Name: worddbs/standard/med-things
-      Dependencies: {}
-    Info_33:
-      Name: worddbs/trivia/101-cities
-      Dependencies: {}
-    Info_34:
+    Info_4:
       Name: worddbs/standard/marathon-3
       Dependencies: {}
-    Info_35:
+    Info_5:
+      Name: worddbs/standard/spelling-bee
+      Dependencies: {}
+    Info_6:
+      Name: worddbs/standard/tricky-6
+      Dependencies: {}
+    Info_7:
+      Name: worddbs/standard/med-nature
+      Dependencies: {}
+    Info_8:
+      Name: worddbs/standard/med-people
+      Dependencies: {}
+    Info_9:
+      Name: worddbs/standard/med-places
+      Dependencies: {}
+    Info_10:
+      Name: worddbs/standard/nightmare
+      Dependencies: {}
+    Info_11:
+      Name: worddbs/standard/simple-adjectives
+      Dependencies: {}
+    Info_12:
+      Name: worddbs/standard/simple-verbs
+      Dependencies: {}
+    Info_13:
+      Name: worddbs/standard/very-hard-1
+      Dependencies: {}
+    Info_14:
+      Name: worddbs/standard/very-hard-2
+      Dependencies: {}
+    Info_15:
+      Name: worddbs/standard/very-hard-3
+      Dependencies: {}
+    Info_16:
+      Name: worddbs/trivia/101-cities
+      Dependencies: {}
+    Info_17:
+      Name: worddbs/trivia/capitals
+      Dependencies: {}
+    Info_18:
+      Name: worddbs/trivia/phobias
+      Dependencies: {}
+    Info_19:
+      Name: imagedbs/base/flags
+      Dependencies: {}
+    Info_20:
+      Name: imagedbs/base/pokemon
+      Dependencies: {}
+    Info_21:
+      Name: imagedbs/base/celebs
+      Dependencies: {}
+    Info_22:
+      Name: worddbs/test-set
+      Dependencies: {}
+    Info_23:
+      Name: dbicon
+      Dependencies: {}
+    Info_24:
       Name: worddbs/daily
+      Dependencies: {}
+    Info_25:
+      Name: worddbs/trivia/state-capitals
+      Dependencies: {}
+    Info_26:
+      Name: worddbs/standard/med-cool
+      Dependencies: {}
+    Info_27:
+      Name: worddbs/standard/med-adjectives
+      Dependencies: {}
+    Info_28:
+      Name: worddbs/standard/med-actions
       Dependencies: {}
