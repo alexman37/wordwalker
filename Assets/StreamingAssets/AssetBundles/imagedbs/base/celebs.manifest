@@ -1,17 +1,15 @@
 ManifestFileVersion: 0
-CRC: 4016578644
+CRC: 388910791
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: be7dc1500422e52b16360a20c9576522
+    Hash: 74d1b07f8ea39734831b4a852d2094b2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9ecc2e8d717629781f019ff30323ba53
+    Hash: 4df8c69f2c8a6ad9e3cbf82bb83e4dc3
 HashAppended: 0
 ClassTypes:
 - Class: 28
-  Script: {instanceID: 0}
-- Class: 49
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -35,7 +33,6 @@ Assets:
 - Assets/wordDBs/image/celebs/5.jpg
 - Assets/wordDBs/image/celebs/38.jpg
 - Assets/wordDBs/image/celebs/30.jpg
-- Assets/wordDBs/trivia/celebs.txt
 - Assets/wordDBs/image/celebs/82.jpg
 - Assets/wordDBs/image/celebs/15.jpg
 - Assets/wordDBs/image/celebs/46.jpg

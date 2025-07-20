@@ -14,8 +14,8 @@ public class ExportAssetBundles
         //BuildAssetBundleOptions opts = BuildAssetBundleOptions.None;
         BuildAssetBundleOptions opts = BuildAssetBundleOptions.ForceRebuildAssetBundle;
 
-        BuildPipeline.BuildAssetBundles(filePath, opts, EditorUserBuildSettings.activeBuildTarget);
-        //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.StandaloneWindows);
+        //BuildPipeline.BuildAssetBundles(filePath, opts, EditorUserBuildSettings.activeBuildTarget);
+        BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.StandaloneWindows);
         //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.StandaloneWindows64);
         //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.StandaloneOSX); //mac
         //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.iOS);

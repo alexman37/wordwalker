@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 883628989
+CRC: 3892668403
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -88,4 +88,13 @@ AssetBundleManifest:
       Dependencies: {}
     Info_28:
       Name: worddbs/standard/med-actions
+      Dependencies: {}
+    Info_29:
+      Name: worddbs/trivia/pokemon
+      Dependencies: {}
+    Info_30:
+      Name: worddbs/trivia/flags
+      Dependencies: {}
+    Info_31:
+      Name: worddbs/trivia/celebs
       Dependencies: {}

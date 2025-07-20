@@ -1,17 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3506822002
+CRC: 3743206285
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6c43334dd50fbec34be8cc6fa1c836a3
+    Hash: c65d93e9990a6a6e8b920bf6e4baa35b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9ecc2e8d717629781f019ff30323ba53
+    Hash: 4df8c69f2c8a6ad9e3cbf82bb83e4dc3
 HashAppended: 0
 ClassTypes:
 - Class: 28
-  Script: {instanceID: 0}
-- Class: 49
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -68,7 +66,6 @@ Assets:
 - Assets/wordDBs/image/pokemon/128.png
 - Assets/wordDBs/image/pokemon/027.png
 - Assets/wordDBs/image/pokemon/024.png
-- Assets/wordDBs/trivia/pokemon.txt
 - Assets/wordDBs/image/pokemon/118.png
 - Assets/wordDBs/image/pokemon/012.png
 - Assets/wordDBs/image/pokemon/080.png
