@@ -262,18 +262,21 @@ public class Tile : MonoBehaviour
     /// </summary>
     private IEnumerator pushDownTile()
     {
-        float timeSec = 2f;
-
-        float pushDownDistance = 0.5f;
-
-        Vector3 currPos = this.gameObject.transform.position;
-        for (float i = 0; i <= timeSec; i += Time.deltaTime)
+        if(!stepped)
         {
-            this.gameObject.transform.position = new Vector3(currPos.x, currPos.y - Mathf.Clamp(i / timeSec, 0, 1) * pushDownDistance, currPos.z);
+            float timeSec = 2f;
+
+            float pushDownDistance = 0.5f;
+
+            Vector3 currPos = this.gameObject.transform.position;
+            for (float i = 0; i <= timeSec; i += Time.deltaTime)
+            {
+                this.gameObject.transform.position = new Vector3(currPos.x, currPos.y - Mathf.Clamp(i / timeSec, 0, 1) * pushDownDistance, currPos.z);
+                yield return null;
+            }
+
             yield return null;
         }
-
-        yield return null;
     }
 
     /// <summary>
