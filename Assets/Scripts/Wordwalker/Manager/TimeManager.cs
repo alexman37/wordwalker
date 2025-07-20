@@ -62,7 +62,7 @@ public class TimeManager : MonoBehaviour
         totalTimeElapsed += Time.deltaTime;
     }
 
-    /// INTERVAL TIMER
+    /// INTERVAL TIMER (for the timer challenge)
     public void startIntervalTimer()
     {
         timeRemaining = timeInterval;
@@ -79,7 +79,7 @@ public class TimeManager : MonoBehaviour
         activationChange.Invoke(false);
     }
 
-    /// INTERVAL TIMER
+    /// NAMED TIMER (for levels in general)
     public static void startNamedTimer(string n)
     {
         if(namedTimer.ContainsKey(n))

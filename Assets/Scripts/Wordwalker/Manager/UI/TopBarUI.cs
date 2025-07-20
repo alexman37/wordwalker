@@ -50,14 +50,14 @@ public class TopBarUI : MonoBehaviour
         {
             topBarAnimationStart = container.GetComponent<RectTransform>().anchoredPosition;
             topBarAnimationOffsite = topBarAnimationStart + new Vector2(0, container.rectTransform.rect.height);
-            topBarAnimationDestWin = new Vector2(0, -50);
+            topBarAnimationDestWin = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
             topBarAnimationDestLose = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
         };
         if (scalingComp.DONE)
         {
             topBarAnimationStart = container.GetComponent<RectTransform>().anchoredPosition;
             topBarAnimationOffsite = topBarAnimationStart + new Vector2(0, container.rectTransform.rect.height);
-            topBarAnimationDestWin = new Vector2(0, -50);
+            topBarAnimationDestWin = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
             topBarAnimationDestLose = new Vector2(0, -screenSpace.height * 0.08f - (screenSpace.yMax - (screenSpace.yMin + screenSpace.height)));
         }
 

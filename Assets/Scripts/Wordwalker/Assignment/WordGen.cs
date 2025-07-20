@@ -62,6 +62,19 @@ public static class WordGen
             alternateSpellings = a;
         }
 
+        //Specified with everything
+        public Word(string w, string[] c, string d, string[] a)
+        {
+            word = w;
+            clues = new WordClue[c.Length];
+            for (int i = 0; i < c.Length; i++)
+            {
+                clues[i] = new WordClue(c[i]);
+            }
+            definition = d;
+            alternateSpellings = a;
+        }
+
         public Word(string w, string[] c, string d)
         {
             word = w;
@@ -161,10 +174,19 @@ public static class WordGen
                 //Element 3*: Alternative spellings (try to avoid generating these)
                 string[] allDescriptions = val[1].Trim().Split('/');
                 words[i] = new Word(val[0].Trim().ToUpper(), allDescriptions);
-                if (val.Length >= 4 && val[3] != "") {
-                    string[] allAlternates = val[3].Trim().Split(',');
-                    words[i] = new Word(val[0].Trim().ToUpper(), allDescriptions, allAlternates);
+
+                string definition = null;
+                string[] allAlternates = null;
+
+                if (val.Length >= 3 && val[2] != "")
+                {
+                    definition = val[2].Trim();
                 }
+                if (val.Length >= 4 && val[3] != "") {
+                    allAlternates = val[3].Trim().Split(',');
+                }
+
+                words[i] = new Word(val[0].Trim().ToUpper(), allDescriptions, definition, allAlternates);
             }
         }
 

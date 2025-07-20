@@ -18,7 +18,11 @@ public class GameManagerSc : MonoBehaviour
     private static int currLevel = 0;
     private static int totems = 0;
     private static int score = 0;
-    private static int numMistakes = 0;
+    private static int rank = 5;
+
+    // stat tracking
+    public static int totalTime = 0;
+    public static int numMistakes = 0;
 
     public static int foggyVision = 3;   // How far ahead can you see when fog is enabled?
 
@@ -39,6 +43,7 @@ public class GameManagerSc : MonoBehaviour
     private static bool checkingManagerGreenlights = true;
 
     public static event Action newGame;
+    public static event Action<WordGen.Word> wordPrepared;
     public static event Action levelReady;
     public static event Action levelWon;
     public static event Action wrongStep;
@@ -51,6 +56,7 @@ public class GameManagerSc : MonoBehaviour
     private void Start()
     {
         newGame += () => { };
+        wordPrepared += (_) => { };
         levelReady += () => { };
         levelWon += () => { };
         wrongStep += () => { };
@@ -80,13 +86,13 @@ public class GameManagerSc : MonoBehaviour
 
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += onReentry;
+        //SceneManager.sceneLoaded += onReentry; // TODO remove?
         AnimationManager.readyForNextLevelGen += goToNextLevel;
     }
 
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= onReentry;
+        //SceneManager.sceneLoaded -= onReentry;
         AnimationManager.readyForNextLevelGen -= goToNextLevel;
     }
 
@@ -142,15 +148,15 @@ public class GameManagerSc : MonoBehaviour
         selectedChallenges = challenges;
     }
 
-    // Loading into the scene after the first time
-    private void onReentry(Scene scene, LoadSceneMode mode)
+    // Loading into the scene after the first time TODO good to remove?
+    /*private void onReentry(Scene scene, LoadSceneMode mode)
     {
         if(!checkingManagerGreenlights && scene.buildIndex == 1)
         {
             Debug.Log("REENTRY POINT");
             //goToNextLevel();
         }
-    }
+    }*/
 
     //this is such a dumb way of doing it, but i simply don't care
     private void managerSetup()
@@ -213,6 +219,24 @@ public class GameManagerSc : MonoBehaviour
             goToNextLevel();
         }
     }
+
+    // Losing or winning the game gives you the option to replay it with the exact same settings
+    public static void retry()
+    {
+        // TODO Would be nice to have transition here, but not necessary.
+        //transition.Invoke(true);
+        score = 0;
+        totems = 3;
+        currLevel = 0;
+
+        numMistakes = 0;
+        totalTime = 0;
+
+        wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
+        newGame.Invoke();
+        goToNextLevel();
+        //transition.Invoke(false);
+    }
     
     public static void goToNextLevel()
     {
@@ -241,24 +265,28 @@ public class GameManagerSc : MonoBehaviour
             }
             uiManager.SetNewRoom(currLevel);
 
+            WordGen.Word nextWord = wordList[currLevel - 1];
+
             /// DAILY WORD
-            if(dailyWord)
+            if (dailyWord)
             {
-                string onlyWord = wordList[currLevel - 1].word;
-                Tilemap.regenerateTileMap(wordList[currLevel - 1], Mathf.FloorToInt(onlyWord.Length / 7) + Mathf.FloorToInt(onlyWord.Length / 10));
+                string onlyWord = nextWord.word;
+                Tilemap.regenerateTileMap(nextWord, Mathf.FloorToInt(onlyWord.Length / 7) + Mathf.FloorToInt(onlyWord.Length / 10));
             }
 
             /// FREE PLAY
             else
             {
-                Tilemap.regenerateTileMap(wordList[currLevel - 1], localDBcopy.maxBacktracks);
-                DatabaseTracker.addToCycle(localDBcopy.databaseId, wordList[currLevel - 1]);
+                Tilemap.regenerateTileMap(nextWord, localDBcopy.maxBacktracks);
+                DatabaseTracker.addToCycle(localDBcopy.databaseId, nextWord);
                 // Checks exactly when to reset the word cycle
-                if (wordList[currLevel - 1].word == WordGen.resetCycleOnThisWord)
+                if (nextWord.word == WordGen.resetCycleOnThisWord)
                 {
                     DatabaseTracker.resetCycle(localDBcopy.databaseId);
                 }
             }
+
+            wordPrepared.Invoke(nextWord);
             
             levelReady.Invoke();
         }
@@ -279,7 +307,7 @@ public class GameManagerSc : MonoBehaviour
         int prior = score;
         score = score + (add ? amount : -amount);
         uiManager.ChangeScore(prior, amount, add);
-        uiManager.GetNewRank(numMistakes, numLevels - currLevel);
+        rank = uiManager.GetNewRank(numMistakes, numLevels - currLevel);
     }
 
     public static void changeTotems(int amount, bool add)
@@ -291,6 +319,11 @@ public class GameManagerSc : MonoBehaviour
     public static int getScore()
     {
         return score;
+    }
+
+    public static int getRank()
+    {
+        return rank;
     }
 
     public static HighScore getOfficialScore()
@@ -317,6 +350,7 @@ public class GameManagerSc : MonoBehaviour
 
     public static void signifyLevelWon(int numTimeSeconds, int numMistakes)
     {
+        GameManagerSc.totalTime += numTimeSeconds;
         GameManagerSc.numMistakes += numMistakes;
 
         if(currLevel == numLevels) {

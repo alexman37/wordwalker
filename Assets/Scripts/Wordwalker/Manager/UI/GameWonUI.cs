@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameWonUI : MonoBehaviour
 {
@@ -9,6 +11,20 @@ public class GameWonUI : MonoBehaviour
     //public TextMeshProUGUI stats1; // TODO
     IEnumerator movingToScreen;
     public bool usingComp = false;
+
+    private bool canUseButtons = false;
+
+    public TextMeshProUGUI timeTaken;
+    public TextMeshProUGUI mistakes;
+    public TextMeshProUGUI funStatName;
+    public TextMeshProUGUI funStatValue;
+    public TextMeshProUGUI commentary;
+    public Image finalRankSprite;
+
+    // These change depending on your rank. Make sure there is one per each rank.
+    public string[] commentaryLines;
+
+    public RankBox rankBox; // you need this to get the proper sprite.
 
     private void OnEnable()
     {
@@ -30,6 +46,25 @@ public class GameWonUI : MonoBehaviour
         rectTransform.anchoredPosition = oldPosition;
     }
 
+    public void retryHit()
+    {
+        if (canUseButtons)
+        {
+            canUseButtons = false;
+            closeGameWon();
+            GameManagerSc.retry();
+        }
+    }
+
+    public void exitHit()
+    {
+        if (canUseButtons)
+        {
+            canUseButtons = false;
+            GameManagerSc.returnToMainMenu();
+        }
+    }
+
     public void enableComp() { usingComp = true; }
     public void disableComp() { usingComp = false; }
 
@@ -38,8 +73,16 @@ public class GameWonUI : MonoBehaviour
     {
         if(usingComp)
         {
+            // Set postgame stats
+            timeTaken.text = secondsToMinSec(GameManagerSc.totalTime);
+            mistakes.text = GameManagerSc.numMistakes.ToString();
+            // fun stat name and value are set elsewhere
+            finalRankSprite.sprite = rankBox.getRankAsSprite(GameManagerSc.getRank());
+            commentary.text = commentaryLines[GameManagerSc.getRank()];
+
             movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, 0));
             StartCoroutine(movingToScreen);
+            canUseButtons = true;
         }
     }
 
@@ -47,5 +90,19 @@ public class GameWonUI : MonoBehaviour
     {
         StopCoroutine(movingToScreen);
         rectTransform.anchoredPosition = oldPosition;
+    }
+
+
+    // Utility - postgame formatting
+    private string secondsToMinSec(int seconds)
+    {
+        return (seconds / 60) + ":" + (seconds % 60);
+    }
+
+    // Given the name of the stat and its value (determined somewhere else) set them
+    // TODO
+    private string formatFunStatName(string statName)
+    {
+        return "";
     }
 }

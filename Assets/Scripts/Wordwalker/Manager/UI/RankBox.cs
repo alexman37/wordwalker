@@ -37,12 +37,13 @@ public class RankBox : MonoBehaviour
     /// Use the "illusion of success" - assuming the user will make 1 mistake per level from here on out, what would their rank be?
     /// This makes it appear it's increasing, rather than starting from the top and just going down.
     /// </summary>
-    public void determineNewRank(int numMistakes, int levelsToGo)
+    public int determineNewRank(int numMistakes, int levelsToGo)
     {
         // Perfect play - the user will have no levels left to play and no mistakes, thus, they get rank "0" or the highest rank.
         int newRank = getRank(levelsToGo + numMistakes);
 
         StartCoroutine(rotateRank(newRank));
+        return newRank;
     }
 
     public static int getFinalRank(int numMistakes)

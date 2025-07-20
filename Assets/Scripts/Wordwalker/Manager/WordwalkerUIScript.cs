@@ -114,9 +114,9 @@ public class WordwalkerUIScript : MonoBehaviour
     }
 
     // Update rank box
-    public void GetNewRank(int numMistakes, int levelsToGo)
+    public int GetNewRank(int numMistakes, int levelsToGo)
     {
-        rankBox.determineNewRank(numMistakes, levelsToGo);
+        return rankBox.determineNewRank(numMistakes, levelsToGo);
     }
 
     public void AwardGoldStar()

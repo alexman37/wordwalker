@@ -7,9 +7,19 @@ public class GameOverUI : MonoBehaviour
 {
     //animating - gotta know the right positions
     public TextMeshProUGUI title;
+    public TextMeshProUGUI definitionReadout;
+
     private Vector2 gameOverAnimationStart;
     private Vector2 gameOverAnimationDest;
     private RectTransform rectTransform;
+
+    // Alt spellings
+    private bool usingAltSpellings = false;
+    public RectTransform altSpellings;
+    public TextMeshProUGUI alternateSpellingsReadout;
+
+    private bool canUseButtons = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +38,69 @@ public class GameOverUI : MonoBehaviour
         }
     }
 
+    // Setup alternative spellings, definition, etc.
+    private void prepareWord(WordGen.Word word)
+    {
+        if (word.alternateSpellings != null && word.alternateSpellings.Length > 0)
+        {
+            useAlternateSpellings(word.alternateSpellings);
+        }
+        if (word.definition != null && word.definition != "")
+        {
+            setDefinition(word.definition);
+        }
+        else
+        {
+            // TODO maybe we want the specific clue you got...
+            setDefinition(word.clues[0].clue);
+        }
+    }
+
     private void OnEnable()
     {
+        GameManagerSc.wordPrepared += prepareWord;
         GameManagerSc.gameOver += BeginGameOverAnimation;
         GameManagerSc.levelReset += gameOverReset;
     }
 
     private void OnDisable()
     {
+        GameManagerSc.wordPrepared -= prepareWord;
         GameManagerSc.gameOver -= BeginGameOverAnimation;
         GameManagerSc.levelReset -= gameOverReset;
+    }
+
+    public void retryHit()
+    {
+        if(canUseButtons)
+        {
+            canUseButtons = false;
+            GameManagerSc.retry();
+        }
+    }
+
+    public void quitHit()
+    {
+        if (canUseButtons)
+        {
+            canUseButtons = false;
+            GameManagerSc.returnToMainMenu();
+        }
+    }
+
+    public void useAlternateSpellings(string[] altSpellings)
+    {
+        usingAltSpellings = true;
+        alternateSpellingsReadout.text = " *Also spelled as";
+        foreach (string spelling in altSpellings)
+        {
+            alternateSpellingsReadout.text = alternateSpellingsReadout.text + "\n" + "   - " + spelling;
+        }
+    }
+
+    public void setDefinition(string def)
+    {
+        definitionReadout.text = def;
     }
 
     void gameOverReset()
@@ -47,6 +110,9 @@ public class GameOverUI : MonoBehaviour
         rectTransform.anchorMax = new Vector2(0.5f, 0);
         rectTransform.pivot = new Vector2(0.5f, 0);
         rectTransform.anchoredPosition = gameOverAnimationStart;
+
+        usingAltSpellings = false; //it's rare, so we assume you don't use these.
+        altSpellings.anchoredPosition = Vector2.zero;
     }
 
     private void BeginGameOverAnimation(GameManagerSc.LossReason lr)
@@ -80,5 +146,21 @@ public class GameOverUI : MonoBehaviour
 
             yield return new WaitForSeconds(1 / frameTime * timeSec);
         }
+
+        if (usingAltSpellings)
+        {
+            Vector2 altSpellingStart = Vector2.zero;
+            Vector2 altSpellingEnd = new Vector2(altSpellings.rect.width, 0);
+            for (float i = 0; i <= frameTime; i++)
+            {
+                altSpellings.anchoredPosition = UIUtils.XerpStandard(altSpellingStart,
+                        altSpellingEnd,
+                        i / frameTime);
+
+                yield return new WaitForSeconds(1 / frameTime * timeSec);
+            }
+        }
+
+        canUseButtons = true;
     }
 }

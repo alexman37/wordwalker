@@ -8,19 +8,29 @@ using TMPro;
 /// </summary>
 public class PostgameUI : MonoBehaviour
 {
+    public TextMeshProUGUI definitionReadout;
+
     //animating - gotta know the right positions
     private Vector2 postgameAnimationStart;
     private Vector2 postgameAnimationDest;
     private RectTransform rectTransform;
-    public RectTransform scoreSheet;
 
     // Score sheet
+    public RectTransform scoreSheet;
     public TextMeshProUGUI timeDisp;
     public TextMeshProUGUI mistakesDisp;
     public TextMeshProUGUI mistakesPenalty;
     public TextMeshProUGUI scoreDisp;
 
+    // Alt spellings
+    private bool usingAltSpellings = false;
+    public RectTransform altSpellings;
+    public TextMeshProUGUI alternateSpellingsReadout;
+
     public bool usingComp = true;
+    private bool canUseButtons = false;
+
+    public AnimationManager animationManager;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +49,56 @@ public class PostgameUI : MonoBehaviour
         }
     }
 
+    // Click the "next" button.
+    public void goToNextLevel()
+    {
+        // Only allowed to click guy this once
+        if(canUseButtons)
+        {
+            canUseButtons = false;
+            animationManager.startWalkingToNextLevel();
+        }
+    }
+
+    // Setup alternative spellings, postgame defn, etc.
+    private void prepareWord(WordGen.Word word)
+    {
+        if(word.alternateSpellings != null && word.alternateSpellings.Length > 0)
+        {
+            useAlternateSpellings(word.alternateSpellings);
+        }
+        if (word.definition != null && word.definition != "")
+        {
+            setDefinition(word.definition);
+        }
+        else
+        {
+            // TODO maybe we want the specific clue you got...
+            setDefinition(word.clues[0].clue);
+        }
+    }
+
+    public void useAlternateSpellings(string[] altSpellings)
+    {
+        usingAltSpellings = true;
+        alternateSpellingsReadout.text = " *Also spelled as";
+        foreach(string spelling in altSpellings)
+        {
+            alternateSpellingsReadout.text = alternateSpellingsReadout.text + "\n" + "   - " + spelling;
+        }
+    }
+
+    public void setDefinition(string def)
+    {
+        definitionReadout.text = def;
+    }
+
     public void enableComp() { usingComp = true; }
     public void disableComp() { usingComp = false; }
 
     private void OnEnable()
     {
+        GameManagerSc.wordPrepared += prepareWord;
         GameManagerSc.levelWon += BeginPostgameAnimation;
         GameManagerSc.levelReset += postgameReset;
         GameManagerSc.updatePostgameScoreSheet += setScoreSheetDisplay;
@@ -53,6 +108,7 @@ public class PostgameUI : MonoBehaviour
 
     private void OnDisable()
     {
+        GameManagerSc.wordPrepared -= prepareWord;
         GameManagerSc.levelWon -= BeginPostgameAnimation;
         GameManagerSc.levelReset -= postgameReset;
         GameManagerSc.updatePostgameScoreSheet -= setScoreSheetDisplay;
@@ -68,6 +124,9 @@ public class PostgameUI : MonoBehaviour
         rectTransform.pivot = new Vector2(0.5f, 0);
         rectTransform.anchoredPosition = postgameAnimationStart;
         scoreSheet.anchoredPosition = new Vector2(0, 250);
+
+        usingAltSpellings = false; //it's rare, so we assume you don't use these.
+        altSpellings.anchoredPosition = Vector2.zero;
     }
 
     private void setScoreSheetDisplay(int timeSecondsTaken, int mistakes, int penalty, int scoreChange)
@@ -118,5 +177,21 @@ public class PostgameUI : MonoBehaviour
 
             yield return new WaitForSeconds(1 / frameTime * timeSec);
         }
+
+        if(usingAltSpellings)
+        {
+            Vector2 altSpellingStart = Vector2.zero;
+            Vector2 altSpellingEnd = new Vector2(0, -altSpellings.rect.height);
+            for (float i = 0; i <= frameTime; i++)
+            {
+                altSpellings.anchoredPosition = UIUtils.XerpStandard(altSpellingStart,
+                        altSpellingEnd,
+                        i / frameTime);
+
+                yield return new WaitForSeconds(1 / frameTime * timeSec);
+            }
+        }
+
+        canUseButtons = true;
     }
 }
