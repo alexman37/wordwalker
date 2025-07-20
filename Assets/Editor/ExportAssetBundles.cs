@@ -10,12 +10,17 @@ public class ExportAssetBundles
         string folderName = "AssetBundles";
         string filePath = Path.Combine(Application.streamingAssetsPath, folderName);
 
-        BuildPipeline.BuildAssetBundles(filePath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
-        //BuildPipeline.BuildAssetBundles(filePath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows64);
-        //BuildPipeline.BuildAssetBundles(filePath, BuildAssetBundleOptions.None, BuildTarget.StandaloneOSX); //mac
-        //BuildPipeline.BuildAssetBundles(filePath, BuildAssetBundleOptions.None, BuildTarget.iOS);
-        //BuildPipeline.BuildAssetBundles(filePath, BuildAssetBundleOptions.None, BuildTarget.Android);
-        //BuildPipeline.BuildAssetBundles(filePath, BuildAssetBundleOptions.None, BuildTarget.WebGL);
+        // Set to "None" for a fast build of new asset bundles. Set to ForceRebuild to build everything from scratch
+        //BuildAssetBundleOptions opts = BuildAssetBundleOptions.None;
+        BuildAssetBundleOptions opts = BuildAssetBundleOptions.ForceRebuildAssetBundle;
+
+        BuildPipeline.BuildAssetBundles(filePath, opts, EditorUserBuildSettings.activeBuildTarget);
+        //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.StandaloneWindows);
+        //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.StandaloneWindows64);
+        //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.StandaloneOSX); //mac
+        //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.iOS);
+        //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.Android);
+        //BuildPipeline.BuildAssetBundles(filePath, opts, BuildTarget.WebGL);
 
         //Refresh the Project folder
         AssetDatabase.Refresh();

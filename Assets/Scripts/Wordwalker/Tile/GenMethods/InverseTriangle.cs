@@ -13,8 +13,8 @@ public class InverseTriangle : GenMethod
     public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
         this.difficulty = difficulty;
-        subsOnStartingRow = getRandomInput(difficulty, 4, 9, false);
-        maxSubs = getRandomInput(difficulty, 5, 10, true);
+        subsOnStartingRow = getRandomInput(difficulty, 4, 7, false);
+        maxSubs = Mathf.Max(getRandomInput(difficulty, 5, 8, true), subsOnStartingRow);
         minSubs = getRandomInput(difficulty, 1, 3, true);
 
         this.word = word;

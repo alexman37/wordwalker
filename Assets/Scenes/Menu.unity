@@ -6221,7 +6221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3202705389146153609, guid: 9b37c5e56a9b4c9459c74f5afd48d8e6, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3202705389146153609, guid: 9b37c5e56a9b4c9459c74f5afd48d8e6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7334,7 +7334,7 @@ RectTransform:
   - {fileID: 1909219438}
   - {fileID: 144892419}
   m_Father: {fileID: 2041507099}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7382,8 +7382,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 0.8, y: 0.8}
-  maintainAspectRatioX: 0
-  maintainAspectRatioY: 1
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
   constantSize: 0
 --- !u!114 &437017740
 MonoBehaviour:
@@ -8964,7 +8964,7 @@ MonoBehaviour:
   DONE: 0
   focalPoint: 0
   percentPosition: {x: 0.5, y: 0.5}
-  percentScale: {x: 1.5, y: 1.5}
+  percentScale: {x: 1.8, y: 1.5}
   maintainAspectRatioX: 1
   maintainAspectRatioY: 0
   constantSize: 0
@@ -9850,8 +9850,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 1, y: 1}
-  maintainAspectRatioX: 0
-  maintainAspectRatioY: 1
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
   constantSize: 0
 --- !u!114 &583640684
 MonoBehaviour:
@@ -10912,9 +10912,9 @@ MonoBehaviour:
   DONE: 0
   focalPoint: 6
   percentPosition: {x: 0.49, y: 1}
-  percentScale: {x: 0.8, y: 0.2}
-  maintainAspectRatioX: 0
-  maintainAspectRatioY: 1
+  percentScale: {x: 0.9, y: 0.2}
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
   constantSize: 0
 --- !u!1 &691872196
 GameObject:
@@ -20358,7 +20358,7 @@ RectTransform:
   - {fileID: 248965259}
   - {fileID: 1943649780}
   m_Father: {fileID: 2041507099}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20381,8 +20381,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 0.8, y: 0.7}
-  maintainAspectRatioX: 0
-  maintainAspectRatioY: 1
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
   constantSize: 0
 --- !u!114 &1391794900
 MonoBehaviour:
@@ -23125,7 +23125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Switty
+  m_text: S. Smitty
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b82f8fba3dcd3404ead17d8cc98ca5bc, type: 2}
   m_sharedMaterial: {fileID: 6300404015347400165, guid: b82f8fba3dcd3404ead17d8cc98ca5bc, type: 2}
@@ -23457,8 +23457,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 0.8, y: 0.8}
-  maintainAspectRatioX: 0
-  maintainAspectRatioY: 1
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
   constantSize: 0
 --- !u!1 &1625174402
 GameObject:
@@ -29245,9 +29245,9 @@ RectTransform:
   - {fileID: 2141211057}
   - {fileID: 1348770623}
   - {fileID: 583640682}
-  - {fileID: 2017069960}
   - {fileID: 1391794898}
   - {fileID: 437017737}
+  - {fileID: 2017069960}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31072,8 +31072,8 @@ MonoBehaviour:
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
   percentScale: {x: 0.8, y: 0.8}
-  maintainAspectRatioX: 0
-  maintainAspectRatioY: 1
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
   constantSize: 0
 --- !u!114 &2141211060
 MonoBehaviour:

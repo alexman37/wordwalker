@@ -80,7 +80,7 @@ public class GameWonUI : MonoBehaviour
             finalRankSprite.sprite = rankBox.getRankAsSprite(GameManagerSc.getRank());
             commentary.text = commentaryLines[GameManagerSc.getRank()];
 
-            movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, 0));
+            movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, Screen.safeArea.height / 4f));
             StartCoroutine(movingToScreen);
             canUseButtons = true;
         }
@@ -96,7 +96,8 @@ public class GameWonUI : MonoBehaviour
     // Utility - postgame formatting
     private string secondsToMinSec(int seconds)
     {
-        return (seconds / 60) + ":" + (seconds % 60);
+        float secs = (seconds % 60);
+        return (seconds / 60) + ":" + (secs < 10 ? "0" : "") + secs;
     }
 
     // Given the name of the stat and its value (determined somewhere else) set them

@@ -10,7 +10,7 @@ public class Rectangle : GenMethod
     public override Dictionary<(int, int), Tile> generateShape(float difficulty, string word, int maxBacks)
     {
         this.difficulty = difficulty;
-        settledSubs = getRandomInput(difficulty, 4, 7, true);
+        settledSubs = getRandomInput(difficulty, 4, 5, true);
 
         this.word = word;
 

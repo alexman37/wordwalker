@@ -18,7 +18,7 @@ public class GameManagerSc : MonoBehaviour
     private static int currLevel = 0;
     private static int totems = 0;
     private static int score = 0;
-    private static int rank = 5;
+    private static int rank = -1;
 
     // stat tracking
     public static int totalTime = 0;

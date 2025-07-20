@@ -222,8 +222,11 @@ public class AnimationManager : MonoBehaviour
         Vector3 start;
         Vector3 target;
 
+        this.playerAnimator.SetInteger("Direction", activeSuite.dirToNumber(dir));
+        this.playerAnimator.SetBool("Moving", true);
+
         // If you get a tile in the first row wrong (but survive) you go back to the ledge.
-        if(backToTile == null)
+        if (backToTile == null)
         {
             start = playerCharacter.transform.position;
             target = ledgeStartingPlayerPos;
@@ -238,9 +241,6 @@ public class AnimationManager : MonoBehaviour
             yield return walkManager.prepareNextMovement(backToTile);
         }
 
-        this.playerAnimator.SetInteger("Direction", activeSuite.dirToNumber(dir));
-        this.playerAnimator.SetBool("Moving", true);
-
         SfxManager.instance.beginSFXLoop("footsteps", footstepsClip, null, 1f);
 
         for (float i = 0; i <= timeSec; i += Time.deltaTime)
@@ -253,7 +253,7 @@ public class AnimationManager : MonoBehaviour
 
         // Will stop movement immediately
         this.playerAnimator.SetBool("Moving", false);
-        this.playerAnimator.SetTrigger("Idle");
+        //this.playerAnimator.SetTrigger("Idle");
 
         setActivelyMoving.Invoke(false);
         setPreventPlayerMovement.Invoke(false);
