@@ -150,8 +150,10 @@ public class Tile : MonoBehaviour
         // Maybe we do cam movement stuff here
         if (correct)
         {
-            correctPress();
-            // TODO reveal sound effect
+            if (specType != SpecialTile.SPLIT && specType != SpecialTile.BLANK)
+            {
+                textComponent.text = letter.ToString();
+            }
         }
         else
         {
@@ -166,7 +168,6 @@ public class Tile : MonoBehaviour
     private void correctPress()
     {
         StartCoroutine(pushDownTile());
-        Debug.Log("Correct press");
         if(specType != SpecialTile.SPLIT && specType != SpecialTile.BLANK)
         {
             textComponent.text = letter.ToString();

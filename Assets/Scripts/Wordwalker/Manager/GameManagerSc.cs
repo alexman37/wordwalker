@@ -47,6 +47,7 @@ public class GameManagerSc : MonoBehaviour
     public static event Action levelReady;
     public static event Action levelWon;
     public static event Action wrongStep;
+    public static event Action<int> changeInTotems;
     public static event Action<LossReason> gameOver;
     public static event Action levelReset;
     public static event Action onLastLevel;
@@ -60,6 +61,7 @@ public class GameManagerSc : MonoBehaviour
         levelReady += () => { };
         levelWon += () => { };
         wrongStep += () => { };
+        changeInTotems += (_) => { };
         gameOver += (_) => { };
         levelReset += () => { };
         onLastLevel += () => { };
@@ -313,6 +315,7 @@ public class GameManagerSc : MonoBehaviour
     public static void changeTotems(int amount, bool add)
     {
         totems = totems + (add ? amount : -amount);
+        changeInTotems.Invoke(totems);
         uiManager.ChangeTotems(totems, amount, add);
     }
 

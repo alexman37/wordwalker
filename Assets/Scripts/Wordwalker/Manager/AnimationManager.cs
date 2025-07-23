@@ -266,6 +266,13 @@ public class AnimationManager : MonoBehaviour
         this.playerAnimator.SetBool("Moving", false);
     }
 
+    public void cancelJump()
+    {
+        //TODO we have to ensure the player can only do this when theyre not moving
+        this.playerAnimator.SetTrigger("JumpCancel");
+        this.playerAnimator.SetBool("Moving", false);
+    }
+
     public void launchJump(Tile toTile)
     {
         StartCoroutine(jumpingFlight(toTile));
@@ -314,7 +321,7 @@ public class AnimationManager : MonoBehaviour
         yield return new WaitUntil(() => !walkManager.isActivelyMoving);
 
         // TODO moving is often left at "true" in this moment, it has to be set to false somewhere else before then.
-        playerManager.walterWhitePan();
+        playerManager.walterWhitePan(1);
 
         playerAnimator.ResetTrigger("Idle");
         playerAnimator.SetBool("Moving", true);
@@ -373,7 +380,7 @@ public class AnimationManager : MonoBehaviour
     {
         playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         playerAnimator.SetTrigger("Falling");
-        playerManager.walterWhitePan();
+        playerManager.walterWhitePan(1);
         SfxManager.instance.playSFX(collapseClip, this.playerCharacter.transform, 1f);
     }
 

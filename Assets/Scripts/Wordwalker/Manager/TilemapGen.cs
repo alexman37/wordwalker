@@ -92,13 +92,4 @@ public class TilemapGen : MonoBehaviour
         Debug.Log("Tilemap gen READY");
         greenlight = true;
     }
-
-    // TODO REMOVE
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            regenerateTileMap(new WordGen.Word("EEEEEEEEEEEE", "whatever"), 0);
-        }
-    }
 }

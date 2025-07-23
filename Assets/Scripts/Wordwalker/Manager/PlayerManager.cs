@@ -177,8 +177,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void XerpCameraTo(Vector3 position, float time)
+    public void XerpCameraTo(Vector3 position, float time, bool bound)
     {
+        if (bound)
+        {
+            position = boundCameraPosition(position);
+        }
+        Debug.Log("Xerp to " + position);
         StartCoroutine(xerpCameraCoroutine(cam.transform.position, position, time));
     }
 
@@ -187,9 +192,10 @@ public class PlayerManager : MonoBehaviour
         teleportCameraTo(startingCamPos);
     }
 
-    public void walterWhitePan()
+    public void walterWhitePan(float time)
     {
-        XerpCameraTo(walterWhitePos, 1);
+        Debug.Log("Walter white to " + walterWhitePos);
+        XerpCameraTo(walterWhitePos, time, false);
     }
 
     IEnumerator xerpCameraCoroutine(Vector3 start, Vector3 end, float time)

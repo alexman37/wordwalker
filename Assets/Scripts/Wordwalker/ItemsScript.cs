@@ -13,50 +13,155 @@ public class ItemsScript : MonoBehaviour
 
     // Jump as many as 3 tiles away
     public static event Action blueItemUsed;
+    public static event Action blueItemCancelled;
 
     [SerializeField] private AudioClip greenItemClip;
     [SerializeField] private AudioClip redItemClip;
     [SerializeField] private AudioClip blueItemClip;
 
+    public PlayerManager playerManager;
+    public AnimationManager animationManager;
+
+    private bool inItemAnimation = false;
+
 
     public void useAnyItem(ItemType item)
     {
-        switch(item)
+        if(GameManagerSc.getNumTotems() <= 0)
         {
-            case ItemType.REVEAL_CORRECT:
-                useGreenItem();
-                break;
-            case ItemType.REVEAL_INCORRECTS:
-                useRedItem();
-                break;
-            case ItemType.JUMP:
-                useBlueItem();
-                break;
+            Debug.LogWarning("Could not use the item - all out of totems!");
+            // TODO close / prevent further uses
+            return;
+        }
+
+        else
+        {
+            GameManagerSc.changeTotems(1, false);
+
+            switch (item)
+            {
+                case ItemType.REVEAL_CORRECT:
+                    useGreenItem();
+                    break;
+                case ItemType.REVEAL_INCORRECTS:
+                    useRedItem();
+                    break;
+                case ItemType.JUMP:
+                    useBlueItem();
+                    break;
+            }
+
+            if(GameManagerSc.getNumTotems() <= 0)
+            {
+                // TODO close / prevent further uses
+
+            }
+        }
+    }
+
+    private bool genericItemUsed()
+    {
+        if(GameManagerSc.getNumTotems() <= 0)
+        {
+            Debug.LogWarning("Could not use the item - all out of totems!");
+            return false;
+        } else
+        {
+            GameManagerSc.changeTotems(1, false);
+            return true;
         }
     }
 
     public void useGreenItem()
     {
-        greenItemUsed.Invoke();
+        if(!inItemAnimation)
+        {
+            if(genericItemUsed())
+            {
+                inItemAnimation = true;
+                StartCoroutine(greenItemCo());
+            }
+        }
+    }
 
-        // TODO move it to after the animation plays
+    IEnumerator greenItemCo()
+    {
+        playerManager.setFreeCamera(false);
+
+        playerManager.walterWhitePan(1.5f);
+        yield return new WaitForSeconds(2.5f);
+
+        greenItemUsed.Invoke();
         SfxManager.instance.playSFX(greenItemClip, null, 1f);
+        yield return new WaitForSeconds(1f);
+
+        Vector3 nextPos = animationManager.playerCharacter.transform.position;
+        nextPos.y = 18;
+        playerManager.XerpCameraTo(nextPos, 1f, true);
+        yield return new WaitForSeconds(1f);
+
+        inItemAnimation = false;
+        playerManager.setFreeCamera(true);
     }
 
     public void useRedItem()
     {
+        if (!inItemAnimation)
+        {
+            if (genericItemUsed())
+            {
+                inItemAnimation = true;
+                StartCoroutine(redItemCo());
+            }
+        }
+    }
+
+    IEnumerator redItemCo()
+    {
+        playerManager.setFreeCamera(false);
+
+        playerManager.walterWhitePan(1.5f);
+        yield return new WaitForSeconds(2.5f);
+
         redItemUsed.Invoke();
+        SfxManager.instance.playSFX(redItemClip, null, 1f);
+        yield return new WaitForSeconds(1f);
+
+        Vector3 nextPos = animationManager.playerCharacter.transform.position;
+        nextPos.y = 18;
+        playerManager.XerpCameraTo(nextPos, 1f, true);
+        yield return new WaitForSeconds(1f);
+
+        inItemAnimation = false;
+        playerManager.setFreeCamera(true);
     }
 
     public void useBlueItem()
     {
-        blueItemUsed.Invoke();
+        if (!inItemAnimation)
+        {
+            if(WalkManager.jumping)
+            {
+                blueItemCancelled.Invoke();
+            }
+            else
+            {
+                // jumping is special because you can cancel it. you don't use the totem until after you've committed
+                if (GameManagerSc.getNumTotems() > 0)
+                {
+                    blueItemUsed.Invoke();
+                }
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        greenItemUsed += () => { };
+        redItemUsed += () => { };
+        blueItemUsed += () => { };
+        blueItemCancelled += () => { };
     }
 
     

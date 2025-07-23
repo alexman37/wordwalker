@@ -29,7 +29,7 @@ public class WalkManager : MonoBehaviour
     public Queue<Tile> queuedMoves;   // so that we can pre-click multiple tiles
     public bool isActivelyMoving = false;
     private bool preventMovement = false; //for instance, if you're about to die
-    private bool jumping = false;       // used for blue item
+    public static bool jumping = false;       // used for blue item
     private List<Tile> possibleNext;  // anywhere we can potentially go next
     private List<Tile> startingTiles;
 
@@ -87,6 +87,7 @@ public class WalkManager : MonoBehaviour
         ItemsScript.greenItemUsed += onUsedGreenItem;
         ItemsScript.redItemUsed += onUsedRedItem;
         ItemsScript.blueItemUsed += onUsedBlueItem;
+        ItemsScript.blueItemCancelled += onCancelledBlueItem;
     }
 
     private void OnDisable()
@@ -108,6 +109,7 @@ public class WalkManager : MonoBehaviour
         ItemsScript.greenItemUsed -= onUsedGreenItem;
         ItemsScript.redItemUsed -= onUsedRedItem;
         ItemsScript.blueItemUsed -= onUsedBlueItem;
+        ItemsScript.blueItemCancelled -= onCancelledBlueItem;
     }
 
     private void Update()
@@ -199,7 +201,7 @@ public class WalkManager : MonoBehaviour
             }
         }
         
-        for(int i = 0; i < 5; i++) // TODO how many?
+        for(int i = 0; i < Mathf.Clamp(allTiles.Count / 10f, 4, 7); i++)
         {
             while (allTiles.Count > 0)
             {
@@ -225,13 +227,15 @@ public class WalkManager : MonoBehaviour
         }
     }
 
+    // You are preparing to jump (but not actually using it yet.)
     void onUsedBlueItem()
     {
         //TODO undo
         jumping = true;
 
         // First, get all tiles within a certain radius (of either start, or currTile)
-        int radius = GameManagerSc.foggyVision;
+        // The radius, at most, can be the foggyVision field. It could also be capped by how many totems you have left.
+        int radius = Mathf.Min(GameManagerSc.foggyVision, GameManagerSc.getNumTotems());
         removeAllHighlightsInPossibleNext();
         possibleNext.Clear();
 
@@ -265,6 +269,34 @@ public class WalkManager : MonoBehaviour
 
         // And prepare the jumping animation
         animationManager.prepareJump();
+    }
+
+    // You have decided not to jump after all.
+    void onCancelledBlueItem()
+    {
+        jumping = false;
+
+        removeAllHighlightsInPossibleNext();
+        possibleNext.Clear();
+
+        // Case: anywhere in the middle
+        if (currTile != null)
+        {
+            possibleNext = new List<Tile>();
+            foreach (Adjacency adj in currTile.adjacencies)
+            {
+                possibleNext.Add(adj.tile);
+            }
+        }
+        // Case: at the start
+        else
+        {
+            possibleNext = new List<Tile>(startingTiles);
+        }
+        highlightAllInPossibleNext();
+
+        // And end the jump animation
+        animationManager.cancelJump();
     }
 
     void searchAdjacenciesHelper(Tile curr, HashSet<Tile> locked, Dictionary<Tile, int> discoveredDepths, int depth, int allowedRad)
@@ -480,6 +512,10 @@ public class WalkManager : MonoBehaviour
                     queuedMoves.Enqueue(t);
                 else
                 {
+                    // Use up the number of totems equal to "geographic distance" away
+                    // TODO sometimes this can lead to you gaining totems. Maybe...a good thing??
+                    GameManagerSc.changeTotems(getGeographicDistance(currTile, t), false);
+
                     isActivelyMoving = true;
                     animationManager.launchJump(t);
 
@@ -691,5 +727,14 @@ public class WalkManager : MonoBehaviour
         topBar.kickOffRotation();
     }
 
+    int getGeographicDistance(Tile from, Tile to)
+    {
+        // from can be null if you are jumping from the start.
+        if(from == null)
+        {
+            return Mathf.RoundToInt(Vector2.Distance(new Vector2(0, to.coords.s), new Vector2(to.coords.r, to.coords.s)));
+        }
+        else return Mathf.RoundToInt(Vector2.Distance(new Vector2(from.coords.r, from.coords.s), new Vector2(to.coords.r, to.coords.s)));
+    }
 
 }
