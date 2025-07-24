@@ -14,23 +14,9 @@ public class GameManagerSc : MonoBehaviour
 
     private static bool IN_TESTING = false;
 
-    private static int numLevels = 10; //TODO: Increase default
-    private static int currLevel = 0;
-    private static int totems = 0;
-    private static int score = 0;
-    private static int rank = -1;
-
-    // stat tracking
-    public static int totalTime = 0;
-    public static int numMistakes = 0;
-
-    public static int foggyVision = 3;   // How far ahead can you see when fog is enabled?
-
-    public static bool dailyWord = false;  // Daily word mode has some key differences from adventure / free play
-    public static HashSet<MenuScript.Challenge> selectedChallenges = new HashSet<MenuScript.Challenge>(); // Mostly used by tile generation
+    public static WWGameState state;
 
     private static string firstTimeWordsLoad = null;
-    private static WordGen.Word[] wordList = new WordGen.Word[numLevels];
 
     public static TilemapGen Tilemap;
     public static WordwalkerUIScript uiManager;
@@ -116,38 +102,27 @@ public class GameManagerSc : MonoBehaviour
     // TODO something with intensity once we improve tile gen a lil bit
     public static void setDailyWordParams(string word, string defn, HashSet<MenuScript.Challenge> challenges, int intensity)
     {
-        dailyWord = true;
+        // RESET STATE
+        Debug.Log("Setting daily parameters");
+        state = new WWGameState(1, 0, 3, true, challenges);
+
         WordGen.Skip();
 
         GlobalStatMap.AddFlag("dailyWordPlayedToday");
 
-        // Reset in-game variables to defaults
-        score = 0;
-        totems = 0;
-        currLevel = 0;
-
-        wordList[0] = new WordGen.Word(word, defn);
-
-        Debug.Log("Setting daily parameters");
-        numLevels = 1;
-        selectedChallenges = challenges;
+        // Word list for daily word is just the lone word we're playing
+        state.setWordList(new WordGen.Word[1] { new WordGen.Word(word, defn) });
     }
 
     public static void setParametersOnStart(int numLvl, DatabaseItem dbItem, HashSet<MenuScript.Challenge> challenges)
     {
-        dailyWord = false;
-
-        // Reset in-game variables to defaults
-        score = 0;
-        totems = 3;
-        currLevel = 0;
+        // RESET STATE
+        Debug.Log("Setting parameters");
+        state = new WWGameState(numLvl, 3, 3, false, challenges);
 
         localDBcopy = dbItem;
-
-        Debug.Log("Setting parameters");
-        numLevels = numLvl;
+        
         firstTimeWordsLoad = dbItem.databaseId;
-        selectedChallenges = challenges;
     }
 
     // Loading into the scene after the first time TODO good to remove?
@@ -172,7 +147,7 @@ public class GameManagerSc : MonoBehaviour
             WordGen.greenlight)
         {
             /// DAILY WORD
-            if(dailyWord)
+            if(state.dailyWord)
             {
                 clueBookUI.gameObject.SetActive(false);
 
@@ -194,11 +169,11 @@ public class GameManagerSc : MonoBehaviour
                 // Oftentimes in debugging we like to start the game from the wordwalk scene, so this check is necessary for that
                 if (IN_TESTING)
                 {
-                    wordList = WordGen.getTailoredList(numLevels);
+                    state.setWordList(WordGen.getTailoredList(state.getNumLevels()));
                 }
                 else
                 {
-                    wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
+                    state.setWordList(WordGen.getTailoredList(state.getNumLevels(), DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList()));
                 }
 
                 DatabaseTracker.startNewGame(localDBcopy.databaseId);
@@ -227,14 +202,14 @@ public class GameManagerSc : MonoBehaviour
     {
         // TODO Would be nice to have transition here, but not necessary.
         //transition.Invoke(true);
-        score = 0;
-        totems = 3;
-        currLevel = 0;
 
-        numMistakes = 0;
-        totalTime = 0;
+        WWGameState oldState = state;
+        int newTotemsThisGame = 3; // TODO ???
+        state = new WWGameState(oldState.getNumLevels(), newTotemsThisGame, oldState.foggyVision, false, oldState.selectedChallenges);
+        state.setWordList(WordGen.getTailoredList(state.getNumLevels(), DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList()));
+        uiManager.withNewState(state);
+        changeInTotems.Invoke(newTotemsThisGame);
 
-        wordList = WordGen.getTailoredList(numLevels, DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList());
         newGame.Invoke();
         goToNextLevel();
         //transition.Invoke(false);
@@ -246,31 +221,31 @@ public class GameManagerSc : MonoBehaviour
 
         if (numLevelsBool) {
             numLevelsBool = false;
-            uiManager.SetLevelAmount(numLevels);
+            uiManager.SetLevelAmount(state.getNumLevels());
         }
 
-        Debug.Log("going to next level: level " + (currLevel + 1));
+        Debug.Log("going to next level: level " + (state.getCurrentLevel() + 1));
         
-        if(currLevel == numLevels)
+        if(state.getCurrentLevel() == state.getNumLevels())
         {
             // TODO WINNING STUFF
             Debug.LogError("You should never have been able to click this button...");
 
         } else
         {
-            currLevel += 1;
-            if (currLevel == numLevels)
+            state.nextLevel();
+            if (state.getCurrentLevel() == state.getNumLevels())
             {
                 Debug.Log("LAST LEVEL");
                 onLastLevel.Invoke();
                 // TODO a little more with this...should be the "treasure room"
             }
-            uiManager.SetNewRoom(currLevel);
+            uiManager.SetNewRoom(state.getCurrentLevel());
 
-            WordGen.Word nextWord = wordList[currLevel - 1];
+            WordGen.Word nextWord = state.getWordAt(state.getCurrentLevel() - 1);
 
             /// DAILY WORD
-            if (dailyWord)
+            if (state.dailyWord)
             {
                 string onlyWord = nextWord.word;
                 Tilemap.regenerateTileMap(nextWord, Mathf.FloorToInt(onlyWord.Length / 7) + Mathf.FloorToInt(onlyWord.Length / 10));
@@ -296,37 +271,37 @@ public class GameManagerSc : MonoBehaviour
 
     public static int getCurrentLevel()
     {
-        return currLevel;
+        return state.getCurrentLevel();
     }
 
     public static int getNumLevels()
     {
-        return numLevels;
+        return state.getNumLevels();
     }
 
     public static void changeScore(int amount, bool add)
     {
-        int prior = score;
-        score = score + (add ? amount : -amount);
+        int prior = amount;
+        state.changeScore(amount, add);
         uiManager.ChangeScore(prior, amount, add);
-        rank = uiManager.GetNewRank(numMistakes, numLevels - currLevel);
+        state.changeRank(uiManager.GetNewRank(state.numMistakes, state.getNumLevels() - state.getCurrentLevel()));
     }
 
     public static void changeTotems(int amount, bool add)
     {
-        totems = totems + (add ? amount : -amount);
-        changeInTotems.Invoke(totems);
-        uiManager.ChangeTotems(totems, amount, add);
+        state.changeTotems(amount, add);
+        changeInTotems.Invoke(state.getNumTotems());
+        uiManager.ChangeTotems(state.getNumTotems(), amount, add);
     }
 
     public static int getScore()
     {
-        return score;
+        return state.getScore();
     }
 
     public static int getRank()
     {
-        return rank;
+        return state.getRank();
     }
 
     public static HighScore getOfficialScore()
@@ -334,30 +309,30 @@ public class GameManagerSc : MonoBehaviour
         string formattedDate = DateTime.Today.ToString("d");
 
         // Award "gold star" if you win with all 5 challenges enabled and make no mistakes during entire run.
-        if(selectedChallenges.Count == 5 && numMistakes == 0)
+        if(state.selectedChallenges.Count == 5 && state.numMistakes == 0)
         {
             uiManager.AwardGoldStar();
             DatabaseTracker.goldStar(localDBcopy.databaseId);
 
-            return new HighScore(score, 14, formattedDate, 5);
+            return new HighScore(state.getScore(), 14, formattedDate, 5);
         } else
         {
-            return new HighScore(score, RankBox.getFinalRank(numMistakes), formattedDate, selectedChallenges.Count);
+            return new HighScore(state.getScore(), RankBox.getFinalRank(state.numMistakes), formattedDate, state.selectedChallenges.Count);
         }
     }
 
     public static int getNumTotems()
     {
-        return totems;
+        return state.getNumTotems();
     }
 
     public static void signifyLevelWon(int numTimeSeconds, int numMistakes)
     {
-        GameManagerSc.totalTime += numTimeSeconds;
-        GameManagerSc.numMistakes += numMistakes;
+        state.totalTime += numTimeSeconds;
+        state.numMistakes += numMistakes;
 
-        if(currLevel == numLevels) {
-            if(dailyWord)
+        if(state.getCurrentLevel() == state.getNumLevels()) {
+            if(state.dailyWord)
             {
                 changeScore(100 - (25 * numMistakes), true);
                 GlobalStatMap.IncrementInt("dailyWordStreak", 1);
@@ -372,7 +347,7 @@ public class GameManagerSc : MonoBehaviour
             changeScore(100 - (25 * numMistakes), true);
         }
 
-        updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, score);
+        updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, state.getScore());
         levelWon.Invoke();
     }
 
@@ -384,7 +359,7 @@ public class GameManagerSc : MonoBehaviour
     public static void signifyGameOver(LossReason lr)
     {
         gameOver.Invoke(lr);
-        if(dailyWord)
+        if(state.dailyWord)
         {
             GlobalStatMap.AddOrModifyInt("dailyWordStreak", 0);
         }
@@ -404,5 +379,107 @@ public class GameManagerSc : MonoBehaviour
         TOTEMS,
         TIME,
         JUMP
+    }
+}
+
+/// <summary>
+/// Everything in relation to playing a single round of Wordwalker
+/// For instance - what level you're on, how many totems you have left...
+/// Purpose: If you start a new game or restart/retry a game, you should reset this.
+/// </summary>
+public class WWGameState
+{
+    private int numLevels = 10;
+    private int currLevel = 0;
+    private int totems = 0;
+    private int score = 0;
+    private int rank = -1;
+
+    // stat tracking
+    public int totalTime = 0;
+    public int numMistakes = 0;
+
+    public int foggyVision = 3;   // How far ahead can you see when fog is enabled?
+
+    public bool dailyWord = false;  // Daily word mode has some key differences from adventure / free play
+    public HashSet<MenuScript.Challenge> selectedChallenges = new HashSet<MenuScript.Challenge>(); // Mostly used by tile generation
+
+    private WordGen.Word[] wordList;
+
+    public WWGameState(int levels, int startingTotems, int fogVision, bool daily, HashSet<MenuScript.Challenge> challenges)
+    {
+        numLevels = levels;
+        currLevel = 0;
+        totems = startingTotems;
+        score = 0;
+        rank = -1;
+
+        // stat tracking
+        totalTime = 0;
+        numMistakes = 0;
+
+        foggyVision = fogVision;   // How far ahead can you see when fog is enabled?
+
+        dailyWord = daily;  // Daily word mode has some key differences from adventure / free play
+        selectedChallenges = challenges; // Mostly used by tile generation
+    }
+
+    /// SETTERS
+    public void nextLevel()
+    {
+        currLevel += 1;
+    }
+
+    public void setWordList(WordGen.Word[] words)
+    {
+        wordList = words;
+    }
+
+    public void changeScore(int amount, bool add)
+    {
+        int prior = score;
+        score = score + (add ? amount : -amount);
+    }
+
+    public void changeTotems(int amount, bool add)
+    {
+        totems = totems + (add ? amount : -amount);
+    }
+
+    public void changeRank(int nextRank)
+    {
+        rank = nextRank;
+    }
+
+
+    /// GETTERS
+    public int getScore()
+    {
+        return score;
+    }
+
+    public int getRank()
+    {
+        return rank;
+    }
+
+    public int getCurrentLevel()
+    {
+        return currLevel;
+    }
+
+    public int getNumLevels()
+    {
+        return numLevels;
+    }
+
+    public int getNumTotems()
+    {
+        return totems;
+    }
+
+    public WordGen.Word getWordAt(int index)
+    {
+        return wordList[index];
     }
 }

@@ -56,7 +56,7 @@ public class TilemapGen : MonoBehaviour
         // We take action here to figure out the inputs of the level, they get harder as they go...
         // Some algorithms are generally harder than others
         float difficultyHandicap = 1;
-        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.GEN_PLUS))
+        if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.GEN_PLUS))
         {
             currentGenMethod = generationMethodsAdv[UnityEngine.Random.Range(0, generationMethodsAdv.Length)];
         }

@@ -54,7 +54,7 @@ public class WalkManager : MonoBehaviour
     {
         tileMats = FindObjectOfType<TileMats>();
 
-        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.FOG))
         {
             fogSheet.SetActive(true);
         }
@@ -235,7 +235,7 @@ public class WalkManager : MonoBehaviour
 
         // First, get all tiles within a certain radius (of either start, or currTile)
         // The radius, at most, can be the foggyVision field. It could also be capped by how many totems you have left.
-        int radius = Mathf.Min(GameManagerSc.foggyVision, GameManagerSc.getNumTotems());
+        int radius = Mathf.Min(GameManagerSc.state.foggyVision, GameManagerSc.getNumTotems());
         removeAllHighlightsInPossibleNext();
         possibleNext.Clear();
 
@@ -330,7 +330,7 @@ public class WalkManager : MonoBehaviour
         setClue();
         maxReachedRow = -1;
         playerManager.setToStartingPosition();
-        fogSheet.transform.position = new Vector3(fogSheet.transform.position.x, fogSheet.transform.position.y, GameManagerSc.foggyVision * GenMethod.ySpacing + 48);
+        fogSheet.transform.position = new Vector3(fogSheet.transform.position.x, fogSheet.transform.position.y, GameManagerSc.state.foggyVision * GenMethod.ySpacing + 48);
         allTiles = null;
         whitelist = null;
         SfxManager.instance.destroySFXSequence("correct-notes");
@@ -358,7 +358,7 @@ public class WalkManager : MonoBehaviour
         possibleNext = starters;
         highlightAllInPossibleNext();
 
-        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+        if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.FOG))
         {
             atCurrentRow.Invoke(maxReachedRow);
         }
@@ -423,7 +423,7 @@ public class WalkManager : MonoBehaviour
             TimeManager.startNamedTimer("walk_time");
 
             // Challenge timer also begins on first step, if applicable
-            if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+            if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
             {
                 timeManager.startIntervalTimer();
             }
@@ -449,7 +449,7 @@ public class WalkManager : MonoBehaviour
             else
             {
                 // If this is the "furthest" we've gone, remove fog, if applicable
-                if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+                if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.FOG))
                 {
                     if (t.coords.r > maxReachedRow)
                     {
@@ -604,7 +604,7 @@ public class WalkManager : MonoBehaviour
 
         Vector3 start = fogSheet.transform.position;
         Vector3 dest = fogSheet.transform.position + new Vector3(0, 0, GenMethod.ySpacing);
-        if(row + GameManagerSc.foggyVision == GenMethod.settledRows)
+        if(row + GameManagerSc.state.foggyVision == GenMethod.settledRows)
         {
             dest += new Vector3(0, 0, 25);
         }
@@ -679,7 +679,7 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     void onWin()
     {
-        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+        if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
         {
             timeManager.stopIntervalTimer();
         }
@@ -699,7 +699,7 @@ public class WalkManager : MonoBehaviour
     {
         numMistakes += 1;
         GameManagerSc.changeTotems(1, false);
-        if (GameManagerSc.getNumTotems() < 0 || GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
+        if (GameManagerSc.getNumTotems() < 0 || GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
         {
             animationManager.realization();
             onLose(GameManagerSc.LossReason.TOTEMS);
@@ -716,10 +716,11 @@ public class WalkManager : MonoBehaviour
         preventMovement = true;
         playerManager.setFreeCamera(false);
 
-        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+        if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
         {
             timeManager.stopIntervalTimer();
         }
+        TimeManager.stopNamedTimer("walk_time");
 
         removeAllHighlightsInPossibleNext();
         GameManagerSc.signifyGameOver(lr);

@@ -202,7 +202,7 @@ public abstract class GenMethod : MonoBehaviour
         List<Tile> corrects = new List<Tile>();
 
         // Blank Tile interjection - only if the challenge is active
-        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
         {
             word = interjectBlanks(word, numBlanks);
         }
@@ -445,7 +445,7 @@ public abstract class GenMethod : MonoBehaviour
     /// </summary>
     protected virtual void addSpecialTiles()
     {
-        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
             // RANDOM tiles - these appear as ? and are unknown until stepped on.
             int numRandoms = Mathf.RoundToInt(4f * difficulty);
             int numRandomsChosen = UnityEngine.Random.Range(0, numRandoms + 1);

@@ -12,7 +12,7 @@ public class RankBox : MonoBehaviour
     public Sprite[] spriteCycle;
     public Sprite deathSprite;
     public Sprite goldStarSprite;
-    private int currentRank = 5; // C
+    private int currentRank = -1;
 
     public Sprite neverBeaten; //only used in showing scores - not included in sprite cycle
 
@@ -44,6 +44,15 @@ public class RankBox : MonoBehaviour
 
         StartCoroutine(rotateRank(newRank));
         return newRank;
+    }
+
+    // When restarting the game
+    public void defaultRank()
+    {
+        current.sprite = neverBeaten;
+
+        theBox.transform.rotation = Quaternion.Euler(0, 0, 0);
+        currentRank = -1;
     }
 
     public static int getFinalRank(int numMistakes)

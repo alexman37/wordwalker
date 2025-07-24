@@ -31,7 +31,7 @@ public class InverseTriangle : GenMethod
         //TODO configure
         int backTracks = generateNumBacktracks(word.Length, 0.4f, maxBacks);
         int numBlanks = 0;
-        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
             numBlanks = generateNumBacktracks(word.Length, 0.25f, maxBacks+1);
         }
         settledRows = word.Length - backTracks + numBlanks;
@@ -146,7 +146,7 @@ public class InverseTriangle : GenMethod
         List<Tile> corrects = new List<Tile>();
 
         // Blank Tile interjection - only if the challenge is active
-        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
+        if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
         {
             word = interjectBlanks(word, numBlanks);
         }

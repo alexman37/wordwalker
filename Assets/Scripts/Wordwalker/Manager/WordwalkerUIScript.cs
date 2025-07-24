@@ -57,12 +57,12 @@ public class WordwalkerUIScript : MonoBehaviour
         // Have to set how many totems given on game start.
         displayTotem.text = GameManagerSc.getNumTotems().ToString();
 
-        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
         {
             timer.SetActive(true);
         }
 
-        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
         {
             critStats.GetComponent<Image>().sprite = critStatsOptions[1];
             specialGuide.SetActive(true);
@@ -122,6 +122,14 @@ public class WordwalkerUIScript : MonoBehaviour
     public void AwardGoldStar()
     {
         rankBox.awardGoldStar();
+    }
+
+    public void withNewState(WWGameState state)
+    {
+        displayScore.text = state.getScore().ToString();
+        displayTotem.text = state.getNumTotems().ToString();
+        displayRoom.text = state.getCurrentLevel().ToString() + " / " + numLevels;
+        rankBox.defaultRank();
     }
 
     // Number go up

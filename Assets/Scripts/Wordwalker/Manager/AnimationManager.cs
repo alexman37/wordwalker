@@ -62,6 +62,7 @@ public class AnimationManager : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManagerSc.newGame += resetGame;
         GameManagerSc.levelReady += playStartingAnimation;
         Tile.fallAllTiles += playFallingAnimation;
 
@@ -71,6 +72,7 @@ public class AnimationManager : MonoBehaviour
 
     private void OnDisable()
     {
+        GameManagerSc.newGame -= resetGame;
         GameManagerSc.levelReady -= playStartingAnimation;
         Tile.fallAllTiles -= playFallingAnimation;
 
@@ -382,6 +384,19 @@ public class AnimationManager : MonoBehaviour
         playerAnimator.SetTrigger("Falling");
         playerManager.walterWhitePan(1);
         SfxManager.instance.playSFX(collapseClip, this.playerCharacter.transform, 1f);
+    }
+
+    // Retry from the game over screen
+    public void resetGame()
+    {
+        playerAnimator.Play("idle_down");
+        playerCharacter.transform.position = startingPlayerPos;
+        playerCharacter.transform.rotation = Quaternion.Euler(-90, 0, 90);
+        playerCharacter.transform.GetChild(0).localRotation = Quaternion.Euler(180, 0, 180);
+        playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        playerAnimator.ResetTrigger("Idle");
+        //playerAnimator.SetInteger("Direction", 1);
+        //playerAnimator.SetTrigger("Idle");
     }
 
 

@@ -51,7 +51,7 @@ public class Tile : MonoBehaviour
     {
         textComponent = this.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
 
-        if (GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.TIMER)) {
+        if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.TIMER)) {
             timeFader = this.transform.GetChild(0).GetChild(0).GetComponent<Image>();
             timeFader.gameObject.SetActive(true);
         }
@@ -66,7 +66,7 @@ public class Tile : MonoBehaviour
         GameManagerSc.levelWon += startFlipTile;
         TimeManager.timerExpired += fallIfInRow;
         TimeManager.timerExpired += fadeWarning;
-        if(GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.FOG))
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.FOG))
         {
             WalkManager.atCurrentRow += determineFogginess;
         }
@@ -200,7 +200,7 @@ public class Tile : MonoBehaviour
     {
         fall(false, false);
 
-        if (GameManagerSc.getNumTotems() <= 0 || GameManagerSc.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
+        if (GameManagerSc.getNumTotems() <= 0 || GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
         {
             // First wait one second, so you realize you done goofed
             yield return new WaitForSeconds(1.5f);
@@ -350,7 +350,7 @@ public class Tile : MonoBehaviour
         //TODO change material as well
         if(this.coords != null)
         {
-            if (this.coords.r - row > GameManagerSc.foggyVision)
+            if (this.coords.r - row > GameManagerSc.state.foggyVision)
             {
                 textComponent.text = "";
                 changeMaterial(WalkManager.tileMats.fog);
