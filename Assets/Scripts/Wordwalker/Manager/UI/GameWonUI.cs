@@ -104,11 +104,4 @@ public class GameWonUI : MonoBehaviour
         float secs = (seconds % 60);
         return (seconds / 60) + ":" + (secs < 10 ? "0" : "") + secs;
     }
-
-    // Given the name of the stat and its value (determined somewhere else) set them
-    // TODO
-    private string formatFunStatName(string statName)
-    {
-        return "";
-    }
 }

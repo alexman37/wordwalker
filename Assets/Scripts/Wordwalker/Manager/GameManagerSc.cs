@@ -318,10 +318,10 @@ public class GameManagerSc : MonoBehaviour
             uiManager.AwardGoldStar();
             DatabaseTracker.goldStar(localDBcopy.databaseId);
 
-            return new HighScore(state.getScore(), 14, formattedDate, 5);
+            return new HighScore(state.getScore(), 14, state.totalTime, formattedDate, 5);
         } else
         {
-            return new HighScore(state.getScore(), RankBox.getFinalRank(state.numMistakes), formattedDate, state.selectedChallenges.Count);
+            return new HighScore(state.getScore(), RankBox.getFinalRank(state.numMistakes), state.totalTime, formattedDate, state.selectedChallenges.Count);
         }
     }
 

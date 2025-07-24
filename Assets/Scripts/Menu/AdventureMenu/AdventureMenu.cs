@@ -75,8 +75,9 @@ public class AdventureMenu : WidgetPopup
                     highScores[i].gameObject.SetActive(true);
                     highScores[i].sprite = rankBox.getRankAsSprite(dbStats.highScores.highScores[i].rank);
                     highScores[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = dbStats.highScores.highScores[i].value.ToString();
-                    highScores[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = dbStats.highScores.highScores[i].dateAchieved;
-                    highScores[i].transform.GetChild(2).GetComponent<Image>().sprite = challengeStarDisplays[dbStats.highScores.highScores[i].numStars];
+                    highScores[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = secondsToMinSec(dbStats.highScores.highScores[i].timeTaken);
+                    highScores[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = dbStats.highScores.highScores[i].dateAchieved;
+                    highScores[i].transform.GetChild(3).GetComponent<Image>().sprite = challengeStarDisplays[dbStats.highScores.highScores[i].numStars];
                 }
                 else
                 {
@@ -92,5 +93,9 @@ public class AdventureMenu : WidgetPopup
         winRate.text = $"Win Rate\n{dbStats.wins} / {dbStats.attempts}";
     }
 
-
+    private string secondsToMinSec(int seconds)
+    {
+        float secs = (seconds % 60);
+        return (seconds / 60) + ":" + (secs < 10 ? "0" : "") + secs;
+    }
 }

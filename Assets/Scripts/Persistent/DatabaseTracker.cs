@@ -283,11 +283,44 @@ public class HighScoresList
                             sorted[j] = temp;
                             temp = whatever;
                         }
-                        else if (sorted[j] == null || sorted[j].value <= highScores[i].value)
+                        // If this is one of your first 3 scores (high score by default)
+                        // OR if you got a new best rank, add this to high score list.
+                        else if (sorted[j] == null || sorted[j].rank < highScores[i].rank)
                         {
                             temp = sorted[j];
                             sorted[j] = highScores[i];
                             putInPlace = true;
+                        } 
+                        // WARNING! YANDERE DEV CODE AHEAD!!!
+                        // if ranks are equal, see if this is better from total point value instead
+                        else if(sorted[j].rank == highScores[i].rank)
+                        {
+                            if (sorted[j].value < highScores[i].value)
+                            {
+                                temp = sorted[j];
+                                sorted[j] = highScores[i];
+                                putInPlace = true;
+                            }
+                            // if values are also equal, sort by challenge stars
+                            else if (sorted[j].value == highScores[i].value)
+                            {
+                                if (sorted[j].numStars < highScores[i].numStars)
+                                {
+                                    temp = sorted[j];
+                                    sorted[j] = highScores[i];
+                                    putInPlace = true;
+                                }
+                                // if stars are equal, sort by time (tired yet?)
+                                else if (sorted[j].numStars == highScores[i].numStars)
+                                {
+                                    if (sorted[j].timeTaken > highScores[i].timeTaken)
+                                    {
+                                        temp = sorted[j];
+                                        sorted[j] = highScores[i];
+                                        putInPlace = true;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -304,13 +337,15 @@ public class HighScore
 {
     public int value;
     public int rank;
+    public int timeTaken;
     public string dateAchieved;
     public int numStars;
 
-    public HighScore(int value, int rank, string dateAchieved, int stars)
+    public HighScore(int value, int rank, int timeTaken, string dateAchieved, int stars)
     {
         this.value = value;
         this.rank = rank;
+        this.timeTaken = timeTaken;
         this.dateAchieved = dateAchieved;
         this.numStars = stars;
     }
