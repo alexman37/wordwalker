@@ -52,6 +52,7 @@ public class PlayerManager : MonoBehaviour
         ModeToolUI.inMarkerMode += exitViewer;
         SettingsMenu.toggledScreenOr += setScreenOrientation;
         PauseMenu.toggledScreenOr += setScreenOrientation;
+        GameManagerSc.newGame += setCameraToStart;
     }
 
     private void OnDisable()
@@ -61,6 +62,7 @@ public class PlayerManager : MonoBehaviour
         ModeToolUI.inMarkerMode -= exitViewer;
         SettingsMenu.toggledScreenOr -= setScreenOrientation;
         PauseMenu.toggledScreenOr -= setScreenOrientation;
+        GameManagerSc.newGame -= setCameraToStart;
     }
 
     // Update is called once per frame
@@ -218,6 +220,12 @@ public class PlayerManager : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    private void setCameraToStart()
+    {
+        teleportCameraTo(startingCamPos);
+        freeCamera = true;
     }
 
     public void setFreeCamera(bool freeCam)

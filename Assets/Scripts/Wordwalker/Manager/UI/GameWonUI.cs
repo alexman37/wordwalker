@@ -76,7 +76,12 @@ public class GameWonUI : MonoBehaviour
             // Set postgame stats
             timeTaken.text = secondsToMinSec(GameManagerSc.state.totalTime);
             mistakes.text = GameManagerSc.state.numMistakes.ToString();
-            // fun stat name and value are set elsewhere
+
+            // Get a random fun stat to display
+            (string n, string v) funStatInputs = FunStatUI.getFunStat(funStatName);
+            funStatName.text = funStatInputs.n;
+            funStatValue.text = funStatInputs.v;
+
             finalRankSprite.sprite = rankBox.getRankAsSprite(GameManagerSc.getRank());
             commentary.text = commentaryLines[GameManagerSc.getRank()];
 

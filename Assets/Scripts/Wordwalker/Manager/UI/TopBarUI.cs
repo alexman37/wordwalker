@@ -159,7 +159,6 @@ public class TopBarUI : MonoBehaviour
     /// <param name="won"></param>
     public void SetAnswer(List<Tile> corrects, bool won)
     {
-        int addCoins = 0;
         int addTotems = 0;
 
         // Draw the answer made up of (1) correct tiles and (2) correct tiles you skipped
@@ -179,7 +178,6 @@ public class TopBarUI : MonoBehaviour
             //prepare to add totems
             if (won)
             {
-                addCoins += 1;
                 if (col == golden) addTotems += 1;
             }
 
@@ -198,6 +196,7 @@ public class TopBarUI : MonoBehaviour
             tile.transform.localScale = baseTileVis.transform.localScale;
         }
 
+        GameManagerSc.state.funStuff.totemsFound += addTotems;
         GameManagerSc.changeTotems(addTotems, true);
     }
 

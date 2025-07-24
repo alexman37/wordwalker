@@ -67,6 +67,7 @@ public class ItemsScript : MonoBehaviour
             return false;
         } else
         {
+            GameManagerSc.state.funStuff.itemsUsed += 1;
             GameManagerSc.changeTotems(1, false);
             return true;
         }

@@ -243,6 +243,10 @@ public class GameManagerSc : MonoBehaviour
             uiManager.SetNewRoom(state.getCurrentLevel());
 
             WordGen.Word nextWord = state.getWordAt(state.getCurrentLevel() - 1);
+            if(nextWord.word.Length > state.funStuff.longestWord.Length)
+            {
+                state.funStuff.longestWord = nextWord.word;
+            }
 
             /// DAILY WORD
             if (state.dailyWord)
@@ -398,6 +402,7 @@ public class WWGameState
     // stat tracking
     public int totalTime = 0;
     public int numMistakes = 0;
+    public FunStatState funStuff;
 
     public int foggyVision = 3;   // How far ahead can you see when fog is enabled?
 
@@ -417,6 +422,7 @@ public class WWGameState
         // stat tracking
         totalTime = 0;
         numMistakes = 0;
+        funStuff = new FunStatState();
 
         foggyVision = fogVision;   // How far ahead can you see when fog is enabled?
 
@@ -481,5 +487,20 @@ public class WWGameState
     public WordGen.Word getWordAt(int index)
     {
         return wordList[index];
+    }
+}
+
+// The stats in state that would only possibly matter for the fun stat portion.
+public class FunStatState
+{
+    public int tilesStepped = 0;
+    public int totemsFound = 0;
+    public int itemsUsed = 0;
+    public string longestWord = "";
+    public (string word, int timeTaken) toughestWord = ("", 0);
+
+    public FunStatState()
+    {
+
     }
 }

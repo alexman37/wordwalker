@@ -416,6 +416,8 @@ public class WalkManager : MonoBehaviour
     /// </summary>
     public IEnumerator manageStep(Tile t, bool jumped)
     {
+        GameManagerSc.state.funStuff.tilesStepped += 1;
+
         // On first step
         if(!timerStarted)
         {
@@ -515,6 +517,7 @@ public class WalkManager : MonoBehaviour
                     // Use up the number of totems equal to "geographic distance" away
                     // TODO sometimes this can lead to you gaining totems. Maybe...a good thing??
                     GameManagerSc.changeTotems(getGeographicDistance(currTile, t), false);
+                    GameManagerSc.state.funStuff.itemsUsed += 1;
 
                     isActivelyMoving = true;
                     animationManager.launchJump(t);
@@ -686,6 +689,11 @@ public class WalkManager : MonoBehaviour
 
         Debug.Log("The exact win moment");
         float timeTotal = TimeManager.stopNamedTimer("walk_time");
+        if(timeTotal > GameManagerSc.state.funStuff.toughestWord.timeTaken)
+        {
+            GameManagerSc.state.funStuff.toughestWord = (currWord, (int)timeTotal);
+        }
+
         GameManagerSc.signifyLevelWon((int)timeTotal, numMistakes);
         topBar.SetAnswer(this.correctTiles, true);
         topBar.kickOffRotation();
