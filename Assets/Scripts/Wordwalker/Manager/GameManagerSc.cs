@@ -24,7 +24,6 @@ public class GameManagerSc : MonoBehaviour
     private static ScrollUI scrollUI;
     private static ClueBookUI clueBookUI;
 
-    private static bool numLevelsBool = true;
     private static DatabaseItem localDBcopy;
     private static bool checkingManagerGreenlights = true;
 
@@ -117,11 +116,11 @@ public class GameManagerSc : MonoBehaviour
     public static void setParametersOnStart(int numLvl, DatabaseItem dbItem, HashSet<MenuScript.Challenge> challenges)
     {
         // RESET STATE
-        Debug.Log("Setting parameters");
+        Debug.Log("Setting parameters for game with numLvl " + numLvl);
         state = new WWGameState(numLvl, 3, 3, false, challenges);
 
         localDBcopy = dbItem;
-        
+
         firstTimeWordsLoad = dbItem.databaseId;
     }
 
@@ -219,11 +218,6 @@ public class GameManagerSc : MonoBehaviour
     {
         levelReset.Invoke();
 
-        if (numLevelsBool) {
-            numLevelsBool = false;
-            uiManager.SetLevelAmount(state.getNumLevels());
-        }
-
         Debug.Log("going to next level: level " + (state.getCurrentLevel() + 1));
         
         if(state.getCurrentLevel() == state.getNumLevels())
@@ -285,7 +279,7 @@ public class GameManagerSc : MonoBehaviour
 
     public static void changeScore(int amount, bool add)
     {
-        int prior = amount;
+        int prior = state.getScore();
         state.changeScore(amount, add);
         uiManager.ChangeScore(prior, amount, add);
         state.changeRank(uiManager.GetNewRank(state.numMistakes, state.getNumLevels() - state.getCurrentLevel()));
@@ -335,23 +329,20 @@ public class GameManagerSc : MonoBehaviour
         state.totalTime += numTimeSeconds;
         state.numMistakes += numMistakes;
 
-        if(state.getCurrentLevel() == state.getNumLevels()) {
+        int scoreDelta = 100 - (25 * numMistakes);
+        changeScore(scoreDelta, true);
+
+        if (state.getCurrentLevel() == state.getNumLevels()) {
             if(state.dailyWord)
             {
-                changeScore(100 - (25 * numMistakes), true);
                 GlobalStatMap.IncrementInt("dailyWordStreak", 1);
             } else
             {
-                changeScore(100 - (25 * numMistakes), true);
-
                 DatabaseTracker.winGame(localDBcopy.databaseId, getOfficialScore());
             }
-        } else
-        {
-            changeScore(100 - (25 * numMistakes), true);
         }
 
-        updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, state.getScore());
+        updatePostgameScoreSheet.Invoke(numTimeSeconds, numMistakes, 25 * numMistakes, scoreDelta);
         levelWon.Invoke();
     }
 

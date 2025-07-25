@@ -99,6 +99,7 @@ public class DatabaseParser : MonoBehaviour
         if(selectedItem != null)
         {
             adventureMenu.displayDatabase(selectedItem);
+            MenuScript.dbItem = selectedItem;
         } else
         {
             // literally your first time playing the game - so show the "select a database!" screen instead

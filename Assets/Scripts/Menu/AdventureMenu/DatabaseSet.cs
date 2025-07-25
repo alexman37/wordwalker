@@ -179,12 +179,6 @@ public class DatabaseSet : MonoBehaviour
         expandedSprite.rectTransform.rotation = Quaternion.Euler(0, 0, newDeg);
         yield return null;
     }
-
-    // Used on initial load
-    public DatabaseItem getFirst()
-    {
-        return databases[0];
-    }
 }
 
 

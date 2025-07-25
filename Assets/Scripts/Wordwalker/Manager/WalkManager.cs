@@ -323,6 +323,7 @@ public class WalkManager : MonoBehaviour
         possibleNext.Clear();
         startingTiles.Clear();
         timerStarted = false;
+        jumping = false;
         numMistakes = 0;
         currWord = w;
         currDef = d;

@@ -16,8 +16,8 @@ public class MenuScript : MonoBehaviour
     // The challenges you currently have selected
     public HashSet<Challenge> selectedChallenges;
 
-    public int numLevels = 10;
-    public DatabaseItem dbItem;
+    public int numLevels = 5;
+    public static DatabaseItem dbItem;
 
     public GameObject titleCard;
     public GameObject playButtons;
@@ -48,7 +48,7 @@ public class MenuScript : MonoBehaviour
 
     private void updateDatabase(DatabaseItem database)
     {
-        this.dbItem = database;
+        dbItem = database;
     }
 
     // Play the daily word.

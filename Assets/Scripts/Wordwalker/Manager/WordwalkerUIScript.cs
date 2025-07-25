@@ -71,6 +71,9 @@ public class WordwalkerUIScript : MonoBehaviour
             critStats.GetComponent<Image>().sprite = critStatsOptions[0];
         }
 
+        // We can set the number of levels here since gameManager is guaranteed to have its state set up by now
+        SetLevelAmount(GameManagerSc.state.getNumLevels());
+
         Debug.Log("Wordwalker UI READY");
         greenlight = true;
     }
@@ -88,7 +91,7 @@ public class WordwalkerUIScript : MonoBehaviour
     }
 
     // Set how many levels there will be in the game
-    public void SetLevelAmount(int amnt)
+    private void SetLevelAmount(int amnt)
     {
         displayRoom.text = "0 / " + amnt.ToString();
         numLevels = amnt;
