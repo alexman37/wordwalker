@@ -82,8 +82,10 @@ public class GameWonUI : MonoBehaviour
             funStatName.text = funStatInputs.n;
             funStatValue.text = funStatInputs.v;
 
-            finalRankSprite.sprite = rankBox.getRankAsSprite(GameManagerSc.getRank());
-            commentary.text = commentaryLines[GameManagerSc.getRank()];
+            // GameManagerSc may not do the calculation in time so we'll just do it here
+            int trueRank = GameManagerSc.getRank() == 13 && GameManagerSc.state.selectedChallenges.Count == 5 ? 14 : GameManagerSc.getRank();
+            finalRankSprite.sprite = rankBox.getRankAsSprite(trueRank);
+            commentary.text = commentaryLines[trueRank];
 
             movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, Screen.safeArea.height / 4f));
             StartCoroutine(movingToScreen);

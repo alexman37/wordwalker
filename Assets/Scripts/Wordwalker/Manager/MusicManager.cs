@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
     float timeToNextClip;
     float timeTarget;
 
-    bool inLoop = false;
+    static bool inLoop = false;
     static bool fadingOut = false;
     static bool fadingIn = false;
     static float fadeTimer = 0f;
@@ -28,24 +28,28 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Music Manager awake");
         if (instance == null)
         {
             instance = this;
 
             DontDestroyOnLoad(gameObject);
             audioSource = GetComponent<AudioSource>();
+
+            timeToNextClip = 0f;
+            timeTarget = 0f;
+            kickoffMusicLoop();
         }
         else
         {
             Destroy(this);
         }
 
-        if (!inLoop)
+        /*if (!inLoop)
         {
-            timeToNextClip = 0f;
-            timeTarget = 0f;
-            kickoffMusicLoop();
-        }
+            Debug.Log("Not in loop");
+            
+        }*/
     }
 
     private void OnEnable()
@@ -101,7 +105,7 @@ public class MusicManager : MonoBehaviour
                 audioSource.clip = musicTracks[index];
                 float timeToPlay = musicTracks[index].length;
                 timeTarget = timeToPlay + 3f; // 3 second buffer
-                audioSource.Stop();
+                audioSource.Play();
             }
         }
 
@@ -155,6 +159,7 @@ public class MusicManager : MonoBehaviour
 
         timeTarget = timeToPlay + 3f; // 3 second buffer
         timeToNextClip = 0f;
+        Debug.Log("The next track will play in " + timeTarget);
         audioSource.Play();
     }
 

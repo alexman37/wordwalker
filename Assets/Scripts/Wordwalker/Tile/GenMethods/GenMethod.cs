@@ -589,12 +589,6 @@ public abstract class GenMethod : MonoBehaviour
 
         int intRes = Mathf.Clamp(Mathf.RoundToInt(res), min, max);
         if (!minMeansEasier) { intRes = max - (intRes - min); }
-        Debug.Log(interval);
-        Debug.Log(chaos);
-        Debug.Log(v);
-        Debug.Log(res);
-        Debug.Log(intRes);
-        Debug.Log("Diff " + difficulty + " with (" + min + "," + max + ")[" + minMeansEasier + "]: " + intRes);
         return intRes;
     }
 

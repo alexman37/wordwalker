@@ -89,6 +89,7 @@ public class RankBox : MonoBehaviour
     public Sprite getRankAsSprite(int rank)
     {
         if (rank < 0) return neverBeaten;
+        if (rank == 14) return goldStarSprite;
         return spriteCycle[rank];
     }
 

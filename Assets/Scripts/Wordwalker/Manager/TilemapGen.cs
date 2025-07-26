@@ -98,4 +98,13 @@ public class TilemapGen : MonoBehaviour
         Debug.Log("Tilemap gen READY");
         greenlight = true;
     }
+
+    // TODO remove
+    /*private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            regenerateTileMap(new WordGen.Word("HAZELHEATHERS", ""), 2);
+        }
+    }*/
 }

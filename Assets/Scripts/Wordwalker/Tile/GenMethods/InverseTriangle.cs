@@ -93,7 +93,7 @@ public class InverseTriangle : GenMethod
                     continue;
                 }
 
-                float xPos = (maxSubs * xSpacing / 2) - sub * xSpacing - oddRowOffset;//-xSpacing * maxSubs / 2.0f + sub * xSpacing + oddRowOffset;
+                float xPos = (maxSubs * xSpacing / 2) - sub * xSpacing - oddRowOffset; //-xSpacing * maxSubs / 2.0f + sub * xSpacing + oddRowOffset;
                 Vector3 pos = new Vector3(xPos, 0, ySpacing * row);
                 GameObject next = GameObject.Instantiate(baseTile, pos, baseTile.transform.rotation);
                 next.transform.parent = container.transform;
@@ -149,6 +149,7 @@ public class InverseTriangle : GenMethod
         if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES))
         {
             word = interjectBlanks(word, numBlanks);
+            currLetter = word.Length - 1;
         }
 
         //pick a starter on the back row
