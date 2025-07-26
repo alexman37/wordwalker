@@ -201,6 +201,7 @@ public class GameManagerSc : MonoBehaviour
     {
         // TODO Would be nice to have transition here, but not necessary.
         //transition.Invoke(true);
+        Tilemap.switchDoorType(true);
 
         WWGameState oldState = state;
         int newTotemsThisGame = 3; // TODO ???
@@ -233,6 +234,7 @@ public class GameManagerSc : MonoBehaviour
                 Debug.Log("LAST LEVEL");
                 onLastLevel.Invoke();
                 // TODO a little more with this...should be the "treasure room"
+                Tilemap.switchDoorType(false);
             }
             uiManager.SetNewRoom(state.getCurrentLevel());
 

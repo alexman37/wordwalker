@@ -28,7 +28,7 @@ public class RankBox : MonoBehaviour
         for (int i = scoreThresholds.Length - 1; i >= 0; i--)
         {
             // rank 0 = 14 mistakes, rank 1 = 13 mistakes, etc... rank 14 = 0 mistakes
-            scoreThresholds[scoreThresholds.Length - 1 - i] = (int)(i * ((float)numLevels / 14f));
+            scoreThresholds[scoreThresholds.Length - 1 - i] = (int)(i * ((float)numLevels / 10f));
         }
     }
 

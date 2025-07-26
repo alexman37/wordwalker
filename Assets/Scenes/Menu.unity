@@ -12188,7 +12188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b884bd33dd2134c8c0a7d51755ba31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLevels: 10
+  numLevels: 15
   lengthName: Moderate
 --- !u!1 &803781877
 GameObject:
@@ -21866,7 +21866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b884bd33dd2134c8c0a7d51755ba31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLevels: 5
+  numLevels: 10
   lengthName: Short
 --- !u!1 &1493066554
 GameObject:
@@ -27746,7 +27746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ccb1cab09d0244b9f3d147254a6747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numLevels: 5
+  numLevels: 10
   titleCard: {fileID: 657317283}
   playButtons: {fileID: 1193095034}
 --- !u!4 &1912034993

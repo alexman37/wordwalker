@@ -35,6 +35,8 @@ public abstract class GenMethod : MonoBehaviour
     private static TileDivot endingDivot;
     private static GameObject divotsContainer;
     private static GameObject endSide;
+    private static GameObject doorBlack;
+    private static GameObject doorWhite;
 
     // If one day we wish to use different shaped tiles, change this...
     protected static GameObject baseTile;
@@ -73,6 +75,12 @@ public abstract class GenMethod : MonoBehaviour
 
         baseTile = GameObject.FindGameObjectWithTag("BaseTile");
         endSide = GameObject.FindGameObjectWithTag("EndSide");
+        if(doorBlack == null && doorWhite == null)
+        {
+            doorBlack = GameObject.FindGameObjectWithTag("DoorBlack");
+            doorWhite = GameObject.FindGameObjectWithTag("DoorWhite");
+            doorWhite.SetActive(false);
+        }
     }
 
 
@@ -626,5 +634,11 @@ public abstract class GenMethod : MonoBehaviour
     protected void done(List<Tile> starters)
     {
         finishedGeneration.Invoke(starters);
+    }
+
+    public void switchDoorType(bool toBlack)
+    {
+        doorWhite.SetActive(!toBlack);
+        doorBlack.SetActive(toBlack);
     }
 }

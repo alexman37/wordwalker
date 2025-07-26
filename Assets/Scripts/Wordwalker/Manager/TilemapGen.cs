@@ -48,6 +48,12 @@ public class TilemapGen : MonoBehaviour
         }
     }
 
+    // Spawn treasure or make the door light or whatever we do for the last level
+    public void switchDoorType(bool toBlack)
+    {
+        currentGenMethod.switchDoorType(toBlack);
+    }
+
     /// <summary>
     /// Perfect inputs
     /// </summary>
