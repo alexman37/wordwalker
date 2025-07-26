@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class ModeToolUI : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class ModeToolUI : MonoBehaviour
     public static event Action inMarkerMode;
     public static event Action inViewMode;
     public static event Action inStepperMode;
+
+    public Image infographicImg;
+    public TextMeshProUGUI infographicText;
+    IEnumerator fadingCoroutine;
 
     public enum PlayerMode
     {
@@ -26,12 +31,8 @@ public class ModeToolUI : MonoBehaviour
     {
         image = GetComponent<Image>();
         inStepperMode.Invoke();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        infographicImg.transform.parent.gameObject.SetActive(false);
     }
 
     public void changeMode()
@@ -52,6 +53,7 @@ public class ModeToolUI : MonoBehaviour
                 break;
         }
         alsoChangePicture();
+        alsoShowInfographic();
     }
 
     void alsoChangePicture()
@@ -62,5 +64,49 @@ public class ModeToolUI : MonoBehaviour
             case PlayerMode.MARKER: this.image.sprite = imageRotation[1]; break;
             case PlayerMode.VIEW: this.image.sprite = imageRotation[2]; break;
         }
+    }
+
+    void alsoShowInfographic()
+    {
+        infographicImg.transform.parent.gameObject.SetActive(true);
+        if(fadingCoroutine != null) StopCoroutine(fadingCoroutine);
+
+        infographicImg.color = Color.white;
+        infographicText.color = Color.white;
+        switch (currentMode)
+        {
+            case PlayerMode.STEPPER:
+                infographicImg.sprite = imageRotation[0];
+                infographicText.text = "Player Camera";
+                break;
+            case PlayerMode.MARKER:
+                infographicImg.sprite = imageRotation[1];
+                infographicText.text = "Marker Mode";
+                break;
+            case PlayerMode.VIEW:
+                infographicImg.sprite = imageRotation[2];
+                infographicText.text = "Free Camera";
+                break;
+        }
+
+        fadingCoroutine = fadeAwayInfographic();
+        StartCoroutine(fadingCoroutine);
+    }
+
+    IEnumerator fadeAwayInfographic()
+    {
+        yield return new WaitForSeconds(1);
+        float timeSec = 1f;
+
+        for(float i = 0; i < timeSec; i += Time.deltaTime)
+        {
+            infographicImg.color = new Color(1, 1, 1, 1 - i / timeSec);
+            infographicText.color = new Color(1, 1, 1, 1 - i / timeSec);
+            yield return null;
+        }
+
+        infographicImg.color = Color.clear;
+        infographicText.color = Color.clear;
+        infographicImg.transform.parent.gameObject.SetActive(false);
     }
 }

@@ -25,20 +25,6 @@ public class ItemsUI : MonoBehaviour
     private void Start()
     {
         thisImg = GetComponent<Image>();
-
-        /*Debug.Log("Comp " + scalingComp);
-        scalingComp.completedScaling += () =>
-        {
-            
-        };
-        if (scalingComp.DONE)
-        {
-            containerRect = transform.GetChild(0).GetComponent<RectTransform>();
-            itemsStart = containerRect.anchoredPosition;
-            itemsDest = new Vector2(itemsStart.x - containerRect.rect.width * 1.25f, itemsStart.y);
-        }*/
-
-        
     }
 
     private void OnEnable()
@@ -46,6 +32,7 @@ public class ItemsUI : MonoBehaviour
         GameManagerSc.changeInTotems += respondToTotemsChange;
         GameManagerSc.gameOver += closeMenu;
         GameManagerSc.levelWon += closeMenu;
+        GameManagerSc.newGame += defineBounds;
     }
 
     private void OnDisable()
@@ -53,6 +40,7 @@ public class ItemsUI : MonoBehaviour
         GameManagerSc.changeInTotems -= respondToTotemsChange;
         GameManagerSc.gameOver -= closeMenu;
         GameManagerSc.levelWon -= closeMenu;
+        GameManagerSc.newGame -= defineBounds;
     }
 
     public void toggleItemsMenu()

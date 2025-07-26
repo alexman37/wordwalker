@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialTilesGuide : MonoBehaviour
+public class SpecialTilesGuide : WidgetPopup
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.Setup();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void openPopup()
     {
-        
+        Tile.toggleCanClickTiles(false);
+        base.openWidgetPopup();
+    }
+
+    public void closePopup()
+    {
+        Tile.toggleCanClickTiles(true);
+        base.closeWidgetPopup();
     }
 }

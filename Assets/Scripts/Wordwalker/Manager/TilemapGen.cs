@@ -91,7 +91,7 @@ public class TilemapGen : MonoBehaviour
         generationMethodsAdv = GetComponents<GenMethod>();
 
         // You specify which ones you want for default
-        generationMethods = new GenMethod[] { GetComponent<Triangle>() };
+        generationMethods = new GenMethod[] { GetComponent<InverseTriangle>() };
 
         currentGenMethod = generationMethods[0];
 

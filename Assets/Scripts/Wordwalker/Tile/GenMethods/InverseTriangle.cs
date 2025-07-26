@@ -93,7 +93,7 @@ public class InverseTriangle : GenMethod
                     continue;
                 }
 
-                float xPos = -xSpacing * maxSubs / 2.0f + sub * xSpacing + oddRowOffset;
+                float xPos = (maxSubs * xSpacing / 2) - sub * xSpacing - oddRowOffset;//-xSpacing * maxSubs / 2.0f + sub * xSpacing + oddRowOffset;
                 Vector3 pos = new Vector3(xPos, 0, ySpacing * row);
                 GameObject next = GameObject.Instantiate(baseTile, pos, baseTile.transform.rotation);
                 next.transform.parent = container.transform;

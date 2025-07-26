@@ -395,16 +395,7 @@ public class WalkManager : MonoBehaviour
         if (t.correct)
         {
             t.revealMaterial(tileMats.correctTile);
-            
-
-            // TODO Will add to topbar unless (A) you already stepped on it, or (B) it's an empty/blank tile
-            /*if (!t.stepped && t.specType != Tile.SpecialTile.BLANK)
-            {
-                addLetterToTopWord(t);
-            }*/
         }
-
-        // When stepping on an incorrect tile, lose a totem if you have one, otherwise game over!
         else
         {
             t.revealMaterial(tileMats.incorrectTile);
@@ -419,8 +410,8 @@ public class WalkManager : MonoBehaviour
     {
         GameManagerSc.state.funStuff.tilesStepped += 1;
 
-        // On first step
-        if(!timerStarted)
+        // On first correct step
+        if(!timerStarted && t.correct)
         {
             timerStarted = true;
             TimeManager.startNamedTimer("walk_time");
