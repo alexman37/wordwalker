@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class CharSelectPopup : WidgetPopup
 {
@@ -11,6 +11,14 @@ public class CharSelectPopup : WidgetPopup
     public RectTransform[] picturePositions;
     Animator anim;
 
+    //unlock condition popup
+    public GameObject unlockCondition;
+    private int lastOrder = -1;
+
+    // assist in loading each character button
+    public static StatMap lastLoadedStats;
+    public CharSelectButton[] charButtons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,21 +27,28 @@ public class CharSelectPopup : WidgetPopup
         anim = titleSpriteObj.GetComponent<Animator>();
 
         // Get last used character, or use smitty as the default
-        Dictionary<string, int> intMap = GlobalStatMap.loadGlobalStatMap().intMap;
+        lastLoadedStats = GlobalStatMap.loadGlobalStatMap();
+        Dictionary<string, int> intMap = lastLoadedStats.intMap;
         if (intMap.ContainsKey("activeCharSprite"))
         {
             activeCharSprite = (CharacterSprite)intMap["activeCharSprite"];
         }
         else activeCharSprite = CharacterSprite.SMITTY;
+        hideUnlockCondition();
+
+        // determine if each character is locked or unlocked in their own scripts.
+        foreach(CharSelectButton button in charButtons)
+        {
+            button.SetupButton();
+        }
 
         changeTitleAnimation();
         changeSelectionFramePos();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        hideUnlockCondition();
     }
 
     public void useNewCharSprite(int newVal)
@@ -42,6 +57,7 @@ public class CharSelectPopup : WidgetPopup
         GlobalStatMap.AddOrModifyInt("activeCharSprite", (int) activeCharSprite);
         GlobalStatMap.saveGlobalStatMap();
 
+        hideUnlockCondition();
         changeTitleAnimation();
         changeSelectionFramePos();
     }
@@ -63,12 +79,38 @@ public class CharSelectPopup : WidgetPopup
         }
     }
 
+    public void showUnlockCondition(int order, string condition)
+    {
+        if(order == lastOrder)
+        {
+            hideUnlockCondition();
+        } else
+        {
+            lastOrder = order;
+            RectTransform rt = unlockCondition.GetComponent<RectTransform>();
+            rt.localPosition = picturePositions[order].localPosition + new Vector3(picturePositions[order].rect.width, 0, 0);
+            unlockCondition.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = condition;
+        }
+    }
+
+    public void hideUnlockCondition()
+    {
+        RectTransform rt = unlockCondition.GetComponent<RectTransform>();
+        rt.localPosition = new Vector2(Screen.safeArea.width * 3, Screen.safeArea.height * 3);
+    }
+
     //Change the position of the selection frame
     //Kind of janky...right now we basically hard code it knowing where it'd be...
     void changeSelectionFramePos()
     {
         int i = (int)activeCharSprite;
         selectionFrame.GetComponent<RectTransform>().localPosition = picturePositions[i].localPosition;
+    }
+
+    public void closePopup()
+    {
+        base.closeWidgetPopup();
+        hideUnlockCondition();
     }
 
     public enum CharacterSprite

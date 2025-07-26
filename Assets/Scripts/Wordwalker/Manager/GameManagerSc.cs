@@ -314,8 +314,42 @@ public class GameManagerSc : MonoBehaviour
             uiManager.AwardGoldStar();
             DatabaseTracker.goldStar(localDBcopy.databaseId);
 
+            // lastly, handle character unlocks (if eligible)
+            switch(localDBcopy.group)
+            {
+                case "easy": GlobalStatMap.AddOrModifyBool("char-unlock-jesse", true); break;
+                case "medium": GlobalStatMap.AddOrModifyBool("char-unlock-jango", true); break;
+                case "hard": GlobalStatMap.AddOrModifyBool("char-unlock-shadow-smitty", true); break;
+                case "very-hard":
+                    if(localDBcopy.databaseId == "standard/nightmare")
+                    {
+                        GlobalStatMap.AddOrModifyBool("char-unlock-nightingale", true);
+                    }
+                    else
+                    {
+                        GlobalStatMap.AddOrModifyBool("char-unlock-monk", true);
+                    }
+                    break;
+                case "trivia":
+                    if (localDBcopy.databaseId == "trivia/101-cities" || localDBcopy.databaseId == "trivia/flags" ||
+                        localDBcopy.databaseId == "trivia/capitals" || localDBcopy.databaseId == "trivia/state-capitals")
+                    {
+                        GlobalStatMap.AddOrModifyBool("char-unlock-winter", true);
+                    }
+                    else if(localDBcopy.databaseId == "trivia/celebs" || localDBcopy.databaseId == "trivia/pokemon")
+                    {
+                        GlobalStatMap.AddOrModifyBool("char-unlock-hazel", true);
+                    }
+                    break;
+                default: break;
+            }
+            int stars = GlobalStatMap.IncrementInt("total-gold-stars", 1);
+            if(stars >= 12)
+                GlobalStatMap.AddOrModifyBool("char-unlock-golden-smitty", true);
+
             return new HighScore(state.getScore(), 14, state.totalTime, formattedDate, 5);
-        } else
+        }
+        else
         {
             return new HighScore(state.getScore(), RankBox.getFinalRank(state.numMistakes), state.totalTime, formattedDate, state.selectedChallenges.Count);
         }

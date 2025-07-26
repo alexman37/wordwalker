@@ -77,7 +77,7 @@ public static class GlobalStatMap
     }
 
     // Increment an integer value if it exists
-    public static void IncrementInt(string varName, int inc)
+    public static int IncrementInt(string varName, int inc)
     {
         if (statMap.intMap.ContainsKey(varName))
         {
@@ -85,9 +85,11 @@ public static class GlobalStatMap
         }
         else
         {
-            Debug.LogWarning("Tried to increment " + varName + " but it does not exist");
+            Debug.LogWarning("Tried to increment " + varName + " but it does not exist. Setting to supplied increment");
+            statMap.intMap[varName] = inc;
         }
         saveGlobalStatMap();
+        return statMap.intMap[varName];
     }
 
     public static void AddOrModifyFloat(string varName, float val)
@@ -239,10 +241,11 @@ public class StatMap
         else return new OptionType<string>(false, "");
     }
 
-    public OptionType<bool> GetBoolMaybe(string boolName)
+    // Don't need option types for bool. it's either true or not.
+    public bool GetBool(string boolName)
     {
-        if (boolMap.ContainsKey(boolName)) return new OptionType<bool>(true, boolMap[boolName]);
-        else return new OptionType<bool>(false, false);
+        if (boolMap.ContainsKey(boolName)) return boolMap[boolName];
+        else return false;
     }
 }
 

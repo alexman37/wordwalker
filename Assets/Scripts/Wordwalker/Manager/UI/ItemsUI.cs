@@ -26,23 +26,19 @@ public class ItemsUI : MonoBehaviour
     {
         thisImg = GetComponent<Image>();
 
+        /*Debug.Log("Comp " + scalingComp);
         scalingComp.completedScaling += () =>
         {
-            containerRect = transform.GetChild(0).GetComponent<RectTransform>();
-            itemsStart = containerRect.anchoredPosition;
-            itemsDest = new Vector2(itemsStart.x - containerRect.rect.width * 1.25f, itemsStart.y);
+            
         };
         if (scalingComp.DONE)
         {
             containerRect = transform.GetChild(0).GetComponent<RectTransform>();
             itemsStart = containerRect.anchoredPosition;
             itemsDest = new Vector2(itemsStart.x - containerRect.rect.width * 1.25f, itemsStart.y);
-        }
+        }*/
 
-        containerRect.anchoredPosition = itemsDest;
-
-        movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsStart);
-        movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsDest);
+        
     }
 
     private void OnEnable()
@@ -94,8 +90,19 @@ public class ItemsUI : MonoBehaviour
         }
     }
 
+    void defineBounds()
+    {
+        containerRect = transform.GetChild(0).GetComponent<RectTransform>();
+        itemsStart = containerRect.anchoredPosition;
+        itemsDest = new Vector2(itemsStart.x - containerRect.rect.width * 1.25f, itemsStart.y);
+        containerRect.anchoredPosition = itemsDest;
+        movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsStart);
+        movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsDest);
+    }
+
     void openMenu()
     {
+        if (containerRect == null) defineBounds();
         StopCoroutine(movingCoroutineOut);
         movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 1f, containerRect, itemsStart);
         StartCoroutine(movingCoroutineIn);
@@ -103,6 +110,7 @@ public class ItemsUI : MonoBehaviour
 
     void closeMenu()
     {
+        if (containerRect == null) defineBounds();
         StopCoroutine(movingCoroutineIn);
         movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 1f, containerRect, itemsDest);
         StartCoroutine(movingCoroutineOut);
@@ -110,8 +118,6 @@ public class ItemsUI : MonoBehaviour
 
     void closeMenu(GameManagerSc.LossReason _)
     {
-        StopCoroutine(movingCoroutineIn);
-        movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 1f, containerRect, itemsDest);
-        StartCoroutine(movingCoroutineOut);
+        closeMenu();
     }
 }

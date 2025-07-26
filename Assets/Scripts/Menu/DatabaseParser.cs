@@ -63,7 +63,7 @@ public class DatabaseParser : MonoBehaviour
                 }
 
                 // Add the item to the correct database.
-                DatabaseItem item = new DatabaseItem(vars[1], vars[2], pic, desc, maxBacktracks, dbSize, imageDB);
+                DatabaseItem item = new DatabaseItem(vars[0], vars[1], vars[2], pic, desc, maxBacktracks, dbSize, imageDB);
                 item.loadedIcon = defaultImg;
                 dbItemFullSet.Add(item);
                 foreach(DatabaseSet dbSet in databaseSet)
