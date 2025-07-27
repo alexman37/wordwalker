@@ -216,7 +216,14 @@ public class InverseTriangle : GenMethod
                 curr = chosenAdj.tile;
             }
         }
+
+        // Set the order here so we can use it in later steps
         corrects.Reverse();
+        for (int i = 0; i < corrects.Count; i++)
+        {
+            corrects[i].order = i;
+        }
+
         return corrects;
     }
 

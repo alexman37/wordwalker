@@ -17,7 +17,6 @@ public class GameWonUI : MonoBehaviour
     public TextMeshProUGUI timeTaken;
     public TextMeshProUGUI mistakes;
     public TextMeshProUGUI funStatName;
-    public TextMeshProUGUI funStatValue;
     public TextMeshProUGUI commentary;
     public Image finalRankSprite;
 
@@ -81,9 +80,21 @@ public class GameWonUI : MonoBehaviour
             mistakes.text = GameManagerSc.state.numMistakes.ToString();
 
             // Get a random fun stat to display
-            (string n, string v) funStatInputs = FunStatUI.getFunStat(funStatName);
-            funStatName.text = funStatInputs.n;
-            funStatValue.text = funStatInputs.v;
+            (string n, string v) funStatInputs = FunStatUI.getFunStat();
+
+            // Add however many periods you can to reach the "just before size" quota
+            float width = funStatName.GetComponent<RectTransform>().rect.width;
+            int funStatNameLength = funStatInputs.n.Length;
+
+            string working = funStatInputs.n + funStatInputs.v;
+            for (float i = funStatName.preferredWidth; i < width; i = funStatName.preferredWidth)
+            {
+                working = working.Substring(0, funStatNameLength) + "." + working.Substring(funStatNameLength);
+                funStatName.text = working;
+                i = funStatName.preferredWidth;
+            }
+
+            funStatName.text = working.Substring(0, funStatNameLength) + working.Substring(funStatNameLength + 1);
 
             // GameManagerSc may not do the calculation in time so we'll just do it here
             int trueRank = GameManagerSc.getRank() == 13 && GameManagerSc.state.selectedChallenges.Count == 5 ? 14 : GameManagerSc.getRank();

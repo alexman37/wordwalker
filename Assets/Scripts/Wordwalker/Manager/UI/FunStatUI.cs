@@ -11,7 +11,7 @@ public class FunStatUI : MonoBehaviour
         
     }
 
-    public static (string, string) getFunStat(TextMeshProUGUI nameField)
+    public static (string, string) getFunStat()
     {
         WWGameState state = GameManagerSc.state;
 
@@ -29,18 +29,6 @@ public class FunStatUI : MonoBehaviour
         {
             funStatResult = getRandomLegit(state);
         }
-
-        // Add however many periods you can to reach the "just before size" quota
-        float width = nameField.GetComponent<RectTransform>().rect.width;
-
-        nameField.text = funStatResult.n;
-        for (float i = nameField.preferredWidth; i < width; i = nameField.preferredWidth)
-        {
-            funStatResult.n += ".";
-            nameField.text = funStatResult.n;
-        }
-        // drop last period
-        funStatResult.n = funStatResult.n.Substring(0, funStatResult.n.Length - 1);
 
         return funStatResult;
     }
