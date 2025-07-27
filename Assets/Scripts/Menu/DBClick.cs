@@ -66,6 +66,7 @@ public class DBClick : MonoBehaviour
 
     private void OnSelectMe()
     {
+        if (!selected) SfxManager.instance.playSFXbyName("click-hit", null, 1);
         selected = true;
         backgroundCol.color = new Color(135f / 255f, 146f / 255f, 171f / 255f);
     }

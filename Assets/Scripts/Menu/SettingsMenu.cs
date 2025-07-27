@@ -29,6 +29,8 @@ public class SettingsMenu : WidgetPopup
     public static event Action<float> toggledSfxVol;
     public static event Action<ScreenOrientationSetting> toggledScreenOr;
 
+    private bool readyForSFX = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,8 @@ public class SettingsMenu : WidgetPopup
         adjustSfxVolSlider(settingsValues.sfxVolume);
         setInGameMusic(settingsValues.inGameMusic);
         selectScreenOrientation(settingsValues.screenOrientationSetting);
+
+        readyForSFX = true;
     }
 
     public void toggleInGameMusic()
@@ -65,6 +69,7 @@ public class SettingsMenu : WidgetPopup
 
     public void setInGameMusic(bool val)
     {
+        if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         settingsValues.inGameMusic = val;
         if (settingsValues.inGameMusic)
         {
@@ -98,6 +103,7 @@ public class SettingsMenu : WidgetPopup
 
     public void selectScreenOrientation(ScreenOrientationSetting screenOr)
     {
+        if(readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         settingsValues.screenOrientationSetting = screenOr;
         foreach(Image button in buttonGroupImgs)
         {
@@ -122,6 +128,7 @@ public class SettingsMenu : WidgetPopup
 
     public void attemptReset()
     {
+        if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         clearData.SetActive(false);
         resetConfirmation.SetActive(true);
     }
@@ -134,6 +141,7 @@ public class SettingsMenu : WidgetPopup
 
     public void resetAllData()
     {
+        if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         DatabaseTracker.resetAllData();
         GlobalStatMap.resetAllData();
         clearData.SetActive(true);

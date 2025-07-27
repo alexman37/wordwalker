@@ -15,6 +15,7 @@ public class ItemsScript : MonoBehaviour
     public static event Action blueItemUsed;
     public static event Action blueItemCancelled;
 
+    [SerializeField] private AudioClip genericPress;
     [SerializeField] private AudioClip greenItemClip;
     [SerializeField] private AudioClip redItemClip;
     [SerializeField] private AudioClip blueItemClip;
@@ -69,6 +70,7 @@ public class ItemsScript : MonoBehaviour
         {
             GameManagerSc.state.funStuff.itemsUsed += 1;
             GameManagerSc.changeTotems(1, false);
+            SfxManager.instance.playSFX(genericPress, null, 1f);
             return true;
         }
     }
@@ -151,6 +153,7 @@ public class ItemsScript : MonoBehaviour
                 if (GameManagerSc.getNumTotems() > 0)
                 {
                     blueItemUsed.Invoke();
+                    SfxManager.instance.playSFX(blueItemClip, null, 1f);
                 }
             }
         }

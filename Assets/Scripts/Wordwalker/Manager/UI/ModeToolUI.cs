@@ -19,6 +19,8 @@ public class ModeToolUI : MonoBehaviour
     public TextMeshProUGUI infographicText;
     IEnumerator fadingCoroutine;
 
+    public AudioClip modeChangeClip;
+
     public enum PlayerMode
     {
         MARKER,
@@ -52,6 +54,7 @@ public class ModeToolUI : MonoBehaviour
                 inMarkerMode.Invoke();
                 break;
         }
+        SfxManager.instance.playSFX(modeChangeClip, null, 1);
         alsoChangePicture();
         alsoShowInfographic();
     }

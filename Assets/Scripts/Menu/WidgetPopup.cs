@@ -35,6 +35,7 @@ public class WidgetPopup : MonoBehaviour
             StopCoroutine(movingCoroutineOut);
             movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, 0));
             StartCoroutine(movingCoroutineIn);
+            SfxManager.instance.playSFXbyName("slide", null, 1);
         }
 
         // Player cannot move the map around when a widget is open...thems the rules
@@ -47,6 +48,7 @@ public class WidgetPopup : MonoBehaviour
         StopCoroutine(movingCoroutineIn);
         movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, -Screen.safeArea.height));
         StartCoroutine(movingCoroutineOut);
+        SfxManager.instance.playSFXbyName("slide-away", null, 1);
         activeWidget = null;
 
         // Player can open widgets again

@@ -513,6 +513,7 @@ public class WalkManager : MonoBehaviour
 
                     isActivelyMoving = true;
                     animationManager.launchJump(t);
+                    SfxManager.instance.playSFXbyName("jumping", null, 1f);
 
                     // Will have to update Y-coord for camera in PlayerManager (according to zoom)
                     playerManager.LerpCameraTo(new Vector3(t.absolutePosition.Item1, 0, t.absolutePosition.Item2), 0.5f);
@@ -537,6 +538,7 @@ public class WalkManager : MonoBehaviour
     {
         if (!t.stepped)
         {
+            SfxManager.instance.playSFXbyName("marker", null, 1);
             if (!t.marked) t.markAsDangerous(tileMats.incorrectTile);
             else t.unmarkAsDangerous(tileMats.getCurrentBase(false, t.stepped, t.correct, t.specType));
         }

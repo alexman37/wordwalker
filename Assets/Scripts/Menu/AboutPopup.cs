@@ -17,12 +17,14 @@ public class AboutPopup : WidgetPopup
 
     public void goToAbout()
     {
+        SfxManager.instance.playSFXbyName("page-turn-short", null, 1);
         aboutContent.SetActive(true);
         credsContent.SetActive(false);
     }
 
     public void goToCredits()
     {
+        SfxManager.instance.playSFXbyName("page-turn-short", null, 1);
         aboutContent.SetActive(false);
         credsContent.SetActive(true);
     }

@@ -1980,11 +1980,23 @@ MonoBehaviour:
   clipNames:
   - correct-step
   - incorrect-step
-  - 
+  - stone-slide-in
+  - stone-slide-out
+  - jumping
+  - marker
+  - slide
+  - slide-away
+  - click-short
   clipsInOrder:
   - {fileID: 8300000, guid: 83d517463e264d3488b78bff185e07a9, type: 3}
   - {fileID: 8300000, guid: 6c462ee37a5707e4a9d691445d88a40b, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 08f29bcfc6a61f64f987cce5453fe465, type: 3}
+  - {fileID: 8300000, guid: 1f3b2ac54a394b54f9d9c724bf7452fb, type: 3}
+  - {fileID: 8300000, guid: 41e4d18f46a070c46b3dfdf85317b76c, type: 3}
+  - {fileID: 8300000, guid: 672e219e8c9a6bb4a84b8195fa598a62, type: 3}
+  - {fileID: 8300000, guid: 93eec571a3e5b0e46b85ac0c47c04880, type: 3}
+  - {fileID: 8300000, guid: ddfbf1998112f0e44ace392346a0b5b3, type: 3}
+  - {fileID: 8300000, guid: a4a0ac8625b36984bbfce9c3f5683aaf, type: 3}
 --- !u!1 &155176774
 GameObject:
   m_ObjectHideFlags: 0
@@ -5493,6 +5505,8 @@ MonoBehaviour:
   activated: {fileID: 21300000, guid: f0892fbff737e754aa662782f0424980, type: 3}
   deactivated: {fileID: 21300000, guid: 44ddbfd2994d41443b878c63e8b71e06, type: 3}
   scalingComp: {fileID: 100416256}
+  itemsSlideIn: {fileID: 8300000, guid: 93eec571a3e5b0e46b85ac0c47c04880, type: 3}
+  itemsSlideOut: {fileID: 8300000, guid: ddfbf1998112f0e44ace392346a0b5b3, type: 3}
 --- !u!1 &323915564
 GameObject:
   m_ObjectHideFlags: 0
@@ -8452,7 +8466,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1968904702}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12751,9 +12765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd04f75b41e7edb4d82bf199b5571027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  genericPress: {fileID: 8300000, guid: bde1e1554bd0ad3459e080b07ae19d66, type: 3}
   greenItemClip: {fileID: 8300000, guid: 9c24f2fb35e55c2409ff17c87c17a1ce, type: 3}
   redItemClip: {fileID: 8300000, guid: 6c462ee37a5707e4a9d691445d88a40b, type: 3}
-  blueItemClip: {fileID: 0}
+  blueItemClip: {fileID: 8300000, guid: bde1e1554bd0ad3459e080b07ae19d66, type: 3}
   playerManager: {fileID: 1985590259}
   animationManager: {fileID: 1038872061}
 --- !u!1 &775207870
@@ -14983,7 +14998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &907055211
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14996,7 +15011,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1968904702}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20777,6 +20792,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 09d25f1a14c4d3046b2b68119157b2a7, type: 3}
   infographicImg: {fileID: 575506581}
   infographicText: {fileID: 1767588531}
+  modeChangeClip: {fileID: 8300000, guid: a4a0ac8625b36984bbfce9c3f5683aaf, type: 3}
 --- !u!1 &1271015333
 GameObject:
   m_ObjectHideFlags: 0
@@ -24487,6 +24503,8 @@ MonoBehaviour:
   - Masterful!
   - Perfection!
   rankBox: {fileID: 981953205}
+  tada: {fileID: 8300000, guid: 605646b83fc223f42ad0c165b8eb680d, type: 3}
+  applause: {fileID: 8300000, guid: 083c7fb8138609848bda7516f5b85f71, type: 3}
 --- !u!1 &1527603539
 GameObject:
   m_ObjectHideFlags: 0
@@ -26838,7 +26856,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1968904702}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26867,8 +26885,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mode
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9135e5e6637fa76409f47f8227533a81, type: 2}
+  m_sharedMaterial: {fileID: -2635766595934019886, guid: 9135e5e6637fa76409f47f8227533a81, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28972,9 +28990,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 907055211}
   - {fileID: 1767588530}
   - {fileID: 575506580}
-  - {fileID: 907055211}
   m_Father: {fileID: 1761255652}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

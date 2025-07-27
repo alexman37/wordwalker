@@ -35,6 +35,7 @@ public class GameLengthMod : MonoBehaviour
 
     public void openLengthMod()
     {
+        SfxManager.instance.playSFXbyName("slide", null, 1);
         StopCoroutine(movingCoroutineOut);
         movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, 0));
         StartCoroutine(movingCoroutineIn);
@@ -42,6 +43,7 @@ public class GameLengthMod : MonoBehaviour
 
     public void closeLengthMod()
     {
+        SfxManager.instance.playSFXbyName("slide-away", null, 1);
         StopCoroutine(movingCoroutineIn);
         movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, -Screen.safeArea.height));
         StartCoroutine(movingCoroutineOut);

@@ -30,6 +30,7 @@ public class TutorialPopup : WidgetPopup
     {
         if(currPage < totalNumPages - 1)
         {
+            SfxManager.instance.playSFXbyName("page-turn-short", null, 1);
             currPage = currPage + 1;
             if(currPage == totalNumPages - 1)
             {
@@ -46,6 +47,7 @@ public class TutorialPopup : WidgetPopup
     {
         if (currPage > 0)
         {
+            SfxManager.instance.playSFXbyName("page-turn-short", null, 1);
             currPage = currPage - 1;
             if (currPage == 0)
             {

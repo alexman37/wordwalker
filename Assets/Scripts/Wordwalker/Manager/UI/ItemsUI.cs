@@ -8,6 +8,8 @@ public class ItemsUI : MonoBehaviour
     public GameObject itemsMenu;
     bool isOpened = false;
     bool isActive = true;
+    bool initialDefine = false;
+    bool deadState = false;
 
     private Image thisImg;
     public Sprite normal;
@@ -22,6 +24,9 @@ public class ItemsUI : MonoBehaviour
     Vector2 itemsStart;
     Vector2 itemsDest;
 
+    public AudioClip itemsSlideIn;
+    public AudioClip itemsSlideOut;
+
     private void Start()
     {
         thisImg = GetComponent<Image>();
@@ -30,22 +35,24 @@ public class ItemsUI : MonoBehaviour
     private void OnEnable()
     {
         GameManagerSc.changeInTotems += respondToTotemsChange;
-        GameManagerSc.gameOver += closeMenu;
-        GameManagerSc.levelWon += closeMenu;
+        GameManagerSc.gameOver += disableMenu;
+        GameManagerSc.levelWon += disableMenu;
+        GameManagerSc.levelReady += reenableMenu;
         GameManagerSc.newGame += defineBounds;
     }
 
     private void OnDisable()
     {
         GameManagerSc.changeInTotems -= respondToTotemsChange;
-        GameManagerSc.gameOver -= closeMenu;
-        GameManagerSc.levelWon -= closeMenu;
+        GameManagerSc.gameOver -= disableMenu;
+        GameManagerSc.levelWon -= disableMenu;
+        GameManagerSc.levelReady -= reenableMenu;
         GameManagerSc.newGame -= defineBounds;
     }
 
     public void toggleItemsMenu()
     {
-        if(isActive)
+        if(isActive && !deadState)
         {
             isOpened = !isOpened;
 
@@ -65,27 +72,35 @@ public class ItemsUI : MonoBehaviour
 
     private void respondToTotemsChange(int totems)
     {
-        if(totems <= 0)
+        if (containerRect == null) defineBounds();
+        if(!deadState)
         {
-            closeMenu();
-            thisImg.sprite = deactivated;
-            isActive = false;
-        }
-        else
-        {
-            thisImg.sprite = normal;
-            isActive = true;
+            if (totems <= 0)
+            {
+                closeMenu();
+                thisImg.sprite = deactivated;
+                isActive = false;
+            }
+            else
+            {
+                thisImg.sprite = normal;
+                isActive = true;
+            }
         }
     }
 
     void defineBounds()
     {
-        containerRect = transform.GetChild(0).GetComponent<RectTransform>();
-        itemsStart = containerRect.anchoredPosition;
-        itemsDest = new Vector2(itemsStart.x - containerRect.rect.width * 1.25f, itemsStart.y);
-        containerRect.anchoredPosition = itemsDest;
-        movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsStart);
-        movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsDest);
+        if(!initialDefine)
+        {
+            containerRect = transform.GetChild(0).GetComponent<RectTransform>();
+            itemsStart = containerRect.anchoredPosition;
+            itemsDest = new Vector2(itemsStart.x - containerRect.rect.width * 1.25f, itemsStart.y);
+            containerRect.anchoredPosition = itemsDest;
+            movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsStart);
+            movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 0.5f, containerRect, itemsDest);
+            initialDefine = true;
+        }
     }
 
     void openMenu()
@@ -94,6 +109,7 @@ public class ItemsUI : MonoBehaviour
         StopCoroutine(movingCoroutineOut);
         movingCoroutineIn = UIUtils.XerpOnUiCoroutine(30, 1f, containerRect, itemsStart);
         StartCoroutine(movingCoroutineIn);
+        SfxManager.instance.playSFX(itemsSlideIn, null, 1f);
     }
 
     void closeMenu()
@@ -102,10 +118,32 @@ public class ItemsUI : MonoBehaviour
         StopCoroutine(movingCoroutineIn);
         movingCoroutineOut = UIUtils.XerpOnUiCoroutine(30, 1f, containerRect, itemsDest);
         StartCoroutine(movingCoroutineOut);
+        SfxManager.instance.playSFX(itemsSlideOut, null, 1f);
     }
 
-    void closeMenu(GameManagerSc.LossReason _)
+    void disableMenu()
     {
-        closeMenu();
+        deadState = true;
+        if (containerRect == null) defineBounds();
+        containerRect.anchoredPosition = itemsDest;
+        Debug.Log("DEACTIVATING!");
+        thisImg.sprite = deactivated;
+        isActive = false;
+        isOpened = false;
+    }
+
+    void disableMenu(GameManagerSc.LossReason _)
+    {
+        disableMenu();
+    }
+
+    void reenableMenu()
+    {
+        deadState = false;
+        if (containerRect == null) defineBounds();
+        containerRect.anchoredPosition = itemsDest;
+        thisImg.sprite = normal;
+        isActive = true;
+        isOpened = false;
     }
 }

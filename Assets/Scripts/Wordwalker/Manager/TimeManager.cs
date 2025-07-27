@@ -94,9 +94,12 @@ public class TimeManager : MonoBehaviour
 
     public static float stopNamedTimer(string n)
     {
-        Debug.Log("Search for key " + n);
-        float timeStarted = namedTimer[n];
-        namedTimer.Remove(n);
-        return totalTimeElapsed - timeStarted;
+        if (namedTimer.ContainsKey(n))
+        {
+            float timeStarted = namedTimer[n];
+            namedTimer.Remove(n);
+            return totalTimeElapsed - timeStarted;
+        }
+        else return -1;
     }
 }

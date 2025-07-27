@@ -42,6 +42,7 @@ public class MenuScript : MonoBehaviour
     {
         yield return new WaitUntil(() => TitleHex.tilesReady >= TitleHex.tilesRequired);
         transition.Invoke(false);
+        //SfxManager.instance.playSFXbyName("slide-away", null, 0.5f);
     }
 
 
@@ -65,6 +66,7 @@ public class MenuScript : MonoBehaviour
 
         GameManagerSc.transitioning = true;
         transition.Invoke(true);
+        //SfxManager.instance.playSFXbyName("slide", null, 0.5f);
     }
 
     //TODO - possibly implement if we want challenges to be in the daily word.
@@ -96,6 +98,7 @@ public class MenuScript : MonoBehaviour
 
         GameManagerSc.transitioning = true;
         transition.Invoke(true);
+        //SfxManager.instance.playSFXbyName("slide", null, 1);
     }
 
     private void OnEnable()

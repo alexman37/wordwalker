@@ -191,6 +191,7 @@ public class GameManagerSc : MonoBehaviour
 
             transitioning = false;
             transition.Invoke(false);
+            //SfxManager.instance.playSFXbyName("slide-away", null, 0.5f);
             newGame.Invoke();
             goToNextLevel();
         }
@@ -403,6 +404,7 @@ public class GameManagerSc : MonoBehaviour
 
         MenuScript.transitioning = true;
         transition.Invoke(true);
+        //SfxManager.instance.playSFXbyName("slide", null, 0.5f);
     }
 
     public enum LossReason

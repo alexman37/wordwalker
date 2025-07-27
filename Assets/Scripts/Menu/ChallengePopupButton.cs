@@ -13,6 +13,7 @@ public class ChallengePopupButton : MonoBehaviour
     public void showPopup()
     {
         challengePopup.openPopup();
+        SfxManager.instance.playSFXbyName("slide", null, 1);
     }
 
     private void changeBackground(int i)

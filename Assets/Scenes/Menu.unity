@@ -8890,6 +8890,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541922920}
   m_CullTransparentMesh: 1
+--- !u!1 &543453429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543453431}
+  - component: {fileID: 543453430}
+  m_Layer: 0
+  m_Name: SfxManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &543453430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543453429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a167cb558323145bcea11909076a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 8934601380631025949, guid: b901c5ef8add29b41b4be837b7ffbc24, type: 3}
+  clipNames:
+  - slide
+  - slide-away
+  - click-hit
+  - click-short
+  - click-tap
+  - page-turn-short
+  - stone-slide-in
+  - stone-slide-out
+  clipsInOrder:
+  - {fileID: 8300000, guid: 93eec571a3e5b0e46b85ac0c47c04880, type: 3}
+  - {fileID: 8300000, guid: ddfbf1998112f0e44ace392346a0b5b3, type: 3}
+  - {fileID: 8300000, guid: 00eb3f1886e2bd34d9eaa25274b1f242, type: 3}
+  - {fileID: 8300000, guid: a4a0ac8625b36984bbfce9c3f5683aaf, type: 3}
+  - {fileID: 8300000, guid: bde1e1554bd0ad3459e080b07ae19d66, type: 3}
+  - {fileID: 8300000, guid: d480b528d432a8140b52d776bff3fc45, type: 3}
+  - {fileID: 8300000, guid: 08f29bcfc6a61f64f987cce5453fe465, type: 3}
+  - {fileID: 8300000, guid: 1f3b2ac54a394b54f9d9c724bf7452fb, type: 3}
+--- !u!4 &543453431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543453429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 204.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &548574199
 GameObject:
   m_ObjectHideFlags: 0

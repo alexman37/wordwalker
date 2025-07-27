@@ -41,7 +41,8 @@ public class ChallengePopup : MonoBehaviour
 
     private void enableAllChallenges(bool on)
     {
-        if(on)
+        SfxManager.instance.playSFXbyName("click-short", null, 1);
+        if (on)
         {
             numChallengesEnabled = 5;
             getAppropriateStarBack();
@@ -58,6 +59,7 @@ public class ChallengePopup : MonoBehaviour
 
     private void updateInfoLine(MenuScript.Challenge id, bool enabled)
     {
+        SfxManager.instance.playSFXbyName("click-tap", null, 1);
         switch (id)
         {
             case MenuScript.Challenge.IRON_MAN:
@@ -133,6 +135,7 @@ public class ChallengePopup : MonoBehaviour
     public void closePopup()
     {
         closedPopup.Invoke(numChallengesEnabled);
+        SfxManager.instance.playSFXbyName("slide-away", null, 1);
         StartCoroutine(closePopupCo());
     }
 

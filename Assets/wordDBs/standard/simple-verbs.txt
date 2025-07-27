@@ -51,7 +51,7 @@ TEST|To Try it out
 WRAP|To Cover something up
 SCAN|To Look closely or use a machine
 FILL|To Make something full
-BEEP|To Short electronic sound
+BEEP|To Make a short electrical sound
 BEND|To Curve or lean
 SHIP|To Send a package
 FORM|To Make a shape
@@ -79,7 +79,7 @@ DRAG|To Pull with effort
 TRIP|To Fall over
 RISE|To Go up
 SEEK|To Try to find
-LIVE|To Be alive
+LIVE|To Exist
 MISS|To Not catch
 TAKE|To Grab or accept
 WIPE|To Clean with cloth

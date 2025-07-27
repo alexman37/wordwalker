@@ -26,6 +26,9 @@ public class GameWonUI : MonoBehaviour
 
     public RankBox rankBox; // you need this to get the proper sprite.
 
+    public AudioClip tada;
+    public AudioClip applause;
+
     private void OnEnable()
     {
         GameManagerSc.levelWon += openGameWon;
@@ -86,6 +89,9 @@ public class GameWonUI : MonoBehaviour
             int trueRank = GameManagerSc.getRank() == 13 && GameManagerSc.state.selectedChallenges.Count == 5 ? 14 : GameManagerSc.getRank();
             finalRankSprite.sprite = rankBox.getRankAsSprite(trueRank);
             commentary.text = commentaryLines[trueRank];
+
+            SfxManager.instance.playSFX(tada, null, 1);
+            if(trueRank == 14) SfxManager.instance.playSFX(applause, null, 1);
 
             movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, Screen.safeArea.height / 4f));
             StartCoroutine(movingToScreen);

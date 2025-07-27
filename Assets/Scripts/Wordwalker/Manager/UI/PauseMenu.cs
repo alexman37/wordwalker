@@ -30,6 +30,8 @@ public class PauseMenu : WidgetPopup
     public static event Action<float> toggledSfxVol;
     public static event Action<ScreenOrientationSetting> toggledScreenOr;
 
+    private bool readyForSFX = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,10 +57,12 @@ public class PauseMenu : WidgetPopup
         adjustSfxVolSlider(settingsValues.sfxVolume);
         setInGameMusic(settingsValues.inGameMusic);
         selectScreenOrientation(settingsValues.screenOrientationSetting);
+        readyForSFX = true;
     }
 
     public void toggleInGameMusic()
     {
+        if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         settingsValues.inGameMusic = !settingsValues.inGameMusic;
         GlobalStatMap.ModifySettings(settingsValues);
         setInGameMusic(settingsValues.inGameMusic);
@@ -99,6 +103,7 @@ public class PauseMenu : WidgetPopup
 
     public void selectScreenOrientation(ScreenOrientationSetting screenOr)
     {
+        if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         settingsValues.screenOrientationSetting = screenOr;
         foreach (Image button in buttonGroupImgs)
         {
@@ -123,6 +128,7 @@ public class PauseMenu : WidgetPopup
 
     public void attemptReturn()
     {
+        if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         returnToMM.SetActive(false);
         returnConfirm.SetActive(true);
     }
@@ -135,6 +141,7 @@ public class PauseMenu : WidgetPopup
 
     public void exitToMainMenu()
     {
+        if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         GameManagerSc.returnToMainMenu();
     }
 
