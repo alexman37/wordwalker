@@ -63,7 +63,7 @@ public class DatabaseSet : MonoBehaviour
             nextEntry.GetComponent<RectTransform>().anchoredPosition = new Vector2(oldPos.x, oldPos.y - heightOfEntries * i);
 
             // Set image, high score and name of DB in entry
-            Debug.Log("First time draw of " + databases[i].databaseId + ": " + databases[i].loadedIcon.name);
+            //Debug.Log("First time draw of " + databases[i].databaseId + ": " + databases[i].loadedIcon.name);
             databases[i].inLineImage = nextEntry.transform.GetChild(0).GetComponent<Image>();
             nextEntry.transform.GetChild(0).GetComponent<Image>().sprite = databases[i].loadedIcon;
             nextEntry.transform.GetChild(1).GetComponent<Image>().sprite = rankBox.getRankAsSprite(persistent.highScores.highestRank);

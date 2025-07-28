@@ -27,6 +27,10 @@ public class ScalingUIComponent : MonoBehaviour
     public bool maintainAspectRatioY;
     public bool constantSize;
 
+    private static (float x, float y, float w, float h) screenSafeAreaProportions;
+    private static bool setProportions = false;
+
+
     private RectTransform rect;
     private Rect screenSpace;
 
@@ -51,7 +55,9 @@ public class ScalingUIComponent : MonoBehaviour
     /// </summary>
     public void proportionalSetLoc()
     {
-        if(!rect) Start();
+        Debug.Log("Begin with screen dimensions of " + screenSpace.width + ":" + screenSpace.height);
+        Debug.Log("And current res " + Screen.width + ":" + Screen.height);
+        if (!rect) Start();
         Vector2 newLoc = new Vector2(0, 0);
 
         // First set anchored position
@@ -147,21 +153,23 @@ public class ScalingUIComponent : MonoBehaviour
         if (percentScale.x != -1 && !constantSize)
         {
             Vector2 oldDims = new Vector2(rect.rect.width, rect.rect.height);
-            if(maintainAspectRatioX)
+            if (maintainAspectRatioX)
             {
                 // Height may not match up with inputted scale if you chose to scale by aspect ratio
                 float aspectedHeight = rect.rect.height / rect.rect.width * screenSpace.width * percentScale.x;
                 rect.sizeDelta = new Vector2(screenSpace.width * percentScale.x, aspectedHeight);
-            } else if(maintainAspectRatioY)
+            }
+            else if (maintainAspectRatioY)
             {
                 // Similar story for width if you base the aspect ratio on Y
                 float aspectedWidth = rect.rect.width / rect.rect.height * screenSpace.height * percentScale.y;
                 rect.sizeDelta = new Vector2(aspectedWidth, screenSpace.height * percentScale.y);
             }
-            else {
+            else
+            {
                 rect.sizeDelta = new Vector2(screenSpace.width * percentScale.x, screenSpace.height * percentScale.y);
             }
-            
+
             Vector2 newDims = new Vector2(rect.rect.width, rect.rect.height);
 
             for (int i = 0; i < this.transform.childCount; i++)
@@ -173,6 +181,8 @@ public class ScalingUIComponent : MonoBehaviour
         rect.anchoredPosition = newLoc;
         DONE = true;
         completedScaling.Invoke();
+
+        Debug.Log("New width:height for " + name + " were " + rect.rect.width + ":" + rect.rect.height);
     }
 
     // Call on each child
@@ -227,6 +237,39 @@ public class ScalingUIComponent : MonoBehaviour
         rect = this.GetComponent<RectTransform>();
         screenSpace = Screen.safeArea;
 
+        proportionalSetLoc();
+
+        if(!setProportions)
+        {
+            setProportions = true;
+            screenSafeAreaProportions = (Screen.safeArea.x / Screen.width, 
+                Screen.safeArea.y / Screen.height, 
+                Screen.safeArea.width / Screen.width, 
+                Screen.safeArea.height / Screen.height);
+        }
+    }
+
+    // Handle resizes.
+    private void OnEnable()
+    {
+        ScreenResizeComponent.resizeScalingComponents += onResize;
+    }
+
+    private void OnDisable()
+    {
+        ScreenResizeComponent.resizeScalingComponents -= onResize;
+    }
+
+    void onResize(float newScreenWidth, float newScreenHeight)
+    {
+        DONE = false;
+        rect = this.GetComponent<RectTransform>();
+        screenSpace = new Rect(screenSafeAreaProportions.x * newScreenWidth,
+                screenSafeAreaProportions.y * newScreenHeight,
+                screenSafeAreaProportions.w * newScreenWidth,
+                screenSafeAreaProportions.h * newScreenHeight);
+
+        Debug.Log("About to resize " + name + ", old width:height were " + rect.rect.width + ":" + rect.rect.height);
         proportionalSetLoc();
     }
 

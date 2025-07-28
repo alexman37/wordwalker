@@ -68,7 +68,7 @@ public static class DatabaseTracker
                 }
 
                 loadedData = JsonConvert.DeserializeObject<DatabasePersistentStats>(dataToLoad);
-                Debug.Log("Loaded " + jsonPath);
+                //Debug.Log("Loaded " + jsonPath);
             }
             catch (Exception e)
             {

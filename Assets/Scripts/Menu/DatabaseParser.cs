@@ -89,7 +89,6 @@ public class DatabaseParser : MonoBehaviour
         float moveNextDownBy = 0;
         for (int i = 0; i < databaseSet.Length; i++)
         {
-            Debug.Log("Moving down " + moveNextDownBy);
             moveNextDownBy += databaseSet[i].build(i, moveNextDownBy);
         }
 
@@ -142,7 +141,7 @@ public class DatabaseParser : MonoBehaviour
 
                 dbitem.RequestRedraw(raw);
 
-                Debug.Log("Completed loading " + dbitem.iconPath);
+                //Debug.Log("Completed loading " + dbitem.iconPath);
             }
         }
 

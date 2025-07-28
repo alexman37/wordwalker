@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Music Manager awake");
+        //Debug.Log("Music Manager awake");
         if (instance == null)
         {
             instance = this;
@@ -159,7 +159,7 @@ public class MusicManager : MonoBehaviour
 
         timeTarget = timeToPlay + 3f; // 3 second buffer
         timeToNextClip = 0f;
-        Debug.Log("The next track will play in " + timeTarget);
+
         audioSource.Play();
     }
 
