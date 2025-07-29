@@ -8,22 +8,28 @@ public class GameWonUI : MonoBehaviour
 {
     public RectTransform rectTransform;
     private Vector2 oldPosition;
-    //public TextMeshProUGUI stats1; // TODO
     IEnumerator movingToScreen;
     public bool usingComp = false;
 
     private bool canUseButtons = false;
 
+    /// FREE PLAY GAME WIN
+    public GameObject gameWon_FreePlay;
     public TextMeshProUGUI timeTaken;
     public TextMeshProUGUI mistakes;
     public TextMeshProUGUI funStatName;
     public TextMeshProUGUI commentary;
     public Image finalRankSprite;
-
     // These change depending on your rank. Make sure there is one per each rank.
     public string[] commentaryLines;
-
     public RankBox rankBox; // you need this to get the proper sprite.
+
+    /// DAILY WORD GAME WIN
+    public GameObject gameWon_DailyWord;
+    public TextMeshProUGUI todaysWordWas;
+    public TextMeshProUGUI todaysWordDef;
+    public TextMeshProUGUI dailyTime;
+    public TextMeshProUGUI dailyStreak;
 
     public AudioClip tada;
     public AudioClip applause;
@@ -67,46 +73,78 @@ public class GameWonUI : MonoBehaviour
         }
     }
 
-    public void enableComp() { usingComp = true; }
-    public void disableComp() { usingComp = false; }
+    public void enableComp() { 
+        usingComp = true;
+        if(GameManagerSc.state.dailyWord)
+        {
+            gameWon_DailyWord.SetActive(true);
+            gameWon_FreePlay.SetActive(false);
+        } else
+        {
+            gameWon_DailyWord.SetActive(false);
+            gameWon_FreePlay.SetActive(true);
+        }
+    }
+    public void disableComp() {
+        usingComp = false;
+    }
 
     // When you win the game you share the victory stats
     public void openGameWon()
     {
         if(usingComp)
         {
-            // Set postgame stats
-            timeTaken.text = secondsToMinSec(GameManagerSc.state.totalTime);
-            mistakes.text = GameManagerSc.state.numMistakes.ToString();
-
-            // Get a random fun stat to display
-            (string n, string v) funStatInputs = FunStatUI.getFunStat();
-
-            // Add however many periods you can to reach the "just before size" quota
-            float width = funStatName.GetComponent<RectTransform>().rect.width;
-            int funStatNameLength = funStatInputs.n.Length;
-
-            string working = funStatInputs.n + funStatInputs.v;
-            for (float i = funStatName.preferredWidth; i < width; i = funStatName.preferredWidth)
+            /// DAILY WORD
+            if(GameManagerSc.state.dailyWord)
             {
-                working = working.Substring(0, funStatNameLength) + "." + working.Substring(funStatNameLength);
-                funStatName.text = working;
-                i = funStatName.preferredWidth;
+                WordGen.Word daily = GameManagerSc.state.getDailyWord();
+                todaysWordWas.text = "Today's word was " + daily.word + ":";
+                todaysWordDef.text = daily.getClue();
+                dailyTime.text = "You got it in " + GameManagerSc.state.totalTime.ToString() + " seconds,";
+                dailyStreak.text = "Increasing your streak to " + GlobalStatMap.GetIntMaybe("dailyWordStreak").value + "!";
+
+                SfxManager.instance.playSFX(tada, null, 1);
+
+                movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, Screen.safeArea.height / 4f));
+                StartCoroutine(movingToScreen);
+                canUseButtons = true;
+            } 
+            /// FREE PLAY
+            else
+            {
+                // Set postgame stats
+                timeTaken.text = secondsToMinSec(GameManagerSc.state.totalTime);
+                mistakes.text = GameManagerSc.state.numMistakes.ToString();
+
+                // Get a random fun stat to display
+                (string n, string v) funStatInputs = FunStatUI.getFunStat();
+
+                // Add however many periods you can to reach the "just before size" quota
+                float width = funStatName.GetComponent<RectTransform>().rect.width;
+                int funStatNameLength = funStatInputs.n.Length;
+
+                string working = funStatInputs.n + funStatInputs.v;
+                for (float i = funStatName.preferredWidth; i < width; i = funStatName.preferredWidth)
+                {
+                    working = working.Substring(0, funStatNameLength) + "." + working.Substring(funStatNameLength);
+                    funStatName.text = working;
+                    i = funStatName.preferredWidth;
+                }
+
+                funStatName.text = working.Substring(0, funStatNameLength) + working.Substring(funStatNameLength + 1);
+
+                // GameManagerSc may not do the calculation in time so we'll just do it here
+                int trueRank = GameManagerSc.getRank() == 13 && GameManagerSc.state.selectedChallenges.Count == 5 ? 14 : GameManagerSc.getRank();
+                finalRankSprite.sprite = rankBox.getRankAsSprite(trueRank);
+                commentary.text = commentaryLines[trueRank];
+
+                SfxManager.instance.playSFX(tada, null, 1);
+                if (trueRank == 14) SfxManager.instance.playSFX(applause, null, 1);
+
+                movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, Screen.safeArea.height / 4f));
+                StartCoroutine(movingToScreen);
+                canUseButtons = true;
             }
-
-            funStatName.text = working.Substring(0, funStatNameLength) + working.Substring(funStatNameLength + 1);
-
-            // GameManagerSc may not do the calculation in time so we'll just do it here
-            int trueRank = GameManagerSc.getRank() == 13 && GameManagerSc.state.selectedChallenges.Count == 5 ? 14 : GameManagerSc.getRank();
-            finalRankSprite.sprite = rankBox.getRankAsSprite(trueRank);
-            commentary.text = commentaryLines[trueRank];
-
-            SfxManager.instance.playSFX(tada, null, 1);
-            if(trueRank == 14) SfxManager.instance.playSFX(applause, null, 1);
-
-            movingToScreen = UIUtils.XerpOnUiCoroutine(30, 0.5f, rectTransform, new Vector2(0, Screen.safeArea.height / 4f));
-            StartCoroutine(movingToScreen);
-            canUseButtons = true;
         }
     }
 

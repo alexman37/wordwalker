@@ -19893,7 +19893,6 @@ GameObject:
   - component: {fileID: 1348770625}
   - component: {fileID: 1348770624}
   - component: {fileID: 1348770627}
-  - component: {fileID: 1348770628}
   m_Layer: 5
   m_Name: SettingsPopup
   m_TagString: Untagged
@@ -19936,9 +19935,9 @@ MonoBehaviour:
   DONE: 0
   focalPoint: 0
   percentPosition: {x: 0.5, y: -0.5}
-  percentScale: {x: 0.6, y: 0.8}
-  maintainAspectRatioX: 0
-  maintainAspectRatioY: 1
+  percentScale: {x: 0.4, y: 0.8}
+  maintainAspectRatioX: 1
+  maintainAspectRatioY: 0
   constantSize: 0
 --- !u!114 &1348770625
 MonoBehaviour:
@@ -20022,18 +20021,6 @@ MonoBehaviour:
     inGameMusic: 0
     screenOrientationSetting: 0
     screenSizeSetting: 1
---- !u!114 &1348770628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348770622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30fe81e5d62789e42944648a4e469540, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1352722748
 GameObject:
   m_ObjectHideFlags: 0
@@ -28910,6 +28897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912034993}
   - component: {fileID: 1912034992}
+  - component: {fileID: 1912034994}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -28946,6 +28934,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1912034994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912034991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fe81e5d62789e42944648a4e469540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1912720165
 GameObject:
   m_ObjectHideFlags: 0

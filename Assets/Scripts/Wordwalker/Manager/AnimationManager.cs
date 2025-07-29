@@ -195,6 +195,14 @@ public class AnimationManager : MonoBehaviour
         setActivelyMoving.Invoke(false);
     }
 
+    public void endPrematurely()
+    {
+        SfxManager.instance.endSFXLoop("footsteps");
+        this.playerAnimator.SetBool("Moving", false);
+        this.playerAnimator.SetTrigger("Idle");
+        setActivelyMoving.Invoke(false);
+    }
+
     public void realization()
     {
         SfxManager.instance.playSFX(realizationClip, this.playerCharacter.transform, 1f);

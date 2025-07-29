@@ -204,6 +204,8 @@ public class GameManagerSc : MonoBehaviour
         //transition.Invoke(true);
         Tilemap.switchDoorType(true);
 
+        DatabaseTracker.startNewGame(localDBcopy.databaseId);
+
         WWGameState oldState = state;
         int newTotemsThisGame = 3; // TODO ???
         state = new WWGameState(oldState.getNumLevels(), newTotemsThisGame, oldState.foggyVision, false, oldState.selectedChallenges);
@@ -249,7 +251,7 @@ public class GameManagerSc : MonoBehaviour
             if (state.dailyWord)
             {
                 string onlyWord = nextWord.word;
-                Tilemap.regenerateTileMap(nextWord, Mathf.FloorToInt(onlyWord.Length / 7) + Mathf.FloorToInt(onlyWord.Length / 10));
+                Tilemap.regenerateTileMap(nextWord, Mathf.FloorToInt(onlyWord.Length / 7) + Mathf.FloorToInt(onlyWord.Length / 9));
             }
 
             /// FREE PLAY
@@ -468,6 +470,15 @@ public class WWGameState
     public void setWordList(WordGen.Word[] words)
     {
         wordList = words;
+    }
+
+    public WordGen.Word getDailyWord() {
+        if (dailyWord) return wordList[0];
+        else
+        {
+            Debug.LogWarning("You are not in daily word mode.");
+            return new WordGen.Word("");
+        }
     }
 
     public void changeScore(int amount, bool add)

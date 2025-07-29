@@ -122,11 +122,20 @@ public class WalkManager : MonoBehaviour
                 
                 Tile pos = queuedMoves.Dequeue();
                 // get direction of adjacency, with NE as the default
-                Adjacency.Direction dir = currTile == null ? Adjacency.Direction.NE : currTile.adjacencies.Find(adj => adj.tile == pos).direction;
-                animationManager.moveAnim(pos, dir);
+                if(currTile == null || !currTile.Equals(pos))
+                {
+                    Adjacency.Direction dir = currTile == null ? Adjacency.Direction.NE : currTile.adjacencies.Find(adj => adj.tile == pos).direction;
+                    animationManager.moveAnim(pos, dir);
 
-                // Will have to update Y-coord for camera in PlayerManager (according to zoom)
-                playerManager.LerpCameraTo(new Vector3(pos.absolutePosition.Item1, 0, pos.absolutePosition.Item2), 0.5f);
+                    // Will have to update Y-coord for camera in PlayerManager (according to zoom)
+                    playerManager.LerpCameraTo(new Vector3(pos.absolutePosition.Item1, 0, pos.absolutePosition.Item2), 0.5f);
+                } else
+                {
+                    Debug.LogWarning("Ending move animation prematurely! State did not update in time.");
+                    queuedMoves.Clear();
+                    animationManager.endPrematurely();
+                }
+                
             }
         }
     }

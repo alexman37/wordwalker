@@ -178,6 +178,11 @@ public class ScalingUIComponent : MonoBehaviour
             }
         }
 
+        if (name == "SettingsPopup")
+        {
+            percentPosition = new Vector2(0.5f, -0.5f);
+        }
+
         rect.anchoredPosition = newLoc;
         DONE = true;
         completedScaling.Invoke();
@@ -270,6 +275,11 @@ public class ScalingUIComponent : MonoBehaviour
                 screenSafeAreaProportions.h * newScreenHeight);
 
         Debug.Log("About to resize " + name + ", old width:height were " + rect.rect.width + ":" + rect.rect.height);
+        Debug.Log("Incoming screenspace " + screenSpace);
+        if(name == "SettingsPopup")
+        {
+            percentPosition = new Vector2(0.5f, 0.5f);
+        }
         proportionalSetLoc();
     }
 

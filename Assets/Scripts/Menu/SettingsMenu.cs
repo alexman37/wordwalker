@@ -61,17 +61,17 @@ public class SettingsMenu : WidgetPopup
     private void OnEnable()
     {
         // TODO: It'd be nice if we could keep the settings window open but the way scaling components are set up, it'd be difficult.
-        ScreenResizeComponent.resizeScalingComponents += onResizeCloseWidget;
+        //ScreenResizeComponent.resizeScalingComponents += onResizeCloseWidget;
     }
 
     private void OnDisable()
     {
-        ScreenResizeComponent.resizeScalingComponents -= onResizeCloseWidget;
+        //ScreenResizeComponent.resizeScalingComponents -= onResizeCloseWidget;
     }
 
     private void onResizeCloseWidget(float _, float newHeight)
     {
-        base.closeWidgetPopup();
+        //base.closeWidgetPopup();
     }
 
     void initializeValuesVisually()
