@@ -178,11 +178,11 @@ public static class WordGen
                 string definition = null;
                 string[] allAlternates = null;
 
-                if (val.Length >= 3 && val[2] != "")
+                if (val.Length >= 3 && val[2].Trim() != "")
                 {
                     definition = val[2].Trim();
                 }
-                if (val.Length >= 4 && val[3] != "") {
+                if (val.Length >= 4 && val[3].Trim() != "") {
                     allAlternates = val[3].Trim().Split(',');
                 }
 

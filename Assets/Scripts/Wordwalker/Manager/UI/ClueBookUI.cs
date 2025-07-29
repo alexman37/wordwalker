@@ -76,10 +76,20 @@ public class ClueBookUI : MonoBehaviour
 
     private void turnClueBookPage()
     {
+        StartCoroutine(turnPageWhenImgIsLoaded());
+    }
+
+    // Want to ensure the next image is completely loaded first before we turn the page.
+    IEnumerator turnPageWhenImgIsLoaded()
+    {
+        yield return new WaitUntil(() => imageInWaiting.sprite != null);
+
         SfxManager.instance.playSFX(pageTurnClip, null, 1f);
         clueBoxAnimator.SetTrigger("gotoNextPage");
         clueBookPicture.rectTransform.sizeDelta = imageInWaiting.rectTransform.sizeDelta;
         clueBookPicture.sprite = imageInWaiting.sprite;
+
+        imageInWaiting.sprite = null;
     }
 
     // TODO not sure what this was used for
