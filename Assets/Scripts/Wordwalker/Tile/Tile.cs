@@ -433,10 +433,10 @@ public class Tile : MonoBehaviour
                 // Will either have the correct tile on top or the bottom
                 if (UnityEngine.Random.value < 0.5f)
                 {
-                    display = LetterGen.getProportionallyRandomLetter() + "\n" + letter;
+                    display = LetterGen.getProportionallyRandomLetterExcept(letter) + "\n" + letter;
                 } else
                 {
-                    display = letter + "\n" + LetterGen.getProportionallyRandomLetter();
+                    display = letter + "\n" + LetterGen.getProportionallyRandomLetterExcept(letter);
                 }
                 
                 break;

@@ -58,6 +58,24 @@ public static class LetterGen
         return ' ';
     }
 
+    // Split tiles shouldn't generate the same letter twice.
+    public static char getProportionallyRandomLetterExcept(char exceptThisLetter)
+    {
+        int attemptsRemaining = 10;
+        while(attemptsRemaining > 0)
+        {
+            char maybeLetter = getProportionallyRandomLetter();
+            if (maybeLetter != exceptThisLetter) return maybeLetter;
+            attemptsRemaining--;
+        }
+        Debug.LogWarning("For a no-good, very bad, stupid and absolutely preposterous reason, the algorithm this log falls under" +
+            " tried to generate a letter, ANY letter, for a split tile except the actual correct one (because that'd be cringe) and it" +
+            " failed. It actually failed. Even with [insert number here, it's probably 10 though] attempts. Wow. Just wow. You basically won the lottery, except " +
+            " instead of winning the lottery you just get to have a split tile that isn't actually a split tile. You could've had money. Riches. Fortune." +
+            " Instead you got a minor interesting coincidence in Wordwalker. Ain't that something, man. Ain't that something.");
+        return exceptThisLetter;
+    }
+
     /// <summary>
     /// Return a random letter which agrees with the chosen word.
     /// </summary>

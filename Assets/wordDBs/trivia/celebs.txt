@@ -3,8 +3,8 @@ SCHWARZENEGGER|1|Arnold Schwarzenegger
 CARREY|2|Jim Carrey
 DICAPRIO|3|Leonardo DiCaprio
 CRUISE|4|Tom Cruise
-WATSON|5|Emma Watson
-DOWNEYJR|6|Robert DowneyJr
+DOWNEYJR|5|Robert DowneyJr
+WATSON|6|Emma Watson
 RADCLIFFE|7|Daniel Radcliffe
 EVANS|8|Chris Evans
 PITT|9|Brad Pitt

@@ -33,6 +33,10 @@ public class SettingsMenu : WidgetPopup
     public static event Action<ScreenOrientationSetting> toggledScreenOr;
     public static event Action<ScreenSizeSetting> toggledScreenSize;
 
+    // waiting for screen size to change
+    IEnumerator waitingForScreenSizeCo;
+    bool readyToChangeScreenSize = true;
+
     private bool readyForSFX = false;
 
     // Start is called before the first frame update
@@ -156,28 +160,48 @@ public class SettingsMenu : WidgetPopup
     // Screen size requires more work than the others
     public void selectScreenSize(ScreenSizeSetting screenSize)
     {
+        // Play the sound effect anyway because i like it. Beep boop!
         if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
-        settingsValues.screenSizeSetting = screenSize;
-        foreach (Image button in screenSizeGroupImgs)
-        {
-            button.color = new Color(0.3f, 0.3f, 0.3f, 1);
-        }
-        switch (screenSize)
-        {
-            case ScreenSizeSetting.MAX:
-                screenSizeGroupImgs[0].color = new Color(0.55f, 0.5f, 0.2f, 1);
-                break;
-            case ScreenSizeSetting.SMALL_WINDOW:
-                screenSizeGroupImgs[1].color = new Color(0.55f, 0.5f, 0.2f, 1);
-                break;
-            case ScreenSizeSetting.BIG_WINDOW:
-                screenSizeGroupImgs[2].color = new Color(0.55f, 0.5f, 0.2f, 1);
-                break;
-        }
 
-        // Do NOT change the Screen Size global stat map setting here, that is done in a separate confirmation popup window
-        // (Which may also revert screen size to its previous value).
-        if(readyForSFX) toggledScreenSize.Invoke(screenSize);
+        // Only go through the hassle if the screen size actually changes
+        // ...also forced to run on startup, before the sound effects are ready
+        if ((settingsValues.screenSizeSetting != screenSize && readyToChangeScreenSize) || !readyForSFX)
+        {
+            //Since there is a brief delay in the screen size confirmation window appearing (while it waits for screen size to change),
+            //Wait here as well before allowing user to press another button
+            readyToChangeScreenSize = false;
+            if(waitingForScreenSizeCo != null) StopCoroutine(waitingForScreenSizeCo);
+            waitingForScreenSizeCo = waitBeforeSettingScreenSizeAgain(2f);
+            StartCoroutine(waitingForScreenSizeCo);
+
+            settingsValues.screenSizeSetting = screenSize;
+            foreach (Image button in screenSizeGroupImgs)
+            {
+                button.color = new Color(0.3f, 0.3f, 0.3f, 1);
+            }
+            switch (screenSize)
+            {
+                case ScreenSizeSetting.MAX:
+                    screenSizeGroupImgs[0].color = new Color(0.55f, 0.5f, 0.2f, 1);
+                    break;
+                case ScreenSizeSetting.SMALL_WINDOW:
+                    screenSizeGroupImgs[1].color = new Color(0.55f, 0.5f, 0.2f, 1);
+                    break;
+                case ScreenSizeSetting.BIG_WINDOW:
+                    screenSizeGroupImgs[2].color = new Color(0.55f, 0.5f, 0.2f, 1);
+                    break;
+            }
+
+            // Do NOT change the Screen Size global stat map setting here, that is done in a separate confirmation popup window
+            // (Which may also revert screen size to its previous value).
+            if (readyForSFX) toggledScreenSize.Invoke(screenSize);
+        }
+    }
+
+    IEnumerator waitBeforeSettingScreenSizeAgain(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        readyToChangeScreenSize = true;
     }
 
     public void attemptReset()
