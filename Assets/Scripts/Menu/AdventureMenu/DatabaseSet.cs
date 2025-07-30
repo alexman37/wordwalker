@@ -21,6 +21,8 @@ public class DatabaseSet : MonoBehaviour
     private float heightOfEntries;
     private int slot;
 
+    IEnumerator waitingForResize;
+
     public static event Action<int, float, bool> usedCollapser;
 
     // Start is called before the first frame update
@@ -32,11 +34,28 @@ public class DatabaseSet : MonoBehaviour
     private void OnEnable()
     {
         usedCollapser += moveElementsBelow;
+        SettingsMenu.toggledScreenSize += recalculateEntryHeight;
     }
 
     private void OnDisable()
     {
         usedCollapser -= moveElementsBelow;
+        SettingsMenu.toggledScreenSize -= recalculateEntryHeight;
+    }
+
+    // I don't like time waits either but this is one situation where it really feels warranted
+    // Cannot figure out how to effectively tell when screen size has changed without it being...sooooo annoying
+    void recalculateEntryHeight(ScreenSizeSetting _)
+    {
+        if (waitingForResize != null) StopCoroutine(waitingForResize);
+        waitingForResize = setSizeAfterSomeTime(1.5f);
+        StartCoroutine(waitingForResize);
+    }
+
+    IEnumerator setSizeAfterSomeTime(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        heightOfEntries = itemsList.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
     }
 
     // Actually draws the database object onto the screen

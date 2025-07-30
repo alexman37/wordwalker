@@ -8,27 +8,20 @@ public class MusicManager : MonoBehaviour
 
     public AudioClip[] musicTracks;
     static AudioSource audioSource;
-    int index = 0;
+    int index;
 
     float timeToNextClip;
     float timeTarget;
 
-    static bool inLoop = false;
-    static bool fadingOut = false;
-    static bool fadingIn = false;
-    static float fadeTimer = 0f;
+    static bool fadingOut;
+    static bool fadingIn;
+    static float fadeTimer;
 
-    private static float globalMusicVolume = 1f;
-    private static float storedVolume = 1f;
-
-    private void Start()
-    {
-        
-    }
+    private static float globalMusicVolume;
+    private static float fadeMultiplier;
 
     private void Awake()
     {
-        //Debug.Log("Music Manager awake");
         if (instance == null)
         {
             instance = this;
@@ -36,9 +29,15 @@ public class MusicManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             audioSource = GetComponent<AudioSource>();
 
+            index = 0;
+            fadingOut = false;
+            fadingIn = false;
+            fadeTimer = 0;
+            globalMusicVolume = 1f;
+            fadeMultiplier = 1f;
+
             timeToNextClip = 0f;
             timeTarget = 0f;
-            kickoffMusicLoop();
         }
         else
         {
@@ -67,20 +66,17 @@ public class MusicManager : MonoBehaviour
     // In-game music handler
     public static void inGameMusicFade(bool fadeOut)
     {
-        if(!GlobalStatMap.statMap.settingsValues.inGameMusic)
+        // Fade out, stop playing altogether
+        if (fadeOut)
         {
-            // Fade out, stop playing altogether
-            if (fadeOut)
-            {
-                storedVolume = globalMusicVolume;
-                fadingOut = true;
-            }
-            // Fade in, continue playing at previous levels
-            else
-            {
-                fadingIn = true;
-                audioSource.Play();
-            }
+            fadingOut = true;
+            fadingIn = false;
+        }
+        // Fade in, continue playing at previous levels
+        else
+        {
+            fadingIn = true;
+            fadingOut = false;
         }
     }
 
@@ -88,63 +84,63 @@ public class MusicManager : MonoBehaviour
     {
         globalMusicVolume = newPct;
         // Since there's only one we just set it here
-        audioSource.volume = globalMusicVolume;
+        audioSource.volume = globalMusicVolume * fadeMultiplier;
     }
 
     private void Update()
     {
-        if(inLoop)
+        timeToNextClip += Time.deltaTime;
+        if (timeToNextClip >= timeTarget)
         {
-            timeToNextClip += Time.deltaTime;
-            if (timeToNextClip >= timeTarget)
-            {
-                audioSource.Stop();
-                timeToNextClip = 0;
+            Debug.Log("AAA playing new song");
+            audioSource.Stop();
+            timeToNextClip = 0;
 
-                index = (index + 1) % musicTracks.Length;
-                audioSource.clip = musicTracks[index];
-                float timeToPlay = musicTracks[index].length;
-                timeTarget = timeToPlay + 3f; // 3 second buffer
-                audioSource.Play();
-            }
+            index = (index + 1) % musicTracks.Length;
+            audioSource.clip = musicTracks[index];
+            float timeToPlay = musicTracks[index].length;
+            timeTarget = timeToPlay + 3f; // 3 second buffer
+            audioSource.Play();
         }
 
         // So needlessly complicated because we cant run coroutines from static methods...sigh...
-        if(fadingOut)
+        if (fadingOut)
         {
             fadeTimer = fadeTimer + Time.deltaTime;
-            inLoop = false;
             if(fadeTimer >= 0.3f)
             {
                 fadeTimer = fadeTimer % 0.3f;
-                globalMusicVolume -= globalMusicVolume * 0.1f;
+                fadeMultiplier -= 0.1f;
+                Debug.Log("AAA Faded out next step: " + fadeMultiplier);
             }
             
-            if (globalMusicVolume <= 0.02f)
+            if (fadeMultiplier <= 0.02f)
             {
-                audioSource.Stop();
+                Debug.Log("AAA Done fading out");
                 fadingOut = false;
-                globalMusicVolume = 0;
+                fadeMultiplier = 0;
             }
-            audioSource.volume = globalMusicVolume;
+            audioSource.volume = globalMusicVolume * fadeMultiplier;
         }
 
         else if(fadingIn)
         {
-            inLoop = true;
+            fadeTimer = fadeTimer + Time.deltaTime;
 
             if (fadeTimer >= 0.3f)
             {
                 fadeTimer = fadeTimer % 0.3f;
-                globalMusicVolume += storedVolume * 0.1f;
+                fadeMultiplier += 0.1f;
+                Debug.Log("AAA Faded in next step: " + fadeMultiplier);
             }
 
-            if(globalMusicVolume >= storedVolume)
+            if(fadeMultiplier >= 1)
             {
+                Debug.Log("AAA Done fading in");
                 fadingIn = false;
-                globalMusicVolume = storedVolume;
+                fadeMultiplier = 1;
             }
-            audioSource.volume = globalMusicVolume;
+            audioSource.volume = globalMusicVolume * fadeMultiplier;
         }
     }
 
@@ -155,8 +151,6 @@ public class MusicManager : MonoBehaviour
         float timeToPlay = musicTracks[index].length;
         index = (index + 1) % musicTracks.Length;
 
-        inLoop = true;
-
         timeTarget = timeToPlay + 3f; // 3 second buffer
         timeToNextClip = 0f;
 
@@ -166,6 +160,5 @@ public class MusicManager : MonoBehaviour
     public void stopMusicLoop()
     {
         audioSource.Stop();
-        inLoop = false;
     }
 }

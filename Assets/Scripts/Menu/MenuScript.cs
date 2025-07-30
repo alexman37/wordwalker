@@ -22,11 +22,27 @@ public class MenuScript : MonoBehaviour
     public GameObject titleCard;
     public GameObject playButtons;
 
+    // Music Manager must be instantiated here (not in scene) so that we guarantee no extras even reach the "awake" stage
+    public AudioClip[] musicTracks;
+
     // Start is called before the first frame update
     void Start()
     {
         newGame += (_,__) => { };
         selectedChallenges = new HashSet<Challenge>();
+
+        if(FindObjectOfType<MusicManager>() == null)
+        {
+            Debug.Log("AAA Couldn't find a music manager so we will create one");
+            GameObject musicManager = new GameObject();
+            musicManager.name = "MusicManager2";
+
+            musicManager.AddComponent<AudioSource>();
+            MusicManager actual = musicManager.AddComponent<MusicManager>();
+            actual.musicTracks = musicTracks;
+            actual.kickoffMusicLoop();
+        }
+        
     }
 
     private void Awake()

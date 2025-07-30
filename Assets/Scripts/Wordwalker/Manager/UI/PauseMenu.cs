@@ -71,13 +71,17 @@ public class PauseMenu : WidgetPopup
     public void setInGameMusic(bool val)
     {
         settingsValues.inGameMusic = val;
+        Debug.Log("AAA Set in-game music to " + val);
         if (settingsValues.inGameMusic)
         {
+            Debug.Log("AAA Trying to fade in");
             checkbox.sprite = checkboxChecked;
+            MusicManager.inGameMusicFade(false);
         }
         else
         {
             checkbox.sprite = checkboxUnchecked;
+            MusicManager.inGameMusicFade(true);
         }
         toggledInGameMusic.Invoke(settingsValues.inGameMusic);
         GlobalStatMap.ModifySettings(settingsValues);

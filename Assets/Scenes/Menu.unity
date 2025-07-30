@@ -1898,7 +1898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &90798675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90798674}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 087926b64692ef3449642ef0d691c2b2, type: 3}
   m_Name: 
@@ -31279,6 +31279,14 @@ MonoBehaviour:
   numLevels: 10
   titleCard: {fileID: 657317283}
   playButtons: {fileID: 1193095034}
+  musicTracks:
+  - {fileID: 8300000, guid: d7401671e41544846a83cc81956b6530, type: 3}
+  - {fileID: 8300000, guid: cff4044818982e141b64c82b3f048f17, type: 3}
+  - {fileID: 8300000, guid: 16abcb98f390c08488f63a0b2c47fdb9, type: 3}
+  - {fileID: 8300000, guid: 4d17f5212bf679d4d887cb5d9f785770, type: 3}
+  - {fileID: 8300000, guid: eedcae9db3ccb744a868a91c1e765d58, type: 3}
+  - {fileID: 8300000, guid: 07e27b231e87fe24c9a2a7e947f233e0, type: 3}
+  - {fileID: 8300000, guid: 43703168506689348b80d6afe362ad1e, type: 3}
 --- !u!4 &1912034993
 Transform:
   m_ObjectHideFlags: 0
