@@ -41,6 +41,7 @@ public class CharSelectButton : MonoBehaviour
 
     public void clickedButton()
     {
+        SfxManager.instance.playSFXbyName("click-short", null, 1);
         if(usable)
         {
             popup.useNewCharSprite(order);

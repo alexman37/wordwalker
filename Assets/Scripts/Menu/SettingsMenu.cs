@@ -174,7 +174,8 @@ public class SettingsMenu : WidgetPopup
                 break;
         }
 
-        GlobalStatMap.ModifySettings(settingsValues);
+        // Do NOT change the Screen Size global stat map setting here, that is done in a separate confirmation popup window
+        // (Which may also revert screen size to its previous value).
         if(readyForSFX) toggledScreenSize.Invoke(screenSize);
     }
 

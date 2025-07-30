@@ -164,6 +164,13 @@ public static class GlobalStatMap
         saveGlobalStatMap();
     }
 
+    // Screen size is a unique case because we double-check with the user to make sure they wanna change it
+    public static void ModifyScreenSize(ScreenSizeSetting newSize)
+    {
+        statMap.settingsValues.screenSizeSetting = newSize;
+        saveGlobalStatMap();
+    }
+
     /// GETTERS
     public static OptionType<int> GetIntMaybe(string intName)
     {

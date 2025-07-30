@@ -32,9 +32,9 @@ public class ScreenResizeComponent : MonoBehaviour
         {
             case ScreenSizeSetting.MAX:
                 Screen.fullScreen = true;
-                int lastRes = Screen.resolutions.Length - 1;
-                width = Screen.resolutions[lastRes].width;
-                height = Screen.resolutions[lastRes].height;
+                Resolution lastRes = Screen.currentResolution; // TODO - verify
+                width = lastRes.width;
+                height = lastRes.height;
                 break;
             case ScreenSizeSetting.SMALL_WINDOW:
                 Screen.SetResolution(1366, 768, false);
