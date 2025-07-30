@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     private float maxZBound = -1000;
     private float maxZoom = -30;
     private const float minZoom = 12; // I don't see this changing
+    private float maxZoomMultiplier = 1.0f; // Changes if screen orientation does
 
     private ScreenOrientationSetting screenOrientation;
     private Vector3 eulerOrientationOffset = Vector3.zero;
@@ -264,9 +265,9 @@ public class PlayerManager : MonoBehaviour
     Vector3 boundZoomView(Vector3 proposedNew)
     {
         Vector3 trueNew = proposedNew;
-        if (proposedNew.y > maxZoom)
+        if (proposedNew.y > maxZoom * maxZoomMultiplier)
         {
-            trueNew.y = maxZoom;
+            trueNew.y = maxZoom * maxZoomMultiplier;
         }
         else if (proposedNew.y < minZoom)
         {
@@ -296,16 +297,21 @@ public class PlayerManager : MonoBehaviour
             case ScreenOrientationSetting.LEFT:
                 cam.transform.rotation = Quaternion.Euler(90, -90, 0);
                 eulerOrientationOffset = Vector3.zero;
+                maxZoomMultiplier = 1.0f;
                 break;
             case ScreenOrientationSetting.TOP:
                 cam.transform.rotation = Quaternion.Euler(90, 0, 0);
                 eulerOrientationOffset = new Vector3(0, 90, 0);
+                maxZoomMultiplier = 1.25f;
                 break;
             case ScreenOrientationSetting.BOTTOM:
                 cam.transform.rotation = Quaternion.Euler(90, 180, 0);
                 eulerOrientationOffset = new Vector3(0, -90, 0);
+                maxZoomMultiplier = 1.25f;
                 break;
         }
+
+        boundZoomView(cam.transform.position);
     }
 
 

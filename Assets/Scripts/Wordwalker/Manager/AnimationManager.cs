@@ -21,6 +21,7 @@ public class AnimationManager : MonoBehaviour
     public Vector3 ledgeStartingPlayerPos;
     public Vector3 ledgeEndingPlayerPos;
     public Vector3 endingPlayerPos;
+    private Quaternion rotationOfThisOrientation;
 
     // depending on screen orientation this tells your character what "direction" to face
     private DirectionSuite LeftSuite, TopSuite, BottomSuite;
@@ -86,17 +87,21 @@ public class AnimationManager : MonoBehaviour
         {
             case ScreenOrientationSetting.LEFT:
                 activeSuite = LeftSuite;
-                playerCharacter.transform.GetChild(0).transform.localRotation = Quaternion.Euler(180, 0, 180);
+                rotationOfThisOrientation = Quaternion.Euler(180, 0, 180);
+                playerAnimator.SetInteger("Direction", 0);
                 break;
             case ScreenOrientationSetting.TOP:
                 activeSuite = TopSuite;
-                playerCharacter.transform.GetChild(0).transform.localRotation = Quaternion.Euler(180, 0, 90);
+                rotationOfThisOrientation = Quaternion.Euler(180, 0, 90);
+                playerAnimator.SetInteger("Direction", 3);
                 break;
             case ScreenOrientationSetting.BOTTOM:
                 activeSuite = BottomSuite;
-                playerCharacter.transform.GetChild(0).transform.localRotation = Quaternion.Euler(180, 0, -90);
+                rotationOfThisOrientation = Quaternion.Euler(180, 0, -90);
+                playerAnimator.SetInteger("Direction", 1);
                 break;
         }
+        playerCharacter.transform.GetChild(0).transform.localRotation = rotationOfThisOrientation;
     }
 
     /// <summary>
@@ -401,11 +406,9 @@ public class AnimationManager : MonoBehaviour
         playerAnimator.Play("idle_down");
         playerCharacter.transform.position = startingPlayerPos;
         playerCharacter.transform.rotation = Quaternion.Euler(-90, 0, 90);
-        playerCharacter.transform.GetChild(0).localRotation = Quaternion.Euler(180, 0, 180);
+        playerCharacter.transform.GetChild(0).localRotation = rotationOfThisOrientation;
         playerCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         playerAnimator.ResetTrigger("Idle");
-        //playerAnimator.SetInteger("Direction", 1);
-        //playerAnimator.SetTrigger("Idle");
     }
 
 

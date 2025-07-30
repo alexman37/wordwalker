@@ -103,7 +103,7 @@ public class GameManagerSc : MonoBehaviour
     {
         // RESET STATE
         Debug.Log("Setting daily parameters");
-        state = new WWGameState(1, 0, 3, true, challenges);
+        state = new WWGameState(1, 1, 3, true, challenges);
 
         WordGen.Skip();
 

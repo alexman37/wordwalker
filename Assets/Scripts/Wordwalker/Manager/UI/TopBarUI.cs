@@ -28,7 +28,7 @@ public class TopBarUI : MonoBehaviour
 
     // Potential colors for the tile
     private Color correct = new Color(65f / 255f, 133f / 255f, 65f / 255f);
-    private Color golden = new Color(150f / 255f, 153f / 255f, 63f / 255f);
+    private Color golden = new Color(230f / 255f, 190f / 255f, 30f / 255f);
     private Color red = new Color(153f / 255f, 72f / 255f, 63f / 255f);
     private Color gray = new Color(100f / 255f, 100f / 255f, 100f / 255f);
 

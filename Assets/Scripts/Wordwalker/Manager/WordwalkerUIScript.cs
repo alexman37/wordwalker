@@ -79,6 +79,7 @@ public class WordwalkerUIScript : MonoBehaviour
         if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
         {
             thisGamesDefaultTotem = totemsIronman;
+            totemPicture.sprite = totemsIronman;
         } else
         {
             thisGamesDefaultTotem = totemsNormal;

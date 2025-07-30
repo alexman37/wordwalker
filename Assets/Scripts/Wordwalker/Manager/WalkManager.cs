@@ -596,7 +596,6 @@ public class WalkManager : MonoBehaviour
 
         foreach(Tile t in startingTiles)
         {
-            Debug.Log(startingTiles);
             if (t.correct || !t.stepped) possibleNext.Add(t);
         }
 

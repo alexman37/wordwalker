@@ -170,6 +170,7 @@ public class Tile : MonoBehaviour
         StartCoroutine(pushDownTile());
         if(specType != SpecialTile.SPLIT && specType != SpecialTile.BLANK)
         {
+            Debug.Log("Changing tile's text to " + letter);
             textComponent.text = letter.ToString();
         }
     }
