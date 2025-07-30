@@ -375,20 +375,16 @@ public static class WordGen
 
         //Display the image (and scale appropriately).
         clueBookPicture.sprite = raw;
-        if (raw.rect.width > maxes.maxW || raw.rect.height > maxes.maxH)
+
+        float compareW = raw.rect.width / maxes.maxW;
+        float compareH = raw.rect.height / maxes.maxH;
+        if (compareW > compareH)
         {
-            float compareW = raw.rect.width / maxes.maxW;
-            float compareH = raw.rect.height / maxes.maxH;
-            if(compareW > compareH)
-            {
-                clueBookPicture.rectTransform.sizeDelta = new Vector2(maxes.maxW, raw.rect.height * (maxes.maxW / raw.rect.width));
-            } else
-            {
-                clueBookPicture.rectTransform.sizeDelta = new Vector2(raw.rect.width * (maxes.maxH / raw.rect.height), maxes.maxH);
-            }
-        } else
+            clueBookPicture.rectTransform.sizeDelta = new Vector2(maxes.maxW, maxes.maxH * (raw.rect.height / raw.rect.width));
+        }
+        else
         {
-            clueBookPicture.rectTransform.sizeDelta = new Vector2(raw.rect.width, raw.rect.height);
+            clueBookPicture.rectTransform.sizeDelta = new Vector2(maxes.maxW * (raw.rect.width / raw.rect.height), maxes.maxH);
         }
 
         Debug.Log("Ended with size " + clueBookPicture.rectTransform.rect.width + "," + clueBookPicture.rectTransform.rect.height);

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SettingsMenu : WidgetPopup
 {
@@ -199,6 +200,9 @@ public class SettingsMenu : WidgetPopup
         GlobalStatMap.resetAllData();
         clearData.SetActive(true);
         resetConfirmation.SetActive(false);
+
+        // It would be nice to "restart" the game in this moment, but it does not appear there's a way to do that...
+        Application.Quit();
     }
 
     public void loadSettings()

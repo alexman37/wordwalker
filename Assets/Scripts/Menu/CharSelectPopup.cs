@@ -15,6 +15,9 @@ public class CharSelectPopup : WidgetPopup
     public GameObject unlockCondition;
     private int lastOrder = -1;
 
+    // new character unlocked alert
+    public GameObject newCharacterUnlockedAlert;
+
     // assist in loading each character button
     public static StatMap lastLoadedStats;
     public CharSelectButton[] charButtons;
@@ -35,6 +38,13 @@ public class CharSelectPopup : WidgetPopup
         }
         else activeCharSprite = CharacterSprite.SMITTY;
         hideUnlockCondition();
+
+        // Display the alert for a new character being unlocked, if eligible
+        if(lastLoadedStats.flags.Contains("newCharUnlocked"))
+        {
+            newCharacterUnlockedAlert.SetActive(true);
+            GlobalStatMap.RemoveFlag("newCharUnlocked");
+        }
 
         // determine if each character is locked or unlocked in their own scripts.
         foreach(CharSelectButton button in charButtons)
@@ -83,6 +93,7 @@ public class CharSelectPopup : WidgetPopup
     {
         if(order == lastOrder)
         {
+            lastOrder = -1; // you can see it again after you close this one
             hideUnlockCondition();
         } else
         {
@@ -105,6 +116,12 @@ public class CharSelectPopup : WidgetPopup
     {
         int i = (int)activeCharSprite;
         selectionFrame.GetComponent<RectTransform>().localPosition = picturePositions[i].localPosition;
+    }
+
+    public void openPopup()
+    {
+        base.openWidgetPopup();
+        newCharacterUnlockedAlert.SetActive(false);
     }
 
     public void closePopup()

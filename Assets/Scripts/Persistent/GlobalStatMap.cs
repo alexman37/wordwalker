@@ -146,6 +146,24 @@ public static class GlobalStatMap
         saveGlobalStatMap();
     }
 
+    // return true if this results in the variable's value being changed from what it was before
+    public static bool AddOrModifyBoolReturnChanged(string varName, bool bs)
+    {
+        if (statMap.boolMap.ContainsKey(varName))
+        {
+            bool before = statMap.boolMap[varName];
+            statMap.boolMap[varName] = bs;
+            saveGlobalStatMap();
+            return before == bs;
+        }
+        else
+        {
+            statMap.boolMap.Add(varName, bs);
+            saveGlobalStatMap();
+            return true;
+        }
+    }
+
     public static void AddFlag(string flagName)
     {
         statMap.flags.Add(flagName);
