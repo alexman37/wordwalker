@@ -366,12 +366,12 @@ public class WalkManager : MonoBehaviour
     {
         startingTiles = new List<Tile>(starters);
         possibleNext = starters;
-        highlightAllInPossibleNext();
 
         if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.FOG))
         {
             atCurrentRow.Invoke(maxReachedRow);
         }
+        highlightAllInPossibleNext();
     }
 
     /// <summary>
@@ -411,6 +411,11 @@ public class WalkManager : MonoBehaviour
         }
     }
 
+    public void startTrackingLevelTime()
+    {
+        TimeManager.startNamedTimer("walk_time");
+    }
+
 
     /// <summary>
     /// Several animations play when you move to a new tile. This triggers them
@@ -423,9 +428,8 @@ public class WalkManager : MonoBehaviour
         if(!timerStarted && t.correct)
         {
             timerStarted = true;
-            TimeManager.startNamedTimer("walk_time");
 
-            // Challenge timer also begins on first step, if applicable
+            // Challenge timer begins on first correct step, if applicable
             if (GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.TIMER))
             {
                 timeManager.startIntervalTimer();
@@ -549,7 +553,7 @@ public class WalkManager : MonoBehaviour
         {
             SfxManager.instance.playSFXbyName("marker", null, 1);
             if (!t.marked) t.markAsDangerous(tileMats.incorrectTile);
-            else t.unmarkAsDangerous(tileMats.getCurrentBase(false, t.stepped, t.correct, t.specType));
+            else t.unmarkAsDangerous(tileMats.getCurrentBase(false, t.stepped, t.correct, t.revealed, t.specType));
         }
     }
 
@@ -576,7 +580,7 @@ public class WalkManager : MonoBehaviour
         {
             if(!next.revealed && !next.marked)
             {
-                next.changeMaterial(tileMats.getCurrentBase(next.marked, next.stepped, next.correct, next.specType));
+                next.changeMaterial(tileMats.getCurrentBase(next.marked, next.stepped, next.correct, next.revealed, next.specType));
             }
         }
     }

@@ -1,90 +1,90 @@
-ACQUIRE|(verb) To get or obtain something|aquire,acqire
-SECRETARY|(noun) A person who manages office tasks|secratary,secritary
-INDEPENDENT|(adjective) Not influenced by others|independant,independant
-RESTAURANT|(noun) Place where meals are served|resturant,restrant
-ACCOMMODATE|(verb) To provide space or adapt to needs|accomodate,acommodate
-RHYTHM|(noun) A strong, regular beat|rythm,rhytm
-DEFINITELY|(adverb) Without doubt, surely|definately,definatly
-PASTIME|(noun) An activity done for enjoyment|pasttime,passtime
-SEPARATE|(verb) To set apart or divide|seperate,separete
-SUBSEQUENT|(adjective) Coming after something else|subsequant,subseqent
-ARGUMENT|(noun) A disagreement or reasoned discussion|arguement,arugment
-UNNECESSARY|(adjective) Not needed or essential|unecessary,unnessesary
-LICENSE|(noun) Official permission to do something|lisence,liscense|LICENCE
-COLLECTIBLE|(adjective) Worth collecting as a hobby or investment|colectible|COLLECTABLE
-LEISURE|(noun) Free time for relaxation|liesure,leasure
-NOTICEABLE|(adjective) Easily seen or recognized|noticable,noticable
-REFERENCE|(noun) Mention of a source or authority|referance,referense
-COMMITTEE|(noun) Group appointed to perform a task|commitee,committe
-EXAGGERATE|(verb) To make something seem larger or more|exagerrate,exeggerate
-PRIVILEGE|(noun) A special right or advantage|priviledge,privlege
-SOPHOMORE|(noun) A second-year student in high school/college|somphomore,sophmore
-PROCEDURE|(noun) A series of steps followed|procedeure,procedur
-VILLAGE|(noun) Small group of houses in a rural area|vilage,villiage
-CONSCIENCE|(noun) Inner sense of right and wrong|conscence,consience
-RECEIVE|(verb) To get or accept something|recieve,recive
-IGNORANCE|(noun) Lack of knowledge or awareness|ignorence,ignorence
-EXCELLENT|(adjective) Extremely good or outstanding|excelent,excillent
-PREJUDICE|(noun) Pre-judgment, often unfair opinion|prejudace,prejedice
-GRATEFUL|(adjective) Feeling thankful|greatful,gratefull
-PHYSICIAN|(noun) A medical doctor|physican,physitian
-FASCINATE|(verb) To attract and hold attention|fasinate
-HUMOROUS|(adjective) Funny or amusing|humourous,humerous|HUMOUROUS
-DISCIPLINE|(noun) Training to obey rules or self-control|disipline,disciplne
-TWELFTH|(adjective) The ordinal number after eleventh|twelth,twelf
-CALENDAR|(noun) A system to organize days and months|calender,calandar
-ACQUAINTANCE|(noun) Someone you know but not very well|aquaintance,acquaintence
-GUARANTEE|(noun) A promise of quality or performance|gaurantee,guarentee
-WEDNESDAY|(noun) The middle day of the workweek|wensday,wendsday
-EMBARRASSED|(adjective) Feeling ashamed or awkward|embarassed,embaressed
-LIBRARY|(noun) Place where books are kept|libary,librery
-ADVICE|(noun) Guidance or recommendation|advise
-CEMETERY|(noun) Place where the dead are buried|cemetary,cemetary
-SKYSCRAPER|(noun) Very tall building|skycraper,skyscaper
-EXPERIENCE|(noun) Knowledge gained through doing something|experiance,experence
-OCCASIONALLY|(adverb) Happening sometimes, not often|ocassionally,ocasionaly
-SCENARIO|(noun) A possible sequence of events|scenerio,scenareo
-MAINTENANCE|(noun) The process of keeping something in good condition|maintainance,maintanence
-MISCHIEVOUS|(adjective) Playfully causing trouble|mischievious,mischevious
-CONSCIOUS|(adjective) Aware of and responding to surroundings|conscous,consious
-CONVENIENCE|(noun) Something that makes life easier|conveniance,convienence
-INTELLIGENCE|(noun) Ability to learn, understand, and think|inteligence,intilligence
-STRENGTH|(noun) Quality of being strong|strenght,strengh
-SURPRISE|(noun) An unexpected event|suprise,suprize
-MINIATURE|(noun) Very small version of something|minature,miniuture
-PARLIAMENT|(noun) Lawmaking body of government|parliment,parliement
-COLUMN|(noun) A vertical structure or text alignment|colum,colomn
-EXPLANATION|(noun) Clarification or reason for something|explanantion,explenation
-POSSESSION|(noun) Ownership or control over something|posession,possesion
-PRECEDE|(verb) To come before in time or order|preceed,procede
-SINCERELY|(adverb) In a genuine or honest way|sincerly,sinserely
-OCCURRENCE|(noun) An event or incident|occurence,ocurance
-KNOWLEDGE|(noun) Facts, information, and skills acquired|knowlege,knoledge
-CATEGORY|(noun) A group or class with shared features|catagory,categary
-HEIGHT|(noun) Measurement from base to top|heigth,hight
-HARASSMENT|(noun) Unwanted aggressive pressure or intimidation|harrassment,harasment
-AMATEUR|(noun) A non-professional or beginner|amature,amatuer
-RELEVANT|(adjective) Closely connected to the matter at hand|relavent,relevent
-ADDRESS|(verb) To speak to someone formally|addres,adress
-VACUUM|(noun) Space entirely devoid of matter|vaccum,vacum
-SACRIFICE|(noun) Giving up something valuable|sacrafice,sacrific
-FOREIGN|(adjective) From another country|foriegn,forein
-HIERARCHY|(noun) A system with ranks or levels|heirarchy,hierachy
-VEGETABLE|(noun) Edible plant or part of a plant|vegtable,vegitable
-LANGUAGE|(noun) A system of communication|langauge,languge
-ACHIEVE|(verb) To successfully complete a goal|acheive,achive
-CURRICULUM|(noun) A set course of study in school|curriculm,curricullum
-PROFESSOR|(noun) A teacher at a university|professer,professer
-LIGHTNING|(noun) Flash of electricity during a storm|lightening,ligthning
-CHANGEABLE|(adjective) Able to be altered or modified|changeible,changable
-EXISTENCE|(noun) The fact of being alive or real|existance,existense
-MEDIEVAL|(adjective) Relating to the Middle Ages|medeival,medival
-PREFERRED|(adjective) Liked better than others|prefered,preffered
-RECOMMEND|(verb) To suggest something as good or suitable|recomend,reccomend
-JUDGMENT|(noun) The ability to make considered decisions|judgemant|JUDGEMENT
-ENVIRONMENT|(noun) Surroundings or conditions around something|enviroment,enviornment
-PREPARATION|(noun) The act of getting ready|preparration,preperation
-EXERCISE|(noun) Physical activity to stay healthy|excersize,exersize
-SIMILAR|(adjective) Having likeness or resemblance|simillar,similair
-ATTENDANCE|(noun) Being present at an event|atendance,attendence
-BELIEVE|(verb) To accept as true or real|beleive,belive
+ACQUIRE|(verb) To get or obtain something|Commonly misspelled as aquire
+SECRETARY|(noun) A person who manages office tasks|Commonly misspelled as secratary,secritary
+INDEPENDENT|(adjective) Not influenced by others|Commonly misspelled as independant,independant
+RESTAURANT|(noun) Place where meals are served|Commonly misspelled as resturant,restrant,restraunt
+ACCOMMODATE|(verb) To provide space or adapt to needs|Commonly misspelled as accomodate,acommodate
+RHYTHM|(noun) A strong, regular beat|Commonly misspelled as rythm,rithm
+DEFINITELY|(adverb) Without doubt, surely|Commonly misspelled as definately,definitly
+PASTIME|(noun) An activity done for enjoyment|Commonly misspelled as pasttime,passtime
+SEPARATE|(verb) To set apart or divide|Commonly misspelled as seperate,separete
+SUBSEQUENT|(adjective) Coming after something else|Commonly misspelled as subsequant,subsequint
+ARGUMENT|(noun) A disagreement or reasoned discussion|Commonly misspelled as arguement,argumint
+UNNECESSARY|(adjective) Not needed or essential|Commonly misspelled as unecessary,unnessesary
+LICENSE|(noun) Official permission to do something|Commonly misspelled as lisence,liscense|LICENCE
+COLLECTIBLE|(adjective) Worth collecting as a hobby or investment|Commonly misspelled as colectible|COLLECTABLE
+LEISURE|(noun) Free time for relaxation|Commonly misspelled as liesure,leasure
+NOTICEABLE|(adjective) Easily seen or recognized|Commonly misspelled as noticable,noticible
+REFERENCE|(noun) Mention of a source or authority|Commonly misspelled as referance,referense
+COMMITTEE|(noun) Group appointed to perform a task|Commonly misspelled as commitee,committe
+EXAGGERATE|(verb) To make something seem larger or more|Commonly misspelled as exagerrate,exeggerate
+PRIVILEGE|(noun) A special right or advantage|Commonly misspelled as priviledge,privelege,privilage
+SOPHOMORE|(noun) A second-year student in high school/college|Commonly misspelled as somphomore,sophmore
+PROCEDURE|(noun) A series of steps followed|Commonly misspelled as procedur,procejure
+VILLAGE|(noun) Small group of houses in a rural area|Commonly misspelled as vilage,villiage
+CONSCIENCE|(noun) Inner sense of right and wrong|Commonly misspelled as conscence,consience
+RECEIVE|(verb) To get or accept something|Commonly misspelled as recieve,recive
+IGNORANCE|(noun) Lack of knowledge or awareness|Commonly misspelled as ignorence,ignorince
+EXCELLENT|(adjective) Extremely good or outstanding|Commonly misspelled as excelent,excillent
+PREJUDICE|(noun) Pre-judgment, often unfair opinion|Commonly misspelled as prejudace,prejedice
+GRATEFUL|(adjective) Feeling thankful|Commonly misspelled as greatful,gratefull
+PHYSICIAN|(noun) A medical doctor|Commonly misspelled as physican,physitian
+FASCINATE|(verb) To attract and hold attention|Commonly misspelled as fasinate
+HUMOROUS|(adjective) Funny or amusing|Commonly misspelled as humourous,humerous
+DISCIPLINE|(noun) Training to obey rules or self-control|Commonly misspelled as disipline,dissipline
+TWELFTH|(adjective) The ordinal number after eleventh|Commonly misspelled as twelth,twelveth
+CALENDAR|(noun) A system to organize days and months|Commonly misspelled as calender,calandar
+ACQUAINTANCE|(noun) Someone you know but not very well|Commonly misspelled as aquaintance,acquaintence
+GUARANTEE|(noun) A promise of quality or performance|Commonly misspelled as gaurantee,guarentee
+WEDNESDAY|(noun) The middle day of the workweek|Commonly misspelled as Wensday,Wendsday
+EMBARRASSED|(adjective) Feeling ashamed or awkward|Commonly misspelled as embarassed,embarressed,emberrassed,emberressed
+LIBRARY|(noun) Place where books are kept|Commonly misspelled as libary,librery
+ADVICE|(noun) Guidance or recommendation|Commonly misspelled as advise (The verb)
+CEMETERY|(noun) Place where the dead are buried|Commonly misspelled as cemetary
+SKYSCRAPER|(noun) Very tall building|Commonly misspelled as skycraper,skyscaper
+EXPERIENCE|(noun) Knowledge gained through doing something|Commonly misspelled as experiance,experence
+OCCASIONALLY|(adverb) Happening sometimes, not often|Commonly misspelled as ocassionally,ocasionaly
+SCENARIO|(noun) A possible sequence of events|Commonly misspelled as scenerio,scenareo
+MAINTENANCE|(noun) The process of keeping something in good condition|Commonly misspelled as maintainance,maintanence
+MISCHIEVOUS|(adjective) Playfully causing trouble|Commonly misspelled as mischievious,mischevious
+CONSCIOUS|(adjective) Aware of and responding to surroundings|Commonly misspelled as conscous,consious
+CONVENIENCE|(noun) Something that makes life easier|Commonly misspelled as conveniance,convienence
+INTELLIGENCE|(noun) Ability to learn, understand, and think|Commonly misspelled as inteligence,intilligence
+STRENGTH|(noun) Quality of being strong|Commonly misspelled as strenth,strangth
+SURPRISE|(noun) An unexpected event|Commonly misspelled as suprise,surprize
+MINIATURE|(noun) Very small version of something|Commonly misspelled as minature,miniture
+PARLIAMENT|(noun) Lawmaking body of government|Commonly misspelled as parliment,parliement
+COLUMN|(noun) A vertical structure or text alignment|Commonly misspelled as colum,colomn
+EXPLANATION|(noun) Clarification or reason for something|Commonly misspelled as explination,explenation
+POSSESSION|(noun) Ownership or control over something|Commonly misspelled as posession,possesion
+PRECEDE|(verb) To come before in time or order|Commonly misspelled as preceed,preseed
+SINCERELY|(adverb) In a genuine or honest way|Commonly misspelled as sincerly,sinserely
+OCCURRENCE|(noun) An event or incident|Commonly misspelled as occurence,ocurance
+KNOWLEDGE|(noun) Facts, information, and skills acquired|Commonly misspelled as knowlege,knoledge
+CATEGORY|(noun) A group or class with shared features|Commonly misspelled as catagory,catigory
+HEIGHT|(noun) Measurement from base to top|Commonly misspelled as hite,hight
+HARASSMENT|(noun) Unwanted aggressive pressure or intimidation|Commonly misspelled as harrassment,harasment
+AMATEUR|(noun) A non-professional or beginner|Commonly misspelled as amature,amatuer
+RELEVANT|(adjective) Closely connected to the matter at hand|Commonly misspelled as relavent,relevent
+ADDRESS|(verb) To speak to someone formally|Commonly misspelled as addres,adress
+VACUUM|(noun) Space entirely devoid of matter|Commonly misspelled as vaccum,vacum,vacume
+SACRIFICE|(noun) Giving up something valuable|Commonly misspelled as sacrafice,sacrifise
+FOREIGN|(adjective) From another country|Commonly misspelled as foriegn,forein
+HIERARCHY|(noun) A system with ranks or levels|Commonly misspelled as heirarchy,hierarky
+VEGETABLE|(noun) Edible plant or part of a plant|Commonly misspelled as vegatable,vegitable
+LANGUAGE|(noun) A system of communication|Commonly misspelled as langauge,languge
+ACHIEVE|(verb) To successfully complete a goal|Commonly misspelled as acheive,achive
+CURRICULUM|(noun) A set course of study in school|Commonly misspelled as curriculom,curricullum
+PROFESSOR|(noun) A teacher at a university|Commonly misspelled as professer,profesor,proffessor
+LIGHTNING|(noun) Flash of electricity during a storm|Commonly misspelled as lightening,lightining
+CHANGEABLE|(adjective) Able to be altered or modified|Commonly misspelled as changeible,changable
+EXISTENCE|(noun) The fact of being alive or real|Commonly misspelled as existance,existense
+MEDIEVAL|(adjective) Relating to the Middle Ages|Commonly misspelled as medeival,medival
+PREFERRED|(adjective) Liked better than others|Commonly misspelled as prefered,preffered
+RECOMMEND|(verb) To suggest something as good or suitable|Commonly misspelled as recomend,reccomend
+JUDGMENT|(noun) The ability to make considered decisions|Commonly misspelled as judgmint|JUDGEMENT
+ENVIRONMENT|(noun) Surroundings or conditions around something|Commonly misspelled as enviroment,enviornment
+PREPARATION|(noun) The act of getting ready|Commonly misspelled as preparration,preperation
+EXERCISE|(noun) Physical activity to stay healthy|Commonly misspelled as excercise,exersize
+SIMILAR|(adjective) Having likeness or resemblance|Commonly misspelled as simillar,similer
+ATTENDANCE|(noun) Being present at an event|Commonly misspelled as atendance,attendence
+BELIEVE|(verb) To accept as true or real|Commonly misspelled as beleeve,belive

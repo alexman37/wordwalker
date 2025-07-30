@@ -30,10 +30,10 @@ public class TileMats : MonoBehaviour
     private Coroutine currChanger = null;
     private int currIndex = 0;
 
-    public Material getCurrentBase(bool marked, bool stepped, bool correct, Tile.SpecialTile specType)
+    public Material getCurrentBase(bool marked, bool stepped, bool correct, bool revealed, Tile.SpecialTile specType)
     {
         if (marked) return incorrectTile;
-        else if (stepped)
+        else if (stepped || revealed)
         {
             if (correct) return correctTile;
             else return incorrectTile;

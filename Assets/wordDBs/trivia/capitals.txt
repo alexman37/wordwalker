@@ -1,173 +1,173 @@
-OUAGADOUGOU|Burkina Faso
-NEWDELHI|India
-WELLINGTON|New Zealand
-MUSCAT|Oman
-HELSINKI|Finland
-TUNIS|Tunisia
-TAIPEI|Taiwan
-QUITO|Ecuador
-HARARE|Zimbabwe
-MONROVIA|Liberia
-CAIRO|Egypt
-YAOUNDE|Cameroon
-VIENNA|Austria
-CONAKRY|Guinea
-BANJUL|Gambia
-BERLIN|Germany
-MOGADISHU|Somalia
-KUWAITCITY|Kuwait
-KIGALI|Rwanda
-SANMARINO|San Marino
-BEIRUT|Lebanon
-DUBLIN|Ireland
-PRAGUE|Czechia
-ANTANANARIVO|Madagascar
-TASHKENT|Uzbekistan
-BRAZZAVILLE|Republic of Congo
-CASTRIES|Saint Lucia
-PARIS|France
-SEOUL|South Korea
-CHISINAU|Moldova
-NOUAKCHOTT|Mauritania
-BRASILIA|Brazil
-TEGUCIGALPA|Honduras
-TRIPOLI|Libya
-MBABANE|Eswatini
-TALLINN|Estonia
-YEREVAN|Armenia
-LISBON|Portugal
-LJUBLJANA|Slovenia
-LONDON|United Kingdom
-ADDISABABA|Ethiopia
-NUKUALOFA|Tonga
-TBILISI|Georgia
-DHAKA|Bangladesh
-SANJOSE|Costa Rica
-NIAMEY|Niger
-ANKARA|Turkey
-BISHKEK|Kyrgyzstan
-PALIKIR|Micronesia
-PYONGYANG|North Korea
-BRUSSELS|Belgium
-OTTAWA|Canada
-PRISTINA|Kosovo
-PORTMORESBY|Papua New Guinea
-ABUJA|Nigeria
-TOKYO|Japan
-MADRID|Spain
-PARAMARIBO|Suriname
-BRIDGETOWN|Barbados
-ISLAMABAD|Pakistan
-MANAGUA|Nicaragua
-GEORGETOWN|Guyana
-GABORONE|Botswana
-CARACAS|Venezuela
-YAMOUSSOUKRO|Cote d'Ivoire
-RIYADH|Saudi Arabia
-ULAANBAATAR|Mongolia
-SANTIAGO|Chile
-JAKARTA|Indonesia
-MASERU|Lesotho
-LILONGWE|Malawi
-KAMPALA|Uganda
-KATHMANDU|Nepal
-WINDHOEK|Namibia
-SINGAPORE|Singapore
-NAYPYIDAW|Myanmar
-BUENOSAIRES|Argentina
-FUNAFUTI|Tuvalu
-ASTANA|Kazakhstan
-MONTEVIDEO|Uruguay
-REYKJAVIK|Iceland
-NAIROBI|Kenya
-THIMPHU|Bhutan
-BRATISLAVA|Slovakia
-ROSEAU|Dominica
-BASSETERRE|Saint Kitts and Nevis
-VALLETTA|Malta
-MEXICOCITY|Mexico
-BEIJING|China
-VIENTIANE|Laos
-PORTVILA|Vanuatu
-HANOI|Vietnam
-NGERULMUD|Palau
-RABAT|Morocco
-GUATEMALACITY|Guatemala
-BAMAKO|Mali
-MANILA|Philippines
-LIBREVILLE|Gabon
-PORTLOUIS|Mauritius
-MORONI|Comoros
-SOFIA|Bulgaria
-ASHGABAT|Turkmenistan
-MONACO|Monaco
-VICTORIA|Seychelles
-TEHRAN|Iran
-ALGIERS|Algeria
-BANGUI|Central African Republic
-VADUZ|Liechtenstein
-SANAA|Yemen
-SANTODOMINGO|Dominican Republic
-PANAMACITY|Panama
-BISSAU|Guinea-Bissau
-LUANDA|Angola
-DODOMA|Tanzania
-SARAJEVO|Bosnia and Herzegovina
-AMSTERDAM|Netherlands
-HONIARA|Solomon Islands
-GITEGA|Burundi
-ACCRA|Ghana
-NASSAU|Bahamas
-LUXEMBOURG|Luxembourg
-ZAGREB|Croatia
-KINSHASA|Democratic Republic of the Congo
-SKOPJE|North Macedonia
-KINGSTOWN|Saint Vincent and the Grenadines
-JERUSALEM|Israel
-MANAMA|Bahrain
-NICOSIA|Cyprus
-AMMAN|Jordan
-BUDAPEST|Hungary
-TIRANA|Albania
-DUSHANBE|Tajikistan
-SANSALVADOR|El Salvador
-BOGOTA|Colombia
-PRAIA|Cabo Verde
-KHARTOUM|Sudan
-HAVANA|Cuba
-SAOTOME|Sao Tome and Principe
-MAPUTO|Mozambique
-PHNOMPENH|Cambodia
-KUALALUMPUR|Malaysia
-WARSAW|Poland
-COPENHAGEN|Denmark
-KINGSTON|Jamaica
-MALABO|Equatorial Guinea
-MINSK|Belarus
-TARAWA|Kiribati
-WASHINGTON|United States of America
-KABUL|Afghanistan
-DAKAR|Senegal
-ASMARA|Eritrea
-LUSAKA|Zambia
-BELMOPAN|Belize
-FREETOWN|Sierra Leone
-VILNIUS|Lithuania
-MOSCOW|Russia
-NDJAMENA|Chad
-VATICANCITY|Vatican City
-PORTAUPRINCE|Haiti
-PODGORICA|Montenegro
-MAJURO|Marshall Islands
-DJIBOUTI|Djibouti
-STOCKHOLM|Sweden
-CANBERRA|Australia
-ASUNCION|Paraguay
-COLOMBO|Sri Lanka
-SUCRE|Bolivia
-ABUDHABI|United Arab Emirates
-ATHENS|Greece
-BAGHDAD|Iraq
-BUCHAREST|Romania
-BANGKOK|Thailand
-BELGRADE|Serbia
+OUAGADOUGOU|Burkina Faso|Capital of Burkina Faso
+NEWDELHI|India|Capital of India
+WELLINGTON|New Zealand|Capital of New Zealand
+MUSCAT|Oman|Capital of Oman
+HELSINKI|Finland|Capital of Finland
+TUNIS|Tunisia|Capital of Tunisia
+TAIPEI|Taiwan|Capital of Taiwan
+QUITO|Ecuador|Capital of Ecuador
+HARARE|Zimbabwe|Capital of Zimbabwe
+MONROVIA|Liberia|Capital of Liberia
+CAIRO|Egypt|Capital of Egypt
+YAOUNDE|Cameroon|Capital of Cameroon
+VIENNA|Austria|Capital of Austria
+CONAKRY|Guinea|Capital of Guinea
+BANJUL|Gambia|Capital of Gambia
+BERLIN|Germany|Capital of Germany
+MOGADISHU|Somalia|Capital of Somalia
+KUWAITCITY|Kuwait|Capital of Kuwait
+KIGALI|Rwanda|Capital of Rwanda
+SANMARINO|San Marino|Capital of San Marino
+BEIRUT|Lebanon|Capital of Lebanon
+DUBLIN|Ireland|Capital of Ireland
+PRAGUE|Czechia|Capital of Czechia
+ANTANANARIVO|Madagascar|Capital of Madagascar
+TASHKENT|Uzbekistan|Capital of Uzbekistan
+BRAZZAVILLE|Republic of Congo|Capital of Republic of Congo
+CASTRIES|Saint Lucia|Capital of Saint Lucia
+PARIS|France|Capital of France
+SEOUL|South Korea|Capital of South Korea
+CHISINAU|Moldova|Capital of Moldova
+NOUAKCHOTT|Mauritania|Capital of Mauritania
+BRASILIA|Brazil|Capital of Brazil
+TEGUCIGALPA|Honduras|Capital of Honduras
+TRIPOLI|Libya|Capital of Libya
+MBABANE|Eswatini|Capital of Eswatini
+TALLINN|Estonia|Capital of Estonia
+YEREVAN|Armenia|Capital of Armenia
+LISBON|Portugal|Capital of Portugal
+LJUBLJANA|Slovenia|Capital of Slovenia
+LONDON|United Kingdom|Capital of United Kingdom
+ADDISABABA|Ethiopia|Capital of Ethiopia
+NUKUALOFA|Tonga|Capital of Tonga
+TBILISI|Georgia|Capital of Georgia
+DHAKA|Bangladesh|Capital of Bangladesh
+SANJOSE|Costa Rica|Capital of Costa Rica
+NIAMEY|Niger|Capital of Niger
+ANKARA|Turkey|Capital of Turkey
+BISHKEK|Kyrgyzstan|Capital of Kyrgyzstan
+PALIKIR|Micronesia|Capital of Micronesia
+PYONGYANG|North Korea|Capital of North Korea
+BRUSSELS|Belgium|Capital of Belgium
+OTTAWA|Canada|Capital of Canada
+PRISTINA|Kosovo|Capital of Kosovo
+PORTMORESBY|Papua New Guinea|Capital of Papua New Guinea
+ABUJA|Nigeria|Capital of Nigeria
+TOKYO|Japan|Capital of Japan
+MADRID|Spain|Capital of Spain
+PARAMARIBO|Suriname|Capital of Suriname
+BRIDGETOWN|Barbados|Capital of Barbados
+ISLAMABAD|Pakistan|Capital of Pakistan
+MANAGUA|Nicaragua|Capital of Nicaragua
+GEORGETOWN|Guyana|Capital of Guyana
+GABORONE|Botswana|Capital of Botswana
+CARACAS|Venezuela|Capital of Venezuela
+YAMOUSSOUKRO|Cote d|Capital of Cote d'Ivoire
+RIYADH|Saudi Arabia|Capital of Saudi Arabia
+ULAANBAATAR|Mongolia|Capital of Mongolia
+SANTIAGO|Chile|Capital of Chile
+JAKARTA|Indonesia|Capital of Indonesia
+MASERU|Lesotho|Capital of Lesotho
+LILONGWE|Malawi|Capital of Malawi
+KAMPALA|Uganda|Capital of Uganda
+KATHMANDU|Nepal|Capital of Nepal
+WINDHOEK|Namibia|Capital of Namibia
+SINGAPORE|Singapore|Capital of Singapore
+NAYPYIDAW|Myanmar|Capital of Myanmar
+BUENOSAIRES|Argentina|Capital of Argentina
+FUNAFUTI|Tuvalu|Capital of Tuvalu
+ASTANA|Kazakhstan|Capital of Kazakhstan
+MONTEVIDEO|Uruguay|Capital of Uruguay
+REYKJAVIK|Iceland|Capital of Iceland
+NAIROBI|Kenya|Capital of Kenya
+THIMPHU|Bhutan|Capital of Bhutan
+BRATISLAVA|Slovakia|Capital of Slovakia
+ROSEAU|Dominica|Capital of Dominica
+BASSETERRE|Saint Kitts and Nevis|Capital of Saint Kitts and Nevis
+VALLETTA|Malta|Capital of Malta
+MEXICOCITY|Mexico|Capital of Mexico
+BEIJING|China|Capital of China
+VIENTIANE|Laos|Capital of Laos
+PORTVILA|Vanuatu|Capital of Vanuatu
+HANOI|Vietnam|Capital of Vietnam
+NGERULMUD|Palau|Capital of Palau
+RABAT|Morocco|Capital of Morocco
+GUATEMALACITY|Guatemala|Capital of Guatemala
+BAMAKO|Mali|Capital of Mali
+MANILA|Philippines|Capital of Philippines
+LIBREVILLE|Gabon|Capital of Gabon
+PORTLOUIS|Mauritius|Capital of Mauritius
+MORONI|Comoros|Capital of Comoros
+SOFIA|Bulgaria|Capital of Bulgaria
+ASHGABAT|Turkmenistan|Capital of Turkmenistan
+MONACO|Monaco|Capital of Monaco
+VICTORIA|Seychelles|Capital of Seychelles
+TEHRAN|Iran|Capital of Iran
+ALGIERS|Algeria|Capital of Algeria
+BANGUI|Central African Republic|Capital of Central African Republic
+VADUZ|Liechtenstein|Capital of Liechtenstein
+SANAA|Yemen|Capital of Yemen
+SANTODOMINGO|Dominican Republic|Capital of Dominican Republic
+PANAMACITY|Panama|Capital of Panama
+BISSAU|Guinea-Bissau|Capital of Guinea-Bissau
+LUANDA|Angola|Capital of Angola
+DODOMA|Tanzania|Capital of Tanzania
+SARAJEVO|Bosnia and Herzegovina|Capital of Bosnia and Herzegovina
+AMSTERDAM|Netherlands|Capital of Netherlands
+HONIARA|Solomon Islands|Capital of Solomon Islands
+GITEGA|Burundi|Capital of Burundi
+ACCRA|Ghana|Capital of Ghana
+NASSAU|Bahamas|Capital of Bahamas
+LUXEMBOURG|Luxembourg|Capital of Luxembourg
+ZAGREB|Croatia|Capital of Croatia
+KINSHASA|Democratic Republic of the Congo|Capital of Democratic Republic of the Congo
+SKOPJE|North Macedonia|Capital of North Macedonia
+KINGSTOWN|Saint Vincent and the Grenadines|Capital of Saint Vincent and the Grenadines
+JERUSALEM|Israel|Capital of Israel
+MANAMA|Bahrain|Capital of Bahrain
+NICOSIA|Cyprus|Capital of Cyprus
+AMMAN|Jordan|Capital of Jordan
+BUDAPEST|Hungary|Capital of Hungary
+TIRANA|Albania|Capital of Albania
+DUSHANBE|Tajikistan|Capital of Tajikistan
+SANSALVADOR|El Salvador|Capital of El Salvador
+BOGOTA|Colombia|Capital of Colombia
+PRAIA|Cabo Verde|Capital of Cabo Verde
+KHARTOUM|Sudan|Capital of Sudan
+HAVANA|Cuba|Capital of Cuba
+SAOTOME|Sao Tome and Principe|Capital of Sao Tome and Principe
+MAPUTO|Mozambique|Capital of Mozambique
+PHNOMPENH|Cambodia|Capital of Cambodia
+KUALALUMPUR|Malaysia|Capital of Malaysia
+WARSAW|Poland|Capital of Poland
+COPENHAGEN|Denmark|Capital of Denmark
+KINGSTON|Jamaica|Capital of Jamaica
+MALABO|Equatorial Guinea|Capital of Equatorial Guinea
+MINSK|Belarus|Capital of Belarus
+TARAWA|Kiribati|Capital of Kiribati
+WASHINGTON|United States of America|Capital of United States of America
+KABUL|Afghanistan|Capital of Afghanistan
+DAKAR|Senegal|Capital of Senegal
+ASMARA|Eritrea|Capital of Eritrea
+LUSAKA|Zambia|Capital of Zambia
+BELMOPAN|Belize|Capital of Belize
+FREETOWN|Sierra Leone|Capital of Sierra Leone
+VILNIUS|Lithuania|Capital of Lithuania
+MOSCOW|Russia|Capital of Russia
+NDJAMENA|Chad|Capital of Chad
+VATICANCITY|Vatican City|Capital of Vatican City
+PORTAUPRINCE|Haiti|Capital of Haiti
+PODGORICA|Montenegro|Capital of Montenegro
+MAJURO|Marshall Islands|Capital of Marshall Islands
+DJIBOUTI|Djibouti|Capital of Djibouti
+STOCKHOLM|Sweden|Capital of Sweden
+CANBERRA|Australia|Capital of Australia
+ASUNCION|Paraguay|Capital of Paraguay
+COLOMBO|Sri Lanka|Capital of Sri Lanka
+SUCRE|Bolivia|Capital of Bolivia
+ABUDHABI|United Arab Emirates|Capital of United Arab Emirates
+ATHENS|Greece|Capital of Greece
+BAGHDAD|Iraq|Capital of Iraq
+BUCHAREST|Romania|Capital of Romania
+BANGKOK|Thailand|Capital of Thailand
+BELGRADE|Serbia|Capital of Serbia

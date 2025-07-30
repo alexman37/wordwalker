@@ -151,6 +151,7 @@ public class AnimationManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
         setPreventPlayerMovement.Invoke(false);
+        walkManager.startTrackingLevelTime();
     }
 
     public void moveAnim(Tile toTile, Adjacency.Direction dir)

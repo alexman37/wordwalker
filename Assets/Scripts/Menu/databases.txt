@@ -32,7 +32,7 @@ letters|letters/c|C|letter-c|"C" words, like Camper, Centerpiece, Cryogenics and
 #
 trivia|trivia/phobias|Phobias|phobias|It was so tempting to add <i>hippopotomonstrosesquippedaliophobia</i>. (Look it up. If you dare.)|1|103|
 trivia|trivia/101-cities|Around the world|around-the-world|101 cities all over the world, identified by various interesting facts about them.|1|101|
-trivia|trivia/flags|Flags|flags|Flags of various countries and territories around the world.|1|184|base/flags
+trivia|trivia/flags|Flags|flags|Flags of various countries and territories around the world.|1|183|base/flags
 trivia|trivia/capitals|Country Capitals|capitals|Capital cities of world countries.|1|173|
 trivia|trivia/state-capitals|State Capitals|state-capitals|It's never the one you expect. Can you name the capital cities of US states?|1|50|
 trivia|trivia/celebs|Fresh Tomatoes|celebs|Famous actors, directors and movie stars.|1|100|base/celebs

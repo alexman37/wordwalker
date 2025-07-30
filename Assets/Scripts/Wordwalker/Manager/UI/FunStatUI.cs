@@ -65,7 +65,7 @@ public class FunStatUI : MonoBehaviour
                 }
                 else
                 {
-                    return ("Distance walked", (state.funStuff.tilesStepped + 6 * state.getNumLevels()) + "m");
+                    return ("Distance walked", (state.funStuff.tilesStepped * 2 + 6 * state.getNumLevels()) + "m");
                 }
             case 2:
                 if (Random.Range((int)0, (int)5) < 4)

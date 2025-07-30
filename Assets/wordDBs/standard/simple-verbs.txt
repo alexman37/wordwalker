@@ -27,12 +27,12 @@ JOIN|To Come together
 HIDE|To Stay out of sight
 FEED|To Give food
 FIND|To Discover something
-ROLL|To Move in circles
+ROLL|To Tumble in circles
 GIVE|To Hand something over
 GRAB|To Take quickly
 PACK|To Put things in a bag
 REST|To Take a break
-YAWN|To What you do when sleepy
+YAWN|To Show tiredness
 BOIL|To Heat until bubbling
 MAIL|To Send a letter
 ZOOM|To Move very fast
@@ -41,7 +41,7 @@ FLIP|To Turn over quickly
 CHAT|To Talk casually
 SKIP|To Jump with a step
 PICK|To Choose one
-STAY|To Don’t leave
+STAY|To Not leave
 WAIT|To Stay until it’s time
 RIDE|To Go on a bike or horse
 LOVE|To Care deeply
@@ -49,7 +49,7 @@ HATE|To Strongly dislike
 SEND|To Make something go
 TEST|To Try it out
 WRAP|To Cover something up
-SCAN|To Look closely or use a machine
+SCAN|To Look closely
 FILL|To Make something full
 BEEP|To Make a short electrical sound
 BEND|To Curve or lean
@@ -57,11 +57,11 @@ SHIP|To Send a package
 FORM|To Make a shape
 TYPE|To Use a keyboard
 DROP|To Let something fall
-GRIN|To A happy face
+GRIN|To Make A happy face
 PEEP|To Look quickly
 SHOW|To Display something
 DIVE|To Jump into water
-MELT|To Turn into liquid
+MELT|To Turn into liquid (with heat)
 GROW|To Get bigger
 FLOW|To Move like water
 MARK|To Show with a sign
@@ -69,7 +69,7 @@ CLIP|To Cut a little
 PLAN|To Think ahead
 NOTE|To Write something down
 NAME|To Tell what it's called
-ROAM|To Move without goal
+ROAM|To Move without a goal
 TOSS|To Throw lightly
 SNAP|To Break or click
 GLOW|To Shine softly

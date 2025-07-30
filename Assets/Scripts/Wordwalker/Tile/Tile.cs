@@ -358,7 +358,7 @@ public class Tile : MonoBehaviour
             else
             {
                 textComponent.text = display.ToString();
-                changeMaterial(WalkManager.tileMats.getCurrentBase(marked, stepped, correct, specType));
+                changeMaterial(WalkManager.tileMats.getCurrentBase(marked, stepped, correct, revealed, specType));
             }
         }
     }
@@ -385,7 +385,7 @@ public class Tile : MonoBehaviour
             display = " ";
             textComponent.text = " ";
             specType = SpecialTile.BLANK;
-            changeMaterial(WalkManager.tileMats.getCurrentBase(false, false, true, specType));
+            changeMaterial(WalkManager.tileMats.getCurrentBase(false, false, true, false, specType));
         }
         
 
