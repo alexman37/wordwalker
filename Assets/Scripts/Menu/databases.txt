@@ -2,7 +2,7 @@
 #standard|crossword|Test Set||A test set of words provided generously by dr. gpt|
 #standard|test2|Test Set 2||This does not actually exist|100,04/23/23;300,04/24/23
 #
-easy|test-set|TESTING||Testing only (TODO remove)|0|7
+#easy|test-set|TESTING||Testing only (TODO remove)|0|7
 easy|standard/simple-nouns|Simple Nouns|nouns|Nouns are people, places, things, and other objects. These ones are a piece of <i>cake</i>!|0|128|
 easy|standard/simple-verbs|Simple Verbs|verbs|Verbs are actions - things that nouns "do". See if you can <i>spell</i> them.|0|110|
 easy|standard/simple-adjectives|Simple Adjectives|adjectives|Adjectives are descriptions of nouns. Don't worry, they're <i>easy</i>...for now.|0|108|
@@ -34,6 +34,6 @@ trivia|trivia/phobias|Phobias|phobias|It was so tempting to add <i>hippopotomons
 trivia|trivia/101-cities|Around the world|around-the-world|101 cities all over the world, identified by various interesting facts about them.|1|101|
 trivia|trivia/flags|Flags|flags|Flags of various countries and territories around the world.|1|183|base/flags
 trivia|trivia/capitals|Country Capitals|capitals|Capital cities of world countries.|1|173|
-trivia|trivia/state-capitals|State Capitals|state-capitals|It's never the one you expect. Can you name the capital cities of US states?|1|50|
-trivia|trivia/celebs|Fresh Tomatoes|celebs|Famous actors, directors and movie stars.|1|100|base/celebs
+trivia|trivia/state-capitals|State Capitals|state-capitals|It's never the ones you expect. Think you can name the capital cities of US states?|1|50|
+trivia|trivia/celebs|Fresh Tomatoes|celebs|The last names of famous actors, directors and movie stars from IMDB's "Top Celebrities" list.|1|100|base/celebs
 trivia|trivia/pokemon|Pokemon (Gen 1)|pokemon|Gotta spell 'em all.|1|148|base/pokemon
