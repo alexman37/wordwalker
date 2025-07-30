@@ -57,6 +57,7 @@ public class MenuScript : MonoBehaviour
     // "Intensity" determines the difficulty. We also thought about using it to enable some challenges but...it's looking like we won't.
     public void startDailyWordGame(string word, string defn, int seed, int intensity)
     {
+        SfxManager.instance.playSFXbyName("click-short", null, 1);
         Debug.Log("Starting Daily word game");
         MusicManager.inGameMusicFade(true);
 
@@ -88,6 +89,7 @@ public class MenuScript : MonoBehaviour
     // Start new adventure / free play game
     public void startNewGame()
     {
+        SfxManager.instance.playSFXbyName("click-short", null, 1);
         Debug.Log("Setting up new game with DB " + dbItem.databaseId);
         MusicManager.inGameMusicFade(true);
         GameManagerSc.setParametersOnStart(numLevels, dbItem, selectedChallenges);

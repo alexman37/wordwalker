@@ -128,6 +128,8 @@ public class DatabaseSet : MonoBehaviour
         expanded = !expanded;
         if (expanded)
         {
+            SfxManager.instance.playSFXbyName("click-short", null, 1f);
+
             StartCoroutine(rotateExpandedSprite(0));
             itemsList.SetActive(true);
 
@@ -142,6 +144,8 @@ public class DatabaseSet : MonoBehaviour
             usedCollapser.Invoke(slot, heightOfEntries * (databases.Count) + DB_OFFSET, false);
         } else
         {
+            SfxManager.instance.playSFXbyName("click-short", null, 1f);
+
             StartCoroutine(rotateExpandedSprite(90));
             itemsList.SetActive(false);
 

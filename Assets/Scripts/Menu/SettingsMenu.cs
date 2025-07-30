@@ -74,11 +74,6 @@ public class SettingsMenu : WidgetPopup
         //ScreenResizeComponent.resizeScalingComponents -= onResizeCloseWidget;
     }
 
-    private void onResizeCloseWidget(float _, float newHeight)
-    {
-        //base.closeWidgetPopup();
-    }
-
     void initializeValuesVisually()
     {
         adjustMusicVolSlider(settingsValues.musicVolume);
@@ -248,6 +243,12 @@ public class SettingsMenu : WidgetPopup
     public void saveSettings()
     {
         GlobalStatMap.ModifySettings(settingsValues);
+    }
+
+    public new void closeWidgetPopup()
+    {
+        base.closeWidgetPopup();
+        backoffReset();
     }
 
 }

@@ -28,6 +28,11 @@ public class WordwalkerUIScript : MonoBehaviour
     private TextMeshProUGUI displayScore;
     private TextMeshProUGUI displayRoom;
     private TextMeshProUGUI displayTotem;
+    public Image totemPicture;
+    public Sprite totemsNormal;
+    public Sprite totemsIronman;
+    public Sprite totemsDead;
+    private Sprite thisGamesDefaultTotem; // either normal or ironman depending on challenges you'd selected
     private int numLevels;
 
     // The RankBox is also a part of stats
@@ -69,6 +74,14 @@ public class WordwalkerUIScript : MonoBehaviour
         } else
         {
             critStats.GetComponent<Image>().sprite = critStatsOptions[0];
+        }
+
+        if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.IRON_MAN))
+        {
+            thisGamesDefaultTotem = totemsIronman;
+        } else
+        {
+            thisGamesDefaultTotem = totemsNormal;
         }
 
         // We can set the number of levels here since gameManager is guaranteed to have its state set up by now
@@ -151,7 +164,16 @@ public class WordwalkerUIScript : MonoBehaviour
 
     public void ChangeTotems(int newAmnt, int delta, bool adding)
     {
-        displayTotem.text = newAmnt.ToString();
+        if(newAmnt >= 0)
+        {
+            displayTotem.text = newAmnt.ToString();
+            totemPicture.sprite = thisGamesDefaultTotem;
+        }
+        else
+        {
+            displayTotem.text = "X";
+            totemPicture.sprite = totemsDead;
+        }
     }
 
     private void shiftTimer(bool ontoScreen)

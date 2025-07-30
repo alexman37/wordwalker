@@ -208,10 +208,10 @@ public class GameManagerSc : MonoBehaviour
 
         WWGameState oldState = state;
         int newTotemsThisGame = 3; // TODO ???
-        state = new WWGameState(oldState.getNumLevels(), newTotemsThisGame, oldState.foggyVision, false, oldState.selectedChallenges);
+        state = new WWGameState(oldState.getNumLevels(), 0, oldState.foggyVision, false, oldState.selectedChallenges);
         state.setWordList(WordGen.getTailoredList(state.getNumLevels(), DatabaseTracker.databaseTracker.databaseStorages[localDBcopy.databaseId].wordCycle.ToList()));
+        changeTotems(newTotemsThisGame, true);
         uiManager.withNewState(state);
-        changeInTotems.Invoke(newTotemsThisGame);
 
         newGame.Invoke();
         goToNextLevel();
