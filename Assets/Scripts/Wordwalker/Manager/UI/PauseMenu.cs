@@ -145,6 +145,8 @@ public class PauseMenu : WidgetPopup
 
     public void exitToMainMenu()
     {
+        returnConfirm.SetActive(false);
+        returnToMM.SetActive(false);
         if (readyForSFX) SfxManager.instance.playSFXbyName("click-short", null, 1);
         GameManagerSc.returnToMainMenu();
     }
