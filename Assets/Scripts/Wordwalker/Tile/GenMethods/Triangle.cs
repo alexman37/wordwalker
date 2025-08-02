@@ -100,8 +100,9 @@ public class Triangle : GenMethod
         generateStartAndEndDivots(starters, enders);
         
         corrects = generateWordPath(starters, word, backTracks, numBlanks);
+        markSpecialTiles();
         fillInOtherTiles(maxSubs);
-        addSpecialTiles();
+        //addSpecialTiles();
         done(starters);
 
         return tileMap;

@@ -1,3 +1,11 @@
+[1.0] 8/2/2025: "Oh Hi Mark"
+PC BUILD:
+- 
+MOBILE BUILD:
+- 
+ALL BUILDS:
+- 
+
 [1.0] 7/31/2025: "Sean Cook"
 PC BUILD:
 - Initial Release.

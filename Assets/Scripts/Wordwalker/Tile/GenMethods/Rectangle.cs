@@ -82,8 +82,9 @@ public class Rectangle : GenMethod
         generateStartAndEndDivots(starters, enders);
 
         corrects = generateWordPath(starters, word, backTracks, numBlanks);
+        markSpecialTiles();
         fillInOtherTiles(settledSubs);
-        addSpecialTiles();
+        //addSpecialTiles();
         done(starters);
 
         return tileMap;

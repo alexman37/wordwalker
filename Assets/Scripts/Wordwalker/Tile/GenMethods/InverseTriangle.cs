@@ -131,8 +131,9 @@ public class InverseTriangle : GenMethod
         generateStartAndEndDivots(starters, enders);
 
         corrects = generateWordPath(enders, word, backTracks, numBlanks);
+        markSpecialTiles();
         fillInOtherTiles(maxSubs);
-        addSpecialTiles();
+        //addSpecialTiles();
         done(starters);
 
         return tileMap;

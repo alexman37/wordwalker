@@ -377,7 +377,10 @@ public class Tile : MonoBehaviour
         {
             letter = setTo;
             display = setTo.ToString();
-            textComponent.text = setTo.ToString();
+            if (specType == SpecialTile.RANDOM) textComponent.text = "?";
+            else if(specType == SpecialTile.NONE) textComponent.text = setTo.ToString();
+
+            correct = isPartOfPath;
         } else
         {
             // These aren't "normal" blank tiles - kind of part of the word, kind of not
@@ -387,17 +390,19 @@ public class Tile : MonoBehaviour
             textComponent.text = " ";
             specType = SpecialTile.BLANK;
             changeMaterial(WalkManager.tileMats.getCurrentBase(false, false, true, false, specType));
+            correct = true;
         }
-        
+
 
         finalized = true;
-        correct = isPartOfPath;
     }
 
     /// <summary>
-    /// You've chosen to make this a special tile - adjust its appearance / behavior here
+    /// You've chosen to make this a special tile - adjust its appearance / behavior here.
+    /// DO NOT set the alternate letter for fake / split tiles here- unfortunately, it has to wait until all tiles are filled
+    /// So we can check which letters that can actually be.
     /// </summary>
-    public void setAsSpecialTile(SpecialTile specType)
+    public void setAsSpecialTile1(SpecialTile specType)
     {
         if(textComponent == null) textComponent = this.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
 
@@ -415,34 +420,60 @@ public class Tile : MonoBehaviour
                 display = " ";
                 correct = true;
                 break;
+            default: break;
+        }
+
+        textComponent.text = display;
+    }
+
+    public void setAsSpecialTile2(SpecialTile specType, char fakeLetter)
+    {
+        if (textComponent == null) textComponent = this.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        switch (specType)
+        {
             // Fake: Has a certain chance (configure...) of appearing as something else
             case SpecialTile.FAKE:
                 textComponent.fontSize = 0.9f;
-                if(UnityEngine.Random.value < fakeTileLyingChance)
+                if (UnityEngine.Random.value < fakeTileLyingChance)
                 {
                     // The tile lies
-                    display = LetterGen.getProportionallyRandomLetter() + "?";
-                } else
+                    //display = LetterGen.getProportionallyRandomLetter() + "?";
+                    display = fakeLetter + "?";
+                }
+                else
                 {
                     // The tile tells the truth
                     display = letter + "?";
                 }
-                
+
                 break;
             case SpecialTile.SPLIT:
                 textComponent.fontSize = 0.8f;
                 // Will either have the correct tile on top or the bottom
                 if (UnityEngine.Random.value < 0.5f)
                 {
-                    display = LetterGen.getProportionallyRandomLetterExcept(letter) + "\n" + letter;
-                } else
-                {
-                    display = letter + "\n" + LetterGen.getProportionallyRandomLetterExcept(letter);
+                    //display = LetterGen.getProportionallyRandomLetterExcept(letter) + "\n" + letter;
+                    display = fakeLetter + "\n" + letter;
                 }
-                
+                else
+                {
+                    //display = letter + "\n" + LetterGen.getProportionallyRandomLetterExcept(letter);
+                    display = letter + "\n" + fakeLetter;
+                }
+
                 break;
+            default: break;
         }
 
+        textComponent.text = display;
+    }
+
+    /// <summary>
+    /// Set the display
+    /// </summary>
+    public void resetDisplay()
+    {
         textComponent.text = display;
     }
 

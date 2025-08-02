@@ -101,8 +101,9 @@ public class WindingRoad : GenMethod
         generateStartAndEndDivots(starters, enders);
 
         corrects = generateWordPath(starters, word, backTracks, numBlanks);
+        markSpecialTiles();
         fillInOtherTiles((int)gridSubs);
-        addSpecialTiles();
+        //addSpecialTiles();
         done(starters);
 
         return tileMap;

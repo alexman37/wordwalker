@@ -293,7 +293,13 @@ public abstract class GenMethod : MonoBehaviour
     }
 
     /// <summary>
-    /// Fill in all tiles besides the correct ones with...something (depending on algorithm of your choice)
+    /// Fill in all tiles besides the correct ones with...something (depending on algorithm of your choice).
+    /// The general pattern follows 3 steps:
+    ///   1. Start by filling in all tiles not connected to the correct path with anything, it doesn't matter.
+    ///   2. If this word has alternate accepted spellings, find the different range of tiles and ensure that no tiles in that range
+    ///         could accidentally make an alternate spelling.
+    ///   3. For all tiles connected to the correct path (which still have not been filled in), fill them in while keeping in mind
+    ///         their correct neighbors, and alternate spellings.
     /// </summary>
     protected virtual void fillInOtherTiles(int subInterval)
     {
@@ -319,7 +325,7 @@ public abstract class GenMethod : MonoBehaviour
                         //If the tile borders the path we have to be more careful about what letter we choose
                         //Save it for the next loop- it seems inefficient but it's actually fine - don't ask questions!
                     }
-                    else
+                    else if(curr.specType != Tile.SpecialTile.BLANK)
                     {
                         //Otherwise just do whatever ya want
                         char letter;
@@ -328,9 +334,26 @@ public abstract class GenMethod : MonoBehaviour
                             letter = LetterGen.getProportionallyRandomLetter();
                         } while (curr.adjacencies.Exists((Adjacency adj) => adj.tile.letter == letter));
 
-
                         curr.setLetter(letter, false);
+
+                        // If a fake or blank tile we deferred on earlier, we must fill it in now with a second valid letter
+                        if(curr.specType == Tile.SpecialTile.FAKE || curr.specType == Tile.SpecialTile.SPLIT)
+                        {
+                            char letter2;
+                            do
+                            {
+                                letter2 = LetterGen.getProportionallyRandomLetterExcept(letter);
+                            } while (curr.adjacencies.Exists((Adjacency adj) => adj.tile.letter == letter));
+
+                            curr.setAsSpecialTile2(curr.specType, letter2);
+                        }
+                    } else
+                    {
+                        curr.setLetter('_', false);
                     }
+                } else if(curr != null)
+                {
+                    curr.resetDisplay();
                 }
             }
         }
@@ -402,7 +425,7 @@ public abstract class GenMethod : MonoBehaviour
         }
 
 
-
+        // Any tiles still not filled in are connected to the correct path. Fill them in and be careful about what they will become.
         for (int row = 0; row < settledRows; row++)
         {
             for (int sub = 0; sub <= subInterval; sub++)
@@ -410,22 +433,49 @@ public abstract class GenMethod : MonoBehaviour
                 Tile curr = tileMap[(row, sub)];
                 if (curr != null && !curr.isFinalized())
                 {
-                    //Don't allow for the same letter to be adjacent to the same tile
-                    char letter;
-                    // TODO callback?
-
-                    // We cannot allow for alternate words to generate by accident
-                    if(curr.adjacencies.Exists(adj => adj.tile.order >= finalStartBreak && adj.tile.order <= finalEndBreak))
+                    if(curr.specType == Tile.SpecialTile.BLANK)
                     {
-                        Debug.Log("Using the restrictive list for " + curr);
-                        letter = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter, banned);
+                        curr.setLetter('_', false);
                     } else
                     {
-                        letter = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter);
-                    }
-                    
+                        char letter;
+                        // TODO callback?
 
-                    curr.setLetter(letter, false);
+                        // We cannot allow for alternate words to generate by accident
+                        if (curr.adjacencies.Exists(adj => adj.tile.order >= finalStartBreak && adj.tile.order <= finalEndBreak))
+                        {
+                            Debug.Log("Using the restrictive list for " + curr);
+                            letter = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter, banned);
+                            curr.setLetter(letter, false);
+
+                            if (curr.specType == Tile.SpecialTile.FAKE || curr.specType == Tile.SpecialTile.SPLIT)
+                            {
+                                char letter2;
+                                do
+                                {
+                                    letter2 = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter, banned);
+                                } while (letter2 == letter);
+
+                                curr.setAsSpecialTile2(curr.specType, letter2);
+                            }
+                        }
+                        else
+                        {
+                            letter = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter);
+                            curr.setLetter(letter, false);
+
+                            if (curr.specType == Tile.SpecialTile.FAKE || curr.specType == Tile.SpecialTile.SPLIT)
+                            {
+                                char letter2;
+                                do
+                                {
+                                    letter2 = LetterGen.getCooperativeRandomLetter(curr, word, LetterGen.getProportionallyRandomLetter);
+                                } while (letter2 == letter);
+
+                                curr.setAsSpecialTile2(curr.specType, letter2);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -451,7 +501,7 @@ public abstract class GenMethod : MonoBehaviour
     /// <summary>
     /// Add special tiles. They can include the path itself
     /// </summary>
-    protected virtual void addSpecialTiles()
+    protected virtual void markSpecialTiles()
     {
         if(GameManagerSc.state.selectedChallenges.Contains(MenuScript.Challenge.SPECIAL_TILES)) {
             // RANDOM tiles - these appear as ? and are unknown until stepped on.
@@ -465,7 +515,7 @@ public abstract class GenMethod : MonoBehaviour
                 //  - Cannot directly border another random, fake, or split tile
                 if (t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
-                    t.setAsSpecialTile(Tile.SpecialTile.RANDOM);
+                    t.setAsSpecialTile1(Tile.SpecialTile.RANDOM);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_random);
                 }
             }
@@ -482,7 +532,10 @@ public abstract class GenMethod : MonoBehaviour
                 //  - Cannot directly border another random, fake, or split tile
                 if (t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
-                    t.setAsSpecialTile(Tile.SpecialTile.FAKE);
+                    // NOT YET - wait until all tiles are filled in to finish.
+                    //t.setAsSpecialTile(Tile.SpecialTile.FAKE);
+                    t.specType = Tile.SpecialTile.FAKE;
+                    if (t.correct) t.setAsSpecialTile2(Tile.SpecialTile.FAKE, LetterGen.getProportionallyRandomLetterExcept(t.letter));
                     t.changeMaterial(tilemapGen.tileMaterials.spec_fake);
                 }
             }
@@ -498,7 +551,10 @@ public abstract class GenMethod : MonoBehaviour
                 //  - Cannot directly border another random, fake, or split tile
                 if (t != null && !t.isBackRow && t.adjacencies.FindAll(adj => adj.tile.specType != Tile.SpecialTile.NONE).Count == 0)
                 {
-                    t.setAsSpecialTile(Tile.SpecialTile.SPLIT);
+                    // NOT YET - wait until all tiles are filled in to finish.
+                    //t.setAsSpecialTile(Tile.SpecialTile.SPLIT);
+                    t.specType = Tile.SpecialTile.SPLIT;
+                    if (t.correct) t.setAsSpecialTile2(Tile.SpecialTile.SPLIT, LetterGen.getProportionallyRandomLetterExcept(t.letter));
                     t.changeMaterial(tilemapGen.tileMaterials.spec_split);
                 }
             }
@@ -513,7 +569,7 @@ public abstract class GenMethod : MonoBehaviour
                 //  - Cannot overtake the path itself (that should have been done earlier.)
                 if (t != null && !t.correct && !t.isBackRow)
                 {
-                    t.setAsSpecialTile(Tile.SpecialTile.BLANK);
+                    t.setAsSpecialTile1(Tile.SpecialTile.BLANK);
                     t.changeMaterial(tilemapGen.tileMaterials.spec_blank);
                 }
             }

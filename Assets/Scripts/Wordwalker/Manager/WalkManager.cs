@@ -184,7 +184,7 @@ public class WalkManager : MonoBehaviour
             Tile revealMe = whitelist[UnityEngine.Random.Range(0, whitelist.Count)];
 
             // Not fallen off the map, not stepped on either
-            if (!revealMe.banned && !revealMe.revealed)
+            if (!revealMe.banned && !revealMe.revealed && revealMe.specType != Tile.SpecialTile.BLANK)
             {
                 // Shortened version of manage step
                 revealTile(revealMe);
