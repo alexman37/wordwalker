@@ -60,6 +60,15 @@ public class WindingRoad : GenMethod
                     continue;
                 }
 
+                if (GameManagerSc.state.lettersList && row == 0)
+                {
+                    if ((sub - minAllowedSub) % 2 == 1)
+                    {
+                        tileMap[(row, sub)] = null;
+                        continue;
+                    }
+                }
+
                 // Set position of real object
                 float xPos = (gridSubs * ySpacing / 2) - sub * xSpacing - oddRowOffset;
                 Vector3 pos = new Vector3(xPos, 0, ySpacing * row);

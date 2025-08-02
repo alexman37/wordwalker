@@ -41,6 +41,15 @@ public class Rectangle : GenMethod
 
             for (int sub = 0; sub <= settledSubs; sub++)
             {
+                if (GameManagerSc.state.lettersList && row == 0)
+                {
+                    if ((sub) % 2 == 1)
+                    {
+                        tileMap[(row, sub)] = null;
+                        continue;
+                    }
+                }
+
                 // Set position of real object
                 float xPos = (settledSubs * ySpacing / 2) - sub * xSpacing - oddRowOffset;
                 Vector3 pos = new Vector3(xPos, 0, ySpacing * row);

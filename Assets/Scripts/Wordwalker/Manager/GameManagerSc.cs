@@ -119,6 +119,11 @@ public class GameManagerSc : MonoBehaviour
         Debug.Log("Setting parameters for game with numLvl " + numLvl);
         state = new WWGameState(numLvl, 3, 3, false, challenges);
 
+        if(dbItem.group == "letters")
+        {
+            state.lettersList = true;
+        }
+
         localDBcopy = dbItem;
 
         firstTimeWordsLoad = dbItem.databaseId;
@@ -457,6 +462,7 @@ public class WWGameState
     public int foggyVision = 3;   // How far ahead can you see when fog is enabled?
 
     public bool dailyWord = false;  // Daily word mode has some key differences from adventure / free play
+    public bool lettersList = false; // Letters lists have unique rules for generation
     public HashSet<MenuScript.Challenge> selectedChallenges = new HashSet<MenuScript.Challenge>(); // Mostly used by tile generation
 
     private WordGen.Word[] wordList;

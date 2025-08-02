@@ -310,6 +310,13 @@ public abstract class GenMethod : MonoBehaviour
                 Tile curr = tileMap[(row, sub)];
                 if (curr != null && !curr.isFinalized())
                 {
+                    // Letters lists' special generation pattern: All front-row tiles start with same letter
+                    if(GameManagerSc.state.lettersList && row == 0)
+                    {
+                        curr.setLetter(word[0], false);
+                        continue;
+                    }
+
                     bool neighborToPath = false;
                     foreach (Adjacency adj in curr.adjacencies)
                     {
@@ -436,7 +443,7 @@ public abstract class GenMethod : MonoBehaviour
                 {
                     if(curr.letter == word[0]) // TODO: eliminate this same possibility for special tiles?
                     {
-                        bool tooCloseToDuplicate = true;
+                        bool tooCloseToDuplicate = false;
                         foreach(Adjacency adj in curr.adjacencies)
                         {
                             if(adj.tile.letter == word[1])
@@ -446,7 +453,12 @@ public abstract class GenMethod : MonoBehaviour
                         }
                         if(tooCloseToDuplicate)
                         {
+                            // For letters lists this will have the silly effect of...not having it start with the letter.
+                            // And i'm ok with that. rather be silly than innaccurate.
                             curr.letter = LetterGen.getProportionallyRandomLetterExcept(word[0]);
+                            curr.display = curr.letter.ToString();
+                            curr.resetDisplay();
+                            continue;
                         }
                     }
                 }

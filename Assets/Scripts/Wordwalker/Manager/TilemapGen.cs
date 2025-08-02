@@ -104,7 +104,7 @@ public class TilemapGen : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            regenerateTileMap(new WordGen.Word("AAAAAAA", ""), 1);
+            regenerateTileMap(new WordGen.Word("AEEEEEE", ""), 1);
         }
     }
 }

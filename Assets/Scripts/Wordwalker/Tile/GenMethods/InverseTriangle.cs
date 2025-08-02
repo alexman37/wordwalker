@@ -93,6 +93,15 @@ public class InverseTriangle : GenMethod
                     continue;
                 }
 
+                if (GameManagerSc.state.lettersList && row == 0)
+                {
+                    if ((sub - minAllowedSub) % 2 == 1)
+                    {
+                        tileMap[(row, sub)] = null;
+                        continue;
+                    }
+                }
+
                 float xPos = (maxSubs * xSpacing / 2) - sub * xSpacing - oddRowOffset; //-xSpacing * maxSubs / 2.0f + sub * xSpacing + oddRowOffset;
                 Vector3 pos = new Vector3(xPos, 0, ySpacing * row);
                 GameObject next = GameObject.Instantiate(baseTile, pos, baseTile.transform.rotation);
