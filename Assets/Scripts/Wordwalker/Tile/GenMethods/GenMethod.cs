@@ -431,6 +431,26 @@ public abstract class GenMethod : MonoBehaviour
             for (int sub = 0; sub <= subInterval; sub++)
             {
                 Tile curr = tileMap[(row, sub)];
+                // Special case, row = 0: check for instances of getting too close to generating the word again in another place
+                if (row == 0 && curr != null && !curr.correct)
+                {
+                    if(curr.letter == word[0]) // TODO: eliminate this same possibility for special tiles?
+                    {
+                        bool tooCloseToDuplicate = true;
+                        foreach(Adjacency adj in curr.adjacencies)
+                        {
+                            if(adj.tile.letter == word[1])
+                            {
+                                tooCloseToDuplicate = true;
+                            }
+                        }
+                        if(tooCloseToDuplicate)
+                        {
+                            curr.letter = LetterGen.getProportionallyRandomLetterExcept(word[0]);
+                        }
+                    }
+                }
+
                 if (curr != null && !curr.isFinalized())
                 {
                     if(curr.specType == Tile.SpecialTile.BLANK)

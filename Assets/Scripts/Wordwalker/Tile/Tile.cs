@@ -19,7 +19,7 @@ public class Tile : MonoBehaviour
 
     private static bool acceptingClicks = true;
     private static Tile lastMouseDown;                 // To keep track of which tiles have been completely, fully clicked
-    private static float movedForClickThreshold = 3f;  // Allowed distance the camera can move for this to be considered a click
+    private static float movedForClickThreshold = 5f;  // Allowed distance the camera can move for this to be considered a click
 
     bool finalized;          // (used solely in generation)
     public bool banned;      // You cannot interact with this tile no matter what (only special use cases)

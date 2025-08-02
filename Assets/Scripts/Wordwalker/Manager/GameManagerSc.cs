@@ -257,6 +257,7 @@ public class GameManagerSc : MonoBehaviour
             /// FREE PLAY
             else
             {
+                state.foggyVision = Mathf.Clamp(nextWord.word.Length / 2, 3, 5);
                 Tilemap.regenerateTileMap(nextWord, localDBcopy.maxBacktracks);
                 DatabaseTracker.addToCycle(localDBcopy.databaseId, nextWord);
                 // Checks exactly when to reset the word cycle
