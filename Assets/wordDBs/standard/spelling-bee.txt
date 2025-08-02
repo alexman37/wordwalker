@@ -11,14 +11,14 @@ SUBSEQUENT|(adjective) Coming after something else|Commonly misspelled as subseq
 ARGUMENT|(noun) A disagreement or reasoned discussion|Commonly misspelled as arguement,argumint
 UNNECESSARY|(adjective) Not needed or essential|Commonly misspelled as unecessary,unnessesary
 LICENSE|(noun) Official permission to do something|Commonly misspelled as lisence,liscense|LICENCE
-COLLECTIBLE|(adjective) Worth collecting as a hobby or investment|Commonly misspelled as colectible|COLLECTABLE
+COLLECTIBLE|(adjective) Worth gathering as a hobby or investment|Commonly misspelled as colectible|COLLECTABLE
 LEISURE|(noun) Free time for relaxation|Commonly misspelled as liesure,leasure
 NOTICEABLE|(adjective) Easily seen or recognized|Commonly misspelled as noticable,noticible
 REFERENCE|(noun) Mention of a source or authority|Commonly misspelled as referance,referense
 COMMITTEE|(noun) Group appointed to perform a task|Commonly misspelled as commitee,committe
 EXAGGERATE|(verb) To make something seem larger or more|Commonly misspelled as exagerrate,exeggerate
 PRIVILEGE|(noun) A special right or advantage|Commonly misspelled as priviledge,privelege,privilage
-SOPHOMORE|(noun) A second-year student in high school/college|Commonly misspelled as somphomore,sophmore
+SOPHOMORE|(noun) A second-year student in high school or college|Commonly misspelled as somphomore,sophmore
 PROCEDURE|(noun) A series of steps followed|Commonly misspelled as procedur,procejure
 VILLAGE|(noun) Small group of houses in a rural area|Commonly misspelled as vilage,villiage
 CONSCIENCE|(noun) Inner sense of right and wrong|Commonly misspelled as conscence,consience

@@ -7,7 +7,7 @@ RENOVATION|(noun) The process of improving by repairing.
 OBSOLESCENCE|(noun) The process of becoming outdated.
 REVOLUTION|(noun) A forcible overthrow of a government or social order.
 UTILIZATION|(noun) The act of using something effectively.||UTILISATION
-SEASONALITY|(noun) The characteristic of varying according to the season.
+SEASONALITY|(noun) The characteristic of varying according to the time of year.
 ABSTENTION|(noun) The act of deliberately not voting or participating.
 OUTLANDISH|(adjective) Strange or bizarre.
 INCREDIBLE|(adjective) Difficult to believe; extraordinary.
@@ -21,9 +21,9 @@ ADVANCEMENT|(noun) The process of promoting or moving forward.
 SOLUBILITY|(noun) The ability to dissolve in a solvent.
 UNDENIABLE|(adjective) Impossible to deny or dispute.
 TRADITIONAL|(adjective) Based on long-established customs.
-RETIREMENT|(noun) The period of life after leaving one’s job.
+RETIREMENT|(noun) The period of life after leaving one's job.
 REFRIGERATE|(verb) To keep something cool to prevent spoilage.
-INFLAMMATION|(noun) The body’s response to injury or infection.
+INFLAMMATION|(noun) The body's response to injury or infection.
 RECEPTIONIST|(noun) A person who greets visitors and handles communications.
 THREATENING|(adjective) Having a hostile or dangerous quality.
 FORMULATION|(noun) The action of devising or creating something.
@@ -37,7 +37,7 @@ UNEXPECTED|(adjective) Not anticipated.
 UNANIMOUSLY|(adverb) With complete agreement.
 COMPROMISE|(noun) An agreement reached by mutual concession.
 CIRCUMSTANCE|(noun) A fact or condition connected to an event.
-STATISTICAL|(adjective) Pertaining to statistics or data analysis.
+STATISTICAL|(adjective) Pertaining to analytics or data analysis.
 INSTALLATION|(noun) The act of putting something in place.
 NEGLIGENCE|(noun) Failure to take proper care.
 INTERVENTION|(noun) The action of becoming involved.
@@ -49,8 +49,8 @@ OCCASIONALLY|(adverb) At infrequent or irregular intervals.
 MASTERMIND|(noun) A person who plans and directs a complex project.
 NAVIGATIONAL|(adjective) Relating to the process of directing a course.
 HIERARCHICAL|(adjective) Arranged in order of rank.
-CERTIFICATION|(noun) The process of verifying something’s status.
-PLAYWRIGHT|(noun) A person who writes plays.
+CERTIFICATION|(noun) The process of verifying something's status.
+PLAYWRIGHT|(noun) A person who writes theater performances.
 UNBELIEVING|(adjective) Not accepting as true.
 POTENTIALLY|(adverb) Possibly but not yet actual.
 WRONGDOING|(noun) Illegal or immoral behavior.
@@ -66,12 +66,12 @@ QUALIFICATION|(noun) A condition or standard that must be met.
 FABRICATION|(noun) The act of inventing something false.
 RETALIATION|(noun) The act of returning an attack.
 FELICITATION|(noun) An expression of good wishes; congratulations.
-FRIENDLINESS|(noun) The quality of being friendly.
+FRIENDLINESS|(noun) The quality of being kind and open to others.
 PROMINENCE|(noun) The state of being important or famous.
 REHABILITATION|(noun) The process of restoring someone to health or normal life.
 STIMULATING|(adjective) Encouraging or arousing interest or enthusiasm.
-ACCOUNTABLE|(adjective) Responsible for one’s actions.
-KALEIDOSCOPE|(noun) A constantly changing pattern or sequence of elements.
+ACCOUNTABLE|(adjective) Responsible for one's actions.
+SKYSCRAPER|(noun) A very tall building in a city.
 RELUCTANCE|(noun) Unwillingness or hesitation.
 APPRECIABLE|(adjective) Large or significant enough to be noticed.
 REGENERATION|(noun) The process of renewal or growth.
@@ -83,7 +83,7 @@ AUTHORIZATION|(noun) Official permission.||AUTHORISATION
 RESTRICTION|(noun) A limiting condition or regulation.
 RESURRECTION|(noun) The act of rising from the dead.
 COMPASSIONATE|(adjective) Feeling or showing sympathy and concern.
-SPIRITUALITY|(noun) The quality of being concerned with the soul or spirit.
+SPIRITUALITY|(noun) The quality of being concerned with the soul.
 MANUFACTURE|(verb) To make something on a large scale using machinery.
 ACCELERATION|(noun) The increase in speed or rate.
 EXCELLENCE|(noun) The quality of being outstanding or extremely good.
@@ -97,10 +97,10 @@ DEFINITENESS|(noun) The quality of being clear or certain.
 ORIENTATION|(noun) The direction or position of something.
 PACIFICATION|(noun) The act of calming or restoring peace.
 VINDICATION|(noun) The clearing of blame or suspicion.
-SEDIMENTARY|(adjective) Formed by the deposition of material at the Earth’s surface.
+SEDIMENTARY|(adjective) Formed by the deposition of material at the Earth's surface.
 PHILOSOPHY|(noun) The study of fundamental questions about existence and knowledge.
 SACRAMENTAL|(adjective) Relating to sacred rites.
-QUANTITATIVE|(adjective) Relating to measurement or quantity.
+QUANTITATIVE|(adjective) Relating to measurement of something's numeric amount.
 INTERPRETATION|(noun) The act of explaining meaning.
 UNINTENTIONAL|(adjective) Not done on purpose.
 CAPITULATE|(verb) To surrender or give in.
@@ -116,7 +116,7 @@ DISTRIBUTION|(noun) The action of sharing something out.
 INTERFERENCE|(noun) The action of obstructing or hindering.
 IMPRESSIONIST|(noun) An artist who paints in a style emphasizing light and color.
 CONVICTION|(noun) A firmly held belief.
-MATERIALISM|(noun) A tendency to consider material possessions as important.
+MATERIALISM|(noun) A tendency to consider physical possessions as important.
 CONCENTRATION|(noun) The action of focusing attention.
 DETERIORATE|(verb) To become worse.
 SUBTERRANEAN|(adjective) Existing below the surface of the earth.

@@ -178,7 +178,6 @@ CHICANERY|Clever trickery, Subterfuge||
 CHICKEN|Hen, rooster/Most common farm animal||
 CHIEFTAIN|Leader||
 CHILDHOOD|Early years||
-CHILDMIND|Childcare||
 CHILDREN|Young people||
 CHIMNEY|Fireplace pipe/Flame exhaust||
 CHIMPANZEE|Ape||

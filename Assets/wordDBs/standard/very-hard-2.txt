@@ -66,7 +66,7 @@ LANGUOR|(noun) The state or feeling of tiredness or inertia.
 EXIGENT|(adjective) Urgent; requiring immediate action or attention.
 HIRSUTE|(adjective) Covered with hair; hairy.
 PANACEA|(noun) A solution or remedy for all difficulties or diseases.
-SUPERCILIOUS|(adjective) Behaving as though one thinks one is superior to others.
+SUPERCILIOUS|(adjective) Behaving as though one thinks one is above others.
 FUTILITARIAN|(noun) A person who believes that human efforts are ultimately pointless.
 LACONIC|(adjective) Using very few words; concise to the point of seeming rude or mysterious.
 CAMARILLA|(noun) A secret group of plotters or intriguers.

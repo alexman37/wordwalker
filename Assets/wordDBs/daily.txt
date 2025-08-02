@@ -23,7 +23,7 @@ ESOTERIC|(adjective) Understood by a select few.
 EBULLIENCE|(noun) High energy or enthusiasm.
 IDYLLIC|(adjective) Extremely peaceful and picturesque.
 EXPEDITE|(verb) To speed up a process.
-HYPOCRISY|(noun) Pretending to have moral standards one doesn’t follow.
+HYPOCRISY|(noun) Pretending to have moral standards one doesn't follow.
 VEHEMENT|(adjective) Forceful and intense.
 PROLIFIC|(adjective) Highly productive or fruitful.
 DEBILITATE|(verb) To weaken or drain strength.
@@ -86,7 +86,7 @@ EGREGIOUS|(adjective) Outstandingly bad or shocking.
 SARDONIC|(adjective) Grimly mocking or cynical.
 EDIFY|(verb) To instruct morally or intellectually.
 AFFABLE|(adjective) Friendly and easy to talk to.
-SERVILE|(adjective) Overly submissive or eager to serve.
+SERVILE|(adjective) Overly submissive or eager to please.
 HARANGUE|(noun) A lengthy, aggressive speech.
 COMPLACENT|(adjective) Self-satisfied and unconcerned.
 QUIXOTIC|(adjective) Idealistic but impractical.
@@ -260,7 +260,7 @@ AVARICE|(noun) Extreme greed for wealth.
 CONVOLUTED|(adjective) Complicated or twisted.
 PARTISAN|(noun) Strong supporter of a cause.
 DETRIMENT|(noun) Harm or damage.
-PLATITUDE|(noun) A cliché or overused statement.
+PLATITUDE|(noun) A cliche or overused statement.
 COGENT|(adjective) Clear and convincing.
 PRECOCIOUS|(adjective) Showing early maturity or ability.
 LARGESSE|(noun) Generosity in giving.
@@ -290,7 +290,7 @@ ACRIMONIOUS|(adjective) Angry or bitter in speech or manner.
 CONTRITE|(adjective) Genuinely sorry or remorseful.
 IMMUTABLE|(adjective) Unchangeable over time.
 STYMIE|(verb) To block or hinder progress.||STYMY
-LACKADAISICAL|(adjective) Lacking enthusiasm or care.
+LACKADAISICAL|(adjective) Missing enthusiasm or care.
 DEVIOUS|(adjective) Dishonest or sneaky.
 PRECLUDE|(verb) To prevent or make impossible.
 DISDAIN|(noun) Contempt or scorn.

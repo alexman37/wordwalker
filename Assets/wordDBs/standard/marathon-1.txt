@@ -3,7 +3,7 @@ SUFFICIENT|(adjective) Enough to meet the needs.
 ASCENDENCY|(noun) The state of being in power or control.
 UNEMPLOYED|(adjective) Without a job.
 DISCIPLINE|(noun) Training to improve behavior.
-WATERPROOF|(adjective) Impervious to water.
+WATERPROOF|(adjective) Impervious to getting wet.
 DELIBERATION|(noun) Long and careful consideration.
 CORRESPONDENCE|(noun) Communication by letters.
 MAGNANIMOUS|(adjective) Generous and forgiving.
@@ -49,7 +49,7 @@ PARTICULAR|(adjective) Specific or special.
 EQUANIMITY|(noun) Mental calmness and composure, especially in difficult situations.
 INGRATITUDE|(noun) Lack of thankfulness.
 DOMINATION|(noun) The exercise of control or influence.
-INTERCEPTION|(noun) The act of stopping or interrupting.
+INTERCEPTION|(noun) The act of stopping or disrupting.
 CALCULATIVE|(adjective) Acting with careful planning and prediction.
 SIGNIFICANCE|(noun) The quality of being important or meaningful.
 PROSPECTIVE|(adjective) Expected or likely to happen.
@@ -60,15 +60,15 @@ EQUIVOCATE|(verb) To use ambiguous language to avoid committing oneself.
 METAPHORICAL|(adjective) Used in a symbolic or figurative way.
 ELECTRICITY|(noun) A form of energy resulting from charged particles.
 MARGINALIZE|(verb) To treat a person or group as insignificant.||MARGINALISE
-REMEMBRANCE|(noun) The act of remembering or honoring someone.
-QUESTIONNAIRE|(noun) A set of printed questions for gathering information.
-PERSONALITY|(noun) The combination of characteristics that form an individual’s character.
+REMEMBRANCE|(noun) The act of honoring someone.
+QUESTIONNAIRE|(noun) A list of things to ask, used by surveys for gathering information.
+PERSONALITY|(noun) The combination of characteristics that form an individual's character.
 SIMULTANEOUS|(adjective) Occurring at the same time.
-PARTICIPATION|(noun) The act of taking part.
+PARTICIPATION|(noun) The act of engaging in something.
 TRANSPORTATION|(noun) The movement of people or goods.
 ACCLIMATIZE|(verb) To adapt to a new environment or climate.||ACCLIMATISE
 ZOOPLANKTON|(noun) Small floating aquatic animals that drift in water.
-PUBLICATION|(noun) The act of making information public.
+PUBLICATION|(noun) The act of making information available to the general population.
 PLANETARIUM|(noun) A theater with a dome for showing astronomical presentations.
 THOROUGHNESS|(noun) The quality of being complete and careful.
 FULFILLMENT|(noun) The achievement of something desired or promised.||FULFILMENT
@@ -80,10 +80,10 @@ INSINUATION|(noun) An indirect or covert suggestion or hint.
 INDIGNATION|(noun) Anger caused by unfair treatment.
 COLLABORATE|(verb) To work together on a project.
 ZOOLOGISTS|(noun) Scientists who study animals.
-INTELLECTUAL|(adjective) Relating to the intellect or understanding.
+INTELLECTUAL|(adjective) Cerebral, the quality of being scholarly.
 MACHINATION|(noun) A plot or scheme.
 CREDIBILITY|(noun) The quality of being trusted or believed.
-PURIFICATION|(noun) The process of making something pure.
+PURIFICATION|(noun) The process of cleaning something.
 CONSEQUENCE|(noun) A result or effect.
 HALLUCINATE|(verb) To experience a perception of something not present.
 INUNDATION|(noun) An overwhelming abundance or flood.
@@ -97,7 +97,7 @@ VULNERABILITY|(noun) The quality of being open to harm or attack.
 INAUGURATION|(noun) The formal admission of someone to office.
 GRATIFICATION|(noun) Pleasure obtained from satisfying a desire.
 SAGITTARIUS|(noun) The ninth astrological sign of the zodiac.
-DISCRETIONARY|(adjective) Available to be used at one's own discretion.
+DISCRETIONARY|(adjective) Available to be used at one's own determination.
 CLASSIFICATION|(noun) The arrangement of things into categories.
 CONTROVERSIAL|(adjective) Giving rise to disagreement.
 JEOPARDIZE|(verb) To put at risk or in danger.|JEOPARDISE
@@ -109,8 +109,8 @@ OPTIMISTIC|(adjective) Hopeful about the future.
 INNOVATION|(noun) The introduction of new ideas or methods.
 ADOLESCENCE|(noun) The transitional period from childhood to adulthood.
 INFRASTRUCTURE|(noun) Basic physical and organizational structures needed for operation.
-PLAGIARISM|(noun) Using someone else’s work without credit.
-PRACTICALITY|(noun) The quality of being practical.
+PLAGIARISM|(noun) Using someone else's work without credit.
+PRACTICALITY|(noun) The quality of being pragmatic or realistic.
 HOSPITALITY|(noun) The friendly reception of guests or strangers.
 DISPLACEMENT|(noun) The moving of something from its place.
 POSTPONEMENT|(noun) The action of delaying something.

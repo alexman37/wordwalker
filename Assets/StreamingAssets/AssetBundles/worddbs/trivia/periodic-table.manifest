@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1358168007
+CRC: 133900166
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 38328d9d7f956fba2637346ec0084169
+    Hash: 50622e0764446a29f0d5bbd962b06851
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/wordDBs/letters/a.txt
+- Assets/wordDBs/trivia/periodic-table.txt
 Dependencies: []

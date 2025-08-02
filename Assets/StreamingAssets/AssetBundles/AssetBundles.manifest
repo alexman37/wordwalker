@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 4061519548
+CRC: 1072651897
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -106,4 +106,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_34:
       Name: worddbs/trivia/celebs
+      Dependencies: {}
+    Info_35:
+      Name: worddbs/trivia/periodic-table
       Dependencies: {}

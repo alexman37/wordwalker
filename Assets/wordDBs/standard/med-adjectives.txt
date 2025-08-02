@@ -1,15 +1,15 @@
 STATUTORY|Required by law
 RESTLESS|Unable to relax
 PERVASIVE|Widespread
-RADIATIVE|Emitting energy as radiation
+RADIATIVE|Emitting energy (often used to describe atomic energy)
 RESOURCEFUL|Good at problem-solving
 EXCESSIVE|Too much
 LAMENTED|Mourned or grieved for
 FORMIDABLE|Inspiring fear or respect
 ENCHANTING|Delightfully charming
 GENEROUS|Willing to give
-CURVACEOUS|Having shapely curves
-RIGHTEOUS|Morally right
+JUSTIFIED|Something that is proven to be legal, righteous
+RIGHTEOUS|Morally correct
 STRENUOUS|Requiring great effort
 CONVOLUTED|Complex and twisted
 VIGILANT|Watchful and alert
@@ -25,7 +25,7 @@ INVITING|Appealing or welcoming
 FASTIDIOUS|Very attentive to detail
 ALTRUISTIC|Selfless and giving
 TIMOROUS|Fearful or shy
-GRIEVOUS|Causing grief
+GRIEVOUS|Causing sorrow
 MOMENTOUS|Very important
 QUERULOUS|Complaining often
 OMNISCIENT|All-knowing
@@ -35,7 +35,7 @@ SCRUPULOUS|Extremely careful and honest
 DISTORTED|Twisted out of shape
 SENTIMENTAL|Overly emotional
 TENACIOUS|Persistent and determined
-REPUTABLE|Having a good reputation
+REPUTABLE|Being esteemed, reliable
 AESTHETIC|Concerned with beauty||ESTHETIC
 PROVOCATIVE|Causing a strong reaction
 AMBITIOUS|Eager for success
@@ -65,7 +65,7 @@ CAPRICIOUS|Impulsive or unpredictable
 IMPARTIAL|Unbiased
 ADVISORY|Giving recommendations
 TEDIOUS|Long and boring
-ENERGETIC|Full of energy
+ENERGETIC|Animated, full of life
 LEGIBLE|Easy to read
 FEASIBLE|Possible to do
 TRUCULENT|Aggressively defiant
@@ -78,7 +78,7 @@ DETRIMENTAL|Harmful
 BOISTEROUS|Loud and energetic
 STRATEGIC|Carefully planned
 AGGRESSIVE|Forceful or confrontational
-SHAMEFUL|Causing shame
+SHAMEFUL|Causing disgrace
 PERSUASIVE|Convincing
 LAVISH|Extravagant or luxurious
 PALLID|Pale, often due to illness
@@ -162,7 +162,7 @@ RAVENOUS|Extremely hungry
 COMPLACENT|Self-satisfied
 HAZARDOUS|Dangerous
 ENIGMATIC|Mysterious
-APPETIZING|Appealing to the appetite
+APPETIZING|Being delicious, tasting good
 CANDID|Honest and open
 PRECOCIOUS|Advanced for one's age
 IMMINENT|About to happen

@@ -62,7 +62,7 @@ MANAGUA|Nicaragua|Capital of Nicaragua
 GEORGETOWN|Guyana|Capital of Guyana
 GABORONE|Botswana|Capital of Botswana
 CARACAS|Venezuela|Capital of Venezuela
-YAMOUSSOUKRO|Cote d|Capital of Cote d'Ivoire
+YAMOUSSOUKRO|Cote d'Ivoire|Capital of Cote d'Ivoire
 RIYADH|Saudi Arabia|Capital of Saudi Arabia
 ULAANBAATAR|Mongolia|Capital of Mongolia
 SANTIAGO|Chile|Capital of Chile

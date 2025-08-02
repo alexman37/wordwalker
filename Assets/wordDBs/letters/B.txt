@@ -1,6 +1,6 @@
 BABYSITTER|Childcare provider/Brat watcher||
 BACHELOR|Unmarried man/Four year degree||
-BACKBITE|Talk behind back/Slander in secret||
+BACKBITE|Talk behind one's back/Slander in secret||
 BACKBONE|Spinal column/Foundational piece/Mainstay||
 BACKCOMB|Tease hair||
 BACKDROP|Scene periphery/Broader setting||

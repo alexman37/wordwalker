@@ -4,7 +4,7 @@ BRICKLAYER|Lays mortar and stone
 TEACHER|Classroom instructor
 CONSULTANT|Paid professional adviser
 MECHANIC|Vehicle repair expert
-TECHNICIAN|Skilled technical worker
+TECHNICIAN|Skilled computer worker
 NAVIGATOR|Charts travel paths
 RECEPTIONIST|Greets office visitors
 BOOKKEEPER|Maintains financial records
@@ -38,7 +38,7 @@ NURSEMAID|Cares for young children
 VETERAN|Former military member
 ANIMATOR|Brings drawings to life
 POETESS|Female verse writer
-HAIRDRESSER|Cuts and styles hair
+HAIRDRESSER|Cuts and styles the top of your head
 MANAGER|Oversees operations
 ENOLOGIST|Wine expert
 DECORATOR|Room design expert
@@ -56,7 +56,7 @@ PHARMACIST|Medication dispenser
 POLICEMAN|Law enforcement officer
 CASHIER|Works at the checkout
 PAINTER|Applies color to surfaces
-LOCKSMITH|Works with keys and locks
+LOCKSMITH|Works with keys
 MODELER|Builds small-scale replicas||MODELLER
 DESIGNER|Creator of plans or looks
 PSYCHIATRIST|Mental health doctor
@@ -77,12 +77,12 @@ CONTRACTOR|Oversees construction work
 CONTROLLER|Oversees accounting and finance
 BIOLOGIST|Life science expert
 THERAPIST|Mental health counselor
-LINEMAN|Repairs power or phone lines
+LINEMAN|Repairs power or phone wires
 SEAMSTRESS|Female garment sewer
 OPTOMETRIST|Examines eyesight
 PROFESSOR|University academic
 CHEMIST|Studies substances and reactions
-PLAYWRIGHT|Writes plays
+PLAYWRIGHT|Writes theater performances
 SUPERVISOR|Oversees work teams
 PHYSICIST|Studies matter and energy
 INTERPRETER|Translates spoken words

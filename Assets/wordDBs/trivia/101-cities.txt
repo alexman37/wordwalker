@@ -98,4 +98,4 @@ KATHMANDU|Nepali city famous for its historic temples and as a gateway to the Hi
 PHOENIX|This desert city shares its name with a mythical resurrecting bird.
 MILAN|A global fashion capital in the Po Valley of Italy.
 MECCA|Home to the Kaaba, a centerpiece of the religion of Islam.
-BARCELONA|Catalonian capital famous for architect Antoni Gaudí's unique works, like Sagrada Família.
+BARCELONA|Catalonian capital famous for architect Antoni Gaudi's unique works, like Sagrada Familia.

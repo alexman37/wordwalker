@@ -74,7 +74,7 @@ QUANTIFY|(verb) To measure or express the amount of something.
 CAPRICE|(noun) A sudden and unaccountable change of mood.
 AURORA|(noun) Fancy word for 'dawn'. Also describes a natural phenomena, ____ Borealis.
 SERENADE|(noun) A musical performance given to express love.
-APHELION|(noun) The point in a planet’s orbit farthest from the sun.
+APHELION|(noun) The point in a planet's orbit farthest from the sun.
 PSEUDONYM|(noun) A fictitious name used by an author.
 QUIBBLED|(verb) Argued or raised objections about trivial matters.
 INCISIVE|(adjective) Sharp and analytical.
@@ -143,7 +143,6 @@ HIBERNATE|(verb) To sleep or become inactive for a season.
 CHATEAU|(noun) A large French country house or castle.
 SCHEMATIC|(noun) A diagram representing a system.
 TITANIUM|(noun) A strong, lightweight metallic element.
-ARSENIDE|(noun) A compound of arsenic with a metal.
 DIPLOMAT|(noun) A representative managing international relations.
 CIPHERED|(verb) Written in code.
 CHIVALRY|(noun) Courteous behavior, especially from men toward women.

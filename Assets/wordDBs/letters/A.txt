@@ -95,7 +95,7 @@ ADVENTURE|Exciting experience/Journey||
 ADVERSARY|Opponent or enemy||
 ADVERTISE|Promote/Publicize||
 ADVERTISEMENT|Public notice/Announcement||
-ADVISOR|Person who gives advice||ADVISER
+ADVISOR|Person who offers guidance||ADVISER
 ADVOCATE|Publicly reccomend/Supporter||
 AERODROME|Big airport||
 AERODYNAMIC|Cutting through wind||
@@ -121,7 +121,7 @@ AGGREGATION|Sum of parts||
 AGGRESSION|Hostile or violent behavior||
 AGISTER|Person who cares for livestock||AGISTOR
 AGITATE|Stir up, Disturb||
-AGITATION|State of being agitated||
+AGITATION|State of being irritated||
 AGNATHAN|Jawless fish||
 AGNOSTIC|Not quite an Atheist||
 AGONISE|Suffer mental anguish||AGONIZE

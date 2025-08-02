@@ -33,7 +33,7 @@ PALIMPSEST|(noun) A manuscript or piece of writing material on which later writi
 PANJANDRUM|(noun) A person who has or claims to have a great deal of authority or influence.
 PANGLOSSIAN|(adjective) Excessively optimistic.
 INCOMMISCIBLE|(adjective) Unable to be mixed or intermingled.
-WIDDERSHINS|(adverb) In a direction contrary to the sun’s course; counterclockwise.
+WIDDERSHINS|(adverb) In a direction contrary to the sun's course; counterclockwise.
 PACHYDERM|(noun) A large, thick-skinned mammal, such as an elephant or rhinoceros.
 HYLOZOISM|(noun) The philosophical view that all matter has life.
 PREVARICATE|(verb) To speak or act in an evasive way.
@@ -44,7 +44,7 @@ OLEAGINOUS|(adjective) Excessively or ingratiatingly flattering.
 OBSTREPEROUS|(adjective) Noisy and difficult to control.
 APHELION|(noun) The point in the orbit of a planet farthest from the sun.
 POCOCURANTE|(adjective) Indifferent or nonchalant.
-OBDURATE|(adjective) Stubbornly refusing to change one’s opinion.
+OBDURATE|(adjective) Stubbornly refusing to change one's opinion.
 ELEEMOSYNARY|(adjective) Relating to or dependent on charity.
 ONOMATOPOEIA|(noun) The formation of a word from a sound associated with what is named.
 ZOANTHROPY|(noun) A mental disorder in which a person believes they are an animal.
@@ -52,13 +52,13 @@ UROBOROS|(noun) An ancient symbol depicting a serpent or dragon eating its own t
 AMARANTHINE|(adjective) Undying or unfading; eternally beautiful.
 SOMNAMBULIST|(noun) A sleepwalker.
 RODOMONTADE|(noun) Boastful or inflated talk or behavior.
-TRANSMOGRIFY|(verb) To transform in a surprising or magical manner.
+TRANSMOGRIFY|(verb) To change in a surprising or magical manner.
 ASCETICISM|(noun) The practice of avoiding temptations, often for religious reasons.
 SOUBRETTE|(noun) A high female vocal range, often in opera.
 CRUSTACEOLOGY|(noun) The study of crabs and shrimp.
 MACERATE|(verb) To soften food by soaking it in a liquid.
 HYDROPHYTE|(noun) An aquatic plant that only grows in water.
-SPOLIATOR|(noun) Someone who plunders and/or robs.
+SPOLIATOR|(noun) Someone who plunders, or robs.
 SUCCEDANEUM|(noun) A substitute or replacement, usually for medicine.
 APPOGGIATURA|(noun) Musical note played to embellish the main beat.
 STROMUHR|(noun) A medical instrument determining the amount of blood in veins or arteries.

@@ -7,13 +7,13 @@ easy|standard/simple-nouns|Simple Nouns|nouns|Nouns are people, places, things, 
 easy|standard/simple-verbs|Simple Verbs|verbs|Verbs are actions - things that nouns "do". See if you can <i>spell</i> them.|0|110|
 easy|standard/simple-adjectives|Simple Adjectives|adjectives|Adjectives are descriptions of nouns. Don't worry, they're <i>easy</i>...for now.|0|108|
 #
-medium|standard/med-places|Places|places|General words for places and locations. This <i>temple</i> is light work for a seasoned traveler.|1|143|
+medium|standard/med-places|Places|places|General words for places and locations. This <i>temple</i> is light work for a seasoned traveler.|1|135|
 medium|standard/med-people|People|people|Jobs, roles, and occupations. How many does the <i>explorer</i> know?|1|111|
 # medium|standard/med-things|Things|things|Stuff that someone made|1||
 medium|standard/med-nature|Nature|nature|Animals, plants, and other things to do with nature. The <i>canyon</i> is a long way down...|1|127|
 medium|standard/med-actions|Actions|actions|These verbs are a little tougher. Think you can <i>withstand</i> it?|1|145|
 medium|standard/med-adjectives|Adjectives|descriptors|These adjectives are longer and rarer. Stay <i>diligent</i> and you'll make it through!|1|216|
-medium|standard/med-cool|Cool|cool|I think these words just sound cool. Win or lose, you'll learn something <i>riveting.</i>|1|172|
+medium|standard/med-cool|Cool|cool|I think these words just sound cool. Win or lose, you'll learn something <i>riveting.</i>|1|171|
 #
 hard|standard/marathon-1|Marathon I|marathon1|These words are 10 letters or longer. That's a <i>substantial</i> amount of steps.|3|129|
 hard|standard/marathon-2|Marathon II|marathon2|These words are 10 letters or longer. <i>Persistence</i> is needed!|3|129|
@@ -26,11 +26,12 @@ very-hard|standard/very-hard-2|Very Hard II|veryhard2|These words are really tou
 very-hard|standard/very-hard-3|Very Hard III|veryhard3|These words are really tough. But items can <i>ameliorate</i> it a bit!|2|80|
 very-hard|standard/nightmare|Nightmare|nightmare|The most <i>sesquipedelian</i> words I could find.<br><b>Good luck...</b>|2|112|
 #
-letters|letters/a|A|letter-a|"A" words, like Aardvark, Avocado, Arbiter and Axle|2|394|
+letters|letters/a|A|letter-a|"A" words, like Aardvark, Avocado, Arbiter and Axle|2|393|
 letters|letters/b|B|letter-b|"B"" words, like Barking, Battle, Bounded and Buttons|2|238|
 letters|letters/c|C|letter-c|"C" words, like Camper, Centerpiece, Cryogenics and Competition|2|597|
 #
 trivia|trivia/phobias|Phobias|phobias|It was so tempting to add <i>hippopotomonstrosesquippedaliophobia</i>. (Look it up. If you dare.)|1|103|
+trivia|trivia/periodic-table|Periodic Table|periodic-table|Make your chemistry teacher proud! Your only clue is each element's number and abbreviation.|1|118|
 trivia|trivia/101-cities|Around the world|around-the-world|101 cities all over the world, identified by various interesting facts about them.|1|101|
 trivia|trivia/flags|Flags|flags|Flags of various countries and territories around the world.|1|183|base/flags
 trivia|trivia/capitals|Country Capitals|capitals|Capital cities of world countries.|1|173|

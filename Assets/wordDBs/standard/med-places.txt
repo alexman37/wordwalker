@@ -2,7 +2,6 @@ RUNWAY|Plane launch strip
 CHAMBER|Private room
 BOARDROOM|Corporate meeting spot
 SHANTYTOWN|Makeshift housing area
-CABINET|Furniture for storage
 HOSTEL|Cheap traveler lodging
 TOWNSHIP|Local municipality
 CROSSING|Intersection point
@@ -13,12 +12,11 @@ HIDEAWAY|Secret refuge
 BREAKROOM|Employee rest area
 MUSEUM|Place for exhibits
 PALACE|Royal residence
-FIREHOUSE|Station for firetrucks
 GALLERY|Where art is displayed
 RESORT|Vacation destination
 METROPLEX|Massive urban area
 PARLOR|Old-fashioned sitting room||PARLOUR
-BAKERY|Bread seller’s shop
+BAKERY|Bread seller's shop
 FORTRESS|Stronghold for defense
 RESERVE|Protected natural area
 ALCOVE|Small recessed space
@@ -26,12 +24,12 @@ QUARTERS|Living space
 BREWERY|Where beer is made
 AQUARIUM|Fish-display tank room
 SANDBOX|Play area for kids
-PLAYGROUND|Kids’ fun zone
+PLAYGROUND|Kids' fun zone
 PUBHOUSE|Ale-serving locale
 GROTTO|Rocky cave
-BUNKERS|Protective shelters
+BUNKER|Protective shelter
 SEAPORT|Dock for ships
-PLAYROOM|Kids’ toy-filled space
+PLAYROOM|Kids' toy-filled space
 CROSSWALK|Marked pedestrian path
 RETREAT|Peaceful hideaway
 LIGHTHOUSE|Coastal warning beacon
@@ -58,12 +56,11 @@ COLLEGE|Higher education site
 PORTICO|Columned entrance
 LOOKOUT|Vantage viewing point
 GREENHOUSE|Glass plant shelter
-INNKEEPER|Lodging manager’s place
 CONVENT|Nunnery location
 BACKSTAGE|Behind-the-scenes area
 BEDROOM|Place to sleep
 MOUNTAINS|High elevation places
-LAUNDRY|Place for washing clothes
+LAUNDROMAT|Place for washing clothes
 RANCHES|Cowboy homesteads
 CINEMA|Movie-watching venue
 CLUBHOUSE|Social group space
@@ -79,7 +76,7 @@ POSTBOX|Mail drop-off point
 FREEWAY|High-speed road
 FACTORY|Mass production site
 SCHOOL|Place of learning
-BATHHOUSE|Public bathing site
+BATHHOUSE|Public place for washing
 HOTSPOT|Wi-Fi or nightlife place
 STOREFRONT|Retail display area
 MARSHLAND|Wet grassy area
@@ -91,9 +88,7 @@ TERRACE|Flat outdoor area
 OUTPOST|Remote station
 FOUNTAIN|Decorative water feature
 HIGHWAY|Major road route
-CARRIAGE|Train or horse transport
-POSTHOUSE|Old postal inn
-TEMPLE|You're in one. Like, right now.
+TEMPLE|You're in one. (Look around.)
 PENTHOUSE|Luxurious top-floor flat
 HARBOR|Protected ship area||HARBOUR
 STUDIO|Art or recording space
@@ -108,7 +103,7 @@ ELEVATOR|Vertical transport space
 CANTEEN|Workplace lunch spot
 SANCTUARY|Safe or holy place
 NURSERY|Plant or baby room
-RESIDENCE|Someone’s home
+RESIDENCE|Someone's home
 BASEMENT|Room below ground level
 RESTROOM|Public lavatory
 PARKLAND|Public green space
@@ -133,10 +128,8 @@ MEADOW|Field of wildflowers
 OUTDOORS|In the open air
 TERMINAL|Transit end-point
 MARKET|Goods-for-sale venue
-HALLMARK|Branded card store
 DUNGEON|Medieval prison
-LOBBYIST|One who operates in halls
 SHELTER|Place for safety
 JUNCTION|Meeting of roads
 CASINO|Place to gamble
-POOLSIDE|By the water’s edge
+POOLSIDE|By the water's edge

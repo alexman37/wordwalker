@@ -58,7 +58,7 @@ TALL|High up
 LONG|From end to end
 TINY|Very small
 WEAK|Not strong
-LAZY|Doesn’t like to work
+LAZY|Doesn't like to work
 BUSY|Doing lots of things
 WIDE|Big side-to-side
 NEAR|Close by

@@ -42,7 +42,7 @@ CHAT|To Talk casually
 SKIP|To Jump with a step
 PICK|To Choose one
 STAY|To Not leave
-WAIT|To Stay until it’s time
+WAIT|To Stay until it's time
 RIDE|To Go on a bike or horse
 LOVE|To Care deeply
 HATE|To Strongly dislike

@@ -94,13 +94,13 @@ PLAGIARIZE|To copy without credit||PLAGIARISE
 DELEGATE|To assign tasks
 IMPROVISE|To make up on the spot
 GENERATE|To produce
-EMIGRATE|To leave one’s country
+EMIGRATE|To leave one's country
 DECIPHER|To interpret or decode
-AUTOMATE|To make automatic
+AUTOMATE|To mechanize or streamline something
 ENGENDER|To cause or produce
 PREDOMINATE|To be the strongest
 PROMULGATE|To announce officially
-VAPORIZE|To turn into vapor||VAPORISE
+VAPORIZE|To completely dissipate something||VAPORISE
 COAGULATE|To thicken or clot
 SUPPLICATE|To ask earnestly
 ENCOMPASS|To include or surround
@@ -109,7 +109,7 @@ COMPENSATE|To make up for loss
 FASCINATE|To attract strongly
 WRANGLE|To argue or dispute
 MANIPULATE|To skillfully control
-DERIVATE|To derive from
+DERIVATE|To logically obtain from something related (as in math)
 HYPNOTIZE|To put in a trance||HYPNOTISE
 CONSTRICT|To tighten
 DEMARCATE|To set boundaries
@@ -118,7 +118,7 @@ SIMPLIFY|To make easier
 VINDICATE|To clear from blame
 INVESTIGATE|To examine carefully
 QUANTIFY|To measure
-THEORIZE|To form a theory||THEORISE
+THEORIZE|To form a hypothesis||THEORISE
 SUBSTANTIATE|To prove with evidence
 SATURATE|To soak thoroughly
 DISSUADE|To persuade not to do something

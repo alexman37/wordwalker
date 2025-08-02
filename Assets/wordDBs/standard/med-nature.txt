@@ -23,7 +23,7 @@ OUTCROP|Rock surface exposure
 HAWKSBILL|Sea turtle species
 TADPOLE|Baby frog
 BAMBOO|Fast-growing grass
-EVEREST|Earth’s highest peak
+EVEREST|Earth's highest peak
 SUNBEAM|Ray of light
 CAVERN|Large underground formations
 BRAMBLES|Thorny bushes
@@ -46,7 +46,7 @@ FOLIAGE|Plant leaves
 HEDGEHOG|Spiny insectivore
 LEOPARD|Spotted jungle cat
 BOGLANDS|Wet, spongy ground
-STARFISH|Ocean star-shaped creature
+STARFISH|Five-pointed ocean creature
 DAISY|White-petaled flowers
 VOLCANO|Lava-spewing mountain
 PINEAPPLE|Tropical fruit

@@ -4,7 +4,11 @@ PC BUILD:
 MOBILE BUILD:
 - 
 ALL BUILDS:
-- 
+- Added the Periodic Table List
+- Letter Word Lists now generate so that all tiles on the first row are the same letter, and there should be no conflicts
+- Fog distance depends slightly on the length of the word
+- Took another look through all the word lists - replaced obviously broken definitions
+- We think more carefully about what the second letter in fake/split tiles should be
 
 [1.0] 7/31/2025: "Sean Cook"
 PC BUILD:
