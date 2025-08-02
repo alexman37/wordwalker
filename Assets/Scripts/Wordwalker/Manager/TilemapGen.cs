@@ -100,11 +100,11 @@ public class TilemapGen : MonoBehaviour
     }
 
     // TODO remove
-    private void Update()
+    /*private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
             regenerateTileMap(new WordGen.Word("AEEEEEE", ""), 1);
         }
-    }
+    }*/
 }
