@@ -62,7 +62,7 @@ public class Triangle : GenMethod
                     continue;
                 }
 
-                if(GameManagerSc.state.lettersList && row == 0)
+                if(GameManagerSc.lettersList && row == 0)
                 {
                     if((sub - minAllowedSub) % 2 == 1)
                     {

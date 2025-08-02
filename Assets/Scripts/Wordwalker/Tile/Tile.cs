@@ -171,6 +171,7 @@ public class Tile : MonoBehaviour
         if(specType != SpecialTile.SPLIT && specType != SpecialTile.BLANK)
         {
             Debug.Log("Changing tile's text to " + letter);
+            display = letter.ToString();
             textComponent.text = letter.ToString();
         }
     }
@@ -376,7 +377,7 @@ public class Tile : MonoBehaviour
         if(setTo != '_')
         {
             letter = setTo;
-            display = setTo.ToString();
+            if (specType == SpecialTile.NONE) display = setTo.ToString();
             if (specType == SpecialTile.RANDOM) textComponent.text = "?";
             else if(specType == SpecialTile.NONE) textComponent.text = setTo.ToString();
 

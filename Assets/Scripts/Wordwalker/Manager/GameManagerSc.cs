@@ -14,7 +14,7 @@ public class GameManagerSc : MonoBehaviour
 
     private static bool IN_TESTING = false;
 
-    public static WWGameState state;
+    public static WWGameState state; // Things that must be reset each time we retry or restart the game
 
     private static string firstTimeWordsLoad = null;
 
@@ -25,6 +25,7 @@ public class GameManagerSc : MonoBehaviour
     private static ClueBookUI clueBookUI;
 
     private static DatabaseItem localDBcopy;
+    public static bool lettersList = false;     // Letters lists have unique rules for generation
     private static bool checkingManagerGreenlights = true;
 
     public static event Action newGame;
@@ -121,7 +122,7 @@ public class GameManagerSc : MonoBehaviour
 
         if(dbItem.group == "letters")
         {
-            state.lettersList = true;
+            lettersList = true;
         }
 
         localDBcopy = dbItem;
@@ -462,7 +463,6 @@ public class WWGameState
     public int foggyVision = 3;   // How far ahead can you see when fog is enabled?
 
     public bool dailyWord = false;  // Daily word mode has some key differences from adventure / free play
-    public bool lettersList = false; // Letters lists have unique rules for generation
     public HashSet<MenuScript.Challenge> selectedChallenges = new HashSet<MenuScript.Challenge>(); // Mostly used by tile generation
 
     private WordGen.Word[] wordList;

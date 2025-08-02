@@ -41,7 +41,7 @@ public class Rectangle : GenMethod
 
             for (int sub = 0; sub <= settledSubs; sub++)
             {
-                if (GameManagerSc.state.lettersList && row == 0)
+                if (GameManagerSc.lettersList && row == 0)
                 {
                     if ((sub) % 2 == 1)
                     {

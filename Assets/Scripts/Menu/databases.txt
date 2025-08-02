@@ -28,7 +28,7 @@ very-hard|standard/nightmare|Nightmare|nightmare|The most <i>sesquipedelian</i> 
 #
 letters|letters/a|A|letter-a|"A" words, like Aardvark, Avocado, Arbiter and Axle|2|393|
 letters|letters/b|B|letter-b|"B"" words, like Barking, Battle, Bounded and Buttons|2|238|
-letters|letters/c|C|letter-c|"C" words, like Camper, Centerpiece, Cryogenics and Competition|2|597|
+letters|letters/c|C|letter-c|"C" words, like Camper, Centerpiece, Cryogenics and Competition|2|595|
 #
 trivia|trivia/phobias|Phobias|phobias|It was so tempting to add <i>hippopotomonstrosesquippedaliophobia</i>. (Look it up. If you dare.)|1|103|
 trivia|trivia/periodic-table|Periodic Table|periodic-table|Make your chemistry teacher proud! Your only clue is each element's number and abbreviation.|1|118|

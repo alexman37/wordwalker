@@ -311,7 +311,7 @@ public abstract class GenMethod : MonoBehaviour
                 if (curr != null && !curr.isFinalized())
                 {
                     // Letters lists' special generation pattern: All front-row tiles start with same letter
-                    if(GameManagerSc.state.lettersList && row == 0)
+                    if(GameManagerSc.lettersList && row == 0)
                     {
                         curr.setLetter(word[0], false);
                         continue;
