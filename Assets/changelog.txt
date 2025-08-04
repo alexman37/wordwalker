@@ -1,4 +1,13 @@
-[1.0] 8/2/2025: "Oh Hi Mark"
+[1.2] 8/4/2025: "Solomon Islands"
+PC BUILD:
+- 
+MOBILE BUILD:
+- 
+ALL BUILDS:
+- The Daily word's "Game over" screen no longer has a retry button.
+
+
+[1.1] 8/2/2025: "Oh Hi Mark"
 PC BUILD:
 - 
 MOBILE BUILD:
@@ -9,6 +18,7 @@ ALL BUILDS:
 - Fog distance depends slightly on the length of the word
 - Took another look through all the word lists - replaced obviously broken definitions
 - We think more carefully about what the second letter in fake/split tiles should be
+
 
 [1.0] 7/31/2025: "Sean Cook"
 PC BUILD:

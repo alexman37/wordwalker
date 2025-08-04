@@ -19,6 +19,8 @@ public class GameOverUI : MonoBehaviour
     public TextMeshProUGUI alternateSpellingsReadout;
 
     private bool canUseButtons = false;
+    public GameObject orText;
+    public GameObject retryButton;
 
 
     // Start is called before the first frame update
@@ -35,6 +37,12 @@ public class GameOverUI : MonoBehaviour
         {
             gameOverAnimationStart = GetComponent<RectTransform>().anchoredPosition;
             gameOverAnimationDest = new Vector2(0, 0); //relative to bottom of screen
+        }
+
+        if(GameManagerSc.state.dailyWord)
+        {
+            retryButton.SetActive(false);
+            orText.SetActive(false);
         }
     }
 
