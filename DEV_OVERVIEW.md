@@ -19,7 +19,7 @@ The idea for Wordwalker randomly came to me in November of 2024 when I was takin
 The clip starts at 1:40:
 https://www.youtube.com/watch?v=XqGWI0WTj24
 
-<img width="1009" height="440" alt="image" src="https://github.com/user-attachments/assets/6d0ab255-8dd7-42ae-94f9-c3d72f41f4e8" />
+<img width="1009" height="440" alt="image" src="https://github.com/user-attachments/assets/6d0ab255-8dd7-42ae-94f9-c3d72f41f4e8" />\
 <em>The puzzle in question, "Spell the name of God". Indy has to walk across letter tiles that spell out a secret word, to get from one side to another. The fake tiles collapse into an endless chasm.</em>
 
 I thought it was a great idea for a word game, but wondered if someone had already made it by then. To my delight, no one had!
@@ -35,10 +35,15 @@ A couple things made the difference. I'll go into more detail below, but to summ
 - I kept the core concept of the game simple and consistent throughout the entire development process.
 - I planned a lot of this out on paper. Like, a LOT.
 
-<img width="1384" height="1038" alt="image" src="https://github.com/user-attachments/assets/3c1b12ae-0ec9-4edf-a527-2d962eca4b41" />
+<img width="1384" height="1038" alt="image" src="https://github.com/user-attachments/assets/3c1b12ae-0ec9-4edf-a527-2d962eca4b41" />\
 <em>There's about 2 times more pages than what you see.</em>
 
 ### Tilemap Generation
+Source code:
+- [TilemapGen](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/TilemapGen.cs): Chooses and uses a generation method.
+- [GenMethod](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Tile/GenMethods/GenMethod.cs): Defines abstraction for a generation method - all 3 phases.
+- [Triangle](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Tile/GenMethods/Triangle.cs): Example implementation of a generation method.
+
 The most natural starting point to me was generating the "tile map" that the game would take place on. The goal was to generate a hidden word somewhere in a sea of fake tiles. Early on I determined that process
 should happen over 3 phases:
 
@@ -82,12 +87,22 @@ None of these tasks are too hard individually. But combining them all, and doing
 ### Gameplay
 This phase of development started on paper, but ultimately took place through trial and error. I needed to figure out how to make the game playable, fun, and sufficiently challenging:
 - I made my generation algorithms have configurable inputs that'd effect the size and difficulty of the resulting tilemap. I increase the difficulty associated with these inputs with each level.
-- 'Items' are special powerups that can give useful hints or bypass danger. They cost a 'totem', which doubles as an extra life.
+- '[Items](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/ItemsScript.cs)' are special powerups that can give useful hints or bypass danger. They cost a 'totem', which doubles as an extra life.
   - I made totems serve both purposes for sheer simplicity. Thankfully, it worked well in practice and playtesting.
 - The amount of levels beat, the amount of mistakes made, and total time taken all factor into a player's "high score" if they manage to win the game.
-- 'Challenges' are optional modifiers that make the game more difficult, such as cryptic special tiles, harder level generation, or a constantly ticking timer that gradually collapses rows.
+- '[Challenges](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Menu/ChallengePopup.cs)' are optional modifiers that make the game more difficult, such as cryptic special tiles, harder level generation, or a constantly ticking timer that gradually collapses rows.
   - If you beat a word list with all 5 challenges and make no mistakes, you get a "Gold Star" - the highest possible rank and the ultimate goal of Wordwalker.
     - As your reward, you unlock new characters with Gold Stars.
+   
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/0263e5fa-6c9d-481b-b55a-36997b7dc2a3" />\
+<em>What the game looks like with all 5 challenges enabled. Note the special tiles, the timer, larger map, gray totem (indicating the "Iron Man" challenge. There's also a layer of fog that covers back rows.</em>\
+
+<img width="1083" height="507" alt="image" src="https://github.com/user-attachments/assets/3787c150-cb3a-4568-ae94-3aa442525627" />\
+<em>The explanation popup for special tiles.</em>\
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e53d6524-7c4e-44bf-8d24-67f8e8af1088" />\
+<em>Postgame stats</em>
+
 
 ### Game State
 The "state" in a round of Wordwalker entails a number of things. I split these things up across multiple manager files such as:
