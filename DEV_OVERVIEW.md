@@ -1,6 +1,18 @@
 ## Wordwalker - From Start to Finish
 In this writeup, I'll explain the entire process of how I developed Wordwalker over the course of 5 months - everything from "Hello World" to releasing the final build! It's going to be a long one, so skip around to wherever interests you most, if you like.
 
+### Table of Contents
+1. Background and Concept
+2. Tilemap Generation
+3. Gameplay
+4. Game State
+5. Word Lists
+6. UI Design
+7. Art
+8. Persistent Storage
+9. Bugfixing, Playtesting and Release
+10. Conclusion
+
 ### Background and Concept
 The idea for Wordwalker randomly came to be in November of 2024 when I was taking a shower. I thought of a scene from Indiana Jones 3, when Indy is solving a puzzle in a temple. I have absolutely no idea why I randomly remembered this.
 
