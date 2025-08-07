@@ -74,6 +74,11 @@ None of these tasks are too hard individually. But combining them all, and doing
   - I decided to reward the player for skipping letters and finding a shorter path. Usually it was because they knew the word and identified the shorter path. But there were also happy accidents, which I thought were fun!
  <img width="800" height="341" alt="image" src="https://github.com/user-attachments/assets/d880e6d2-cd77-4822-94e8-1a053427a3f1" />
 
+- Convincing Fakes
+  - What letters should we give the "fake" tiles? (Excluding letters that would cause contradictions- see below)
+  - I debated 3 approaches: Totally random, Proportionally random (based on frequency of letters in English), and Markov (given previous letter, what is probability of each letter being the next?)
+  - I went with proportionally random, finding the others made the game too easy and too hard, respectively. [LetterGen source code.](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Assignment/LetterGen.cs)
+
 - Ensuring no contradictions
   - When generating "fake" letters, I had to make sure none of them would be letters that'd accidentally generate another path for the correct word. Returning to the previous example:
 <img width="800" height="324" alt="image" src="https://github.com/user-attachments/assets/10ce24dd-4e21-4674-bb68-5cbf6c1b2485" />
@@ -95,24 +100,24 @@ This phase of development started on paper, but ultimately took place through tr
     - As your reward, you unlock new characters with Gold Stars.
    
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/0263e5fa-6c9d-481b-b55a-36997b7dc2a3" />\
-<em>What the game looks like with all 5 challenges enabled. Note the special tiles, the timer, larger map, gray totem (indicating the "Iron Man" challenge. There's also a layer of fog that covers back rows.</em>\
+<em>What the game looks like with all 5 challenges enabled. Note the special tiles, the timer, larger map, and gray totem (indicating the "Iron Man" challenge.) There's also a layer of fog that covers back rows.</em>
 
 <img width="1083" height="507" alt="image" src="https://github.com/user-attachments/assets/3787c150-cb3a-4568-ae94-3aa442525627" />\
-<em>The explanation popup for special tiles.</em>\
+<em>The explanation popup for special tiles.</em>
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e53d6524-7c4e-44bf-8d24-67f8e8af1088" />\
 <em>Postgame stats</em>
 
 
 ### Game State
-The "state" in a round of Wordwalker entails a number of things. I split these things up across multiple manager files such as:
-- WalkManager: Stepping on tiles and controlling what the character is doing.
-- AnimationManager: Character animations.
-- PlayerManager: Camera movement.
-- WordwalkerUIManager: Top-left UI such as score and rank.
-- GameManager: High-level management.
+The "state" in a game of Wordwalker entails a number of things. I split these things up across multiple manager files such as:
+- [WalkManager](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/WalkManager.cs): Stepping on tiles and controlling what the character is doing.
+- [AnimationManager](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/AnimationManager.cs): Character animations.
+- [PlayerManager](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/PlayerManager.cs): Camera movement.
+- [WordwalkerUIManager](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/WordwalkerUIScript.cs): Top-left UI such as score and rank.
+- [GameManager](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/GameManagerSc.cs): High-level management.
   - When we load into the "In game" scene (from the menu scene), we make sure all these managers have started before we do anything game-related.
-  - When we restart a game there are various state variables that are automatically reset to defaults.
+  - When we restart a game there are various state variables that are automatically reset to defaults, by creating an entirely new state object.
 
 ### Word Lists
 Next up: Getting words to use.
@@ -125,6 +130,7 @@ Design Choices:
 - Structure of lists:
   - They are more or less CSV files, with a vertical bar ('|') as the separator since that character rarely appears in English text.
   - When looking for a random word from the list, you can simply get a random line in the file by choosing a random number. That line has the word, its clue, and other info you need.
+  - [WordGen source code.](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Assignment/WordGen.cs)
 - Image clues:
   - I realized I wanted to have word lists with image clues as well as textual clues. Structurally, word lists that use images are set up the same, except the "clue" is the filepath of the image to load.
 - Obtaining the lists:
@@ -138,32 +144,55 @@ Design Choices:
   - I'm able to load up each word list in full only when the player selects it.
     - Image clues are more specific, we only load each image when it is time to use its corresponding word.
 - The Menu Screen:
-  - I'm able to easily add or remove word lists by updating a single text file, databases.txt. The parsing and handling of the list itself is all done elsewhere.
+  - I'm able to easily add or remove word lists by updating a single text file, [databases.txt](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Menu/databases.txt). The parsing and handling of the list itself is all done in [DatabaseParser](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Menu/DatabaseParser.cs).
 
 I feel I did a good, efficient job with word lists - both in procuring them and using them in-game.
 
 ### UI Design
 I gained a lot of appreciation for UI designers after having to try my own hand at it. The long story short is, it either looks good and is natural to understand, or it's not.
 
-I do a lot of front-end development at my current job, particularly in Angular (HTML/JS), which gave me clatiry in terms of setup strategy and what sort of components I could emulate. Such as:
+I do a lot of front-end development at my current job, particularly in Angular (HTML/JS), which gave me clarity in terms of setup strategy and what sort of components I could emulate. Such as:
 - Widget Popup: A generic menu or infographic which slides onto and off of the screen with a smooth transition. You can only have one widget popup active at a time.
 - Drop down menu: Similar to a "mat-accordion" in Angular, this component is used in the Free Play menu. It expands to display all databases in a particular category.
 
-<img width="337" height="248" alt="image" src="https://github.com/user-attachments/assets/f04e62be-68fd-4167-8cb6-7e1703693266" />
-<em>The Drop down menu.</em>
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/a8a4b782-0c79-43c7-b661-a306f1368fb8" />\
+<em>The settings menu implements WidgetPopup. It can be opened through a separate button and has the same Red X "close" button that other widgets do.</em>
 
-Wordwalker was designed for both iOS and Windows. One annoying feature about newer iPhone models, like my own, is this annoying divot at the top which cuts into the top of the screen. Unity has a "Screen.safeArea" field that can detect this, but it's up to the developer to use it. I wrote a script attached to almost all my UI elements called ScalingUIComponent that can automatically reposition and rescale a widget based on supplied proportions of the safeArea. It effectively relies on some basic assumptions - like the screen being wider than it is taller - but it has usually served me well.
+<img width="337" height="248" alt="image" src="https://github.com/user-attachments/assets/f04e62be-68fd-4167-8cb6-7e1703693266" />
+<em>The drop down at work in the Free Play menu.</em>
+
+Wordwalker was designed for both iOS and Windows. One annoying feature about newer iPhone models, like my own, is this annoying divot at the top which cuts into the top of the screen. Unity has a "Screen.safeArea" field that can detect this, but it's up to the developer to use it. I wrote a script attached to almost all my UI elements called [ScalingUIComponent](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/UI/ScalingUIComponent.cs) that can automatically reposition and rescale a widget based on supplied proportions of the safeArea. It effectively relies on some basic assumptions - like the screen being wider than it is taller - but that hasn't been a problem yet.
 
 For the overarching UI design of the two scenes, I made them with different goals in mind:
 - Main Menu: Needed to be very easy to understand, and easy to launch into a game, while also having all important options a few obvious clicks away.
   - I'm especially happy with how the Free Play menu screen turned out. Here the player can see only the word lists they want to, and how well they've done on each.
 - In-game: By comparison, the UI here was minimalist. The player only needed to know a few things: Score, rank, level number, lives remaining, and the current clue. All these were placed in obvious positions. There's also buttons for using power-ups and changing the camera mode, but you can easily ignore them if you choose.
 
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/ed7212ae-a9b9-40e9-a373-a321d69fd255" />\
+<em>The Main menu.</em>
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/f100f70b-b003-4726-a508-6e04e9b269ae" />\
+<em>Free Play menu. Note a database list turns to gold when the player earns a gold star on it. Throw 'em a bone every now and then.</em>
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/78628b51-17d3-4241-a386-58dd252e1143" />\
+<em>The in-game UI (for a picture clue). Note it's minimalist, and easy to ignore when you just want to focus on the word.</em>
+
+<img width="402" height="262" alt="image" src="https://github.com/user-attachments/assets/53f6cc7a-87d2-4617-871d-8ec2a5bf6791" />
+<em>The items submenu</em>
+
+
 ### Art
 I'm no Van Gogh, but with Wordwalker I hope I was able to at least demonstrate a basic level of competence in the field. To run down a few topics quickly:
 - Background art, character art and sprite sheets were all made in Paint.net, a simplistic drawing program (you can still do a lot with 'simple'. And it's free!) With the sprite sheets especially, I got pretty good with the program and found various tricks to speed the process up. I made all 9 spritesheets in 2 days.
 - Animations were handled using a monstrosity of a state manager. Next time, I will probably get used to coding certain animations to play and not over-relying on transitions. This was something that snowballed out of hand quickly and one of the things I really feel I could do better on next time.
 - The modeling and lighting for the temple exterior was done with Blender in a day. I wanted 3D models for the characters, but recognized my limitations and decided I wasn't there - yet. Lighting and shading are the biggest skills I want to practice on in future games.
+
+<img width="868" height="481" alt="image" src="https://github.com/user-attachments/assets/e840927f-1220-492e-8e6f-3881e2cf1c89" />\
+<em>8 of the playable characters in Wordwalker. Admittedly, some were borrowed from other game ideas of mine.</em>
+
+<img width="420" height="360" alt="image" src="https://github.com/user-attachments/assets/30e4932f-8101-46a5-a7d1-f434b09c2dce" />\
+<em>Character spritesheet. I got pretty good at making these quickly.</em>
+
 
 ### Persistent Storage
 Persistent storage had two uses in Wordwalker:
