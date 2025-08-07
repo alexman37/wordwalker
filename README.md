@@ -22,8 +22,11 @@ If you're here to look through my code, check out this [tour guide](https://gith
 
 ## Try It Yourself!
 Download on itch.io: https://greeneagles.itch.io/wordwalker
+
 Download on Google Play: (coming soon)
+
 Find on App Store: (coming soon)
+
 Find on Steam: (coming soon)
 
 
