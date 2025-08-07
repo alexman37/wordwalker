@@ -14,7 +14,7 @@ In this writeup, I'll explain the entire process of how I developed Wordwalker o
 10. [Conclusion](#conclusion)
 
 ### Background and Concept
-The idea for Wordwalker randomly came to be in November of 2024 when I was taking a shower. I thought of a scene from Indiana Jones 3, when Indy is solving a puzzle in a temple. I have absolutely no idea why I randomly remembered this.
+The idea for Wordwalker randomly came to me in November of 2024 when I was taking a shower. I thought of a scene from Indiana Jones 3, when Indy is solving a puzzle in a temple. I have absolutely no idea why I remembered this.
 
 The clip starts at 1:40:
 https://www.youtube.com/watch?v=XqGWI0WTj24
