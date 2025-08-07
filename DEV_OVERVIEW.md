@@ -89,6 +89,10 @@ None of these tasks are too hard individually. But combining them all, and doing
   - I used ChatGPT to help identify alternative spellings of words - and if there were any, I included them with the word's definition (see below section on Word lists.)
   - In fake tile generation, if there are alternate spellings, I used a similar idea in ensuring fake tiles next to correct tiles could not potentially spell out the correct word in any of its forms.
 
+<img width="1516" height="697" alt="image" src="https://github.com/user-attachments/assets/4351d2be-c6cb-4f70-b8d0-5bbd7f7817df" />\
+<em>Super-early demonstration of tile generation for the word "INGREDIENT".</em>
+
+
 ### Gameplay
 This phase of development started on paper, but ultimately took place through trial and error. I needed to figure out how to make the game playable, fun, and sufficiently challenging:
 - I made my generation algorithms have configurable inputs that'd effect the size and difficulty of the resulting tilemap. I increase the difficulty associated with these inputs with each level.
@@ -108,6 +112,10 @@ This phase of development started on paper, but ultimately took place through tr
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e53d6524-7c4e-44bf-8d24-67f8e8af1088" />\
 <em>Postgame stats</em>
 
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/49b220de-5a93-46fa-af4d-9bfe5a4d87c1" />\
+<em>Those who played my game and enjoyed it cited the character unlocks as a reason they might keep playing</em>
+
+
 
 ### Game State
 The "state" in a game of Wordwalker entails a number of things. I split these things up across multiple manager files such as:
@@ -122,15 +130,20 @@ The "state" in a game of Wordwalker entails a number of things. I split these th
 ### Word Lists
 Next up: Getting words to use.
 
-My original idea was to have 3 gigantic "easy / medium / hard" word lists, comprised of hundreds or thousands of words each, making it possible to play the game on an endless loop. I needed the sets to be large to avoid the so-called "Birthday Problem": In simple terms, it doesn't theoretically take long to run into duplicate words.
+My original idea was to have 3 gigantic "easy / medium / hard" word lists, comprised of hundreds or thousands of words each, making it possible to play the game on an endless loop. I needed the sets to be large to avoid the so-called "Birthday Problem": In simple terms, it doesn't theoretically take long to run into duplicate words. I foolishly decided to find that list manually at first. It was so boring and exhausting it completely killed my passion for the project and I did something else for 3 months...it was a rough winter for other reasons, too.
 
-I realized a better approach was to instead have many smaller word lists, structured around various themes and categories. And, with respect to the Birthday Problem, I wrote code to "cycle" through the list of words, making sure each word was seen once before resetting the cycle (see the Persistent Storage section.) This made it easier to review each word, and give the player at least some idea of what they were getting into.
+When I got back into it, I realized a better approach was to instead have many smaller word lists, structured around various themes and categories. And, with respect to the Birthday Problem, I wrote code to "cycle" through the list of words, making sure each word was seen once before resetting the cycle (see the Persistent Storage section.) This made it easier to review each word, and give the player at least some idea of what they were getting into.
 
 Design Choices:
 - Structure of lists:
   - They are more or less CSV files, with a vertical bar ('|') as the separator since that character rarely appears in English text.
   - When looking for a random word from the list, you can simply get a random line in the file by choosing a random number. That line has the word, its clue, and other info you need.
   - [WordGen source code.](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Assignment/WordGen.cs)
+```
+word|clue1/clue2/clue3...|definition (optional)|alternate spelling1, alternate spelling2... (optional)
+MODERATION|(noun) The avoidance of excess or extremes.
+SKEPTICISM|(noun) Doubt as to the truth of something.||SCEPTICISM
+```
 - Image clues:
   - I realized I wanted to have word lists with image clues as well as textual clues. Structurally, word lists that use images are set up the same, except the "clue" is the filepath of the image to load.
 - Obtaining the lists:
@@ -152,21 +165,21 @@ I feel I did a good, efficient job with word lists - both in procuring them and 
 I gained a lot of appreciation for UI designers after having to try my own hand at it. The long story short is, it either looks good and is natural to understand, or it's not.
 
 I do a lot of front-end development at my current job, particularly in Angular (HTML/JS), which gave me clarity in terms of setup strategy and what sort of components I could emulate. Such as:
-- Widget Popup: A generic menu or infographic which slides onto and off of the screen with a smooth transition. You can only have one widget popup active at a time.
-- Drop down menu: Similar to a "mat-accordion" in Angular, this component is used in the Free Play menu. It expands to display all databases in a particular category.
+- [Widget Popup](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Menu/WidgetPopup.cs): A generic menu or infographic which slides onto and off of the screen with a smooth transition. You can only have one widget popup active at a time.
+- [Drop down menu](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Menu/AdventureMenu/DatabaseSet.cs): Similar to a "mat-accordion" in Angular, this component is used in the Free Play menu. It expands to display all databases in a particular category.
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/a8a4b782-0c79-43c7-b661-a306f1368fb8" />\
 <em>The settings menu implements WidgetPopup. It can be opened through a separate button and has the same Red X "close" button that other widgets do.</em>
 
-<img width="337" height="248" alt="image" src="https://github.com/user-attachments/assets/f04e62be-68fd-4167-8cb6-7e1703693266" />
+<img width="337" height="248" alt="image" src="https://github.com/user-attachments/assets/f04e62be-68fd-4167-8cb6-7e1703693266" />\
 <em>The drop down at work in the Free Play menu.</em>
 
 Wordwalker was designed for both iOS and Windows. One annoying feature about newer iPhone models, like my own, is this annoying divot at the top which cuts into the top of the screen. Unity has a "Screen.safeArea" field that can detect this, but it's up to the developer to use it. I wrote a script attached to almost all my UI elements called [ScalingUIComponent](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/UI/ScalingUIComponent.cs) that can automatically reposition and rescale a widget based on supplied proportions of the safeArea. It effectively relies on some basic assumptions - like the screen being wider than it is taller - but that hasn't been a problem yet.
 
 For the overarching UI design of the two scenes, I made them with different goals in mind:
-- Main Menu: Needed to be very easy to understand, and easy to launch into a game, while also having all important options a few obvious clicks away.
+- [Main Menu](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Menu/MenuScript.cs): Needed to be very easy to understand, and easy to launch into a game, while also having all important options a few obvious clicks away.
   - I'm especially happy with how the Free Play menu screen turned out. Here the player can see only the word lists they want to, and how well they've done on each.
-- In-game: By comparison, the UI here was minimalist. The player only needed to know a few things: Score, rank, level number, lives remaining, and the current clue. All these were placed in obvious positions. There's also buttons for using power-ups and changing the camera mode, but you can easily ignore them if you choose.
+- [In-game](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Wordwalker/Manager/WordwalkerUIScript.cs): By comparison, the UI here was minimalist. The player only needed to know a few things: Score, rank, level number, lives remaining, and the current clue. All these were placed in obvious positions. There's also buttons for using power-ups and changing the camera mode, but you can easily ignore them if you choose.
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/ed7212ae-a9b9-40e9-a373-a321d69fd255" />\
 <em>The Main menu.</em>
@@ -196,8 +209,8 @@ I'm no Van Gogh, but with Wordwalker I hope I was able to at least demonstrate a
 
 ### Persistent Storage
 Persistent storage had two uses in Wordwalker:
-- Global variables, such as your current preferred settings, your daily word streak, and what characters you have unlocked.
-- Stats specific to each word list - your win/loss stats, your high scores, and the "word cycle": which words you have already seen (until it resets).
+- [Global variables](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Persistent/GlobalStatMap.cs), such as your current preferred settings, your daily word streak, and what characters you have unlocked.
+- [Stats specific to each word list](https://github.com/alexman37/wordwalker/blob/main/Assets/Scripts/Persistent/DatabaseTracker.cs) - your win/loss stats, your high scores, and the "word cycle": which words you have already seen (until it resets).
 I deliberately chose not to encrypt this data. As a single player, unpaid, offline game not hooked up to any achievements services, I'm okay with lettings players muck around in the files if that is what they wish. It also means you get to see these files in action, if you're interested!
 
 ### Bugfixing, Playtesting, and Release
@@ -208,6 +221,8 @@ The bugfixing phase began in July. By then the game had become my entire focus i
 I won't claim it's "bug free" but I think I did everything I could to ensure the product that ultimately did release on August 1st was as smooth as possible.
 
 ### Conclusion
+<img width="630" height="500" alt="image" src="https://github.com/user-attachments/assets/ed546670-5305-4997-a595-0d22d005f03e" />
+
 As of the time of writing this, Wordwalker has gone relatively under the radar (one thing I'm not is a marketer.) It has, however, received feedback from all the people in my life I've shared it with. And I feel it's genuine.
 
 If you made it this far, thank you. I hope you got a chance to play it and enjoyed it. I hope this explanation serves as a demonstration of my technical abilities in various areas of game development.
@@ -215,3 +230,6 @@ If you made it this far, thank you. I hope you got a chance to play it and enjoy
 I want to be a game developer more than anything. It's the only career I can see myself doing years from now. I want a chance to be creative every day, to work on projects I'm proud to share with the world.
 
 I'm ready for all the struggles that entails. I've been through it before.
+
+<img width="360" height="360" alt="image" src="https://github.com/user-attachments/assets/a5b18ee9-e06c-4f5c-a293-89f1297d3f3e" />\
+- greeneagles
