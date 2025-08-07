@@ -232,4 +232,4 @@ I want to be a game developer more than anything. It's the only career I can see
 I'm ready for all the struggles that entails. I've been through it before.
 
 <img width="360" height="360" alt="image" src="https://github.com/user-attachments/assets/a5b18ee9-e06c-4f5c-a293-89f1297d3f3e" />\
-- greeneagles
+greeneagles
