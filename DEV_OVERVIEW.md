@@ -66,3 +66,43 @@ None of these tasks are too hard individually. But combining them all, and doing
   - Words like Skeptic (Sceptic) or Characterize (Characterise) have multiple correct English spellings. How would we deal with those?
   - I used ChatGPT to help identify alternative spellings of words - and if there were any, I included them with the word's definition (see below section on Word lists.)
   - In fake tile generation, if there are alternate spellings, I used a similar idea in ensuring fake tiles next to correct tiles could not potentially spell out the correct word in any of its forms.
+
+
+#### Game State
+The "state" in a round of Wordwalker entails a number of things. I split these things up across multiple manager files such as:
+- WalkManager: Stepping on tiles and controlling what the character is doing.
+- AnimationManager: Character animations.
+- PlayerManager: Camera movement.
+- WordwalkerUIManager: Top-left UI such as score and rank.
+- GameManager: High-level management.
+  - When we load into the "In game" scene (from the menu scene), we make sure all these managers have started before we do anything game-related.
+  - When we restart a game there are various state variables that are automatically reset to defaults.
+
+#### Word Lists
+Next up: Getting words to use.
+
+My original idea was to have 3 gigantic "easy / medium / hard" word lists, comprised of hundreds or thousands of words each, making it possible to play the game on an endless loop. I needed the sets to be large to avoid the so-called "Birthday Problem": In simple terms, it doesn't theoretically take long to run into duplicate words.
+
+I realized a better approach was to instead have many smaller word lists, structured around various themes and categories. And, with respect to the Birthday Problem, I wrote code to "cycle" through the list of words, making sure each word was seen once before resetting the cycle (see the Persistent Storage section.) This made it easier to review each word, and give the player at least some idea of what they were getting into.
+
+Design Choices:
+- Structure of lists:
+  - They are more or less CSV files, with a vertical bar ('|') as the separator since that character rarely appears in English text.
+  - When looking for a random word from the list, you can simply get a random line in the file by choosing a random number. That line has the word, its clue, and other info you need.
+- Image clues:
+  - I realized I wanted to have word lists with image clues as well as textual clues. Structurally, word lists that use images are set up the same, except the "clue" is the filepath of the image to load.
+- Obtaining the lists:
+  - I got to show off some of my data science skills by obtaining the data in a variety of ways.
+    - Factual word lists, such as "country capitals" or "periodic table elements" were easy enough to find online and convert to my file structure with regex expressions.
+    - Several word lists, particularly ones with image clues, were obtained with scripting and data scraping. I wrote Python scripts to get images for IMDB's "top 100 actors" and all 150 Gen 1 Pokemon from the Pokemon Wiki.
+    - Word lists of general vocabulary are among the ideal use cases for ChatGPT. Though I generally don't like using AI to make games, this was a situation that absolutely called for it. The clues and definitions it came up with were highly accurate and better than what I could do manually over countless more hours.
+    - AI wasn't perfect, though. I wrote scripts to review each word list and find obvious problems: self-referencing definitions, re-used lemmas, and words that were too short or contained special characters, to name a few.
+- Storage and Loading:
+  - I decided to learn AssetBundles in the hopes of quickly loading this data only when I needed it, and I wasn't let down.
+  - I'm able to load up each word list in full only when the player selects it.
+    - Image clues are more specific, we only load each image when it is time to use its corresponding word.
+- The Menu Screen:
+  - I'm able to easily add or remove word lists by updating a single text file, databases.txt. The parsing and handling of the list itself is all done elsewhere.
+
+I feel I did a good, efficient job with word lists - both in procuring them and using them in-game.
+
