@@ -44,13 +44,8 @@ Find on Steam: (coming soon)
 
 <em>Characters and spritesheets</em>\
 <img width="868" height="481" alt="image" src="https://github.com/user-attachments/assets/63ee4aa7-5275-4b99-b8e5-b2e3021a65cb" />
-<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/48b2c579-b722-4717-893e-270bb07156e1" />
+<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/8a42369e-8d85-46d1-8d0c-b2113a03b919" />
 
 <em>Template spritesheet</em>\
-<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/e0f852d3-c5ae-45bd-b0f2-f9371f200014" />
-
-
-
-
-
+<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/48daa498-8b82-4742-9059-7668bf0cc95c" />
 
