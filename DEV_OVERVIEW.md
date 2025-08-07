@@ -3,15 +3,15 @@ In this writeup, I'll explain the entire process of how I developed Wordwalker o
 
 ### Table of Contents
 1. [Background and Concept](#background-and-concept)
-2. Tilemap Generation
-3. Gameplay
-4. Game State
-5. Word Lists
-6. UI Design
+2. [Tilemap Generation](#tilemap-generation)
+3. [Gameplay](#gameplay)
+4. [Game State](#game-state)
+5. [Word Lists](#word-lists)
+6. [UI Design](#ui-design)
 7. [Art](#art)
-8. Persistent Storage
-9. Bugfixing, Playtesting and Release
-10. Conclusion
+8. [Persistent Storage](#persistent-storage)
+9. [Bugfixing, Playtesting and Release](#bugfixing-playtesting-and-release)
+10. [Conclusion](#conclusion)
 
 ### Background and Concept
 The idea for Wordwalker randomly came to be in November of 2024 when I was taking a shower. I thought of a scene from Indiana Jones 3, when Indy is solving a puzzle in a temple. I have absolutely no idea why I randomly remembered this.
