@@ -25,7 +25,7 @@ Download on itch.io: https://greeneagles.itch.io/wordwalker
 
 Download on Google Play: (coming soon)
 
-Find on App Store: (coming soon)
+Find on App Store: https://apps.apple.com/us/app/wordwalker/id6749601380
 
 Find on Steam: (coming soon)
 
